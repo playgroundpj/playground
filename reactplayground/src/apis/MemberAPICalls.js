@@ -2,6 +2,9 @@ import {
     GET_MEMBER
     , POST_LOGIN
     , POST_REGISTER
+    , GET_NUMBER
+    , GET_MEMBER_ID,
+    GET_MEMBER_NICKNAME
 } from '../modules/MemberModule';
 
 import { startLoading, stopLoading } from './../components/common/actions';
@@ -117,4 +120,112 @@ export const callRegisterAPI = ({form}) => {
             dispatch({ type: POST_REGISTER,  payload: result });
         }        
     };
+}
+
+export const callGetNumberAPI = ({memberPhonenumber}) => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/auth/sendMessage/${memberPhonenumber}`;
+
+    return async (dispatch, getState) => {
+
+        try {
+            const response = await fetch(requestURL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*",
+                }
+            });
+
+            let result;
+
+            if (response.ok) {
+                result = await response.json();
+            } else {
+                result = { message: '발신번호 미등록' };
+            }
+
+            console.log('[MemberAPICalls] callGetNumberAPI RESULT : ', result);
+
+            dispatch({ type: GET_NUMBER, payload: result });
+
+        } catch (error) {
+            console.error('API call failed:', error);
+
+            const result = { message: '발신번호 미등록' };
+            dispatch({ type: GET_NUMBER, payload: result });
+        }
+
+    }
+
+}
+
+export const callGetMemberIdAPI = ({memberId}) => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/auth/memberId/${memberId}`;
+
+    return async (dispatch, getState) => {
+
+        try {
+            const response = await fetch(requestURL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*",
+                }
+            });
+
+            let result;
+
+            if (response.ok) {
+                result = await response.json();
+            } else {
+                result = { message: '사용 가능한 아이디입니다' };
+            }
+
+            console.log('[MemberAPICalls] callGetMemberIdAPI RESULT : ', result);
+
+            dispatch({ type: GET_MEMBER_ID, payload: result });
+
+        } catch (error) {
+            console.error('API call failed:', error);
+
+            const result = { message: '사용 가능한 아이디입니다' };
+            dispatch({ type: GET_MEMBER_ID, payload: result });
+        }
+    }
+}
+
+export const callGetMemberNicknameAPI = ({memberNickname}) => {
+    const encodedNickname = encodeURIComponent(memberNickname);
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/auth/memberNickname/${encodedNickname}`;
+
+    return async (dispatch, getState) => {
+
+        try {
+            const response = await fetch(requestURL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*",
+                }
+            });
+
+            let result;
+
+            if (response.ok) {
+                result = await response.json();
+            } else {
+                result = { message: '사용 가능한 닉네임입니다' };
+            }
+
+            console.log('[MemberAPICalls] callGetMemberNicknameAPI RESULT : ', result);
+
+            dispatch({ type: GET_MEMBER_NICKNAME, payload: result });
+
+        } catch (error) {
+            console.error('API call failed:', error);
+
+            const result = { message: '사용 가능한 닉네임입니다' };
+            dispatch({ type: GET_MEMBER_NICKNAME, payload: result });
+        }
+    }
 }

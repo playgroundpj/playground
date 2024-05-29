@@ -16,4 +16,6 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
     /* 설명. purchase 도메인 추가하면서 추가한 메소드 */
     @Query("SELECT m.memberCode FROM Member m WHERE m.memberId = ?1")
     int findMemberCodeByMemberId(String orderMemberId);
+
+    Member findByMemberNickname(String memberNickname);
 }

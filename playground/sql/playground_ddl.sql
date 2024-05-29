@@ -200,7 +200,7 @@ create table if not exists `tbl_Member` (
 	`member_birth`	VARCHAR(255)	NOT NULL	COMMENT '생년월일',
 	`member_phone_number`	VARCHAR(255)	NOT NULL	COMMENT '연락처',
 	`member_address`	VARCHAR(255)	NULL	COMMENT '주소',
-	`member_email`	VARCHAR(255)	NOT NULL	COMMENT '이메일',
+	`member_email`	VARCHAR(255)	NULL	COMMENT '이메일',
 	`member_visit_count`	INT	NULL	COMMENT '방문횟수',
     constraint pk_member_code primary key (member_code)
 );

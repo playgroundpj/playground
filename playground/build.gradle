@@ -49,6 +49,9 @@ dependencies {
 	/* 설명. Logstash와 연동시키기 위한 Logstash Logback Encoder 라이브러리 */
 	// https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder
 	implementation 'net.logstash.logback:logstash-logback-encoder:7.4'
+
+	/* 설명. 휴대폰 인증번호 전송 및 확인을 위한 coolSMS 라이브러리 */
+	implementation 'net.nurigo:sdk:4.2.7'
 }
 
 tasks.named('test') {

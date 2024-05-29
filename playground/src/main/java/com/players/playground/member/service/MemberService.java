@@ -16,6 +16,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
     private final ModelMapper modelMapper;
 
+
     @Autowired
     public MemberService(MemberRepository memberRepository, ModelMapper modelMapper) {
         this.memberRepository = memberRepository;
@@ -26,6 +27,16 @@ public class MemberService {
         log.info("[MemberService] getMyInfo Start =======================");
 
         Member member = memberRepository.findByMemberId(memberId);
+        log.info("[MemberService] {}", member);
+        log.info("[MemberService] getMyInfo End =========================");
+
+        return modelMapper.map(member, MemberDTO.class);
+    }
+
+    public MemberDTO selectNickname(String memberNickname) {
+        log.info("[MemberService] getMyInfo Start =======================");
+
+        Member member = memberRepository.findByMemberNickname(memberNickname);
         log.info("[MemberService] {}", member);
         log.info("[MemberService] getMyInfo End =========================");
 

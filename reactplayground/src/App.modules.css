@@ -24,6 +24,7 @@
     --green-white: #B4BCA3;
     --vintage-wheat : #fffdf8;
     --gray-white: #5454503b;
+	--vintage-blue: #A3C6C4;
     
 	--Gmartket : 'GmarketSansMedium';
 	--NotoSans : 'Noto Sans KR';
@@ -268,7 +269,7 @@ a {
 	outline: none;
 	background-color: var(--vintage-wheat);
     border: 0.1px solid var(--green-white);
-	caret-color: white;
+	caret-color: var(--vintage-black);
 }
 
 .loginCSS span{
@@ -398,6 +399,17 @@ text-align: center;
 	padding-left: 10px;
 }
 
+.formTotal input[type="date"]{
+	width: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
+	height: 30px;
+	line-height: 30;
+	background-color: rgba(255, 255, 255, 0.8);
+	caret-color: var(--back-color);
+	padding-left: 10px;
+}
+
 .formTotal input[type="file"]{
 	margin-top: 5px;
 }
@@ -406,7 +418,7 @@ text-align: center;
 	outline: none;
 	background-color: var(--vintage-wheat);
     border: 0.1px solid var(--green-white);
-	caret-color: white;
+	caret-color: var(--vintage-black);
 	
 }
 
@@ -430,7 +442,7 @@ input[type=file]::file-selector-button {
 	outline: none;
 	background-color: var(--back-color);
 	color: white;
-	caret-color: white;
+	caret-color: var(--vintage-black);
 	
 }
 
@@ -511,6 +523,7 @@ input[type=file]::file-selector-button {
     font-size: 2em;
     font-family: var(--Tenada) !important;
     padding-top: 10px;
+	margin-top: 50px;
     border-radius: 10px;
     transition: color 0.4s ease, background-color 0.4s ease;
 }
@@ -540,4 +553,83 @@ input[type=file]::file-selector-button {
 	background-color: var(--vintage-red);
 	color: var(--back-color);
     text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+.accordion{
+	margin-bottom: 20px;
+	background-color: var(--back-color) !important;
+}
+
+.accordion-header{
+	margin: 0 !important;
+	width: 100% !important;
+	padding: 0;
+}
+
+.accordion-button{
+	width: 100% !important;
+	font-size: 0.6em;
+}
+
+.checkboxBtn{
+	margin-right: 10px;
+	width: 20px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.accordion-button:active{
+	background-color: var(--vintage-green) !important;
+	border: none !important;
+
+}
+
+.accordion-button:focus{
+	background-color: var(--vintage-green);
+	border: none !important;
+
+}
+
+.checkboxBtn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 2px solid #ced4da;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.checkboxBtn:checked::before {
+    background-color: var(--vintage-blue);
+    border-color: var(--vintage-blue);
+}
+
+.checkboxBtn:checked::after {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: white;
+}
+
+.card{
+	background-color: var(--back-color);
+}
+
+.card-header{
+	padding: 0;
+}
+
+.agreeBtn{
+	padding: 0 !important;
+	border: none;
+	height: 100% !important;
+	padding-top: 5px;
+	text-align: left;
+	padding-left: 20px !important;
 }
