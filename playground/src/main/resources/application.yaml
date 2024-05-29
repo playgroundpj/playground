@@ -1,0 +1,67 @@
+server:
+  port: 8080
+
+
+spring:
+  # DB config
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/playground
+    # Docker(AWS) 배포 기준
+#    url: jdbc:mysql://mysql:3306/ohgi_restaurant
+    username: players
+    password: players
+  # Fileupload
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  web:
+    resources:
+      static-locations: classpath:/imgs/
+  # JPA config
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    database: mysql
+    properties:
+      hibernate:
+        format_sql: true
+
+
+## HS512 알고리즘을 사용할 것이기 때문에 512bit, 즉 64byte 이상의 secret key를 사용해야 한다.
+## Secret 값은 특정 문자열을 Base64 로 인코딩한 값 사용
+jwt:
+  secret: q+hXD1LywTnxIvzJNXVlMVvms/PylZZgDTGlexM8BF2rRewM6QbkAdQUyOa1DiXzjui5wLitTd+2u9EjKzbRjg==
+
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+
+## 이미지를 저장할 위치와 응답할 때 이미지 주소 세팅
+image:
+  ## WebConfig 참고
+  add-resource-locations: classpath:/static/productimgs/
+  # Docker(local) 배포 기준
+#  add-resource-locations: file:///springboot-app/productimgs/
+  add-resource-handler: /productimgs/**
+  ## ProductService 참고
+  #  image-dir: src/main/resources/static/productimgs
+  # Docker(local) 배포 기준
+  #  image-dir: /springboot-app/productimgs
+  #  image-url: http://localhost:8080/productimgs/
+  # Docker(AWS) 배포 기준
+#  image-dir: /springboot-app/productimgs
+#  image-url: http://jaehong0831.store:8080/productimgs/
+
+
+# Logging Level
+logging:
+  level:
+    root: info
+  file:
+    path: /logs
