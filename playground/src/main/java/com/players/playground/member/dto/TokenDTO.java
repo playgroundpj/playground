@@ -1,0 +1,61 @@
+package com.players.playground.member.dto;
+
+public class TokenDTO {
+
+	private String grantType;			// 토큰 타입
+	private String memberNickname; 			// 인증받은 회원 아이디
+	private String accessToken; 		// 액세스 토큰
+	private Long accessTokenExpiresIn;	// Long 형의 만료 시간
+	
+	public TokenDTO() {
+	}
+
+	public TokenDTO(String grantType, String memberNickname, String accessToken, Long accessTokenExpiresIn) {
+		this.grantType = grantType;
+		this.memberNickname = memberNickname;
+		this.accessToken = accessToken;
+		this.accessTokenExpiresIn = accessTokenExpiresIn;
+	}
+
+	public String getGrantType() {
+		return grantType;
+	}
+
+	public void setGrantType(String grantType) {
+		this.grantType = grantType;
+	}
+
+	public String getMemberNickname() {
+		return memberNickname;
+	}
+
+	public void setMemberNickname(String memberNickname) {
+		this.memberNickname = memberNickname;
+	}
+
+	public String getAccessToken() {
+		return accessToken;
+	}
+
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
+	}
+
+	public Long getAccessTokenExpiresIn() {
+		return accessTokenExpiresIn;
+	}
+
+	public void setAccessTokenExpiresIn(Long accessTokenExpiresIn) {
+		this.accessTokenExpiresIn = accessTokenExpiresIn;
+	}
+
+	@Override
+	public String toString() {
+		return "TokenDTO{" +
+				"grantType='" + grantType + '\'' +
+				", memberNickname='" + memberNickname + '\'' +
+				", accessToken='" + accessToken + '\'' +
+				", accessTokenExpiresIn=" + accessTokenExpiresIn +
+				'}';
+	}
+}

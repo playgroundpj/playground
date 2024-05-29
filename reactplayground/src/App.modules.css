@@ -1,0 +1,543 @@
+/* 웹 폰트 적용 */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 자주사용하는 변수 생성 */
+:root {
+	--back-color :  #F8F7F4;
+    --vintage-green : #f6e7cd;
+    --vintage-red : #C45D4A;
+    --vintage-green : #97A482;
+    --vintage-black : #3B3C37;
+    --vintage-gray : #545450;
+    --green-white: #B4BCA3;
+    --vintage-wheat : #fffdf8;
+    --gray-white: #5454503b;
+    
+	--Gmartket : 'GmarketSansMedium';
+	--NotoSans : 'Noto Sans KR';
+    --Tenada : 'Tenada';
+
+}
+
+/* 전체 CSS 적용 */
+
+
+/* sweetalert2 CSS */
+
+.swal2-title {
+	font-family: var(--NotoSans);
+	font-weight: 300;
+	color: var(--vintage-black);
+}
+
+
+h1,h2 {
+    font-family: var(--Tenada);
+    padding-top: 20px;
+}
+
+#root {
+	text-align: center;
+	background-color: var(--back-color);
+	color: var(--vintage-black);
+	margin: 0 auto;
+	padding: 0;
+	font-family: 'Noto Sans KR';
+    min-height: 100vh;
+}
+
+.container{
+	margin: 0 !important;
+	max-width: 100% !important;
+	padding: 0 !important;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 10px;
+}
+
+ul {
+	list-style-type: none;
+	display: flex;
+	width: 280px;
+	margin: auto;
+}
+
+li {
+	padding: 10px;
+}
+
+a {
+	text-decoration: none !important;
+	color: inherit !important;
+}
+
+/* Header CSS */
+.header{
+	background-color: var(--back-color);
+	color: var(--vintage-black);
+	padding: 20px;
+	position: relative;
+}
+
+.header .me-auto > ul{
+	width: 100% !important;
+}
+
+.header .me-auto{
+	margin-right: 20px !important;
+	text-align: right;
+}
+
+.me-auto.navbar-nav{
+	flex-direction: row;
+}
+
+.me-auto a{
+	padding: 0.8em;
+	float: left;
+}
+
+.logo:hover{
+	cursor: pointer;
+}
+
+.logo{
+	overflow: hidden;
+    width: 280px;
+    text-align: center;
+}
+
+.logo span {
+	display: block;
+	height: 60px;
+    margin: 20px 20px 20px 50px;
+	float: left;
+	width: 120px;
+}
+
+.logo span img{
+	height: 100%;
+}
+
+.header-login{
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 1.1em;
+}
+
+.headerRight a{
+    padding: 0 10px;
+}
+
+.header-login > div > button{
+    padding: 0 10px;
+	border: none;
+	background-color: var(--back-color);
+}
+
+.header-login > div > span{
+	display: inline-block;
+	margin-right: 10px;
+	padding-top: 2px;
+}
+
+/* Navbar */
+.navbar {
+	color: var(--vintage-gray);
+    background-color: var(--back-color) !important;
+	text-align: center !important;
+	padding: 0;
+	align-items: center;
+	padding-bottom: 20px !important;
+	padding-top: 0 !important;
+
+}
+
+.navbar-me-auto  li{
+	width: auto;
+	padding: 0;
+	margin: 0 10px;
+	height: 20px;
+}
+
+.navbar-me-auto li a {
+	display: block;
+	width: 100%;
+	padding: 5px 20px 0 ;
+	height: 40px;
+	line-height: 40px;
+	font-size: 1.4em;
+    font-family: var(--Tenada);
+	border-radius: 10px;
+    text-transform: uppercase;
+	transition: color 0.4s ease, background-color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.navbar-me-auto li a:hover {
+	background-color: #545450;
+	border-radius: 10px;
+	color: #FFF5EA !important;
+    text-shadow: 1px 1px 3px var(--vintage-black);
+}
+
+
+/* login */
+
+.loginCSS,
+.registerCSS{
+	width: 100%;
+	min-height: 60vh;
+	padding-top: 40px;
+    padding-bottom: 120px;
+	text-align: center;
+}
+
+.loginCSS img{
+    height: 80px;
+    margin-bottom: 60px;
+}
+
+
+.loginCSS table{
+	margin: 0 auto;
+}
+
+.loginCSS table label{
+	font-family: var(--Tenada);
+	margin-right: 10px;
+	font-size: 20px;
+    padding-top: 7px;
+}
+
+.loginCSS table button {
+	width: 100px;
+    background-color: var(--green-white);
+    color: var(--back-color);
+	margin-top: 3px;
+	height: 84px;
+	font-family: var(--Gmartket);
+	font-size: 20px;
+	border-radius: 5px;
+	border: none;
+	transition: color 0.4s ease, background-color 0.4s ease;
+	margin-left: 3px;
+}
+
+.loginCSS table button:hover{
+	background-color: var(--vintage-green);
+	color: var(--back-color);
+    text-shadow: 1px 1px 3px var(--vintage-black);
+}
+
+.loginCSS input{
+	width: 100%;
+	margin-top: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
+	height: 40px;
+    font-size: 1em;
+	line-height: 30;
+	background-color: rgba(255, 255, 255, 1);
+	caret-color: var(--back-color);
+	padding-left: 10px;
+	transition: background-color 0.4s ease;
+}
+
+.loginCSS input:focus{
+	outline: none;
+	background-color: var(--vintage-wheat);
+    border: 0.1px solid var(--green-white);
+	caret-color: white;
+}
+
+.loginCSS span{
+    color: var(--vintage-gray);
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.login-registerBtn{
+    border: none;
+    background-color: var(--back-color);
+    color: var(--vintage-gray);
+    transition: color 0.4s ease;
+}
+
+.login-registerBtn:hover{
+    color: var(--vintage-black);
+}
+
+/* register */
+
+.registerCSS img{
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.registerCSS h2{
+    width: 60%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.registerCSS hr{
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+
+/* Footer.css */
+.footer {
+    background-color: var(--vintage-black);
+    color: var(--back-color);
+    font-size: 0.8em;
+    padding: 10px 0;
+    text-align: left;
+    font-family: var(--NotoSans);
+    font-weight: 100;
+}
+
+.footer-content {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+margin: 0 auto;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.footer-section {
+flex: 1;
+margin: 10px;
+min-width: 200px;
+padding-left: 50px;
+}
+
+.footer-section h4 {
+margin-bottom: 10px;
+color: var(--back-color);
+font-size: 1.2em;
+}
+
+.footer-section p, .footer-section a {
+margin: 2px 0;
+color: #fff;
+text-decoration: none;
+}
+
+.footer-section a:hover {
+text-decoration: underline;
+}
+
+.footer-bottom {
+margin-top: 20px;
+text-align: center;
+}
+
+/* Regsiter, 등록에 관련된 CSS */
+
+.formTotal {
+	text-align: left;
+	margin: 0 auto;
+	width: calc(60%);
+    font-size: 1.1em;
+}
+
+.formTotal label{
+	margin-top: 10px;
+	color: var(--vintage-gray);
+    font-family: var(--Tenada);
+    font-size: 1.2em;
+}
+
+.formTotal input[type="text"],
+.formTotal input[type="password"]{
+    width: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
+	height: 40px;
+    font-size: 1em;
+	line-height: 30;
+	background-color: rgba(255, 255, 255, 1);
+	caret-color: var(--back-color);
+	padding-left: 10px;
+	transition: background-color 0.4s ease;
+}
+
+.formTotal input[type="number"]{
+	width: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
+	height: 30px;
+	line-height: 30;
+	background-color: rgba(255, 255, 255, 0.8);
+	caret-color: var(--back-color);
+	padding-left: 10px;
+}
+
+.formTotal input[type="file"]{
+	margin-top: 5px;
+}
+
+.formTotal input:focus{
+	outline: none;
+	background-color: var(--vintage-wheat);
+    border: 0.1px solid var(--green-white);
+	caret-color: white;
+	
+}
+
+.formTotal textarea{
+	margin-top: 5px;
+	padding: 15px;
+	word-break: keep-all;
+
+}
+
+input[type=file]::file-selector-button {
+	background-color: white;
+	border-radius: 5px;
+	border: none;
+	height: 30px;
+	width: 90px;
+	margin-right: 15px;
+}
+
+.formTotal textarea:focus{
+	outline: none;
+	background-color: var(--back-color);
+	color: white;
+	caret-color: white;
+	
+}
+
+.nameCaution {
+	color: rgb(247, 51, 51);
+	padding-left: 10px;
+}
+
+.pwdCaution {
+	color: rgb(247, 51, 51);
+	padding-left: 10px;
+}
+
+.formTotal select{
+	width: 50%;
+	border-radius: 5px;
+	height: 30px;
+	line-height: 30;
+	padding-left: 10px;
+	background-color: rgba(255, 255, 255, 0.8);
+	margin-top: 5px;
+
+}
+
+.formTotal select:focus{
+	background-color: white;
+	outline: none;
+}
+
+
+.formTotal > select > option:hover{
+	background-color: var(--back-color) !important;
+}
+
+.formTotal button{
+	font-family: var(--Gmartket);
+}
+
+.formTotal table{
+    width: 100%;
+    margin: 0 auto;
+    table-layout: fixed;
+}
+
+.formTotal table tbody tr{
+    height: 50px;
+}
+
+.checkBtn{
+    background-color: var(--gray-white);
+    color: var(--vintage-gray);
+	margin-top: 3px;
+    padding: 0 15px;
+	height: 42px;
+	font-family: var(--NotoSans) !important;
+	font-size: 1em;
+	border-radius: 5px;
+	border: none;
+	transition: color 0.4s ease, background-color 0.4s ease;
+	margin-left: 3px;
+}
+
+.checkBtn:hover{
+	background-color: var(--vintage-green);
+	color: var(--back-color);
+}
+
+.bottomBtn{
+    width: 100%;
+}
+
+.registerBtn{
+    width: 60%;
+    height: 60px;
+    border: none;
+    color: var(--back-color);
+    background-color: var(--green-white);
+    font-size: 2em;
+    font-family: var(--Tenada) !important;
+    padding-top: 10px;
+    border-radius: 10px;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.registerBtn:hover{
+	background-color: var(--vintage-green);
+	color: var(--back-color);
+    text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+
+.backBtn{
+    width: calc(40% - 15px);
+    height: 60px;
+    border: none;
+    color: var(--back-color);
+    background-color: var(--gray-white);
+    font-size: 2em;
+    font-family: var(--Tenada) !important;
+    padding-top: 10px;
+    margin-left: 15px;
+    border-radius: 10px;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.backBtn:hover{
+	background-color: var(--vintage-red);
+	color: var(--back-color);
+    text-shadow: 1px 1px 3px var(--vintage-gray);
+}
