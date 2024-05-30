@@ -1,11 +1,15 @@
+import { GET_MEMBER_NICKNAME } from '../modules/CheckModule';
 import { 
     GET_MEMBER
     , POST_LOGIN
     , POST_REGISTER
     , GET_NUMBER
-    , GET_MEMBER_ID,
-    GET_MEMBER_NICKNAME
+    , GET_MEMBER_ID
+    , PUT_MEMBER
+    , DELETE_MEMBER
 } from '../modules/MemberModule';
+
+
 
 import { startLoading, stopLoading } from './../components/common/actions';
 
@@ -228,4 +232,91 @@ export const callGetMemberNicknameAPI = ({memberNickname}) => {
             dispatch({ type: GET_MEMBER_NICKNAME, payload: result });
         }
     }
+}
+
+export const callMemberUpdateAPI = ({form}) => {
+    console.log('[MemberAPICalls] callMemberUpdateAPI Call');
+
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/members`;
+
+
+    return async (dispatch, getState) => {
+
+        dispatch(startLoading());
+        try{
+
+            const formData = new FormData();
+            formData.append("memberId", form.memberId);
+            formData.append("memberPassword", form.memberPassword);          
+            formData.append("memberNickname", form.memberNickname);          
+            formData.append("memberBirth", form.memberBirth);          
+            formData.append("memberPhonenumber", form.memberPhonenumber);          
+            formData.append("memberAddress", form.memberAddress);          
+            formData.append("memberEmail", form.memberEmail);
+
+
+            const result = await fetch(requestURL, {
+                method: "PUT",
+                headers: {
+                    "Accept": "*/*",
+                    "Authorization": "Bearer " + window.localStorage.getItem("accessToken")
+                },
+                body: formData
+            })
+            .then(response => response.json());
+
+            console.log('[MemberAPICalls] callMemberUpdateAPI RESULT : ', result);
+
+        dispatch({ type: PUT_MEMBER,  payload: result });
+
+        }catch (error) {
+            console.error('API call failed:', error);
+        } finally {
+        dispatch(stopLoading());
+        }
+
+
+    }
+
+}
+
+
+export const callDeleteMemberAPI = ({memberId}) => {
+    console.log('[MemberAPICalls] callDeleteMemberAPI Call');
+
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/members`;
+
+
+    return async (dispatch, getState) => {
+
+        dispatch(startLoading());
+        try{
+
+            const formData = new FormData();
+            formData.append("memberId", memberId);
+
+
+            const result = await fetch(requestURL, {
+                method: "DELETE",
+                headers: {
+                    "Accept": "*/*",
+                    "Authorization": "Bearer " + window.localStorage.getItem("accessToken")
+                },
+                body: formData
+            })
+            .then(response => response.json());
+
+            console.log('[MemberAPICalls] callDeleteMemberAPI RESULT : ', result);
+
+        dispatch({ type: PUT_MEMBER,  payload: result });
+
+        }catch (error) {
+            console.error('API call failed:', error);
+        } finally {
+        dispatch(stopLoading());
+        }
+
+
+    }
+
 }

@@ -9,16 +9,17 @@ function MyPageLayout() {
 
 
     useEffect(() => {
-        navigate("/mypage/payment", { replace: false });
+        navigate("/mypage/profile", { replace: false });
     }, 
     []);
 
 
     return (
         <>
-            <div >
+            <hr/>
+            <div className="myPageLayoutCSS">
                 <MyPageNavbar />
-                <main >
+                <main className="myPageMain">
                     <Outlet/>
                 </main>
             </div>

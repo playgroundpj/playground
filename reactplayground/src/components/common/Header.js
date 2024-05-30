@@ -133,15 +133,19 @@ function Header() {
     return (
         <Container className='header'>
             { loginModal ? <LoginModal setLoginModal={ setLoginModal }/> : null}
-            <div className='logo'>
-                <NavLink to='/'>
-                    <span><img src='/images/common/logo-playground.png'/></span>
-                </NavLink>
-            </div>
-            <div className='header-login'>
-                {/* 로그인 상태에 따라 다른 컴포넌트 랜더링 */}
-                { (isLogin == null || isLogin === undefined) ? <BeforeLogin /> : ( (decoded ==="ROLE_ADMIN") ? <AfterLoginAdmin /> : <AfterLoginManagerAndUser />)}
-            </div>
+            { loginModal ? null : (
+                <>
+                <div className='logo'>
+                    <NavLink to='/'>
+                        <span><img src='/images/common/logo-playground.png'/></span>
+                    </NavLink>
+                </div>
+                <div className='header-login'>
+                    {/* 로그인 상태에 따라 다른 컴포넌트 랜더링 */}
+                    { (isLogin == null || isLogin === undefined) ? <BeforeLogin /> : ( (decoded ==="ROLE_ADMIN") ? <AfterLoginAdmin /> : <AfterLoginManagerAndUser />)}
+                </div>
+                </>           
+            )}
         </Container>
     );
 }

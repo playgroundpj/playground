@@ -25,13 +25,15 @@ function Register() {
     /* 리덕스를 이용하기 위한 디스패처, 셀렉터 선언 */
     const dispatch = useDispatch();
     const member = useSelector(state => state.memberReducer);  // API 요청하여 가져온 loginMember 정보
-    
+    const check = useSelector(state => state.checkReducer); 
+
     const [showPassword, setShowPassword] = useState(false);
     const [isMemberIdChecked, setIsMemberIdChecked] = useState(false);
     const [isMemberNicknameChecked, setMemberNicknamechecked] = useState(false);
     const [isNumberChecked, setNumberchecked] = useState(false);
     const [isCheckNumberChecked, setCheckNumberChecked] = useState(false);
     const [checkNumber, setCheckNumber] = useState('');
+    const [checkNumberGet, setCheckNumberGet] = useState('');
     const [isFirstLoad, setIsFirstLoad] = useState(true); // 페이지 처음 로드 및 새로고침에서 경고창이 안 뜨도록 설정해주는 state
     const [isAgreementChecked, setIsAgreementChecked] = useState(false);
     const [form, setForm] = useState({  
@@ -46,12 +48,13 @@ function Register() {
     });
 
 
-    const memberIdinput = document.getElementById('memberId');
-
     useEffect(() => {
         if(member.status == 201){
             console.log("[Login] Register SUCCESS {}", member);
             navigate("/login", { replace: true })
+        }
+        if(member.data){
+            setCheckNumberGet(member.data);
         }
     },
     [member]);
@@ -101,7 +104,8 @@ function Register() {
 
 
     useEffect(() => {
-        if(member.message == '중복된 닉네임입니다.'){
+        console.log('check : ', check);
+        if(check.message == '중복된 닉네임입니다.'){
             Swal.fire({
                 icon: "warning",
                 title: `중복된 닉네임입니다 </br> 다른 닉네임을 입력해주세요.`,
@@ -113,11 +117,11 @@ function Register() {
             }).then(() => {
                 setMemberNicknamechecked(false);
             });
-        } else if(member.message === '사용 가능한 닉네임입니다'){
+        } else if(check.message === '사용 가능한 닉네임입니다'){
             setMemberNicknamechecked(true);
         }
     },
-    [member, isFirstLoad]);
+    [check]);
 
     const onChangeHandler = (e) => {
         setForm({
@@ -242,6 +246,7 @@ function Register() {
             dispatch(callGetNumberAPI({
                 memberPhonenumber: form.memberPhonenumber
             }));
+            
         }
     }
 
@@ -307,7 +312,7 @@ function Register() {
     }
 
     const onClickCheckNumberHandler = () => {
-        if(checkNumber == member.data){
+        if(checkNumber == checkNumberGet){
             setCheckNumberChecked(true);
         }else{
             Swal.fire({

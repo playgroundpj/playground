@@ -41,7 +41,7 @@ public class MessageController {
 
         Message message = new Message();
         // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
-        message.setFrom(memberPhonenumber);  // 발신자 번호
+        message.setFrom("01048151794");  // 발신자 번호
         message.setTo(memberPhonenumber);    // 수신자 번호
         message.setText("[인증번호 발송] 인증번호는 "+ checkNumber +"입니다.");
 

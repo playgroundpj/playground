@@ -7,6 +7,7 @@ import Main from './pages/Main';
 import Login from './pages/member/Login';
 import Register from './pages/member/Register';
 import Error from './pages/Error';
+import MemberUpdate from './pages/member/MemberUpdate';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
             <Route path="mypage" element={ <MyPageLayout/> } >
               <Route index element={ <Profile /> } />
               <Route path="profile" element={ <Profile /> } />
+              <Route path="profile/memberUpdate" element={ <MemberUpdate /> } />
+              
             </Route>
           </Route>
 

@@ -9,7 +9,9 @@ export const POST_LOGIN     = 'member/POST_LOGIN';
 export const POST_REGISTER  = 'member/POST_REGISTER';
 export const GET_NUMBER  = 'member/GET_NUMBER';
 export const GET_MEMBER_ID     = 'auth/GET_MEMBER';
-export const GET_MEMBER_NICKNAME     = 'member/GET_MEMBER_NICKNAME';
+export const PUT_MEMBER     = 'member/PUT_MEMBER';
+export const DELETE_MEMBER     = 'member/DELETE_MEMBER';
+
 
 const actions = createActions({
     [GET_MEMBER]: () => {},
@@ -17,7 +19,8 @@ const actions = createActions({
     [POST_REGISTER]: () => {},
     [GET_NUMBER]: () => {},
     [GET_MEMBER_ID]: () => {},
-    [GET_MEMBER_NICKNAME]: () => {},
+    [PUT_MEMBER]: () => {},
+    [DELETE_MEMBER]: () => {},
 });
 
 /* 리듀서 */
@@ -43,7 +46,11 @@ const memberReducer = handleActions(
             
             return payload;
         },
-        [GET_MEMBER_NICKNAME]: (state, { payload }) => {
+        [PUT_MEMBER]: (state, { payload }) => {
+            
+            return payload;
+        },
+        [DELETE_MEMBER]: (state, { payload }) => {
             
             return payload;
         },

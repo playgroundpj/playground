@@ -60,11 +60,7 @@ function LoginModal({setLoginModal}) {
                     >
                         로그인
                     </button>
-                    <button
-                        onClick={ () => setLoginModal(false) }
-                    >
-                        돌아가기
-                    </button>
+                
                 </div>
             </div>
         </div>
