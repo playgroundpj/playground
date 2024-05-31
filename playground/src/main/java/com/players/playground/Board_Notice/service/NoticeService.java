@@ -2,12 +2,9 @@ package com.players.playground.Board_Notice.service;
 
 import com.players.playground.Board_Notice.dto.NoticeDTO;
 import com.players.playground.Board_Notice.entity.Notice;
-import com.players.playground.Board_Notice.entity.NoticeImage;
 import com.players.playground.Board_Notice.repository.NoticeImageRepository;
 import com.players.playground.Board_Notice.repository.NoticeRepository;
 import com.players.playground.common.Criteria;
-import com.players.playground.util.FileUploadUtils;
-import com.players.playground.util.NoticeFileUploadUtils;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -18,9 +15,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,13 +26,15 @@ public class NoticeService {
 
     private final NoticeRepository noticeRepository;
     private final ModelMapper modelMapper;
-    private final NoticeImageRepository noticeImageRepository;
+
+    /* 설명. 이미지 파일 저장 경로와 응답용 URL (WebConfig 설정파일 추가하기) */
+
 
     @Autowired
-    public NoticeService(NoticeRepository noticeRepository, ModelMapper modelMapper, NoticeImageRepository noticeImageRepository) {
+    public NoticeService(NoticeRepository noticeRepository, ModelMapper modelMapper) {
         this.noticeRepository = noticeRepository;
         this.modelMapper = modelMapper;
-        this.noticeImageRepository = noticeImageRepository;
+
     }
 
     // 게시글 목록 조회 (페이징처리)
@@ -85,23 +82,8 @@ public class NoticeService {
     }
 
     // 게시글 등록 (관리자 로그인)
-    public void createNotice(NoticeDTO noticeDTO, MultipartFile[] files) throws IOException {
+    public Notice createNotice(NoticeDTO noticeDTO) {
         Notice notice = modelMapper.map(noticeDTO, Notice.class);
-        noticeRepository.save(notice);
-        log.info("[NoticeService][createNotice] Notice created with title: {}", notice.getNoticeTitle());
-
-        // 파일 저장 로직 추가
-        for (MultipartFile file : files) {
-            if (!file.isEmpty()) {
-                String fileName = notice.getNoticeCode() + "_" + file.getOriginalFilename();
-                String imageUrl = NoticeFileUploadUtils.saveFile(fileName, file);
-
-                NoticeImage noticeImage = new NoticeImage();
-                noticeImage.setImageUrl(imageUrl);
-                noticeImage.setNoticeCode(notice.getNoticeCode());
-                noticeImageRepository.save(noticeImage);
-                log.info("[NoticeService][createNotice] Image saved with URL: {}", imageUrl);
-            }
-        }
+        return noticeRepository.save(notice);
     }
 }

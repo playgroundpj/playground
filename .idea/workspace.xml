@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5dd0a353-5229-428c-be83-c1e2f8a103a6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5de28535-c0a2-4450-bd03-e7ea0d6ca0c8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5de28535-c0a2-4450-bd03-e7ea0d6ca0c8/storage_v2/_src_/schema/playground.uy1igA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/controller/NoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/controller/NoticeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/dto/NoticeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/dto/NoticeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/entity/Notice.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/entity/Notice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/repository/NoticeImageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/repository/NoticeImageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/service/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/service/NoticeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/member/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/member/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/member/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/member/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/util/NoticeFileUploadUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactplayground/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactplayground/src/apis/NoticeAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/apis/NoticeAPICalls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactplayground/src/pages/Board_Notice/CreateNotice.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/pages/Board_Notice/CreateNotice.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/playground">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/playground">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2hEQKK7NqWusz6jDJ2HSUVG8t1a" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build playground.executor": "Run",
+    "Gradle.playground [build].executor": "Run",
+    "Gradle.playground [clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.PlaygroundApplication.executor": "Run",
+    "git-widget-placeholder": "Board__notice",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/seaworkspace/playGround2-1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\seaworkspace\playGround2-1\playground\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.PlaygroundApplication">
+    <configuration name="playground [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/playground" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="playground [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/playground" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PlaygroundApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="playground.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.players.playground.config.PlaygroundApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.playground [build]" />
+        <item itemvalue="Gradle.playground [clean]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5dd0a353-5229-428c-be83-c1e2f8a103a6" name="Changes" comment="" />
+      <created>1717156693598</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717156693598</updated>
+      <workItem from="1717156694498" duration="1786000" />
+      <workItem from="1717158489702" duration="1609000" />
+      <workItem from="1717160108311" duration="7996000" />
+      <workItem from="1717169036819" duration="2022000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

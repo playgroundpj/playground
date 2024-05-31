@@ -1,5 +1,7 @@
 package com.players.playground.Board_Notice.dto;
 
+import jakarta.persistence.PrePersist;
+
 import java.time.LocalDate;
 
 public class NoticeDTO {
@@ -14,6 +16,7 @@ public class NoticeDTO {
 
     public NoticeDTO() {
     }
+
 
     public NoticeDTO(int noticeCode, int memberCode, String noticeTitle, String noticeContent, LocalDate createDate, LocalDate modifyedDate, String noticeCategory) {
         this.noticeCode = noticeCode;

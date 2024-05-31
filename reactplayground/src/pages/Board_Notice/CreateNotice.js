@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createNoticeAPI } from '../../apis/NoticeAPICalls';
 import { NavLink } from 'react-router-dom';
+import { ButtonGroup, Button } from 'react-bootstrap';
 import Swal from "sweetalert2";
 
 function CreateNotice() {
@@ -13,7 +14,6 @@ function CreateNotice() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [files, setFiles] = useState([]);
-    const maxFileSize = 10 * 1024 * 1024; // 10MB
 
     const handleCategoryChange = (category) => {
         setCategory(category);
@@ -25,23 +25,6 @@ function CreateNotice() {
 
     const handleContentChange = (e) => {
         setContent(e.target.value);
-    };
-
-    const handleFileChange = (e) => {
-        const selectedFiles = Array.from(e.target.files);
-        const totalSize = selectedFiles.reduce((sum, file) => sum + file.size, 0);
-
-        if (totalSize > maxFileSize) {
-            Swal.fire({
-                icon: 'warning',
-                title: '파일 총 용량이 10MB를 초과할 수 없습니다.',
-                showConfirmButton: true,
-                confirmButtonColor: '#97A482',
-                customClass: { title: 'swal2-title' }
-            });
-        } else {
-            setFiles(selectedFiles);
-        }
     };
 
     const handleRegister = () => {
@@ -56,15 +39,16 @@ function CreateNotice() {
             return;
         }
 
-        const formData = new FormData();
-        formData.append('category', category);
-        formData.append('title', title);
-        formData.append('content', content);
-        files.forEach((file, index) => {
-            formData.append('files', file);
-        });
+        const noticeData = {
+            noticeCategory: category,
+            noticeTitle: title,
+            noticeContent: content,
+            memberCode: 1,
+            createDate: new Date().toISOString(),
+            modifyedDate: new Date().toISOString()
+        };
 
-        dispatch(createNoticeAPI(formData));
+        dispatch(createNoticeAPI(noticeData));
         navigate('/board/notice');
     };
 
@@ -80,19 +64,20 @@ function CreateNotice() {
                     <img src='../../../images/common/logo-playground.png'/>
                 </span>
             </NavLink>
-            <h2>공지게시글등록</h2>
+            <h2>게시글등록</h2>
            
             <hr></hr> 
-            <div>
+            <ButtonGroup className='mb-3'>
                 {['공지사항', '이벤트', '자주묻는질문'].map((cat) => (
-                    <button 
+                    <Button
                         key={cat}
-                        className={`categoryButton ${category === cat ? 'active' : ''}`}
-                        onClick={() => handleCategoryChange(cat)}>
+                        variant={category === cat ? 'primary' : 'outline-primary'}
+                        onClick={() => handleCategoryChange(cat)}
+                    >
                         {cat}
-                    </button>
+                    </Button>
                 ))}
-            </div>
+            </ButtonGroup>
             <div className='formTotal'>
                 <table>
                     <colgroup>
@@ -128,7 +113,6 @@ function CreateNotice() {
                         <td>
                             <input
                             type='file'
-                            onChange={handleFileChange}
                             multiple>
                         </input>
                         </td>
@@ -138,7 +122,6 @@ function CreateNotice() {
                         <td>
                            <input
                             type='file'
-                            onChange={handleFileChange}
                             multiple>
                         </input> 
                         </td>
@@ -147,9 +130,7 @@ function CreateNotice() {
                         <td><label>첨부파일 3</label></td>
                         <td>
                            <input
-                            type='file'
-                            onChange={handleFileChange}
-                            multiple>
+                            type='file'>
                         </input> 
                         </td>
                     </tr>

@@ -3,6 +3,7 @@ package com.players.playground.Board_Notice.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table ( name = "tbl_notice")
@@ -23,7 +24,7 @@ public class Notice {
     private String noticeContent;
 
 
-    @Column(name = "create_date")
+    @Column(name = "create_date", nullable = false)
     private LocalDate createDate;
 
     @Column(name = "modifyed_date")
@@ -32,6 +33,16 @@ public class Notice {
 
     @Column(name = "notice_category")
     private String noticeCategory;
+
+    @PrePersist
+    protected  void  onCreate(){
+        createDate = LocalDate.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        modifyedDate = LocalDate.now();
+    }
 
     public Notice() {
     }
