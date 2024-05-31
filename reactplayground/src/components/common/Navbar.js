@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { decodeJwt } from '../../utils/tokenUtils';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav } from 'react-bootstrap';
 import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 
@@ -48,7 +47,6 @@ function Navbars() {
                                 <li><NavLink to='/boardgame' style={({isActive}) => isActive? activeStyle : undefined}>BoardGames</NavLink></li>
                                 <li><NavLink to='/Menu' style={({isActive}) => isActive? activeStyle : undefined}>Menu</NavLink></li>
                                 <li><NavLink to='/shop' style={({isActive}) => isActive? activeStyle : undefined}>Shops</NavLink></li>
-                                <li><NavLink to='/Board' style={({isActive}) => isActive? activeStyle : undefined}>Board</NavLink></li>						
                                 <li><Dropdown 
                                         as={Nav.Item}
                                         onMouseEnter={handleMouseEnter}

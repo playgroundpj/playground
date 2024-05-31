@@ -7,7 +7,6 @@ import noticeReducer from './NoticeModule';
 const rootReducer = combineReducers({
     memberReducer,
     loading: loadingReducer,
-    checkReducer
     checkReducer,
     noticeReducer
 });

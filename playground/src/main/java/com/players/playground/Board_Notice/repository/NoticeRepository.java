@@ -1,5 +1,5 @@
-package com.players.playground.Board_Notice;
 package com.players.playground.Board_Notice.repository;
+
 
 import com.players.playground.Board_Notice.entity.Notice;
 import org.springframework.data.domain.Page;
