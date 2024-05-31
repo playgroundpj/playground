@@ -9,11 +9,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,4 +60,24 @@ public class NoticeController {
         // 응답데이터 생성하여 반환함
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회성공", responseData));
     }
+
+    // 관리자 로그인 공지게시판 등록
+    @PostMapping("/notice")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<ResponseDTO> createNotice(
+                @RequestBody NoticeDTO noticeDTO,
+                @RequestParam("files") MultipartFile[] files) {
+
+        log.info("[NoticeController] createNotice : noticeDTO={}", noticeDTO);
+
+        try {
+            noticeService.createNotice(noticeDTO, files); // 공지사항 등록 서비스 호출
+            log.info("[NoticeController] createNotice : 공지사항 등록 완료");
+            return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "등록성공", null));
+        } catch (IOException e) {
+            log.error("[NoticeController] createNotice : 공지사항 등록 실패", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ResponseDTO(HttpStatus.INTERNAL_SERVER_ERROR, "등록실패", null));
+        }
+    }
+
 }

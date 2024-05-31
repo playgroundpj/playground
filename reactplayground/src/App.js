@@ -11,7 +11,11 @@ import MemberUpdate from './pages/member/MemberUpdate';
 import FindId from './pages/member/FindId';
 import FindPassword from './pages/member/FindPassword';
 import Notice from './pages/Board_Notice/Notice';
+<<<<<<< HEAD
 import MemberManage from './pages/admin/MemberManage';
+=======
+import CreateNotice from './pages/Board_Notice/CreateNotice';
+>>>>>>> 2f6b50b4ffbbd55bf69c94b1d3b2571386344a74
 
 function App() {
   return (
@@ -29,6 +33,7 @@ function App() {
 
             <Route path="board">
               <Route path="notice" element={<Notice/>}/>
+              <Route path="notice/create" element={<CreateNotice/>}/>
               
             </Route>
 
