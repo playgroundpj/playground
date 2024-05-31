@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { callNoticeAPI } from '../../apis/NoticeAPICalls';
+import { decodeJwt } from '../../utils/tokenUtils'; // 토큰 디코딩 함수 임포트
 
 function Notice() {
     const navigate = useNavigate();
@@ -13,6 +14,9 @@ function Notice() {
     const [currentPage, setCurrentPage] = useState(1);
     const [category, setCategory] = useState('All');
     const [pageNumber, setPageNumber] = useState([]);
+
+
+    const [decoded, setDecoded] = useState(''); // 사용자 역할
     
     
     const handleCategoryChange = (newCategory) => {
@@ -41,6 +45,22 @@ function Notice() {
         console.log('Redux 상태:', notices);
     }, [notices]);
 
+    useEffect(() => {
+        // 로그인 상태와 역할 정보를 설정하는 로직 추가
+        const token = localStorage.getItem('accessToken');
+        console.log('토큰: ', token); // 토큰 확인용 로그
+        if (token) {
+            const decodedToken = decodeJwt(token); // JWT 토큰 디코딩
+            console.log('디코딩된 토큰: ', decodedToken); // 디코딩된 토큰 확인용 로그
+            setDecoded(decodedToken.auth[0]); // 역할 정보 설정
+        }
+    }, []);
+
+    const handleCreateNotice = () => {
+        navigate('/board/notice/create');     // 게시글 등록 페이지로 이동
+    }
+    
+
     return (
         <>
             <div>
@@ -49,6 +69,11 @@ function Notice() {
                 <button onClick={() => handleCategoryChange('이벤트')}>이벤트</button>
                 <button onClick={() => handleCategoryChange('자주묻는질문')}>자주묻는질문</button>
             </div>
+            {decoded === "ROLE_ADMIN" && (
+                <div>
+                    <button onClick={handleCreateNotice}>게시글 등록</button>
+                </div>
+            )}
             <table>
                 <colgroup>
                     <col width="15%" />

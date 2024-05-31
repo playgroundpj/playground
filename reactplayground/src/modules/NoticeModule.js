@@ -16,7 +16,7 @@ export const PUT_NOTICE     = 'notice/PUT_NOTICE';
 const actions = createActions({
     [GET_NOTICE]: () => {},  // GET_NOTICE 액션 생성자
     [GET_NOTICES]: (payload) => payload, // GET_NOTICES 액션 생성자
-    [POST_NOTICE]: () => {}, // POST_NOTICE 액션 생성자
+    [POST_NOTICE]: (payload) => payload, // POST_NOTICE 액션 생성자
     [PUT_NOTICE]: () => {}   // PUT_NOTICE 액션 생성자
 });
 
@@ -32,7 +32,7 @@ const noticeReducer = handleActions(
             return { ...state, data : payload.data, pageInfo : payload.pageInfo };
         },
         [POST_NOTICE]: (state, { payload }) => {
-            return { ...state, data : payload };
+            return { ...state, data : [payload, ...state.data] };
         },
         [PUT_NOTICE]: (state, { payload }) => {
             return { ...state, data : payload };

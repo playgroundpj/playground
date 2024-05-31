@@ -10,6 +10,7 @@ import Error from './pages/Error';
 import MemberUpdate from './pages/member/MemberUpdate';
 
 import Notice from './pages/Board_Notice/Notice';
+import CreateNotice from './pages/Board_Notice/CreateNotice';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
 
             <Route path="board">
               <Route path="notice" element={<Notice/>}/>
+              <Route path="notice/create" element={<CreateNotice/>}/>
               
             </Route>
 
