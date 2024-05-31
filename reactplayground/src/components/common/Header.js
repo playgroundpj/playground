@@ -63,7 +63,21 @@ function Header() {
         console.log('[Header] onClickMypageHandler token : ', token);
         
         if (token.exp * 1000 < Date.now()) {
-            setLoginModal(true);
+            window.localStorage.removeItem('accessToken');  
+            //로그아웃
+            dispatch(callLogoutAPI());
+            Swal.fire({
+                icon: "success",
+                title: `유효시간이 만료되어 <b>${nickname}</b>님 로그아웃됩니다.`,
+                showConfirmButton: true,
+                confirmButtonColor: "#97A482",
+                customClass: {
+                    title: 'swal2-title'
+                }
+            }).then(() => {
+                navigate("/login", { replace: true })
+                window.location.reload();
+            });
             return ;
         }
 
