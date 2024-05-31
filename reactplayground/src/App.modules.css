@@ -851,6 +851,10 @@ input[type=file]::file-selector-button {
 	font-size: 1.2em;
 }
 
+.profileDiv{
+	overflow: hidden;
+}
+
 .manageList{
 	width: 100% !important;
 	margin: 30px 15px;
