@@ -25,6 +25,12 @@ public class MemberController {
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", memberService.selectMyInfo(memberId)));
     }
 
+    @Operation(summary = "회원 전체 조회 요청", description = "회원 전체가 조회됩니다.", tags = { "MemberController" })
+    @GetMapping("/members/")
+    public ResponseEntity<ResponseDTO> selectMyMemberInfo() {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "전체 조회 성공", memberService.selectAll()));
+    }
+
     @Operation(summary = "회원 수정 요청", description = "회원 한명 정보가 수정됩니다.", tags = { "MemberController" })
     @PutMapping(value = "/members")
     public ResponseEntity<ResponseDTO> updateMember(@ModelAttribute MemberDTO memberDTO, MultipartFile productImage) {

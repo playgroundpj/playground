@@ -109,7 +109,7 @@ function Header() {
             return ;
         }
 
-        navigate("/managepage", { replace: true });
+        navigate("/mypage/member", { replace: true });
     }
 
     const onClickLogoutHandler = () => {

@@ -27,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Service
 public class MemberService {
@@ -63,6 +64,21 @@ public class MemberService {
         log.info("[MemberService] getMyInfo End =========================");
 
         return modelMapper.map(member, MemberDTO.class);
+    }
+
+    public Object selectAll() {
+        log.info("[MemberService] selectAll Start =======================");
+
+        List<Member> memberList = memberRepository.findAll();
+        log.info("[MemberService] {}", memberList);
+
+        List<MemberDTO> memberDTOList = memberList.stream()
+                .map(member -> modelMapper.map(member, MemberDTO.class))
+                .collect(Collectors.toList());
+
+        log.info("[MemberService] selectAll End =========================");
+
+        return memberDTOList;
     }
 
     public MemberDTO selectNickname(String memberNickname) {
@@ -203,4 +219,6 @@ public class MemberService {
 
 
     }
+
+
 }

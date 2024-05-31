@@ -10,8 +10,8 @@ import Error from './pages/Error';
 import MemberUpdate from './pages/member/MemberUpdate';
 import FindId from './pages/member/FindId';
 import FindPassword from './pages/member/FindPassword';
-
 import Notice from './pages/Board_Notice/Notice';
+import MemberManage from './pages/admin/MemberManage';
 
 function App() {
   return (
@@ -20,11 +20,11 @@ function App() {
         <Routes>
           <Route path="/" element={ <Layout/> }>
             <Route index element={ <Main /> }/>          
-            <Route path="mypage" element={ <MyPageLayout/> } >
+            <Route path="mypage/*" element={ <MyPageLayout/> } >
               <Route index element={ <Profile /> } />
               <Route path="profile" element={ <Profile /> } />
               <Route path="profile/memberUpdate" element={ <MemberUpdate /> } />
-              
+              <Route path="member" element={ <MemberManage /> } />
             </Route>
 
             <Route path="board">

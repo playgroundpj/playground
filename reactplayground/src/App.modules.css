@@ -842,3 +842,19 @@ input[type=file]::file-selector-button {
     align-items: center;
     overflow: auto;
 }
+
+.manageNavbarCSS {
+	width: 120px;
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	font-family: var(--Gmartket);
+	font-size: 1.2em;
+}
+
+.manageList{
+	width: 100% !important;
+	margin: 30px 15px;
+}
+
+
+
