@@ -1,4 +1,7 @@
 package com.players.playground.Board_Notice;
+package com.players.playground.Board_Notice.dto;
+
+import java.time.LocalDate;
 
 public class NoticeDTO {
 
@@ -8,12 +11,15 @@ public class NoticeDTO {
     private String noticeContent;
     private String createDate;
     private String modifyedDate;
+    private LocalDate createDate;
+    private LocalDate modifyedDate;
     private String noticeCategory;
 
     public NoticeDTO() {
     }
 
     public NoticeDTO(int noticeCode, int memberCode, String noticeTitle, String noticeContent, String createDate, String modifyedDate, String noticeCategory) {
+    public NoticeDTO(int noticeCode, int memberCode, String noticeTitle, String noticeContent, LocalDate createDate, LocalDate modifyedDate, String noticeCategory) {
         this.noticeCode = noticeCode;
         this.memberCode = memberCode;
         this.noticeTitle = noticeTitle;
@@ -56,18 +62,22 @@ public class NoticeDTO {
     }
 
     public String getCreateDate() {
+    public LocalDate getCreateDate() {
         return createDate;
     }
 
     public void setCreateDate(String createDate) {
+    public void setCreateDate(LocalDate createDate) {
         this.createDate = createDate;
     }
 
     public String getModifyedDate() {
+    public LocalDate getModifyedDate() {
         return modifyedDate;
     }
 
     public void setModifyedDate(String modifyedDate) {
+    public void setModifyedDate(LocalDate modifyedDate) {
         this.modifyedDate = modifyedDate;
     }
 
@@ -88,6 +98,8 @@ public class NoticeDTO {
                 ", noticeContent='" + noticeContent + '\'' +
                 ", createDate='" + createDate + '\'' +
                 ", modifyedDate='" + modifyedDate + '\'' +
+                ", createDate=" + createDate +
+                ", modifyedDate=" + modifyedDate +
                 ", noticeCategory='" + noticeCategory + '\'' +
                 '}';
     }

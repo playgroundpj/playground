@@ -9,6 +9,8 @@ import Register from './pages/member/Register';
 import Error from './pages/Error';
 import MemberUpdate from './pages/member/MemberUpdate';
 
+import Notice from './pages/Board_Notice/Notice';
+
 function App() {
   return (
       <BrowserRouter>
@@ -22,6 +24,12 @@ function App() {
               <Route path="profile/memberUpdate" element={ <MemberUpdate /> } />
               
             </Route>
+
+            <Route path="board">
+              <Route path="notice" element={<Notice/>}/>
+              
+            </Route>
+
           </Route>
 
           <Route path="/login" element={ <Login/> } />
