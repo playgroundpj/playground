@@ -53,9 +53,10 @@ public class Notice {
     }
 
 
-    public Notice(int noticeCode, Member member, String noticeTitle, String noticeContent, LocalDate createDate, LocalDate modifyedDate, String noticeCategory) {
+    public Notice(int noticeCode, Member member, int memberCode, String noticeTitle, String noticeContent, LocalDate createDate, LocalDate modifyedDate, String noticeCategory) {
         this.noticeCode = noticeCode;
         this.member = member;
+        this.memberCode = memberCode;
         this.noticeTitle = noticeTitle;
         this.noticeContent = noticeContent;
         this.createDate = createDate;
@@ -77,6 +78,14 @@ public class Notice {
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    public int getMemberCode() {
+        return memberCode;
+    }
+
+    public void setMemberCode(int memberCode) {
+        this.memberCode = memberCode;
     }
 
     public String getNoticeTitle() {
@@ -124,6 +133,7 @@ public class Notice {
         return "Notice{" +
                 "noticeCode=" + noticeCode +
                 ", member=" + member +
+                ", memberCode=" + memberCode +
                 ", noticeTitle='" + noticeTitle + '\'' +
                 ", noticeContent='" + noticeContent + '\'' +
                 ", createDate=" + createDate +

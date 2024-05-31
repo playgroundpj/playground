@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { callNoticeAPI } from '../../apis/NoticeAPICalls';
+import { ButtonGroup, Button } from 'react-bootstrap';
 import { decodeJwt } from '../../utils/tokenUtils'; // 토큰 디코딩 함수 임포트
 
 function Notice() {
@@ -63,49 +64,50 @@ function Notice() {
 
     return (
         <>
-            <div>
                 <h2 onClick={() => handleCategoryChange('All')}>공지게시판</h2>
-                <button onClick={() => handleCategoryChange('공지사항')}>공지사항</button>
-                <button onClick={() => handleCategoryChange('이벤트')}>이벤트</button>
-                <button onClick={() => handleCategoryChange('자주묻는질문')}>자주묻는질문</button>
-            </div>
-            {decoded === "ROLE_ADMIN" && (
-                <div>
-                    <button onClick={handleCreateNotice}>게시글 등록</button>
-                </div>
-            )}
-            <table>
-                <colgroup>
-                    <col width="15%" />
-                    <col width="50%" />
-                    <col width="20%" />
-                    <col width="15%" />
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th>카테고리</th>
-                        <th>제목</th>
-                        <th>작성일</th>
-                        <th>작성자</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {Array.isArray(noticeList) && noticeList.length > 0 ? (
-                        noticeList.map((notice) => (
-                            <tr key={notice.noticeCode}>
-                                <td>{notice.noticeCategory}</td>
-                                <td>{notice.noticeTitle}</td>
-                                <td>{notice.createDate}</td>
-                                <td>{notice.memberNickname}</td>
+            <ButtonGroup className='mb-3'>
+                <Button onClick={() => handleCategoryChange('공지사항')}>공지사항</Button>
+                <Button onClick={() => handleCategoryChange('이벤트')}>이벤트</Button>
+                <Button onClick={() => handleCategoryChange('자주묻는질문')}>자주묻는질문</Button>
+                {decoded === "ROLE_ADMIN" && (
+                        <Button onClick={handleCreateNotice}>게시글 등록</Button>
+                 )}
+            </ButtonGroup>
+            <hr></hr>
+                 <div className='formTotal'>
+                    <table>
+                        <colgroup>
+                            <col width="15%" />
+                            <col width="50%" />
+                            <col width="20%" />
+                            <col width="15%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>카테고리</th>
+                                <th>제목</th>
+                                <th>작성일</th>
+                                <th>작성자</th>
                             </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan="4">데이터가 없습니다.</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+                        </thead>
+                        <tbody>
+                            {Array.isArray(noticeList) && noticeList.length > 0 ? (
+                                noticeList.map((notice) => (
+                                    <tr key={notice.noticeCode}>
+                                        <td>{notice.noticeCategory}</td>
+                                        <td>{notice.noticeTitle}</td>
+                                        <td>{notice.createDate}</td>
+                                        <td>{notice.memberNickname}</td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="4">데이터가 없습니다.</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             <div>
                 {pageNumber.length > 0 && (
                     <>
