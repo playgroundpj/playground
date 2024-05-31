@@ -28,8 +28,11 @@ function Login() {
     useEffect(() => {
         
         if(loginMember.status === 200){
-            console.log("[Login] Login SUCCESS {}", loginMember);
-            navigate("/", { replace: true });
+            if(loginMember.message !== '아이디 찾기 성공.'){
+
+                console.log("[Login] Login SUCCESS {}", loginMember);
+                navigate("/", { replace: true });
+            }
         }
 
         if(loginMember.status === 400){
@@ -83,6 +86,14 @@ function Login() {
         navigate("/register", { replace: true })
     }
 
+    const onClickFindIdHandler = () => { 
+        navigate("/findId", { replace: true })
+    }
+
+    const onClickFindPasswordHandler = () => { 
+        navigate("/findPassword", { replace: true })
+    }
+
     /* 로그인 버튼 클릭시 디스패처 실행 및 메인 페이지로 이동 */
     const onClickLoginHandler = () => { 
         dispatch(callLoginAPI({	// 로그인
@@ -129,14 +140,29 @@ function Login() {
                         </tr>
                     </tbody>
                 </table>
-                
-            
-                <span>아직 회원이 아니신가요?</span>
-                <button className='login-registerBtn'
-                    onClick={ onClickRegisterHandler }
-                >
-                    회원가입
-                </button>
+                <ul className='loginBtnUl'>
+                    <li>
+                        <button className='login-sideBtn'
+                            onClick={ onClickFindIdHandler }
+                        >
+                            아이디 찾기
+                        </button>
+                    </li>
+                    <li>
+                        <button className='login-sideBtn'
+                            onClick={ onClickFindPasswordHandler }
+                        >
+                            비밀번호 찾기
+                        </button>
+                    </li>
+                    <li>
+                        <button className='login-sideBtn'
+                            onClick={ onClickRegisterHandler }
+                        >
+                            회원 가입
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     );

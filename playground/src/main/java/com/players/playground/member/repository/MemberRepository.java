@@ -18,4 +18,6 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
     int findMemberCodeByMemberId(String orderMemberId);
 
     Member findByMemberNickname(String memberNickname);
+
+    Member findByMemberPhonenumber(String memberPhonenumber);
 }

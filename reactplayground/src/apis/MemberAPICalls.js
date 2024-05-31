@@ -7,6 +7,7 @@ import {
     , GET_MEMBER_ID
     , PUT_MEMBER
     , DELETE_MEMBER
+    , GET_MEMBER_NUMBER
 } from '../modules/MemberModule';
 
 
@@ -233,6 +234,43 @@ export const callGetMemberNicknameAPI = ({memberNickname}) => {
         }
     }
 }
+
+export const callGetMemberNumberIdAPI = ({memberPhonenumber}) => {
+    console.log('[API] memberPhonenumber : ', memberPhonenumber)
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/auth/memberPhonenumber/${memberPhonenumber}`;
+
+    return async (dispatch, getState) => {
+
+        try {
+            const response = await fetch(requestURL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*",
+                }
+            });
+
+            let result;
+
+            if (response.ok) {
+                result = await response.json();
+            } else {
+                result = { message: '존재하지 않는 아이디입니다' };
+            }
+
+            console.log('[MemberAPICalls] callGetMemberNumberIdAPI RESULT : ', result);
+
+            dispatch({ type: GET_MEMBER_NUMBER, payload: result });
+
+        } catch (error) {
+            console.error('API call failed:', error);
+
+            const result = { message: '존재하지 않는 아이디입니다' };
+            dispatch({ type: GET_MEMBER_NUMBER, payload: result });
+        }
+    }
+}
+
 
 export const callMemberUpdateAPI = ({form}) => {
     console.log('[MemberAPICalls] callMemberUpdateAPI Call');

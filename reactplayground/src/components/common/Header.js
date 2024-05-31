@@ -88,10 +88,24 @@ function Header() {
 
         // 토큰이 만료되었을때 다시 로그인
         const token = decodeJwt(window.localStorage.getItem("accessToken"));
-        console.log('[Header] onClickManagepageHandler token : ', token);
+        console.log('[Header] onClickMypageHandler token : ', token);
         
         if (token.exp * 1000 < Date.now()) {
-            setLoginModal(true);
+            window.localStorage.removeItem('accessToken');  
+            //로그아웃
+            dispatch(callLogoutAPI());
+            Swal.fire({
+                icon: "success",
+                title: `유효시간이 만료되어 <b>${nickname}</b>님 로그아웃됩니다.`,
+                showConfirmButton: true,
+                confirmButtonColor: "#97A482",
+                customClass: {
+                    title: 'swal2-title'
+                }
+            }).then(() => {
+                navigate("/login", { replace: true })
+                window.location.reload();
+            });
             return ;
         }
 

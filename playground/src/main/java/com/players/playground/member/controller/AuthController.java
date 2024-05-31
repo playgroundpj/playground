@@ -88,4 +88,10 @@ public class AuthController {
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "중복된 닉네임입니다.", memberService.selectNickname(memberNickname)));
     }
 
+    @Operation(summary = "아이디 찾기 요청", description = "전화번호로 아이디가 조회됩니다.", tags = { "AuthController" })
+    @GetMapping("/memberPhonenumber/{memberPhonenumber}")
+    public ResponseEntity<ResponseDTO> findIdByPhonenumber(@PathVariable String memberPhonenumber) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "아이디 찾기 성공.", memberService.findIdByPhonenumber(memberPhonenumber)));
+    }
+
 }

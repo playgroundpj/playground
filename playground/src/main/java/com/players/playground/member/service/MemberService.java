@@ -123,4 +123,15 @@ public class MemberService {
 
         return (result > 0) ? "회원 탈퇴 및 삭제 성공" : "회원 탈퇴 및 삭제 실패";
     }
+
+    public MemberDTO findIdByPhonenumber(String memberPhonenumber) {
+        log.info("[MemberService] findIdByPhonenumber() Start");
+        log.info("[MemberService] memberPhonenumber : " + memberPhonenumber);
+
+            /* 설명. 연락처로 회원테이블 조회 */
+        Member member = memberRepository.findByMemberPhonenumber(memberPhonenumber);
+
+        return modelMapper.map(member, MemberDTO.class);
+
+    }
 }
