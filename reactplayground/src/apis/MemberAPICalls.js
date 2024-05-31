@@ -7,6 +7,8 @@ import {
     , GET_MEMBER_ID
     , PUT_MEMBER
     , DELETE_MEMBER
+    , GET_MEMBER_NUMBER,
+    POST_FIND_PASSWORD
 } from '../modules/MemberModule';
 
 
@@ -232,6 +234,72 @@ export const callGetMemberNicknameAPI = ({memberNickname}) => {
             dispatch({ type: GET_MEMBER_NICKNAME, payload: result });
         }
     }
+}
+
+export const callGetMemberNumberIdAPI = ({memberPhonenumber}) => {
+    console.log('[API] memberPhonenumber : ', memberPhonenumber)
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/auth/memberPhonenumber/${memberPhonenumber}`;
+
+    return async (dispatch, getState) => {
+
+        try {
+            const response = await fetch(requestURL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*",
+                }
+            });
+
+            let result;
+
+            if (response.ok) {
+                result = await response.json();
+            } else {
+                result = { message: '존재하지 않는 아이디입니다' };
+            }
+
+            console.log('[MemberAPICalls] callGetMemberNumberIdAPI RESULT : ', result);
+
+            dispatch({ type: GET_MEMBER_NUMBER, payload: result });
+
+        } catch (error) {
+            console.error('API call failed:', error);
+
+            const result = { message: '존재하지 않는 아이디입니다' };
+            dispatch({ type: GET_MEMBER_NUMBER, payload: result });
+        }
+    }
+}
+
+
+export const callGetFindPasswordAPI = ({form}) => {
+    console.log('[MemberAPICalls] callGetFindPasswordAPI Call');
+
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/auth/findPassword`;
+
+    return async (dispatch, getState) => {
+
+        const result = await fetch(requestURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "*/*"
+            },
+            body: JSON.stringify({
+                memberId: form.memberId,
+                memberPhonenumber: form.memberPhonenumber,          
+            })
+        })
+        .then(response => response.json());
+
+        console.log('[MemberAPICalls] callGetFindPasswordAPI RESULT : ', result);        
+        
+        if(result.status === 200){
+            dispatch({ type: POST_FIND_PASSWORD,  payload: result });
+        }        
+    };
+
 }
 
 export const callMemberUpdateAPI = ({form}) => {

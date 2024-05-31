@@ -16,6 +16,7 @@
 /* 자주사용하는 변수 생성 */
 :root {
 	--back-color :  #F8F7F4;
+	--back-color2 :  #ecebe8;
     --vintage-green : #f6e7cd;
     --vintage-red : #C45D4A;
     --vintage-green : #97A482;
@@ -206,7 +207,8 @@ a {
 /* login */
 
 .loginCSS,
-.registerCSS{
+.registerCSS,
+.FindCSS{
 	width: 100%;
 	min-height: 60vh;
 	padding-top: 40px;
@@ -214,17 +216,20 @@ a {
 	text-align: center;
 }
 
-.loginCSS img{
+.loginCSS img,
+.FindCSS img{
     height: 80px;
     margin-bottom: 60px;
 }
 
 
-.loginCSS table{
+.loginCSS table,
+.FindCSS table{
 	margin: 0 auto;
 }
 
-.loginCSS table label{
+.loginCSS table label,
+.FindCSS table label{
 	font-family: var(--Tenada);
 	margin-right: 10px;
 	font-size: 20px;
@@ -278,15 +283,143 @@ a {
     margin-top: 10px;
 }
 
-.login-registerBtn{
+.login-sideBtn{
     border: none;
     background-color: var(--back-color);
-    color: var(--vintage-gray);
+    color: rgba(0, 0, 0, 0.5);
     transition: color 0.4s ease;
 }
 
-.login-registerBtn:hover{
+.login-sideBtn:hover{
     color: var(--vintage-black);
+}
+
+.loginBtnUl{
+	width: 400px;
+	text-align: center;
+	padding: 0;
+	margin: 0 auto;
+	margin-top: 20px;
+	display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-wrap: wrap;    
+    list-style:none;
+
+}
+
+.loginBtnUl li{
+	position: relative;
+	width: calc(100%/3);
+}
+
+.loginBtnUl li:nth-child(2)::before{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 15px;
+	width: 1px;
+	height: 18px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.loginBtnUl li:nth-child(3)::before{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 15px;
+	width: 1px;
+	height: 18px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+/* Find */
+
+.FindCSS h1,
+.FindCSS p{
+	width: 500px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.FindCSS hr{
+	width: 500px;
+	margin: 10px auto 5px;
+}
+
+.FindCSS table{
+	width: 500px;
+	margin-top: 15px;
+}
+
+.FindCSS table td{
+	text-align: left;
+}
+
+.FindCSS table button{
+	width: 100%;
+}
+
+.FindCSS input[type="text"],
+.FindCSS input[type="password"]{
+    width: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
+	height: 40px;
+    font-size: 1em;
+	line-height: 30;
+	background-color: rgba(255, 255, 255, 1);
+	caret-color: var(--back-color);
+	padding-left: 10px;
+	transition: background-color 0.4s ease;
+}
+
+.FindCSS input:focus{
+	outline: none;
+	background-color: var(--vintage-wheat);
+    border: 0.1px solid var(--green-white);
+	caret-color: var(--vintage-black);
+}
+
+.Find-result{
+	margin: 30px auto;
+	width: 500px;
+	padding: 40px 0;
+	background-color: var(--back-color2);
+	border-radius: 10px;
+	font-family: var(--Gmartket);
+}
+
+
+.Find-result b{
+	font-size: 1.2em;
+	display: inline-block;
+	margin: 5px;
+}
+
+.Find-result a{
+	font-size: 2em;
+	display: block;
+	width: 200px;
+	margin: 0 auto;
+	padding-top: 5px;
+	color: var(--back-color) !important;
+	background-color: var(--green-white);
+	font-family: var(--Tenada);
+	border-radius: 10px;
+	transition: color 0.4s ease, background-color 0.4s ease;
+	
+}
+
+.Find-result a:hover{
+	background-color: var(--vintage-green);
+	color: var(--back-color);
+	text-shadow: 1px 1px 3px var(--vintage-black);
+}
+
+.Find-result a:hover{
+	color: var(--back-color)
 }
 
 /* register */
