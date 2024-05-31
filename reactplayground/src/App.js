@@ -9,6 +9,7 @@ import Register from './pages/member/Register';
 import Error from './pages/Error';
 import MemberUpdate from './pages/member/MemberUpdate';
 import FindId from './pages/member/FindId';
+import FindPassword from './pages/member/FindPassword';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/register" element={ <Register/> } />
           <Route path="*" element={ <Error/> }/>
           <Route path="/findId" element={ <FindId/> } />
+          <Route path="/findPassword" element={ <FindPassword/> } />
 
         </Routes>      
       </BrowserRouter>

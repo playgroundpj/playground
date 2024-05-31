@@ -29,9 +29,10 @@ function Login() {
         
         if(loginMember.status === 200){
             if(loginMember.message !== '아이디 찾기 성공.'){
-
-                console.log("[Login] Login SUCCESS {}", loginMember);
-                navigate("/", { replace: true });
+                if(loginMember.message !== '비밀번호 초기화 성공.'){
+                    console.log("[Login] Login SUCCESS {}", loginMember);
+                    navigate("/", { replace: true });
+                }
             }
         }
 

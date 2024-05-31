@@ -7,7 +7,8 @@ import {
     , GET_MEMBER_ID
     , PUT_MEMBER
     , DELETE_MEMBER
-    , GET_MEMBER_NUMBER
+    , GET_MEMBER_NUMBER,
+    POST_FIND_PASSWORD
 } from '../modules/MemberModule';
 
 
@@ -271,6 +272,35 @@ export const callGetMemberNumberIdAPI = ({memberPhonenumber}) => {
     }
 }
 
+
+export const callGetFindPasswordAPI = ({form}) => {
+    console.log('[MemberAPICalls] callGetFindPasswordAPI Call');
+
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/auth/findPassword`;
+
+    return async (dispatch, getState) => {
+
+        const result = await fetch(requestURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "*/*"
+            },
+            body: JSON.stringify({
+                memberId: form.memberId,
+                memberPhonenumber: form.memberPhonenumber,          
+            })
+        })
+        .then(response => response.json());
+
+        console.log('[MemberAPICalls] callGetFindPasswordAPI RESULT : ', result);        
+        
+        if(result.status === 200){
+            dispatch({ type: POST_FIND_PASSWORD,  payload: result });
+        }        
+    };
+
+}
 
 export const callMemberUpdateAPI = ({form}) => {
     console.log('[MemberAPICalls] callMemberUpdateAPI Call');

@@ -94,4 +94,11 @@ public class AuthController {
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "아이디 찾기 성공.", memberService.findIdByPhonenumber(memberPhonenumber)));
     }
 
+    @Operation(summary = "비밀번호 찾기 요청", description = "아이디와 연락처를 조회하고 비밀번호를 초기화합니다.", tags = { "AuthController" })
+    @PostMapping("/findPassword")
+    public ResponseEntity<ResponseDTO> findPassword(@RequestBody MemberDTO memberDTO) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "비밀번호 초기화 성공.", memberService.findPassword(memberDTO)));
+    }
+
+
 }
