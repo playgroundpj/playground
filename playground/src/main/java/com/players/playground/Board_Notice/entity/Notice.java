@@ -1,5 +1,6 @@
 package com.players.playground.Board_Notice.entity;
 
+import com.players.playground.member.entity.Member;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -13,6 +14,10 @@ public class Notice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "notice_code")
     private int noticeCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_code", insertable = false, updatable = false)
+    private Member member;
 
     @Column(name = "member_code")
     private int memberCode;
@@ -48,9 +53,9 @@ public class Notice {
     }
 
 
-    public Notice(int noticeCode, int memberCode, String noticeTitle, String noticeContent, LocalDate createDate, LocalDate modifyedDate, String noticeCategory) {
+    public Notice(int noticeCode, Member member, String noticeTitle, String noticeContent, LocalDate createDate, LocalDate modifyedDate, String noticeCategory) {
         this.noticeCode = noticeCode;
-        this.memberCode = memberCode;
+        this.member = member;
         this.noticeTitle = noticeTitle;
         this.noticeContent = noticeContent;
         this.createDate = createDate;
@@ -66,12 +71,12 @@ public class Notice {
         this.noticeCode = noticeCode;
     }
 
-    public int getMemberCode() {
-        return memberCode;
+    public Member getMember() {
+        return member;
     }
 
-    public void setMemberCode(int memberCode) {
-        this.memberCode = memberCode;
+    public void setMember(Member member) {
+        this.member = member;
     }
 
     public String getNoticeTitle() {
@@ -90,21 +95,17 @@ public class Notice {
         this.noticeContent = noticeContent;
     }
 
-
     public LocalDate getCreateDate() {
         return createDate;
     }
-
 
     public void setCreateDate(LocalDate createDate) {
         this.createDate = createDate;
     }
 
-
     public LocalDate getModifyedDate() {
         return modifyedDate;
     }
-
 
     public void setModifyedDate(LocalDate modifyedDate) {
         this.modifyedDate = modifyedDate;
@@ -122,7 +123,7 @@ public class Notice {
     public String toString() {
         return "Notice{" +
                 "noticeCode=" + noticeCode +
-                ", memberCode=" + memberCode +
+                ", member=" + member +
                 ", noticeTitle='" + noticeTitle + '\'' +
                 ", noticeContent='" + noticeContent + '\'' +
                 ", createDate=" + createDate +

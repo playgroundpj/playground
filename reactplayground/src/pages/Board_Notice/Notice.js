@@ -96,7 +96,7 @@ function Notice() {
                                 <td>{notice.noticeCategory}</td>
                                 <td>{notice.noticeTitle}</td>
                                 <td>{notice.createDate}</td>
-                                <td>{notice.memberCode}</td>
+                                <td>{notice.memberNickname}</td>
                             </tr>
                         ))
                     ) : (

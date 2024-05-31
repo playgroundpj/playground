@@ -1,7 +1,5 @@
 package com.players.playground.Board_Notice.dto;
 
-import jakarta.persistence.PrePersist;
-
 import java.time.LocalDate;
 
 public class NoticeDTO {
@@ -13,12 +11,12 @@ public class NoticeDTO {
     private LocalDate createDate;
     private LocalDate modifyedDate;
     private String noticeCategory;
+    private String memberNickname;  // 필드만 추가
 
     public NoticeDTO() {
     }
 
-
-    public NoticeDTO(int noticeCode, int memberCode, String noticeTitle, String noticeContent, LocalDate createDate, LocalDate modifyedDate, String noticeCategory) {
+    public NoticeDTO(int noticeCode, int memberCode, String noticeTitle, String noticeContent, LocalDate createDate, LocalDate modifyedDate, String noticeCategory, String memberNickname) {
         this.noticeCode = noticeCode;
         this.memberCode = memberCode;
         this.noticeTitle = noticeTitle;
@@ -26,6 +24,7 @@ public class NoticeDTO {
         this.createDate = createDate;
         this.modifyedDate = modifyedDate;
         this.noticeCategory = noticeCategory;
+        this.memberNickname = memberNickname;
     }
 
     public int getNoticeCode() {
@@ -84,6 +83,14 @@ public class NoticeDTO {
         this.noticeCategory = noticeCategory;
     }
 
+    public String getMemberNickname() {
+        return memberNickname;
+    }
+
+    public void setMemberNickname(String memberNickname) {
+        this.memberNickname = memberNickname;
+    }
+
     @Override
     public String toString() {
         return "NoticeDTO{" +
@@ -94,6 +101,7 @@ public class NoticeDTO {
                 ", createDate=" + createDate +
                 ", modifyedDate=" + modifyedDate +
                 ", noticeCategory='" + noticeCategory + '\'' +
+                ", memberNickname='" + memberNickname + '\'' +
                 '}';
     }
 }

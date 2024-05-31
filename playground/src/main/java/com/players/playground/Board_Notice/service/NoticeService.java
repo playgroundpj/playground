@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -75,7 +76,11 @@ public class NoticeService {
         }
 
         List<NoticeDTO> noticeList = result.getContent().stream()
-                .map(notice -> modelMapper.map(notice, NoticeDTO.class))
+                .map(notice -> {
+                    NoticeDTO noticeDTO = modelMapper.map(notice, NoticeDTO.class);
+                    noticeDTO.setMemberNickname(notice.getMember().getMemberNickname());
+                    return noticeDTO;
+                })
                 .collect(Collectors.toList());
         log.info("[NoticeService][getPagedNotices] Retrieved {} notices", noticeList.size());
         return noticeList;
