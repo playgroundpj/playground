@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class BoardGame {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String boardgameCode; // 수정: Long->String
+    private Long boardgameCode; // 수정: String -> Long, @GeneratedValue 추가
 
     private String boardgameName;
     private String difficulty;
@@ -18,11 +18,11 @@ public class BoardGame {
     private String boardgameRule;
 
     // Getters and Setters
-    public String getBoardgameCode() {
+    public Long getBoardgameCode() {
         return boardgameCode;
     }
 
-    public void setBoardgameCode(String boardgameCode) {
+    public void setBoardgameCode(Long boardgameCode) {
         this.boardgameCode = boardgameCode;
     }
 

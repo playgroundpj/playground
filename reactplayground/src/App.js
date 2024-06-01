@@ -31,6 +31,7 @@ function App() {
             <Route path="register" element={<RegisterMenu />} /> 
             <Route path="search" element={<SearchMenu />} />
           </Route>
+          <Route path='register-game' element={<RegisterGame />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

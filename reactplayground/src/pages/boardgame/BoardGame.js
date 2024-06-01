@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { decodeJwt } from '../../utils/tokenUtils'; 
 
 function Boardgame() {
     const [boardgames, setBoardgames] = useState([]);
@@ -7,7 +8,7 @@ function Boardgame() {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        // 관리자인지 체크하는 부분은 일단 제외하고 보드게임 불러오기 테스트
+        // 보드게임 목록 불러오기
         axios.get('http://localhost:8080/api/v1/boardgames')
             .then(response => {
                 setBoardgames(response.data);
@@ -15,6 +16,15 @@ function Boardgame() {
             .catch(error => {
                 console.error("보드게임 목록을 가져오는 중 오류가 발생했습니다!", error);
             });
+
+        // 관리자인지 체크
+        const token = window.localStorage.getItem('accessToken');
+        if (token) {
+            const decoded = decodeJwt(token);
+            if (decoded.auth && (decoded.auth.includes('ROLE_ADMIN') || decoded.auth.includes('ROLE_MANAGER'))) {
+                setIsAdmin(true);
+            }
+        }
     }, []);
 
     const handleAllGamesClick = () => {

@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/boardgames")
+@CrossOrigin(origins = "http://localhost:3000")  // CORS 설정 추가
 public class BoardGameController {
 
     @Autowired
@@ -31,5 +32,11 @@ public class BoardGameController {
     public ResponseEntity<List<BoardGame>> searchBoardGamesByName(@RequestParam String name) {
         List<BoardGame> boardGames = boardGameService.searchBoardGamesByName(name);
         return ResponseEntity.ok(boardGames);
+    }
+
+    @PostMapping
+    public ResponseEntity<BoardGame> createBoardGame(@RequestBody BoardGame boardGame) {
+        BoardGame savedBoardGame = boardGameService.saveBoardGame(boardGame);
+        return ResponseEntity.ok(savedBoardGame);
     }
 }

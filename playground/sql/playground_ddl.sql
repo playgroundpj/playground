@@ -323,4 +323,7 @@ create table if not exists `tbl_GamePayment` (
 	`payment_code`	INT	NOT NULL	COMMENT '결제코드'
 );
 
-
+#--------board game----------------#
+# TRUNCATE TABLE tbl_boardgame;
+# ALTER TABLE tbl_boardgame MODIFY COLUMN boardgame_code BIGINT AUTO_INCREMENT;
+#
