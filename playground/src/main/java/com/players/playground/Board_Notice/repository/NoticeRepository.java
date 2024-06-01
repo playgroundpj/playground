@@ -20,4 +20,6 @@ public interface NoticeRepository extends JpaRepository<Notice, Integer> {
 
     // 카테고리별 게시글 수 조회
     int countByNoticeCategory(String noticeCategory);
+
+
 }

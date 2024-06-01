@@ -7,9 +7,12 @@
     <list default="true" id="5dd0a353-5229-428c-be83-c1e2f8a103a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/controller/NoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/controller/NoticeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/repository/NoticeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/repository/NoticeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/service/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/service/NoticeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reactplayground/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactplayground/src/pages/Board_Notice/Notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/pages/Board_Notice/Notice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactplayground/src/apis/NoticeAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/apis/NoticeAPICalls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactplayground/src/modules/NoticeModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/modules/NoticeModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactplayground/src/pages/Board_Notice/NoticeDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/pages/Board_Notice/NoticeDetail.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +167,7 @@
       <workItem from="1717158489702" duration="1609000" />
       <workItem from="1717160108311" duration="7996000" />
       <workItem from="1717169036819" duration="5175000" />
-      <workItem from="1717231056641" duration="3331000" />
+      <workItem from="1717231056641" duration="7659000" />
     </task>
     <servers />
   </component>

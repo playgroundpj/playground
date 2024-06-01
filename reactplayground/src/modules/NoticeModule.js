@@ -5,19 +5,24 @@ const initialState = {
     data: [],
     pageInfo: {}
 };
+
 /* 액션 */
 // 액션 타입을 정의합니다.
 export const GET_NOTICE     = 'notice/GET_NOTICE';
 export const GET_NOTICES    = 'notice/GET_NOTICES';
 export const POST_NOTICE    = 'notice/POST_NOTICE';
 export const PUT_NOTICE     = 'notice/PUT_NOTICE';
+export const UPDATE_NOTICE  = 'notice/UPDATE_NOTICE';
+export const DELETE_NOTICE  = 'notice/DELETE_NOTICE';
 
 // 액션을 생성합니다.
-const actions = createActions({
+createActions({
     [GET_NOTICE]: () => {},  // GET_NOTICE 액션 생성자
     [GET_NOTICES]: (payload) => payload, // GET_NOTICES 액션 생성자
     [POST_NOTICE]: (payload) => payload, // POST_NOTICE 액션 생성자
-    [PUT_NOTICE]: () => {}   // PUT_NOTICE 액션 생성자
+    [PUT_NOTICE]: () => {},   // PUT_NOTICE 액션 생성자
+    [UPDATE_NOTICE]: (payload) => payload, // UPDATE_NOTICE 액션 생성자
+    [DELETE_NOTICE]: (payload) => payload  // DELETE_NOTICE 액션 생성자
 });
 
 /* 리듀서 */
@@ -36,6 +41,20 @@ const noticeReducer = handleActions(
         },
         [PUT_NOTICE]: (state, { payload }) => {
             return { ...state, data : payload };
+        },
+        [UPDATE_NOTICE]: (state, { payload }) => {
+            return { 
+                ...state, 
+                data: state.data.map(notice => 
+                    notice.noticeCode === payload.noticeCode ? payload : notice
+                )
+            };
+        },
+        [DELETE_NOTICE]: (state, { payload }) => {
+            return { 
+                ...state, 
+                data: state.data.filter(notice => notice.noticeCode !== payload)
+            };
         }
     },
     initialState // 초기 상태를 설정합니다.

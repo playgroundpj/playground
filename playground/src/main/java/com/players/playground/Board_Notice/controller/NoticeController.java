@@ -13,9 +13,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/board")
@@ -75,4 +77,17 @@ public class NoticeController {
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", noticeService.selectNoticeDetail(Integer.valueOf(noticeCode))));
     }
 
+    @PutMapping("/notice/{noticeCode}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<ResponseDTO> updateNotice(@PathVariable("noticeCode") int noticeCode, @RequestBody NoticeDTO noticeDTO) {
+        Notice notice = noticeService.updateNotice(noticeCode, noticeDTO);
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "수정 성공", notice));
+    }
+
+    @DeleteMapping("/notice/{noticeCode}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<ResponseDTO> deleteNotice(@PathVariable("noticeCode") int noticeCode) {
+        noticeService.deleteById(noticeCode);
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "삭제 성공", noticeCode));
+    }
 }

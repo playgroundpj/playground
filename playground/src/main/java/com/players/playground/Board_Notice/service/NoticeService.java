@@ -2,7 +2,6 @@ package com.players.playground.Board_Notice.service;
 
 import com.players.playground.Board_Notice.dto.NoticeDTO;
 import com.players.playground.Board_Notice.entity.Notice;
-import com.players.playground.Board_Notice.repository.NoticeImageRepository;
 import com.players.playground.Board_Notice.repository.NoticeRepository;
 import com.players.playground.common.Criteria;
 import jakarta.transaction.Transactional;
@@ -18,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -92,10 +92,32 @@ public class NoticeService {
         return noticeRepository.save(notice);
     }
 
-    public Object selectNoticeDetail(int noticeCode) {
+    // 게시글 상세페이지
+    public NoticeDTO selectNoticeDetail(int noticeCode) {
         log.info("[NoticeService][selectNoticeDetail] Start with noticeCode={}", noticeCode);
 
-        Notice notice = noticeRepository.findById(noticeCode).get();
-        return modelMapper.map(notice, NoticeDTO.class);
+        Notice notice = noticeRepository.findById(noticeCode).orElseThrow(() -> new RuntimeException("Notice not found"));
+        NoticeDTO noticeDTO = modelMapper.map(notice, NoticeDTO.class);
+        noticeDTO.setMemberNickname(notice.getMember().getMemberNickname());
+        return noticeDTO;
+    }
+
+    // 게시글 수정
+    public Notice updateNotice(int noticeCode, NoticeDTO noticeDTO) {
+        Notice notice = noticeRepository.findById(noticeCode).orElseThrow(() -> new RuntimeException("Notice not found"));
+        notice.setNoticeTitle(noticeDTO.getNoticeTitle());
+        notice.setNoticeContent(noticeDTO.getNoticeContent());
+        notice.setCreateDate(LocalDate.now()); // 작성일자를 수정일자로 변경
+        notice.setModifyedDate(LocalDate.now());
+        return noticeRepository.save(notice);
+    }
+
+    // 게시글 삭제
+    public void deleteById(int noticeCode) {
+        noticeRepository.deleteById(noticeCode);
+    }
+
+    public boolean existsById(int noticeCode) {
+        return noticeRepository.existsById(noticeCode);
     }
 }
