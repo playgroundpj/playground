@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { decodeJwt } from '../../utils/tokenUtils';
+import { decodeJwt } from '../../utils/tokenUtils';  
 
 function Menu() {
     const [menuItems, setMenuItems] = useState([]);
@@ -14,6 +14,7 @@ function Menu() {
         if (token) {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             const decoded = decodeJwt(token);
+            console.log(decoded); // 디버깅용 콘솔 로그
             if (decoded.auth && (decoded.auth.includes('ROLE_ADMIN') || decoded.auth.includes('ROLE_MANAGER'))) {
                 setIsAdmin(true);
             }
@@ -49,6 +50,7 @@ function Menu() {
     };
 
     const handleRegisterClick = () => {
+        console.log('Register button clicked'); // 디버깅용 콘솔 로그
         navigate('/menu/register');
     };
 

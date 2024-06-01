@@ -81,6 +81,7 @@ public class SecurityConfig {
 					auth.requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll();    // Swagger API 문서 허용
 					auth.requestMatchers("/api/**").hasAnyRole("USER", "ADMIN", "MANAGER");
 					auth.requestMatchers("/api/v1/menus/**").authenticated();
+					auth.requestMatchers(HttpMethod.POST, "/api/v1/menus").hasAnyRole("ADMIN", "MANAGER");
 					auth.anyRequest().authenticated();
 					// API 경로는 USER 또는 ADMIN 역할을 가진 사용자만 접근 가능
 					/* 설명. 아래부터는 프로젝트 초기 Security 기능을 약화시켜 개발을 진행하게 끔 해주는 내용들이다. */

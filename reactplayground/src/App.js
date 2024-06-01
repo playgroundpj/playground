@@ -24,15 +24,13 @@ function App() {
             <Route index element={<Profile />} />
             <Route path="profile" element={<Profile />} />
           </Route>
-          <Route path="boardgame" element={<Boardgame />}>
-            <Route path="register" element={<RegisterGame />} /> 
-            <Route path="search" element={<SearchGame />} />
-          </Route>
-          <Route path="boardgame/:id" element={<BoardgameDetail />} />  {/* BoardgameDetail 라우트 추가 */}
-          <Route path="menu" element={<Menu />}>
-            <Route path="register" element={<RegisterMenu />} /> 
-            <Route path="search" element={<SearchMenu />} />
-          </Route>
+          <Route path="boardgame" element={<Boardgame />} />
+          <Route path="boardgame/register" element={<RegisterGame />} /> 
+          <Route path="boardgame/search" element={<SearchGame />} />
+          <Route path="boardgame/:id" element={<BoardgameDetail />} /> {/* BoardgameDetail 라우트 추가 */}
+          <Route path="menu" element={<Menu />} />
+          <Route path="menu/register" element={<RegisterMenu />} />
+          <Route path="menu/search" element={<SearchMenu />} />
           <Route path="register-game" element={<RegisterGame />} />
         </Route>
         <Route path="/login" element={<Login />} />
