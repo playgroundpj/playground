@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { decodeJwt } from '../../utils/tokenUtils'; 
 
 function Boardgame() {
     const [boardgames, setBoardgames] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [isAdmin, setIsAdmin] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         // 보드게임 목록 불러오기
@@ -48,7 +50,11 @@ function Boardgame() {
     };
 
     const handleRegisterClick = () => {
-        window.location.href = '/register-game';
+        navigate('/register-game');
+    };
+
+    const handleGameClick = (id) => {
+        navigate(`/boardgame/${id}`);
     };
 
     return (
@@ -67,7 +73,11 @@ function Boardgame() {
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {boardgames.map(game => (
-                    <div key={game.boardgameCode} style={{ border: '1px solid #ccc', margin: '10px', padding: '10px', width: '200px' }}>
+                    <div 
+                        key={game.boardgameCode} 
+                        style={{ border: '1px solid #ccc', margin: '10px', padding: '10px', width: '200px', cursor: 'pointer' }}
+                        onClick={() => handleGameClick(game.boardgameCode)}
+                    >
                         <img src={`http://localhost:8080/api/v1/boardgames/images/${game.boardgameCode}`} alt={game.boardgameName} style={{ width: '100%' }} />
                         <h3>{game.boardgameName}</h3>
                         <p>{game.description}</p>
