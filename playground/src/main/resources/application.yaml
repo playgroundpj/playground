@@ -56,7 +56,7 @@ image:
 #  add-resource-locations: file:///springboot-app/productimgs/
   add-resource-handler: /productimgs/**
   ## ProductService 참고
-  #  image-dir: src/main/resources/static/productimgs
+#    image-dir: src/main/resources/static/productimgs
   # Docker(local) 배포 기준
   #  image-dir: /springboot-app/productimgs
   #  image-url: http://localhost:8080/productimgs/
@@ -71,3 +71,5 @@ logging:
     root: info
   file:
     path: /logs
+
+
