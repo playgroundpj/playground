@@ -66,4 +66,13 @@ public class NoticeController {
     public Notice createNotice(@RequestBody NoticeDTO noticeDTO) {
         return noticeService.createNotice(noticeDTO);
     }
+
+    // 공지게시판 상세조회
+    @GetMapping("/notice/{noticeCode}")
+    public ResponseEntity<ResponseDTO> selectNoticeDetail(@PathVariable("noticeCode") String noticeCode) {
+        log.info("[NoticeController] selectNoticeDetail : noticeCode={}", noticeCode);
+
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", noticeService.selectNoticeDetail(Integer.valueOf(noticeCode))));
+    }
+
 }

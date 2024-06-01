@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { callNoticeAPI } from '../../apis/NoticeAPICalls';
@@ -10,7 +10,7 @@ function Notice() {
     const dispatch = useDispatch();
     const notices = useSelector(state => state.noticeReducer);
     const noticeList = notices?.data || [];
-    const pageInfo = notices?.pageInfo || {};
+    const pageInfo = useMemo(() => notices?.pageInfo || {}, [notices]) ;
 
     const [currentPage, setCurrentPage] = useState(1);
     const [category, setCategory] = useState('All');
@@ -18,14 +18,14 @@ function Notice() {
 
 
     const [decoded, setDecoded] = useState(''); // 사용자 역할
-    
-    
+
     const handleCategoryChange = (newCategory) => {
         setCategory(newCategory);
         setCurrentPage(1);
     }
     
     useEffect(() => {
+        console.log('환경 변수 REACT_APP_RESTAPI_IP:', process.env.REACT_APP_RESTAPI_IP);
         console.log(`API 호출: currentPage=${currentPage}, category=${category}`);
         dispatch(callNoticeAPI({currentPage, category}));
     }, [currentPage, category, dispatch]);
@@ -41,10 +41,10 @@ function Notice() {
         }
     }, [pageInfo]);
 
-
     useEffect(() => {
         console.log('Redux 상태:', notices);
     }, [notices]);
+
 
     useEffect(() => {
         // 로그인 상태와 역할 정보를 설정하는 로직 추가
@@ -61,6 +61,10 @@ function Notice() {
         navigate('/board/notice/create');     // 게시글 등록 페이지로 이동
     }
     
+    const handleRowClick = (noticeCode) => {
+        navigate(`/board/notice/${noticeCode}`, {state : {category}});    // 게시글 상세 페이지로 이동 ( 카테고리전달)
+    }
+
 
     return (
         <>
@@ -93,7 +97,7 @@ function Notice() {
                         <tbody>
                             {Array.isArray(noticeList) && noticeList.length > 0 ? (
                                 noticeList.map((notice) => (
-                                    <tr key={notice.noticeCode}>
+                                    <tr key={notice.noticeCode} onClick={() => handleRowClick(notice.noticeCode)}>
                                         <td>{notice.noticeCategory}</td>
                                         <td>{notice.noticeTitle}</td>
                                         <td>{notice.createDate}</td>

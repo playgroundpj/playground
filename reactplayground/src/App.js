@@ -13,6 +13,7 @@ import FindPassword from './pages/member/FindPassword';
 import Notice from './pages/Board_Notice/Notice';
 import MemberManage from './pages/admin/MemberManage';
 import CreateNotice from './pages/Board_Notice/CreateNotice';
+import NoticeDetail from './pages/Board_Notice/NoticeDetail'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="board">
               <Route path="notice" element={<Notice/>}/>
               <Route path="notice/create" element={<CreateNotice/>}/>
+              <Route path="notice/:noticeCode" element={<NoticeDetail/>}/>
               
             </Route>
 

@@ -91,4 +91,11 @@ public class NoticeService {
         Notice notice = modelMapper.map(noticeDTO, Notice.class);
         return noticeRepository.save(notice);
     }
+
+    public Object selectNoticeDetail(int noticeCode) {
+        log.info("[NoticeService][selectNoticeDetail] Start with noticeCode={}", noticeCode);
+
+        Notice notice = noticeRepository.findById(noticeCode).get();
+        return modelMapper.map(notice, NoticeDTO.class);
+    }
 }
