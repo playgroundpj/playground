@@ -15,6 +15,8 @@ import MemberManage from './pages/admin/MemberManage';
 import CreateNotice from './pages/Board_Notice/CreateNotice';
 import NoticeDetail from './pages/Board_Notice/NoticeDetail'
 import NoticeModify from './pages/Board_Notice/NoticeModify'
+import Review from './pages/Board_Review/Review';
+import CreateReview from './pages/Board_Review/CreateReview';
 
 function App() {
   return (
@@ -35,8 +37,13 @@ function App() {
               <Route path="notice/create" element={<CreateNotice/>}/>
               <Route path="notice/:noticeCode" element={<NoticeDetail/>}/>
               <Route path="notice/modify/:noticeCode" element={<NoticeModify/>}/>
-              
+
+              <Route path="review" element={<Review/>}/>
+              <Route path="review/create" element={<CreateReview/>}/>
             </Route>
+
+
+
 
           </Route>
 

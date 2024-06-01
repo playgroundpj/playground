@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dd0a353-5229-428c-be83-c1e2f8a103a6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Review/controller/ReviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Review/dto/ReviewDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Review/entity/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Review/repository/ReviewRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Review/service/ReviewService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/store/dto/StoreDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/store/entity/Store.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/store/repository/StoreRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5de28535-c0a2-4450-bd03-e7ea0d6ca0c8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5de28535-c0a2-4450-bd03-e7ea0d6ca0c8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/sql/playground_dml.sql" beforeDir="false" afterPath="$PROJECT_DIR$/playground/sql/playground_dml.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/controller/NoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/controller/NoticeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/repository/NoticeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/repository/NoticeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/service/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/service/NoticeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/entity/Notice.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/entity/Notice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reactplayground/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactplayground/src/apis/NoticeAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/apis/NoticeAPICalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactplayground/src/modules/NoticeModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/modules/NoticeModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactplayground/src/pages/Board_Notice/NoticeDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/pages/Board_Notice/NoticeDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactplayground/src/modules/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/modules/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +51,14 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -51,6 +66,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2hEQKK7NqWusz6jDJ2HSUVG8t1a" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -85,6 +103,10 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\seaworkspace\playGround2-1\playground\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.players.playground.store.entity" />
+      <recent name="com.players.playground.Board_Review.entity" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.PlaygroundApplication">
@@ -173,5 +195,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/entity/Notice.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
