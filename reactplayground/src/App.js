@@ -12,7 +12,7 @@ import Menu from './pages/menu/Menu';
 import SearchGame from './pages/boardgame/SearchGame';
 import SearchMenu from './pages/menu/SearchMenu';
 import RegisterGame from './pages/boardgame/RegisterGame';
-import BoardgameDetail from './pages/boardgame/BoardgameDetail';  // 추가된 import
+import BoardgameDetail from './pages/boardgame/BoardgameDetail'; 
 
 function App() {
   return (

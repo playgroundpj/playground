@@ -74,10 +74,15 @@ public class SecurityConfig {
 					auth.requestMatchers("/api/v1/user/check-admin").permitAll();
 					auth.requestMatchers("/api/v1/boardgames/**").permitAll(); // 추가된 부분: 모든 GET 요청 허용
 					auth.requestMatchers(HttpMethod.GET, "/api/v1/boardgames/images/**").permitAll(); // 이미지 접근 허용
+					auth.requestMatchers(HttpMethod.GET, "/api/v1/menus/**").permitAll(); // 메뉴 조회를 비회원도 허용
+					auth.requestMatchers(HttpMethod.POST, "/api/v1/orders").permitAll(); // 주문을 비회원도 허용
 					auth.requestMatchers("/").authenticated();                      // 기본 경로는 인증 필요
 					auth.requestMatchers("/auth/**", "/api/v1/menu/**", "/api/v1/shop/**", "/api/v1/board/**").permitAll();    // 특정 경로는 무조건 허용
 					auth.requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll();    // Swagger API 문서 허용
-					auth.requestMatchers("/api/**").hasAnyRole("USER", "ADMIN", "MANAGER");                            // API 경로는 USER 또는 ADMIN 역할을 가진 사용자만 접근 가능
+					auth.requestMatchers("/api/**").hasAnyRole("USER", "ADMIN", "MANAGER");
+					auth.requestMatchers("/api/v1/menus/**").authenticated();
+					auth.anyRequest().authenticated();
+					// API 경로는 USER 또는 ADMIN 역할을 가진 사용자만 접근 가능
 					/* 설명. 아래부터는 프로젝트 초기 Security 기능을 약화시켜 개발을 진행하게 끔 해주는 내용들이다. */
 					//auth.anyRequest().permitAll();    // 어떤 요청이든 허용 -> Security를 활용한 로그인이 모두 완성되지 않았을 때 사용할 것
 				})
