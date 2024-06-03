@@ -64,7 +64,7 @@ function Navbars() {
                                             고객리뷰게시판
                                         </Dropdown.Item>
                                     </Dropdown.Menu>
-                                 </Dropdown></li>
+                                </Dropdown></li>
                                 { decoded ==="ROLE_ADMIN" && <li><NavLink to="/product-management" style={({isActive}) => isActive? activeStyle : undefined}>Product</NavLink></li>}
                             </Nav>
                         </ul>

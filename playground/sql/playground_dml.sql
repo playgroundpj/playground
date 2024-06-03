@@ -42,6 +42,9 @@ INSERT INTO tbl_notice (member_code, notice_title, notice_content, create_date, 
                                                                                                                     (1, '공지사항 제목 20', '공지사항 내용 20', '2024-01-20', '2024-01-20', '이벤트');
 
 
+
+
+
 # 고객리뷰게시판 테이블 데이터 추가
 INSERT INTO tbl_review (member_code, store_code, review_title, review_content, create_date, modifyed_date, review_star) VALUES
                                                                                                                             (3, 1, '리뷰 제목 1', '리뷰 내용 1', '2024-01-01', '2024-01-01', 5),
@@ -64,6 +67,7 @@ INSERT INTO tbl_review (member_code, store_code, review_title, review_content, c
                                                                                                                             (3, 3, '리뷰 제목 18', '리뷰 내용 18', '2024-01-18', '2024-01-18', 3),
                                                                                                                             (3, 1, '리뷰 제목 19', '리뷰 내용 19', '2024-01-19', '2024-01-19', 5),
                                                                                                                             (3, 2, '리뷰 제목 20', '리뷰 내용 20', '2024-01-20', '2024-01-20', 4);
+
 
 
 
@@ -124,6 +128,9 @@ INSERT INTO tbl_menu (menu_code, menu_name, category, menu_content, menu_price, 
  (18, '아이스크림', '디저트', '다양한 아이스크림 맛', 3000, 1),
  (19, '브라우니', '디저트', '견과류가 들어간 쫀득한 브라우니', 4000, 1),
  (20, '머핀', '디저트', '신선하게 구워낸 머핀', 3000, 1);
+
+
+
 
 
 # store 데이터 삽입
