@@ -4,7 +4,6 @@ import com.players.playground.member.entity.Member;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table ( name = "tbl_notice")

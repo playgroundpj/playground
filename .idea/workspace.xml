@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
+    <list default="true" id="5dd0a353-5229-428c-be83-c1e2f8a103a6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/sql/playground_ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/playground/sql/playground_ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/sql/playground_dml.sql" beforeDir="false" afterPath="$PROJECT_DIR$/playground/sql/playground_dml.sql" afterDir="false" />
+
     <list default="true" id="69260c59-63ae-4b7e-b61d-b82ee8c57c5a" name="Changes" comment="">
-<<<<<<< HEAD
+
       <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/product/controller/BoardGameController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/product/controller/MenuController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/product/controller/UserController.java" afterDir="false" />
@@ -32,12 +38,12 @@
       <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/config/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reactplayground/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/App.js" afterDir="false" />
-=======
+
       <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/feature_request.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/playground/src/main/resources/logback-spring.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/reactplayground/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reactplayground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/package.json" afterDir="false" />
->>>>>>> menu/register
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,9 +78,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+
+        <option value="Class" />
+        <option value="Interface" />
+
         <option value="Kotlin Class" />
         <option value="Interface" />
         <option value="Class" />
+
       </list>
     </option>
   </component>
@@ -91,15 +102,21 @@
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
+
+  <component name="ProjectId" id="2hEQKK7NqWusz6jDJ2HSUVG8t1a" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+
   <component name="ProjectId" id="2h7YJ8fUJzhe12JmrxDiOBQbOLS" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
+
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
+
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build playground.executor": "Run",
@@ -134,7 +151,7 @@
     ]
   }
 }]]></component>
-=======
+
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Gradle.Build playground.executor&quot;: &quot;Run&quot;,
@@ -169,13 +186,22 @@
     ]
   }
 }</component>
->>>>>>> menu/register
+
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\Documents\playground\playground\src\main\java\com\players\playground" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+
+      <recent name="C:\mySea\playGround_2\playground\src\main\resources" />
+      <recent name="C:\seaworkspace\playGround2-1\playground\src\main\resources" />
+
       <recent name="C:\Users\User\Documents\playground\playground\src\main\java\com\players\playground" />
+
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.players.playground.store.entity" />
+      <recent name="com.players.playground.Board_Review.entity" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.PlaygroundApplication (1)">
@@ -282,6 +308,15 @@
       <created>1716946507152</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+
+      <updated>1717156693598</updated>
+      <workItem from="1717156694498" duration="1786000" />
+      <workItem from="1717158489702" duration="1609000" />
+      <workItem from="1717160108311" duration="7996000" />
+      <workItem from="1717169036819" duration="5175000" />
+      <workItem from="1717231056641" duration="7659000" />
+      <workItem from="1717373858748" duration="2673000" />
+
       <updated>1716946507152</updated>
       <workItem from="1716946508222" duration="7479000" />
       <workItem from="1716969695436" duration="2892000" />
@@ -289,15 +324,26 @@
       <workItem from="1717070240318" duration="10727000" />
       <workItem from="1717187335929" duration="1806000" />
       <workItem from="1717247649195" duration="16840000" />
-<<<<<<< HEAD
+
       <workItem from="1717374979399" duration="2528000" />
-=======
+
       <workItem from="1717374979399" duration="2249000" />
->>>>>>> menu/register
+
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/playground/src/main/java/com/players/playground/Board_Notice/entity/Notice.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -12,6 +12,7 @@ import FindPassword from './pages/member/FindPassword';
 import Notice from './pages/Board_Notice/Notice';
 import MemberManage from './pages/admin/MemberManage';
 import CreateNotice from './pages/Board_Notice/CreateNotice';
+<<<<<<< HEAD
 import NoticeDetail from './pages/Board_Notice/NoticeDetail';
 import NoticeModify from './pages/Board_Notice/NoticeModify';
 import RegisterMenu from './pages/menu/RegisterMenu';
@@ -21,6 +22,12 @@ import SearchGame from './pages/boardgame/SearchGame';
 import SearchMenu from './pages/menu/SearchMenu';
 import RegisterGame from './pages/boardgame/RegisterGame';
 import BoardgameDetail from './pages/boardgame/BoardgameDetail'; 
+=======
+import NoticeDetail from './pages/Board_Notice/NoticeDetail'
+import NoticeModify from './pages/Board_Notice/NoticeModify'
+import Review from './pages/Board_Review/Review';
+import CreateReview from './pages/Board_Review/CreateReview';
+>>>>>>> fba7207fd9be0ff488a1f90a5189cb65cf9b8cc8
 
 function App() {
   return (
@@ -41,9 +48,12 @@ function App() {
               <Route path="notice/create" element={<CreateNotice/>}/>
               <Route path="notice/:noticeCode" element={<NoticeDetail/>}/>
               <Route path="notice/modify/:noticeCode" element={<NoticeModify/>}/>
-              
+
+              <Route path="review" element={<Review/>}/>
+              <Route path="review/create" element={<CreateReview/>}/>
             </Route>
 
+<<<<<<< HEAD
             <Route path="boardgame" element={<Boardgame />} />
             <Route path="boardgame/register" element={<RegisterGame />} /> 
             <Route path="boardgame/search" element={<SearchGame />} />
@@ -52,6 +62,10 @@ function App() {
             <Route path="menu/register" element={<RegisterMenu />} />
             <Route path="menu/search" element={<SearchMenu />} />
             <Route path="register-game" element={<RegisterGame />} />
+=======
+
+
+>>>>>>> fba7207fd9be0ff488a1f90a5189cb65cf9b8cc8
 
           </Route>
 
