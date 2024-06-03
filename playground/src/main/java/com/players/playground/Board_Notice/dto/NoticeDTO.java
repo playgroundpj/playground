@@ -1,6 +1,9 @@
 package com.players.playground.Board_Notice.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.time.LocalDate;
+
 
 public class NoticeDTO {
 

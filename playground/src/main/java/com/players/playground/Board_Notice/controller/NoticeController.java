@@ -62,9 +62,14 @@ public class NoticeController {
     }
 
     // 관리자 로그인 공지게시판 등록
+//    @PostMapping("/notice")
+//    @PreAuthorize("hasRole('ADMIN')")
+//    public Notice createNotice(@RequestBody NoticeDTO noticeDTO) {
+//        return noticeService.createNotice(noticeDTO);
+//    }
     @PostMapping("/notice")
-    @PreAuthorize("hasRole('ADMIN')")
     public Notice createNotice(@RequestBody NoticeDTO noticeDTO) {
+        log.info("[NoticeController]createNotice : noticeDTO={}", noticeDTO);
         return noticeService.createNotice(noticeDTO);
     }
 
@@ -76,15 +81,23 @@ public class NoticeController {
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", noticeService.selectNoticeDetail(Integer.valueOf(noticeCode))));
     }
 
-    @PutMapping("/notice/{noticeCode}")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ResponseDTO> updateNotice(@PathVariable("noticeCode") int noticeCode, @RequestBody NoticeDTO noticeDTO) {
-        Notice notice = noticeService.updateNotice(noticeCode, noticeDTO);
+//    @PutMapping(value = "/notice/{noticeCode}")
+//    @PreAuthorize("hasRole('ADMIN')")
+//    public ResponseEntity<ResponseDTO> updateNotice(@PathVariable("noticeCode") int noticeCode, @RequestBody NoticeDTO noticeDTO) {
+//        log.info("[controller]noticeCode : ", noticeCode);
+//        log.info("[controller]noticeDTO : ", noticeDTO);
+//        Notice notice = noticeService.updateNotice(noticeCode, noticeDTO);
+//        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "수정 성공", notice));
+//    }
+    @PutMapping(value = "/notice")
+    public ResponseEntity<ResponseDTO> updateNotice(@RequestBody NoticeDTO noticeDTO) {
+        log.info("[NoticeController] updateNotice : noticeDTO={}", noticeDTO);
+        Notice notice = noticeService.updateNotice(noticeDTO);
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "수정 성공", notice));
     }
 
     @DeleteMapping("/notice/{noticeCode}")
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ResponseDTO> deleteNotice(@PathVariable("noticeCode") int noticeCode) {
         noticeService.deleteById(noticeCode);
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "삭제 성공", noticeCode));

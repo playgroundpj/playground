@@ -67,9 +67,9 @@ function Review() {
         <>
             <h2 onClick={() => handleCategoryChange('All')}>리뷰게시판</h2>
             <ButtonGroup className='mb-3'>
-                <Button onClick={() => handleCategoryChange('지점1')}>지점1</Button>
-                <Button onClick={() => handleCategoryChange('지점2')}>지점2</Button>
-                <Button onClick={() => handleCategoryChange('지점3')}>지점3</Button>
+                <Button onClick={() => handleCategoryChange('강남점')}>강남</Button>
+                <Button onClick={() => handleCategoryChange('종로점')}>종로</Button>
+                <Button onClick={() => handleCategoryChange('신촌점')}>신촌</Button>
                 {decoded === "ROLE_USER" && (
                     <Button onClick={handleCreateReview}>게시글 등록</Button>
                 )}

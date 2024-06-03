@@ -47,24 +47,29 @@ function Navbars() {
                                 <li><NavLink to='/boardgame' style={({isActive}) => isActive? activeStyle : undefined}>BoardGames</NavLink></li>
                                 <li><NavLink to='/Menu' style={({isActive}) => isActive? activeStyle : undefined}>Menu</NavLink></li>
                                 <li><NavLink to='/shop' style={({isActive}) => isActive? activeStyle : undefined}>Shops</NavLink></li>
-                                <li><Dropdown 
-                                        as={Nav.Item}
+                                <li>
+                                    <Dropdown
                                         onMouseEnter={handleMouseEnter}
                                         onMouseLeave={handleMouseLeave}
                                         show={showDropdown}
                                     >
-                                    <Dropdown.Toggle as={Nav.Link} id="dropdown-custom-components">
-                                        Board
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item as={NavLink} to='/board/notice' activeClassName="active" style={({ isActive }) => isActive ? activeStyle : undefined}>
-                                            공지게시판
-                                        </Dropdown.Item>
-                                        <Dropdown.Item as={NavLink} to='/board/review' activeClassName="active" style={({ isActive }) => isActive ? activeStyle : undefined}>
-                                            고객리뷰게시판
-                                        </Dropdown.Item>
-                                    </Dropdown.Menu>
-                                 </Dropdown></li>
+                                        <Dropdown.Toggle as={Nav.Link} id="dropdown-custom-components">
+                                            Board
+                                        </Dropdown.Toggle>
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item as="div">
+                                                <NavLink to='/board/notice' className={({ isActive }) => isActive ? 'active' : undefined} style={({ isActive }) => isActive ? activeStyle : undefined}>
+                                                    공지게시판
+                                                </NavLink>
+                                            </Dropdown.Item>
+                                            <Dropdown.Item as="div">
+                                                <NavLink to='/board/review' className={({ isActive }) => isActive ? 'active' : undefined} style={({ isActive }) => isActive ? activeStyle : undefined}>
+                                                    고객리뷰게시판
+                                                </NavLink>
+                                            </Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                </li>
                                 { decoded ==="ROLE_ADMIN" && <li><NavLink to="/product-management" style={({isActive}) => isActive? activeStyle : undefined}>Product</NavLink></li>}
                             </Nav>
                         </ul>

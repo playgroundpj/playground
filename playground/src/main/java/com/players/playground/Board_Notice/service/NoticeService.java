@@ -78,7 +78,8 @@ public class NoticeService {
         List<NoticeDTO> noticeList = result.getContent().stream()
                 .map(notice -> {
                     NoticeDTO noticeDTO = modelMapper.map(notice, NoticeDTO.class);
-                    noticeDTO.setMemberNickname(notice.getMember().getMemberNickname());
+//                    noticeDTO.setMemberNickname(notice.getMember().getMemberNickname());
+                    noticeDTO.setMemberNickname("관리자");
                     return noticeDTO;
                 })
                 .collect(Collectors.toList());
@@ -98,17 +99,31 @@ public class NoticeService {
 
         Notice notice = noticeRepository.findById(noticeCode).orElseThrow(() -> new RuntimeException("Notice not found"));
         NoticeDTO noticeDTO = modelMapper.map(notice, NoticeDTO.class);
-        noticeDTO.setMemberNickname(notice.getMember().getMemberNickname());
+//        noticeDTO.setMemberNickname(notice.getMember().getMemberNickname());
+        noticeDTO.setMemberNickname("관리자");
         return noticeDTO;
     }
 
     // 게시글 수정
-    public Notice updateNotice(int noticeCode, NoticeDTO noticeDTO) {
-        Notice notice = noticeRepository.findById(noticeCode).orElseThrow(() -> new RuntimeException("Notice not found"));
+//    @Transactional
+//    public Notice updateNotice(int noticeCode, NoticeDTO noticeDTO) {
+//        log.info("[NoticeService][updateNotice] ", noticeDTO);
+//        Notice notice = noticeRepository.findById(noticeCode).orElseThrow(() -> new RuntimeException("Notice not found"));
+//        notice.setNoticeTitle(noticeDTO.getNoticeTitle());
+//        notice.setNoticeContent(noticeDTO.getNoticeContent());
+//        notice.setModifyedDate(LocalDate.now());
+//        return noticeRepository.save(notice);
+//    }
+    public Notice updateNotice(NoticeDTO noticeDTO) {
+        log.info("[NoticeService] updateNotice : noticeDTO={}", noticeDTO);
+
+        Notice notice = noticeRepository.findById(noticeDTO.getNoticeCode()).orElseThrow(() -> new RuntimeException("Notice not found"));
+        log.info("[NoticeService] updateNotice : foundNoticeEntity={}", notice);
+
         notice.setNoticeTitle(noticeDTO.getNoticeTitle());
         notice.setNoticeContent(noticeDTO.getNoticeContent());
-        notice.setCreateDate(LocalDate.now()); // 작성일자를 수정일자로 변경
         notice.setModifyedDate(LocalDate.now());
+
         return noticeRepository.save(notice);
     }
 

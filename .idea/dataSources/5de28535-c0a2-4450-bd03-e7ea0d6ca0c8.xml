@@ -38,7 +38,7 @@
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="12" parent="1" name="playground">
-      <LastIntrospectionLocalTimestamp>2024-05-31.05:47:17</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-06-03.02:46:28</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <table id="13" parent="12" name="tbl_authority">
@@ -164,7 +164,7 @@
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
     <column id="43" parent="13" name="authority_code">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>4</AutoIncrement>
       <Comment>권한식별코드</Comment>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -193,7 +193,7 @@
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="48" parent="14" name="boardgame_code">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>31</AutoIncrement>
       <Comment>보드게임코드</Comment>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -411,7 +411,7 @@
       <Position>2</Position>
     </column>
     <column id="85" parent="21" name="member_code">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>4</AutoIncrement>
       <Comment>회원코드</Comment>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -474,7 +474,7 @@
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="96" parent="22" name="member_code">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>4</AutoIncrement>
       <Comment>회원식별코드</Comment>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -533,7 +533,7 @@ authority_code</ColNames>
       <Position>2</Position>
     </column>
     <column id="106" parent="25" name="menu_code">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>21</AutoIncrement>
       <Comment>메뉴코드</Comment>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -599,7 +599,7 @@ authority_code</ColNames>
       <Position>3</Position>
     </column>
     <column id="117" parent="27" name="notice_code">
-      <AutoIncrement>20</AutoIncrement>
+      <AutoIncrement>21</AutoIncrement>
       <Comment>게시글코드</Comment>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -949,7 +949,7 @@ authority_code</ColNames>
       <Position>5</Position>
     </column>
     <column id="177" parent="36" name="review_code">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>21</AutoIncrement>
       <Comment>리뷰코드</Comment>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -1038,7 +1038,7 @@ authority_code</ColNames>
       <Position>5</Position>
     </column>
     <column id="192" parent="38" name="store_code">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>4</AutoIncrement>
       <Comment>매장코드</Comment>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -1057,15 +1057,11 @@ authority_code</ColNames>
       <Position>3</Position>
     </column>
     <column id="195" parent="38" name="open_time">
-      <Comment>영업시작시간</Comment>
-      <DasType>datetime|0s</DasType>
-      <NotNull>1</NotNull>
+      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
     </column>
     <column id="196" parent="38" name="close_time">
-      <Comment>영업마감시간</Comment>
-      <DasType>datetime|0s</DasType>
-      <NotNull>1</NotNull>
+      <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
     </column>
     <column id="197" parent="38" name="closed_day">
