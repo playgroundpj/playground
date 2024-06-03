@@ -97,7 +97,9 @@ function MemberManage() {
         navigate(`/mypage/member/${memberCode}`);
     }
 
-
+    const onClickResgisterHandler = () => {
+        navigate(`/mypage/member/memberRegist`);
+    }
 
     useEffect(() => {
         if (Array.isArray(memberList) && memberList.length > 0) {
@@ -121,6 +123,7 @@ function MemberManage() {
     return (
         <div className='profileDiv'>
             <h2>전체 회원 및 매니저 목록</h2>
+            <button className='mangerRegisterBtn' onClick={ onClickResgisterHandler }>매니저 등록</button>
             {loading ? ( // 로딩 중일 때 표시할 내용
                 <p>Loading...</p>
             ) : (

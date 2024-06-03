@@ -50,4 +50,12 @@ public class MemberController {
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "회원 삭제 성공",  memberService.deleteMember(memberDTO)));
     }
 
+    @Operation(summary = "매니저 등록 요청", description = "매니저 등록이 진행됩니다.", tags = {"MemberController"})
+    @PostMapping("/members/memberRegist")
+    public ResponseEntity<ResponseDTO> mangerSignup(@RequestBody MemberDTO memberDTO) {	// 회원 가입 정보를 받아 냄
+        return ResponseEntity
+                .ok()
+                .body(new ResponseDTO(HttpStatus.CREATED, "회원가입 성공", memberService.signup(memberDTO)));
+    }
+
 }

@@ -66,7 +66,7 @@ function MemberModify() {
         }else{
             Swal.fire({
                 icon: "success",
-                title: `회원정보가 수정되었습니다`,
+                title: `매니저 정보가 수정되었습니다`,
                 showConfirmButton: true,
                 confirmButtonColor: "#97A482",
                 customClass: {
@@ -93,6 +93,7 @@ function MemberModify() {
             ...form,
             [e.target.name]: e.target.value
         });
+        console.log('form : ',form);
         setIsFirstLoad(false);
     };  
     
@@ -192,8 +193,8 @@ function MemberModify() {
 
     const onClickDeleteHandler = () => {
         Swal.fire({
-			title: "회원을 탈퇴하겠습니까?",
-			text: "탈퇴 후 되돌릴 수 없습니다.",
+			title: "매니저를 삭제하겠습니까?",
+			text: "삭제 후 되돌릴 수 없습니다.",
 			icon: "warning",
 			showCancelButton: true,
 			confirmButtonColor: "#97A482",
@@ -204,17 +205,15 @@ function MemberModify() {
 			if (result.isConfirmed) {
 				Swal.fire({
 				title: "삭제 완료!",
-				text: "회원 탈되되었습니다",
+				text: "매니저가 삭제되었습니다",
 				icon: "success",
 				showConfirmButton: false,
 				timer: 1000
 				});
-                window.localStorage.removeItem('accessToken');  
-                //로그아웃
-                dispatch(callLogoutAPI());
                 //회원탈퇴
-				dispatch(callDeleteMemberAPI({memberId: token.sub}));
-                navigate("/", { replace: true });
+				dispatch(callDeleteMemberAPI({memberId: form.memberId}));
+                navigate("/mypage/member", { replace: true });
+                window.location.reload();
 			}
 		});
     }
