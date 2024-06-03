@@ -1,0 +1,20 @@
+{
+  "noticeCode": 36,
+  "member": {
+    "memberCode": 1,
+    "memberId": null,
+    "memberPassword": null,
+    "memberNickname": "null",
+    "memberBirth": null,
+    "memberPhonenumber": null,
+    "memberAddress": null,
+    "memberEmail": null,
+    "memberRole": null
+  },
+  "memberCode": 1,
+  "noticeTitle": "새로 등록2",
+  "noticeContent": "새로등록2",
+  "createDate": "2024-06-03",
+  "modifyedDate": "2024-06-03",
+  "noticeCategory": "공지사항"
+}

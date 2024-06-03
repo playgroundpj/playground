@@ -1,0 +1,13 @@
+{
+  "status": 200,
+  "message": "수정 성공",
+  "data": {
+    "noticeCode": 36,
+    "memberCode": 1,
+    "noticeTitle": "새로 등록2",
+    "noticeContent": "새로등록2",
+    "createDate": "2024-06-03",
+    "modifyedDate": "2024-06-03",
+    "noticeCategory": "공지사항"
+  }
+}

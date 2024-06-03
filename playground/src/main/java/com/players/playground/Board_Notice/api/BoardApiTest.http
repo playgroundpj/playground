@@ -1,0 +1,26 @@
+### PUT insert notice
+POST localhost:8080/api/v1/board/notice
+Content-Type:application/json
+Accept: */*
+
+{
+  "memberCode":"1",
+  "noticeTitle":"새로 등록2",
+  "noticeContent":"새로등록2",
+  "createDate":"2024-06-03",
+  "modifyedDate":"2024-06-03",
+  "noticeCategory":"공지사항",
+  "memberNickname":"null"
+}
+
+### PUT update notice
+PUT localhost:8080/api/v1/board/notice
+Content-Type: application/json
+Accept:*/*
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxNzQxNzExMX0._v8NQ-0NliKaFj7HzUu_8hZiXWwdsS8YnFR9gVxFzyCr4Oyh9QYBDl4iXt4m6avu7tHHUWLrSgGxT3mf-WpO_A
+
+{
+  "noticeCode":"36",
+  "noticeTitle":"새로 등록2",
+  "noticeContent":"새로등록2"
+}

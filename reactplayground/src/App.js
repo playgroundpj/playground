@@ -21,11 +21,7 @@ import SearchGame from './pages/boardgame/SearchGame';
 import SearchMenu from './pages/menu/SearchMenu';
 import RegisterGame from './pages/boardgame/RegisterGame';
 import BoardgameDetail from './pages/boardgame/BoardgameDetail'; 
-import Review from './pages/Board_Review/Review';
-import CreateReview from './pages/Board_Review/CreateReview';
-import MemberDetails from './pages/admin/MemberDetails';
-import MemberModify from './pages/admin/MemberModify';
-import MemberRegister from './pages/admin/MemberRegister';
+
 
 function App() {
   return (
@@ -49,9 +45,6 @@ function App() {
               <Route path="notice/create" element={<CreateNotice/>}/>
               <Route path="notice/:noticeCode" element={<NoticeDetail/>}/>
               <Route path="notice/modify/:noticeCode" element={<NoticeModify/>}/>
-
-              <Route path="review" element={<Review/>}/>
-              <Route path="review/create" element={<CreateReview/>}/>
             </Route>
 
             <Route path="boardgame" element={<Boardgame />} />

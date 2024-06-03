@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { createNoticeAPI } from '../../apis/NoticeAPICalls';
+import { createNoticeAPI, callNoticeAPI } from '../../apis/NoticeAPICalls';
 import { NavLink } from 'react-router-dom';
 import { ButtonGroup, Button } from 'react-bootstrap';
 import Swal from "sweetalert2";
@@ -13,7 +13,7 @@ function CreateNotice() {
     const [category, setCategory] = useState('공지사항');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [files, setFiles] = useState([]);
+
 
     const handleCategoryChange = (category) => {
         setCategory(category);
@@ -27,7 +27,7 @@ function CreateNotice() {
         setContent(e.target.value);
     };
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
         if (!title.trim() || !content.trim()) {
             Swal.fire({
                 icon: 'warning',
@@ -48,7 +48,8 @@ function CreateNotice() {
             modifyedDate: new Date().toISOString()
         };
 
-        dispatch(createNoticeAPI(noticeData));
+        await dispatch(createNoticeAPI(noticeData))
+        await dispatch(callNoticeAPI({ currentPage: 1, category }));
         navigate('/board/notice');
     };
 
