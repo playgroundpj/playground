@@ -230,8 +230,8 @@ create table if not exists `tbl_Store` (
 	`store_code`	int auto_increment	COMMENT '매장코드',
 	`store_name`	VARCHAR(255)	NOT NULL	COMMENT '매장명',
 	`store_location`	VARCHAR(255)	NOT NULL	COMMENT '매장위치',
-	`open_time`	DATETIME	NOT NULL	COMMENT '영업시작시간',
-	`close_time`	DATETIME	NOT NULL	COMMENT '영업마감시간',
+	`open_time`	VARCHAR(255)	NOT NULL	COMMENT '영업시작시간',
+	`close_time`	VARCHAR(255)	NOT NULL	COMMENT '영업마감시간',
 	`closed_day`	VARCHAR(255)	NOT NULL	DEFAULT '연중무휴'	COMMENT '휴무일',
     constraint pk_store_code primary key (store_code)
 );
