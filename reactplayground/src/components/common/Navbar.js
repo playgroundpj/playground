@@ -1,10 +1,22 @@
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { decodeJwt } from '../../utils/tokenUtils';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 
 function Navbars() {
+
+    // board dropdown
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const handleMouseEnter = () => {
+        setShowDropdown(true);
+    };
+
+    const handleMouseLeave = () => {
+        setShowDropdown(false);
+    };
     
     const activeStyle = {
         backgroundColor: '#B4BCA3',
@@ -35,7 +47,24 @@ function Navbars() {
                                 <li><NavLink to='/boardgame' style={({isActive}) => isActive? activeStyle : undefined}>BoardGames</NavLink></li>
                                 <li><NavLink to='/Menu' style={({isActive}) => isActive? activeStyle : undefined}>Menu</NavLink></li>
                                 <li><NavLink to='/shop' style={({isActive}) => isActive? activeStyle : undefined}>Shops</NavLink></li>
-                                <li><NavLink to='/Board' style={({isActive}) => isActive? activeStyle : undefined}>Board</NavLink></li>						
+                                <li><Dropdown 
+                                        as={Nav.Item}
+                                        onMouseEnter={handleMouseEnter}
+                                        onMouseLeave={handleMouseLeave}
+                                        show={showDropdown}
+                                    >
+                                    <Dropdown.Toggle as={Nav.Link} id="dropdown-custom-components">
+                                        Board
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item as={NavLink} to='/board/notice' activeClassName="active" style={({ isActive }) => isActive ? activeStyle : undefined}>
+                                            공지게시판
+                                        </Dropdown.Item>
+                                        <Dropdown.Item as={NavLink} to='/board/review' activeClassName="active" style={({ isActive }) => isActive ? activeStyle : undefined}>
+                                            고객리뷰게시판
+                                        </Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown></li>
                                 { decoded ==="ROLE_ADMIN" && <li><NavLink to="/product-management" style={({isActive}) => isActive? activeStyle : undefined}>Product</NavLink></li>}
                             </Nav>
                         </ul>

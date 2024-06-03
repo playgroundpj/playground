@@ -1,6 +1,12 @@
 server:
   port: 8080
-
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 
 spring:
   # DB config
@@ -50,13 +56,13 @@ image:
 #  add-resource-locations: file:///springboot-app/productimgs/
   add-resource-handler: /productimgs/**
   ## ProductService 참고
-  #  image-dir: src/main/resources/static/productimgs
+#    image-dir: src/main/resources/static/productimgs
   # Docker(local) 배포 기준
   #  image-dir: /springboot-app/productimgs
   #  image-url: http://localhost:8080/productimgs/
   # Docker(AWS) 배포 기준
-#  image-dir: /springboot-app/productimgs
-#  image-url: http://jaehong0831.store:8080/productimgs/
+  image-dir: /springboot-app/productimgs
+  image-url: http://jaehong0831.store:8080/productimgs/
 
 
 # Logging Level
@@ -65,3 +71,5 @@ logging:
     root: info
   file:
     path: /logs
+
+

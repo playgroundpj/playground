@@ -3,16 +3,14 @@ package com.players.playground.member.controller;
 import com.players.playground.common.ResponseDTO;
 import com.players.playground.member.dto.MemberDTO;
 import com.players.playground.member.service.AuthService;
+import com.players.playground.member.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /* 설명. 알아둬야 하는 개념들: @RestController, @ResponseBody, ResponseEntity, CORS */
 /*
@@ -29,12 +27,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     private final AuthService authService;
+    private final MemberService memberService;
 
     private static final Logger log = LoggerFactory.getLogger(AuthService.class);
 
     @Autowired
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, MemberService memberService) {
         this.authService = authService;
+        this.memberService = memberService;
     }
 
     /* 설명.
@@ -74,5 +74,31 @@ public class AuthController {
                 .ok()
                 .body(new ResponseDTO(HttpStatus.CREATED, "회원가입 성공", authService.signup(memberDTO)));
     }
+
+    @Operation(summary = "아이디 중복 체크 요청", description = "아이디가 조회됩니다.", tags = { "AuthController" })
+    @GetMapping("/memberId/{memberId}")
+    public ResponseEntity<ResponseDTO> selectMyMemberInfo(@PathVariable String memberId) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "중복된 아이디입니다.", memberService.selectMyInfo(memberId)));
+    }
+
+
+    @Operation(summary = "닉네임 중복 체크 요청", description = "닉네임이 조회됩니다.", tags = { "AuthController" })
+    @GetMapping("/memberNickname/{memberNickname}")
+    public ResponseEntity<ResponseDTO> selectNickname(@PathVariable String memberNickname) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "중복된 닉네임입니다.", memberService.selectNickname(memberNickname)));
+    }
+
+    @Operation(summary = "아이디 찾기 요청", description = "전화번호로 아이디가 조회됩니다.", tags = { "AuthController" })
+    @GetMapping("/memberPhonenumber/{memberPhonenumber}")
+    public ResponseEntity<ResponseDTO> findIdByPhonenumber(@PathVariable String memberPhonenumber) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "아이디 찾기 성공.", memberService.findIdByPhonenumber(memberPhonenumber)));
+    }
+
+    @Operation(summary = "비밀번호 찾기 요청", description = "아이디와 연락처를 조회하고 비밀번호를 초기화합니다.", tags = { "AuthController" })
+    @PostMapping("/findPassword")
+    public ResponseEntity<ResponseDTO> findPassword(@RequestBody MemberDTO memberDTO) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "비밀번호 초기화 성공.", memberService.findPassword(memberDTO)));
+    }
+
 
 }

@@ -63,7 +63,21 @@ function Header() {
         console.log('[Header] onClickMypageHandler token : ', token);
         
         if (token.exp * 1000 < Date.now()) {
-            setLoginModal(true);
+            window.localStorage.removeItem('accessToken');  
+            //로그아웃
+            dispatch(callLogoutAPI());
+            Swal.fire({
+                icon: "success",
+                title: `유효시간이 만료되어 <b>${nickname}</b>님 로그아웃됩니다.`,
+                showConfirmButton: true,
+                confirmButtonColor: "#97A482",
+                customClass: {
+                    title: 'swal2-title'
+                }
+            }).then(() => {
+                navigate("/login", { replace: true })
+                window.location.reload();
+            });
             return ;
         }
 
@@ -74,14 +88,28 @@ function Header() {
 
         // 토큰이 만료되었을때 다시 로그인
         const token = decodeJwt(window.localStorage.getItem("accessToken"));
-        console.log('[Header] onClickManagepageHandler token : ', token);
+        console.log('[Header] onClickMypageHandler token : ', token);
         
         if (token.exp * 1000 < Date.now()) {
-            setLoginModal(true);
+            window.localStorage.removeItem('accessToken');  
+            //로그아웃
+            dispatch(callLogoutAPI());
+            Swal.fire({
+                icon: "success",
+                title: `유효시간이 만료되어 <b>${nickname}</b>님 로그아웃됩니다.`,
+                showConfirmButton: true,
+                confirmButtonColor: "#97A482",
+                customClass: {
+                    title: 'swal2-title'
+                }
+            }).then(() => {
+                navigate("/login", { replace: true })
+                window.location.reload();
+            });
             return ;
         }
 
-        navigate("/managepage", { replace: true });
+        navigate("/mypage/member", { replace: true });
     }
 
     const onClickLogoutHandler = () => {
@@ -133,15 +161,19 @@ function Header() {
     return (
         <Container className='header'>
             { loginModal ? <LoginModal setLoginModal={ setLoginModal }/> : null}
-            <div className='logo'>
-                <NavLink to='/'>
-                    <span><img src='/images/common/logo-playground.png'/></span>
-                </NavLink>
-            </div>
-            <div className='header-login'>
-                {/* 로그인 상태에 따라 다른 컴포넌트 랜더링 */}
-                { (isLogin == null || isLogin === undefined) ? <BeforeLogin /> : ( (decoded ==="ROLE_ADMIN") ? <AfterLoginAdmin /> : <AfterLoginManagerAndUser />)}
-            </div>
+            { loginModal ? null : (
+                <>
+                <div className='logo'>
+                    <NavLink to='/'>
+                        <span><img src='/images/common/logo-playground.png'/></span>
+                    </NavLink>
+                </div>
+                <div className='header-login'>
+                    {/* 로그인 상태에 따라 다른 컴포넌트 랜더링 */}
+                    { (isLogin == null || isLogin === undefined) ? <BeforeLogin /> : ( (decoded ==="ROLE_ADMIN") ? <AfterLoginAdmin /> : <AfterLoginManagerAndUser />)}
+                </div>
+                </>           
+            )}
         </Container>
     );
 }

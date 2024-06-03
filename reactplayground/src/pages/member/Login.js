@@ -8,6 +8,8 @@ import {
     callLoginAPI
 } from '../../apis/MemberAPICalls'
 import { POST_LOGIN } from '../../modules/MemberModule';
+import Swal from "sweetalert2";
+
 
 function Login() {
         
@@ -26,8 +28,37 @@ function Login() {
     useEffect(() => {
         
         if(loginMember.status === 200){
-            console.log("[Login] Login SUCCESS {}", loginMember);
-            navigate("/", { replace: true });
+            if(loginMember.message !== '아이디 찾기 성공.'){
+                if(loginMember.message !== '비밀번호 초기화 성공.'){
+                    console.log("[Login] Login SUCCESS {}", loginMember);
+                    navigate("/", { replace: true });
+                }
+            }
+        }
+
+        if(loginMember.status === 400){
+            if(loginMember.message === `${form.memberId}를 찾을 수 없습니다.`)
+            {
+                Swal.fire({
+                    icon: "warning",
+                    title: `<b>${form.memberId}</b>은 존재하지 아이디입니다.`,
+                    showConfirmButton: true,
+                    confirmButtonColor: "#97A482",
+                    customClass: {
+                        title: 'swal2-title'
+                    }
+                })
+            }else if(loginMember.message === '잘못된 비밀번호 입니다.'){
+                Swal.fire({
+                    icon: "warning",
+                    title: `잘못된 비밀번호 입니다.`,
+                    showConfirmButton: true,
+                    confirmButtonColor: "#97A482",
+                    customClass: {
+                        title: 'swal2-title'
+                    }
+                })
+            }
         }
 
         /* 회원 가입 후 로그인 페이지로 안내 되었을 때 */
@@ -54,6 +85,14 @@ function Login() {
 
     const onClickRegisterHandler = () => { 
         navigate("/register", { replace: true })
+    }
+
+    const onClickFindIdHandler = () => { 
+        navigate("/findId", { replace: true })
+    }
+
+    const onClickFindPasswordHandler = () => { 
+        navigate("/findPassword", { replace: true })
     }
 
     /* 로그인 버튼 클릭시 디스패처 실행 및 메인 페이지로 이동 */
@@ -102,14 +141,29 @@ function Login() {
                         </tr>
                     </tbody>
                 </table>
-                
-            
-                <span>아직 회원이 아니신가요?</span>
-                <button className='login-registerBtn'
-                    onClick={ onClickRegisterHandler }
-                >
-                    회원가입
-                </button>
+                <ul className='loginBtnUl'>
+                    <li>
+                        <button className='login-sideBtn'
+                            onClick={ onClickFindIdHandler }
+                        >
+                            아이디 찾기
+                        </button>
+                    </li>
+                    <li>
+                        <button className='login-sideBtn'
+                            onClick={ onClickFindPasswordHandler }
+                        >
+                            비밀번호 찾기
+                        </button>
+                    </li>
+                    <li>
+                        <button className='login-sideBtn'
+                            onClick={ onClickRegisterHandler }
+                        >
+                            회원 가입
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     );

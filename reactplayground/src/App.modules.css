@@ -16,6 +16,7 @@
 /* 자주사용하는 변수 생성 */
 :root {
 	--back-color :  #F8F7F4;
+	--back-color2 :  #ecebe8;
     --vintage-green : #f6e7cd;
     --vintage-red : #C45D4A;
     --vintage-green : #97A482;
@@ -24,6 +25,7 @@
     --green-white: #B4BCA3;
     --vintage-wheat : #fffdf8;
     --gray-white: #5454503b;
+	--vintage-blue: #6A7B8C;
     
 	--Gmartket : 'GmarketSansMedium';
 	--NotoSans : 'Noto Sans KR';
@@ -205,7 +207,8 @@ a {
 /* login */
 
 .loginCSS,
-.registerCSS{
+.registerCSS,
+.FindCSS{
 	width: 100%;
 	min-height: 60vh;
 	padding-top: 40px;
@@ -213,17 +216,20 @@ a {
 	text-align: center;
 }
 
-.loginCSS img{
+.loginCSS img,
+.FindCSS img{
     height: 80px;
     margin-bottom: 60px;
 }
 
 
-.loginCSS table{
+.loginCSS table,
+.FindCSS table{
 	margin: 0 auto;
 }
 
-.loginCSS table label{
+.loginCSS table label,
+.FindCSS table label{
 	font-family: var(--Tenada);
 	margin-right: 10px;
 	font-size: 20px;
@@ -268,7 +274,7 @@ a {
 	outline: none;
 	background-color: var(--vintage-wheat);
     border: 0.1px solid var(--green-white);
-	caret-color: white;
+	caret-color: var(--vintage-black);
 }
 
 .loginCSS span{
@@ -277,15 +283,143 @@ a {
     margin-top: 10px;
 }
 
-.login-registerBtn{
+.login-sideBtn{
     border: none;
     background-color: var(--back-color);
-    color: var(--vintage-gray);
+    color: rgba(0, 0, 0, 0.5);
     transition: color 0.4s ease;
 }
 
-.login-registerBtn:hover{
+.login-sideBtn:hover{
     color: var(--vintage-black);
+}
+
+.loginBtnUl{
+	width: 400px;
+	text-align: center;
+	padding: 0;
+	margin: 0 auto;
+	margin-top: 20px;
+	display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-wrap: wrap;    
+    list-style:none;
+
+}
+
+.loginBtnUl li{
+	position: relative;
+	width: calc(100%/3);
+}
+
+.loginBtnUl li:nth-child(2)::before{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 15px;
+	width: 1px;
+	height: 18px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.loginBtnUl li:nth-child(3)::before{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 15px;
+	width: 1px;
+	height: 18px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+/* Find */
+
+.FindCSS h1,
+.FindCSS p{
+	width: 500px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.FindCSS hr{
+	width: 500px;
+	margin: 10px auto 5px;
+}
+
+.FindCSS table{
+	width: 500px;
+	margin-top: 15px;
+}
+
+.FindCSS table td{
+	text-align: left;
+}
+
+.FindCSS table button{
+	width: 100%;
+}
+
+.FindCSS input[type="text"],
+.FindCSS input[type="password"]{
+    width: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
+	height: 40px;
+    font-size: 1em;
+	line-height: 30;
+	background-color: rgba(255, 255, 255, 1);
+	caret-color: var(--back-color);
+	padding-left: 10px;
+	transition: background-color 0.4s ease;
+}
+
+.FindCSS input:focus{
+	outline: none;
+	background-color: var(--vintage-wheat);
+    border: 0.1px solid var(--green-white);
+	caret-color: var(--vintage-black);
+}
+
+.Find-result{
+	margin: 30px auto;
+	width: 500px;
+	padding: 40px 0;
+	background-color: var(--back-color2);
+	border-radius: 10px;
+	font-family: var(--Gmartket);
+}
+
+
+.Find-result b{
+	font-size: 1.2em;
+	display: inline-block;
+	margin: 5px;
+}
+
+.Find-result a{
+	font-size: 2em;
+	display: block;
+	width: 200px;
+	margin: 0 auto;
+	padding-top: 5px;
+	color: var(--back-color) !important;
+	background-color: var(--green-white);
+	font-family: var(--Tenada);
+	border-radius: 10px;
+	transition: color 0.4s ease, background-color 0.4s ease;
+	
+}
+
+.Find-result a:hover{
+	background-color: var(--vintage-green);
+	color: var(--back-color);
+	text-shadow: 1px 1px 3px var(--vintage-black);
+}
+
+.Find-result a:hover{
+	color: var(--back-color)
 }
 
 /* register */
@@ -363,6 +497,7 @@ text-align: center;
 	text-align: left;
 	margin: 0 auto;
 	width: calc(60%);
+	min-width: 700px;
     font-size: 1.1em;
 }
 
@@ -398,6 +533,17 @@ text-align: center;
 	padding-left: 10px;
 }
 
+.formTotal input[type="date"]{
+	width: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
+	height: 30px;
+	line-height: 30;
+	background-color: rgba(255, 255, 255, 0.8);
+	caret-color: var(--back-color);
+	padding-left: 10px;
+}
+
 .formTotal input[type="file"]{
 	margin-top: 5px;
 }
@@ -406,7 +552,7 @@ text-align: center;
 	outline: none;
 	background-color: var(--vintage-wheat);
     border: 0.1px solid var(--green-white);
-	caret-color: white;
+	caret-color: var(--vintage-black);
 	
 }
 
@@ -430,7 +576,7 @@ input[type=file]::file-selector-button {
 	outline: none;
 	background-color: var(--back-color);
 	color: white;
-	caret-color: white;
+	caret-color: var(--vintage-black);
 	
 }
 
@@ -511,6 +657,7 @@ input[type=file]::file-selector-button {
     font-size: 2em;
     font-family: var(--Tenada) !important;
     padding-top: 10px;
+	margin-top: 40px;
     border-radius: 10px;
     transition: color 0.4s ease, background-color 0.4s ease;
 }
@@ -537,7 +684,177 @@ input[type=file]::file-selector-button {
 }
 
 .backBtn:hover{
+	background-color: var(--vintage-blue);
+	color: var(--back-color);
+    text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+.deleteBtn{
+	width: 100%;
+    height: 60px;
+    border: none;
+    color: var(--back-color);
+    background-color: var(--gray-white);
+    font-size: 2em;
+    font-family: var(--Tenada) !important;
+    padding-top: 10px;
+	margin-top: 10px;
+	margin-bottom: 50px;
+    border-radius: 10px;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.deleteBtn:hover{
 	background-color: var(--vintage-red);
 	color: var(--back-color);
     text-shadow: 1px 1px 3px var(--vintage-gray);
 }
+
+.accordion{
+	margin-bottom: 20px;
+	background-color: var(--back-color) !important;
+}
+
+.accordion-header{
+	margin: 0 !important;
+	width: 100% !important;
+	padding: 0;
+}
+
+.accordion-button{
+	width: 100% !important;
+	font-size: 0.6em;
+}
+
+.checkboxBtn{
+	margin-right: 10px;
+	width: 20px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.accordion-button:active{
+	background-color: var(--vintage-green) !important;
+	border: none !important;
+
+}
+
+.accordion-button:focus{
+	background-color: var(--vintage-green);
+	border: none !important;
+
+}
+
+.checkboxBtn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 2px solid #ced4da;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.checkboxBtn:checked::before {
+    background-color: var(--vintage-blue);
+    border-color: var(--vintage-blue);
+}
+
+.checkboxBtn:checked::after {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: white;
+}
+
+.card{
+	background-color: var(--back-color);
+}
+
+.card-header{
+	padding: 0;
+}
+
+.agreeBtn{
+	padding: 0 !important;
+	border: none;
+	height: 100% !important;
+	padding-top: 5px;
+	text-align: left;
+	padding-left: 20px !important;
+}
+
+/* myPage */
+
+.myPageLayoutCSS{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.myPageNavbarCSS {
+	width: 120px;
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	font-family: var(--Gmartket);
+	font-size: 1.2em;
+}
+
+
+.myPageNavbarCSS ul {
+	width: 100%;
+	display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-wrap: wrap;    
+    list-style:none;
+    padding-left:0px;    
+    margin-top: 10px;
+    margin-bottom: 10px;
+	
+}
+
+.myPageNavbarCSS ul li {
+	width: 100%;
+    padding-left: 20px;
+    height: auto;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+	color: var(--vintage-gray);
+	
+}
+
+.myPageNavbarCSS ul li:hover{
+	color: var(--vintage-green);
+}
+
+.myPageMain {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.manageNavbarCSS {
+	width: 120px;
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	font-family: var(--Gmartket);
+	font-size: 1.2em;
+}
+
+.manageList{
+	width: 100% !important;
+	margin: 30px 15px;
+}
+
+
+
