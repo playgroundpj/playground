@@ -1,6 +1,8 @@
 package com.players.playground.member.service;
 
 import com.players.playground.common.ResponseDTO;
+import com.players.playground.exception.DuplicatedMemberEmailException;
+import com.players.playground.exception.DuplicatedMemberIdException;
 import com.players.playground.member.dto.MemberDTO;
 import com.players.playground.member.entity.Member;
 import com.players.playground.member.entity.MemberRole;
@@ -221,4 +223,49 @@ public class MemberService {
     }
 
 
+    public Object selectInfoByCode(String memberCode) {
+        log.info("[MemberService] selectInfoByCode Start =======================");
+
+        Member member = memberRepository.findByMemberCode(Integer.valueOf(memberCode));
+        log.info("[MemberService] {}", member);
+        log.info("[MemberService] selectInfoByCode End =========================");
+
+        return modelMapper.map(member, MemberDTO.class);
+    }
+
+    @Transactional
+    public MemberDTO signup(MemberDTO memberDTO) {
+        log.info("[MemberService] signup() Start.");
+        log.info("[MemberService] memberDTO {}", memberDTO);
+
+
+        /* 설명. 아이디 중복 유효성 검사 */
+        if(memberRepository.findByMemberId(memberDTO.getMemberId()) != null) {
+            log.info("[AuthService] 아이디가 중복됩니다.");
+            throw new DuplicatedMemberIdException("아이디가 중복됩니다.");
+        }
+
+        /* 설명. 우선 Repository로 쿼리를 작성하기 전에 DTO를 Entity로 매핑. */
+        Member registMember = modelMapper.map(memberDTO, Member.class);
+
+        /* 목차. 1. tbl_member 테이블에 회원 INSERT */
+        /* 설명. 비밀번호 암호화 후 insert */
+        registMember.setMemberPassword(passwordEncoder.encode(registMember.getMemberPassword()));
+        Member result1 = memberRepository.save(registMember);
+
+        int maxMemberCode = memberRepository.maxMemberCode();	// 설명. JPQL을 사용해 회원번호 max값 추출
+
+        MemberRole registMemberRole = new MemberRole(maxMemberCode, 2);
+        MemberRole result2 = memberRoleRepository.save(registMemberRole);
+
+        MemberRole registMemberRole2 = new MemberRole(maxMemberCode, 3);
+        MemberRole result3 = memberRoleRepository.save(registMemberRole2);
+
+        log.info("[AuthService] Member Insert Result {}",
+                (result1 != null && result2 != null && result3 != null) ? "회원 가입 성공" : "회원 가입 실패");
+
+        log.info("[AuthService] signup() End.");
+
+        return memberDTO;
+    }
 }
