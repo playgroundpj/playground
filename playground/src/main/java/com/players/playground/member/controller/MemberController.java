@@ -25,6 +25,12 @@ public class MemberController {
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", memberService.selectMyInfo(memberId)));
     }
 
+    @Operation(summary = "회원 조회 요청", description = "회원 한명이 조회됩니다.", tags = { "MemberController" })
+    @GetMapping("/members/memberdetails/{memberCode}")
+    public ResponseEntity<ResponseDTO> selectMemberByCode(@PathVariable String memberCode) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", memberService.selectInfoByCode(memberCode)));
+    }
+
     @Operation(summary = "회원 전체 조회 요청", description = "회원 전체가 조회됩니다.", tags = { "MemberController" })
     @GetMapping("/members/")
     public ResponseEntity<ResponseDTO> selectMyMemberInfo() {

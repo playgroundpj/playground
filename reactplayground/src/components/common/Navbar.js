@@ -66,7 +66,6 @@ function Navbars() {
                                     </Dropdown.Menu>
                                     </Dropdown>
                                 </li>
-                                { decoded ==="ROLE_ADMIN" && <li><NavLink to="/product-management" style={({isActive}) => isActive? activeStyle : undefined}>Product</NavLink></li>}
                             </Nav>
                         </ul>
                 </Navbar.Collapse>

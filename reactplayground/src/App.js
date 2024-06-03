@@ -23,6 +23,8 @@ import RegisterGame from './pages/boardgame/RegisterGame';
 import BoardgameDetail from './pages/boardgame/BoardgameDetail'; 
 import Review from './pages/Board_Review/Review';
 import CreateReview from './pages/Board_Review/CreateReview';
+import MemberDetails from './pages/admin/MemberDetails';
+import MemberModify from './pages/admin/MemberModify';
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
               <Route path="profile" element={ <Profile /> } />
               <Route path="profile/memberUpdate" element={ <MemberUpdate /> } />
               <Route path="member" element={ <MemberManage /> } />
+              <Route path="member/:memberCode" element={ <MemberDetails/>} />
+              <Route path="member/memberModify/:memberCode" element={ <MemberModify/>} />
             </Route>
 
             <Route path="board">

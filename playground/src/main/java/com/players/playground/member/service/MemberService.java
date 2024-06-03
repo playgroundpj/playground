@@ -221,4 +221,13 @@ public class MemberService {
     }
 
 
+    public Object selectInfoByCode(String memberCode) {
+        log.info("[MemberService] selectInfoByCode Start =======================");
+
+        Member member = memberRepository.findByMemberCode(Integer.valueOf(memberCode));
+        log.info("[MemberService] {}", member);
+        log.info("[MemberService] selectInfoByCode End =========================");
+
+        return modelMapper.map(member, MemberDTO.class);
+    }
 }
