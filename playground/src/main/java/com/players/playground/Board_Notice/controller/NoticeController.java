@@ -1,6 +1,7 @@
 package com.players.playground.Board_Notice.controller;
 
 import com.players.playground.Board_Notice.dto.NoticeDTO;
+import com.players.playground.Board_Notice.entity.Notice;
 import com.players.playground.Board_Notice.service.NoticeService;
 import com.players.playground.common.Criteria;
 import com.players.playground.common.ResponseDTO;
@@ -9,14 +10,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 @RestController
 @RequestMapping("/api/v1/board")
@@ -59,5 +59,34 @@ public class NoticeController {
 
         // 응답데이터 생성하여 반환함
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회성공", responseData));
+    }
+
+    // 관리자 로그인 공지게시판 등록
+    @PostMapping("/notice")
+    @PreAuthorize("hasRole('ADMIN')")
+    public Notice createNotice(@RequestBody NoticeDTO noticeDTO) {
+        return noticeService.createNotice(noticeDTO);
+    }
+
+    // 공지게시판 상세조회
+    @GetMapping("/notice/{noticeCode}")
+    public ResponseEntity<ResponseDTO> selectNoticeDetail(@PathVariable("noticeCode") String noticeCode) {
+        log.info("[NoticeController] selectNoticeDetail : noticeCode={}", noticeCode);
+
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", noticeService.selectNoticeDetail(Integer.valueOf(noticeCode))));
+    }
+
+    @PutMapping("/notice/{noticeCode}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<ResponseDTO> updateNotice(@PathVariable("noticeCode") int noticeCode, @RequestBody NoticeDTO noticeDTO) {
+        Notice notice = noticeService.updateNotice(noticeCode, noticeDTO);
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "수정 성공", notice));
+    }
+
+    @DeleteMapping("/notice/{noticeCode}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<ResponseDTO> deleteNotice(@PathVariable("noticeCode") int noticeCode) {
+        noticeService.deleteById(noticeCode);
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "삭제 성공", noticeCode));
     }
 }

@@ -15,7 +15,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,10 +28,14 @@ public class NoticeService {
     private final NoticeRepository noticeRepository;
     private final ModelMapper modelMapper;
 
+    /* 설명. 이미지 파일 저장 경로와 응답용 URL (WebConfig 설정파일 추가하기) */
+
+
     @Autowired
     public NoticeService(NoticeRepository noticeRepository, ModelMapper modelMapper) {
         this.noticeRepository = noticeRepository;
         this.modelMapper = modelMapper;
+
     }
 
     // 게시글 목록 조회 (페이징처리)
@@ -70,9 +76,48 @@ public class NoticeService {
         }
 
         List<NoticeDTO> noticeList = result.getContent().stream()
-                .map(notice -> modelMapper.map(notice, NoticeDTO.class))
+                .map(notice -> {
+                    NoticeDTO noticeDTO = modelMapper.map(notice, NoticeDTO.class);
+                    noticeDTO.setMemberNickname(notice.getMember().getMemberNickname());
+                    return noticeDTO;
+                })
                 .collect(Collectors.toList());
         log.info("[NoticeService][getPagedNotices] Retrieved {} notices", noticeList.size());
         return noticeList;
+    }
+
+    // 게시글 등록 (관리자 로그인)
+    public Notice createNotice(NoticeDTO noticeDTO) {
+        Notice notice = modelMapper.map(noticeDTO, Notice.class);
+        return noticeRepository.save(notice);
+    }
+
+    // 게시글 상세페이지
+    public NoticeDTO selectNoticeDetail(int noticeCode) {
+        log.info("[NoticeService][selectNoticeDetail] Start with noticeCode={}", noticeCode);
+
+        Notice notice = noticeRepository.findById(noticeCode).orElseThrow(() -> new RuntimeException("Notice not found"));
+        NoticeDTO noticeDTO = modelMapper.map(notice, NoticeDTO.class);
+        noticeDTO.setMemberNickname(notice.getMember().getMemberNickname());
+        return noticeDTO;
+    }
+
+    // 게시글 수정
+    public Notice updateNotice(int noticeCode, NoticeDTO noticeDTO) {
+        Notice notice = noticeRepository.findById(noticeCode).orElseThrow(() -> new RuntimeException("Notice not found"));
+        notice.setNoticeTitle(noticeDTO.getNoticeTitle());
+        notice.setNoticeContent(noticeDTO.getNoticeContent());
+        notice.setCreateDate(LocalDate.now()); // 작성일자를 수정일자로 변경
+        notice.setModifyedDate(LocalDate.now());
+        return noticeRepository.save(notice);
+    }
+
+    // 게시글 삭제
+    public void deleteById(int noticeCode) {
+        noticeRepository.deleteById(noticeCode);
+    }
+
+    public boolean existsById(int noticeCode) {
+        return noticeRepository.existsById(noticeCode);
     }
 }

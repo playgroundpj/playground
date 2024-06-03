@@ -1,5 +1,6 @@
 package com.players.playground.Board_Notice.entity;
 
+import com.players.playground.member.entity.Member;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -13,6 +14,10 @@ public class Notice {
     @Column(name = "notice_code")
     private int noticeCode;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_code", insertable = false, updatable = false)
+    private Member member;
+
     @Column(name = "member_code")
     private int memberCode;
 
@@ -23,7 +28,7 @@ public class Notice {
     private String noticeContent;
 
 
-    @Column(name = "create_date")
+    @Column(name = "create_date", nullable = false)
     private LocalDate createDate;
 
     @Column(name = "modifyed_date")
@@ -33,12 +38,23 @@ public class Notice {
     @Column(name = "notice_category")
     private String noticeCategory;
 
+    @PrePersist
+    protected  void  onCreate(){
+        createDate = LocalDate.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        modifyedDate = LocalDate.now();
+    }
+
     public Notice() {
     }
 
 
-    public Notice(int noticeCode, int memberCode, String noticeTitle, String noticeContent, LocalDate createDate, LocalDate modifyedDate, String noticeCategory) {
+    public Notice(int noticeCode, Member member, int memberCode, String noticeTitle, String noticeContent, LocalDate createDate, LocalDate modifyedDate, String noticeCategory) {
         this.noticeCode = noticeCode;
+        this.member = member;
         this.memberCode = memberCode;
         this.noticeTitle = noticeTitle;
         this.noticeContent = noticeContent;
@@ -53,6 +69,14 @@ public class Notice {
 
     public void setNoticeCode(int noticeCode) {
         this.noticeCode = noticeCode;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
     }
 
     public int getMemberCode() {
@@ -79,21 +103,17 @@ public class Notice {
         this.noticeContent = noticeContent;
     }
 
-
     public LocalDate getCreateDate() {
         return createDate;
     }
-
 
     public void setCreateDate(LocalDate createDate) {
         this.createDate = createDate;
     }
 
-
     public LocalDate getModifyedDate() {
         return modifyedDate;
     }
-
 
     public void setModifyedDate(LocalDate modifyedDate) {
         this.modifyedDate = modifyedDate;
@@ -111,6 +131,7 @@ public class Notice {
     public String toString() {
         return "Notice{" +
                 "noticeCode=" + noticeCode +
+                ", member=" + member +
                 ", memberCode=" + memberCode +
                 ", noticeTitle='" + noticeTitle + '\'' +
                 ", noticeContent='" + noticeContent + '\'' +
