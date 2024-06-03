@@ -4,13 +4,15 @@ import loadingReducer from './loadingModule';
 import checkReducer from './CheckModule';
 import noticeReducer from './NoticeModule';
 import reviewReducer from './ReviewModule';
+import shopReducer from './ShopModule';
 
 const rootReducer = combineReducers({
     memberReducer,
     loading: loadingReducer,
     checkReducer,
     noticeReducer,
-    reviewReducer
+    reviewReducer,
+    shopReducer
 });
 
 export default rootReducer;

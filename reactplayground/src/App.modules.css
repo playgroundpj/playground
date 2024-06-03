@@ -910,3 +910,82 @@ input[type=file]::file-selector-button {
     text-shadow: 1px 1px 3px var(--vintage-gray);
 }
 
+
+/* 목록 CSS */
+
+.ListBox {
+	width: 100%;
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: stretch;
+}
+
+.ListBox div{
+	margin: 0px 8px 16px 8px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.ListBox a{
+	width: calc(100%/5 - 20px);
+	min-width: 250px;
+	height: 200px;
+	display: flex;
+	margin-bottom: 15px;
+
+}
+
+.TotalItem {
+
+	width: calc(100%/2 - 20px);
+	flex-basis: 250px;
+	height: 100%;
+	background-color: var(--back-color2);
+	cursor: pointer;
+	color: var(--vintage-gray);
+	padding: 20px 10px ;
+	text-align: center;
+	flex-grow: 1;
+	word-break: keep-all;
+	font-family: var(--NotoSans);
+	border-radius: 10px;
+	transition: color 0.2s ease, text-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.TotalItem:hover {
+	background-color: var(--green-white);
+	color: var(--back-color);
+	text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+.TotalItem table{
+	margin: 0 auto;
+}
+
+.TotalItem table tbody tr td:nth-child(1){
+	text-align: right;
+}
+
+.TotalItem table tbody tr td:nth-child(2){
+	text-align: left;
+	padding-left: 10px;
+}
+
+.TotalItem span{
+	display: inline-block;
+	margin-right: 10px;
+}
+
+
+.ItemName{
+	font-family: var(--Tenada);
+	font-size: 1.4em;
+}
+
+.ItemName h3{
+	width: 100%;
+	text-align: center;
+	font-size: 1.1em;
+}

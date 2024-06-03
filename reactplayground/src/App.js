@@ -26,6 +26,7 @@ import CreateReview from './pages/Board_Review/CreateReview';
 import MemberDetails from './pages/admin/MemberDetails';
 import MemberModify from './pages/admin/MemberModify';
 import MemberRegister from './pages/admin/MemberRegister';
+import Shop from './pages/shop/Shop';
 
 function App() {
   return (
@@ -62,6 +63,12 @@ function App() {
             <Route path="menu/register" element={<RegisterMenu />} />
             <Route path="menu/search" element={<SearchMenu />} />
             <Route path="register-game" element={<RegisterGame />} />
+
+
+            <Route path="shop" element={ <Shop/>}>
+            <Route index element={<Shop/>}/>
+
+            </Route>
 
           </Route>
 
