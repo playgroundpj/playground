@@ -1,14 +1,13 @@
 package com.players.playground.product.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tbl_menu")
 public class Menu {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long menuCode;
     private String menuName;
     private String category;

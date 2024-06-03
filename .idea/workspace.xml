@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69260c59-63ae-4b7e-b61d-b82ee8c57c5a" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/product/controller/BoardGameController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/product/controller/MenuController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/product/controller/UserController.java" afterDir="false" />
@@ -31,6 +32,12 @@
       <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/main/java/com/players/playground/config/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reactplayground/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/src/App.js" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/feature_request.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/main/resources/logback-spring.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactplayground/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactplayground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/package.json" afterDir="false" />
+>>>>>>> menu/register
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +99,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build playground.executor": "Run",
@@ -126,6 +134,42 @@
     ]
   }
 }]]></component>
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build playground.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PlaygroundApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PlaygroundApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.playground [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #4.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | Get all board games.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | POST user login.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PlaygroundApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PlaygroundApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;menu/register&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Documents/playground/playground/src/main/java/com/players/playground&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+>>>>>>> menu/register
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\Documents\playground\playground\src\main\java\com\players\playground" />
@@ -245,7 +289,11 @@
       <workItem from="1717070240318" duration="10727000" />
       <workItem from="1717187335929" duration="1806000" />
       <workItem from="1717247649195" duration="16840000" />
+<<<<<<< HEAD
       <workItem from="1717374979399" duration="2528000" />
+=======
+      <workItem from="1717374979399" duration="2249000" />
+>>>>>>> menu/register
     </task>
     <servers />
   </component>
