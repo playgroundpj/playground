@@ -72,12 +72,11 @@ public class SecurityConfig {
 				 * */
 				auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();	// CORS Preflight 요청 허용
 				auth.requestMatchers("/").authenticated();  					// 기본 경로는 인증 필요
-				auth.requestMatchers("/auth/**", "/api/v1/boardgames/**", "/api/v1/menu/**","/api/v1/shop/**","/api/v1/board/**").permitAll();	// 특정 경로는 무조건 허용
+				auth.requestMatchers("/auth/**", "/api/v1/boardgames/**", "/api/v1/menu/**","/api/v1/shop/**","/api/v1/board/**","/api/v1/menus/**").permitAll();	// 특정 경로는 무조건 허용
 				auth.requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll();	// Swagger API 문서 허용
 				auth.requestMatchers("/api/**").hasAnyRole("USER", "ADMIN","MANAGER");							// API 경로는 USER 또는 ADMIN 역할을 가진 사용자만 접근 가능
 				/* 설명. 아래부터는 프로젝트 초기 Security 기능을 약화시켜 개발을 진행하게 끔 해주는 내용들이다. */
 //				auth.anyRequest().permitAll();	// 어떤 요청이든 허용 -> Security를 활용한 로그인이 모두 완성되지 않았을 때 사용할 것
-				auth.anyRequest().permitAll();	// 어떤 요청이든 허용 -> Security를 활용한 로그인이 모두 완성되지 않았을 때 사용할 것
 			})
 			.sessionManagement(session ->  // 세션 방식을 사용하지 않음
 				session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
