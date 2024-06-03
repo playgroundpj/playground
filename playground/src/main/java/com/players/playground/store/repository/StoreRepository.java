@@ -9,4 +9,6 @@ import java.util.Optional;
 @Repository
 public interface StoreRepository extends JpaRepository<Store, Integer> {
     Optional<Store> findByStoreName(String storeName);
+
+    Store findByStoreCode(Integer integer);
 }

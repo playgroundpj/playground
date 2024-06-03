@@ -100,11 +100,7 @@ public class AuthController {
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "비밀번호 초기화 성공.", memberService.findPassword(memberDTO)));
     }
 
-    @Operation(summary = "전체 매장 조회", description = "전체 매장을 조회합니다.", tags = { "AuthController" })
-    @GetMapping("/shop")
-    public ResponseEntity<ResponseDTO> findShopAll() {
-        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "전체 매장 조회 성공.", authService.findShopAll()));
-    }
+
 
 
 

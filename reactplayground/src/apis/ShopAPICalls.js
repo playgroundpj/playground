@@ -1,4 +1,4 @@
-import { GET_SHOP_LIST } from "../modules/ShopModule";
+import { GET_SHOP, GET_SHOP_LIST } from "../modules/ShopModule";
 
 export const callGetShopListAPI = () => {
     const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/auth/shop`;
@@ -27,3 +27,27 @@ export const callGetShopListAPI = () => {
 
     }
 }
+
+
+export const callGetShopAPI = ({storeCode}) => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/auth/shop/${storeCode}`;
+
+    return async (dispatch, getState) => {
+
+        const result = await fetch(requestURL, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "*/*"
+            },
+            })
+            .then(response => response.json());
+            
+            console.log('[ShopAPICalls] callGetShopAPI RESULT : ', result);
+
+            dispatch({ type: GET_SHOP,  payload: result });
+            
+    
+    };
+}
+

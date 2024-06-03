@@ -27,6 +27,7 @@ import MemberDetails from './pages/admin/MemberDetails';
 import MemberModify from './pages/admin/MemberModify';
 import MemberRegister from './pages/admin/MemberRegister';
 import Shop from './pages/shop/Shop';
+import ShopDetail from './pages/shop/ShopDetail';
 
 function App() {
   return (
@@ -65,10 +66,8 @@ function App() {
             <Route path="register-game" element={<RegisterGame />} />
 
 
-            <Route path="shop" element={ <Shop/>}>
-            <Route index element={<Shop/>}/>
-
-            </Route>
+            <Route path="shop" element={ <Shop/>} />
+            <Route path="shop/shopDetails/:shopCode" element={<ShopDetail/>}/>
 
           </Route>
 
