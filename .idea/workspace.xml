@@ -7,6 +7,8 @@
 
     <list default="true" id="5dd0a353-5229-428c-be83-c1e2f8a103a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/playground/sql/playground_ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/playground/sql/playground_ddl.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playground/sql/playground_dml.sql" beforeDir="false" afterPath="$PROJECT_DIR$/playground/sql/playground_dml.sql" afterDir="false" />
 
@@ -44,6 +46,7 @@
       <change beforePath="$PROJECT_DIR$/reactplayground/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reactplayground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/reactplayground/package.json" afterDir="false" />
 
+>>>>>>> 975c952b0f229f2cdb960e6535105d48803beff3
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

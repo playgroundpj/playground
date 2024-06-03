@@ -3,7 +3,9 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
       <module name="playground.playground.main" target="17" />
+      <module name="playground.playground.main~1" target="17" />
       <module name="playground.playground.test" target="17" />
+      <module name="playground.playground.test~1" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
