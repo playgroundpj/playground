@@ -58,7 +58,6 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
 		http
-<<<<<<< HEAD
 			.csrf(csrf -> csrf.disable())	// CSRF 보호 비활성화
 			.exceptionHandling(exception -> {	//예외 처리
 				exception.authenticationEntryPoint(jwtAuthenticationEntryPoint);	// 인증되지 않은 접근 시 401(Unauthorized)를 반환
@@ -83,8 +82,7 @@ public class SecurityConfig {
 			.sessionManagement(session ->  // 세션 방식을 사용하지 않음
 				session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 			.cors(cors -> {})	// 기본 CORS 설정 사용
-			.addFilterBefore(new JwtFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class);  // 우리가 직접 작성한 커스텀 필터인 JwtFilter를 필터 체인에 추가
-=======
+			.addFilterBefore(new JwtFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class) // 우리가 직접 작성한 커스텀 필터인 JwtFilter를 필터 체인에 추가
 				.csrf(csrf -> csrf.disable())    // CSRF 보호 비활성화
 				.exceptionHandling(exception -> {    //예외 처리
 					exception.authenticationEntryPoint(jwtAuthenticationEntryPoint);    // 인증되지 않은 접근 시 401(Unauthorized)를 반환
@@ -118,7 +116,6 @@ public class SecurityConfig {
 						session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.cors(cors -> {})    // 기본 CORS 설정 사용
 				.addFilterBefore(new JwtFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class);  // 우리가 직접 작성한 커스텀 필터인 JwtFilter를 필터 체인에 추가
->>>>>>> boardgames/find
 
 		return http.build();
 	}
