@@ -54,8 +54,13 @@ function Menu() {
         navigate('/menu/register');
     };
 
-    const handleOrderClick = (menu_code) => {
-        axios.post('http://localhost:8080/api/v1/orders', { menu_code })
+    const handleEditClick = () => {
+        console.log('Edit button clicked'); // 디버깅용 콘솔 로그
+        navigate('/menu/edit');
+    };
+
+    const handleOrderClick = (menuCode) => {
+        axios.post('http://localhost:8080/api/v1/orders', { menu_code: menuCode })
             .then(response => {
                 alert('주문이 성공적으로 완료되었습니다!');
             })
@@ -77,6 +82,7 @@ function Menu() {
                 />
                 <button onClick={handleSearchClick}>메뉴 검색</button>
                 {isAdmin && <button onClick={handleRegisterClick}>메뉴 등록</button>}
+                {isAdmin && <button onClick={handleEditClick}>메뉴 수정</button>}
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {menuItems.map(item => (

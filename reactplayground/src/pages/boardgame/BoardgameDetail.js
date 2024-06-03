@@ -1,37 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { callGetBoardGameAPI } from '../../apis/BoardGameAPICalls';
 
-function BoardgameDetail() {
+function BoardGameDetail() {
+    const dispatch = useDispatch();
     const { id } = useParams();
-    const [boardgame, setBoardgame] = useState(null);
+    const boardGame = useSelector(state => state.boardGameReducer.boardGame);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/v1/boardgames/${id}`)
-        .then(response => {
-            setBoardgame(response.data);
-        })
-        .catch(error => {
-            console.error("보드게임 정보를 가져오는 중 오류가 발생했습니다!", error);
-        });
-    }, [id]);
+        dispatch(callGetBoardGameAPI(id));
+    }, [dispatch, id]);
 
-    if (!boardgame) {
-        return <div>로딩 중...</div>;
+    if (!boardGame) {
+        return <div>Loading...</div>;
     }
+
+    const handleImageError = (e, gameCode) => {
+        const newSrc = e.target.src.endsWith('.png') 
+            ? `http://localhost:8080/api/v1/boardgames/images/${gameCode}.jpg` 
+            : `http://localhost:8080/api/v1/boardgames/images/${gameCode}.png`;
+        e.target.src = newSrc;
+    };
 
     return (
         <div>
-        <h2>{boardgame.boardgameName}</h2>
-        <p>{boardgame.description}</p>
-        <p>난이도: {boardgame.difficulty}</p>
-        <p>출시일: {boardgame.releaseDate}</p>
-        <p>최소 인원: {boardgame.minPlayer}</p>
-        <p>최대 인원: {boardgame.maxPlayer}</p>
-        <p>플레이 시간: {boardgame.playtime}분</p>
-        <p>룰: {boardgame.boardgameRule}</p>
+            <img 
+                src={`http://localhost:8080/api/v1/boardgames/images/${boardGame.boardgameCode}.png`} 
+                alt={boardGame.boardgameName} 
+                style={{ width: '300px' }} 
+                onError={(e) => handleImageError(e, boardGame.boardgameCode)}
+            />
+            <h2>{boardGame.boardgameName}</h2>
+            <p>{boardGame.description}</p>
+            <p>난이도: {boardGame.difficulty}</p>
+            <p>출시일: {boardGame.releaseDate}</p>
+            <p>최소 인원: {boardGame.minPlayer}</p>
+            <p>최대 인원: {boardGame.maxPlayer}</p>
+            <p>플레이 시간: {boardGame.playtime}분</p>
+            <p>룰: {boardGame.boardgameRule}</p>
         </div>
     );
-    }
+}
 
-export default BoardgameDetail;
+export default BoardGameDetail;

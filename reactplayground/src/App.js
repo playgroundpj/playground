@@ -15,14 +15,15 @@ import CreateNotice from './pages/Board_Notice/CreateNotice';
 import NoticeDetail from './pages/Board_Notice/NoticeDetail';
 import NoticeModify from './pages/Board_Notice/NoticeModify';
 import RegisterMenu from './pages/menu/RegisterMenu';
-import Boardgame from './pages/boardgame/BoardGame';
 import Menu from './pages/menu/Menu';
-import SearchGame from './pages/boardgame/SearchGame';
 import SearchMenu from './pages/menu/SearchMenu';
-import RegisterGame from './pages/boardgame/RegisterGame';
-import BoardgameDetail from './pages/boardgame/BoardgameDetail'; 
 import Review from './pages/Board_Review/Review';
 import CreateReview from './pages/Board_Review/CreateReview';
+import BoardGameList from './pages/boardgame/BoardGameList';
+import BoardGameForm from './pages/boardgame/BoardGameForm';
+import BoardGameDetail from './pages/boardgame/BoardGameDetail';
+
+
 
 function App() {
   return (
@@ -48,14 +49,16 @@ function App() {
               <Route path="review/create" element={<CreateReview/>}/>
             </Route>
 
-            <Route path="boardgame" element={<Boardgame />} />
-            <Route path="boardgame/register" element={<RegisterGame />} /> 
-            <Route path="boardgame/search" element={<SearchGame />} />
-            <Route path="boardgame/:id" element={<BoardgameDetail />} /> {/* BoardgameDetail 라우트 추가 */}
             <Route path="menu" element={<Menu />} />
             <Route path="menu/register" element={<RegisterMenu />} />
             <Route path="menu/search" element={<SearchMenu />} />
-            <Route path="register-game" element={<RegisterGame />} />
+
+            
+            <Route path="/boardgame" element={<BoardGameList />} />
+            <Route path="/boardgame/add" element={<BoardGameForm />} />
+            <Route path="/boardgame/edit/:id" element={<BoardGameForm />} />
+            <Route path="/boardgame/:id" element={<BoardGameDetail />} />
+      
 
           </Route>
 

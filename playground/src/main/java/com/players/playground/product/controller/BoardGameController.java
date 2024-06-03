@@ -3,9 +3,15 @@ package com.players.playground.product.controller;
 import com.players.playground.product.entity.BoardGame;
 import com.players.playground.product.service.BoardGameService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
@@ -38,5 +44,23 @@ public class BoardGameController {
     public ResponseEntity<BoardGame> createBoardGame(@RequestBody BoardGame boardGame) {
         BoardGame savedBoardGame = boardGameService.saveBoardGame(boardGame);
         return ResponseEntity.ok(savedBoardGame);
+    }
+
+    @GetMapping("/images/{filename:.+}")
+    public ResponseEntity<Resource> getImage(@PathVariable String filename) {
+        try {
+            Path imagePath = Paths.get("src/main/resources/static/boardgameimgs").resolve(filename).normalize();
+            Resource resource = new UrlResource(imagePath.toUri());
+
+            if (resource.exists() && resource.isReadable()) {
+                return ResponseEntity.ok()
+                        .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+                        .body(resource);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (MalformedURLException ex) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

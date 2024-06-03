@@ -19,7 +19,12 @@ public class WebConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(ADD_RESOURCE_HANDLER)
                 .addResourceLocations(ADD_RESOURCE_LOCATION);
+
+        // 명시적으로 /api/v1/boardgames/images/** 경로 추가
+        registry.addResourceHandler("/api/v1/boardgames/images/**")
+                .addResourceLocations("classpath:/static/boardgameimgs/");
     }
+
     // 추가: CORS 설정
     @Override
     public void addCorsMappings(CorsRegistry registry) {

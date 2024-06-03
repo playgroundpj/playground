@@ -1,12 +1,8 @@
 package com.players.playground.product.service;
 
 import com.players.playground.product.entity.BoardGame;
-import com.players.playground.product.entity.BoardGameImage;
-import com.players.playground.product.repository.BoardGameImageRepository;
 import com.players.playground.product.repository.BoardGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,9 +11,6 @@ import java.util.List;
 public class BoardGameService {
     @Autowired
     private BoardGameRepository boardGameRepository;
-
-    @Autowired
-    private BoardGameImageRepository boardGameImageRepository;
 
     public List<BoardGame> getAllBoardGames() {
         return boardGameRepository.findAll();
@@ -51,17 +44,5 @@ public class BoardGameService {
 
     public void deleteBoardGame(Long id) {
         boardGameRepository.deleteById(id);
-    }
-
-    public Resource getBoardGameImage(Long boardgameCode) {
-        try {
-            BoardGameImage boardGameImage = boardGameImageRepository.findByBoardgameCode(boardgameCode).orElse(null);
-            if (boardGameImage != null) {
-                return new ClassPathResource(boardGameImage.getImageUrl());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }

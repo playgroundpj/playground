@@ -72,7 +72,7 @@ public class SecurityConfig {
 					 *  사전에 요청이 안전한지 확인하기 위함(유효한지 서버에 미리 파악할 수 있도록 보내는 수단이다.)
 					 * */
 					auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();	// CORS Preflight 요청 허용
-					auth.requestMatchers("/").authenticated();  					// 기본 경로는 인증 필요
+					auth.requestMatchers("/").permitAll();  					// 기본 경로는 인증 필요 없음
 					auth.requestMatchers("/auth/**", "/api/v1/boardgames/**", "/api/v1/menu/**","/api/v1/shop/**","/api/v1/board/**","/api/v1/menus/**").permitAll();	// 특정 경로는 무조건 허용
 					auth.requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll();	// Swagger API 문서 허용
 					auth.requestMatchers("/api/**").hasAnyRole("USER", "ADMIN","MANAGER");							// API 경로는 USER 또는 ADMIN 역할을 가진 사용자만 접근 가능

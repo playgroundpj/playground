@@ -1,7 +1,9 @@
+// src/pages/boardgame/SearchBoardGame.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function SearchGame() {
+function SearchBoardGame() {
     const [searchQuery, setSearchQuery] = useState('');
     const [boardgames, setBoardgames] = useState([]);
 
@@ -38,4 +40,4 @@ function SearchGame() {
     );
 }
 
-export default SearchGame;
+export default SearchBoardGame;
