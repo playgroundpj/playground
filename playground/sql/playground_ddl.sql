@@ -104,7 +104,7 @@ create table if not exists `tbl_reply` (
 	`member_code`	INT	NOT NULL	COMMENT '회원코드',
 	`store_code`	INT	NOT NULL	COMMENT '매장코드',
 	`reply_content`	VARCHAR(255)	NULL	COMMENT '내용',
-	`create_date`	VARCHAR(255)	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '작성일',
+	`create_date`	VARCHAR(255)	NOT NULL    COMMENT '작성일',
 	`modifyed_date`	VARCHAR(255)	NULL	COMMENT '수정일',
     constraint pk_reply_code primary key (reply_code)
 
@@ -113,7 +113,7 @@ create table if not exists `tbl_reply` (
 
 drop table if exists tbl_ReviewImage;
 create table if not exists `tbl_ReviewImage` (
-    'reviewImage' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `reviewImage_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`image_url`	VARCHAR(255)	NOT NULL	COMMENT '이미지경로',
 	`review_code`	int not null 	COMMENT '리뷰코드',
 	`member_code`	INT	NOT NULL	COMMENT '회원코드',
@@ -123,7 +123,7 @@ create table if not exists `tbl_ReviewImage` (
 
 drop table if exists tbl_NoticeImage;
 create table if not exists `tbl_NoticeImage` (
-    'noticeImage' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `noticeImage_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`image_url`	VARCHAR(255)	NOT NULL	COMMENT '이미지경로',
 	`notice_code`	int not null 	COMMENT '게시글코드',
 	`member_code`	INT	NOT NULL	COMMENT '회원코드',
@@ -179,7 +179,7 @@ create table if not exists `tbl_Menu` (
 
 drop table if exists tbl_MenuImage;
 create table if not exists `tbl_MenuImage` (
-    'menuImage_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `menuImage_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`image_url`	VARCHAR(255)	NOT NULL	COMMENT '이미지경로',
 	`menu_code`	INT	NOT NULL	COMMENT '메뉴코드',
 	`image_no`	INT	NOT NULL	DEFAULT 1	COMMENT '업로드순서'
@@ -187,7 +187,7 @@ create table if not exists `tbl_MenuImage` (
 
 drop table if exists tbl_BoardGameImage;
 create table if not exists `tbl_BoardGameImage` (
-    'boardGameImage_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `boardGameImage_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`image_url`	VARCHAR(255)	NOT NULL	COMMENT '이미지경로',
 	`boardgame_code`	VARCHAR(255)	NOT NULL	COMMENT '보드게임코드',
 	`image_no`	INT	NOT NULL	DEFAULT 1	COMMENT '업로드순서'
@@ -230,7 +230,7 @@ create table if not exists `tbl_Payment` (
 
 drop table if exists tbl_MemberCoopon;
 create table if not exists `tbl_MemberCoopon` (
-    'memberCoopoon_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `memberCoopoon_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`member_code`	INT	NOT NULL	COMMENT '회원코드',
 	`coopon_code`	INT	NOT NULL	COMMENT '쿠폰코드',
 	`payment_code`	INT	NOT NULL	COMMENT '결제코드',
@@ -250,14 +250,14 @@ create table if not exists `tbl_Store` (
 
 drop table if exists tbl_Manager;
 create table if not exists `tbl_Manager` (
-    'manager_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `manager_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`member_code`	INT	NOT NULL	COMMENT '회원코드',
 	`store_code`	INT	NOT NULL	COMMENT '매장코드'
 );
 
 drop table if exists tbl_StoreMenu;
 create table if not exists `tbl_StoreMenu` (
-    'storeMenu_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `storeMenu_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`store_code`	INT	NOT NULL	COMMENT '매장코드',
 	`menu_code`	INT	NOT NULL	COMMENT '메뉴코드',
 	`menu_count`	INT	NOT NULL	COMMENT '메뉴수량'
@@ -265,7 +265,7 @@ create table if not exists `tbl_StoreMenu` (
 
 drop table if exists tbl_StoreBoardGame;
 create table if not exists `tbl_StoreBoardGame` (
-    'storeBoardGame_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `storeBoardGame_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
     `store_code`	INT	NOT NULL	COMMENT '매장코드',
 	`boardgame_code`	VARCHAR(255)	NOT NULL	COMMENT '보드게임코드',
 	`boardgame_count`	INT	NOT NULL	COMMENT '보드게임수량',
@@ -274,7 +274,7 @@ create table if not exists `tbl_StoreBoardGame` (
 
 drop table if exists tbl_StoreGameTable;
 create table if not exists `tbl_StoreGameTable` (
-    'storeGameTable_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `storeGameTable_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`store_code`	INT	NOT NULL	COMMENT '매장코드',
 	`table_code`	INT	NOT NULL	COMMENT '데이블코드',
 	`table_count`	INT	NOT NULL	COMMENT '테이블수량'
@@ -282,7 +282,7 @@ create table if not exists `tbl_StoreGameTable` (
 
 drop table if exists tbl_OrderMenu;
 create table if not exists `tbl_OrderMenu` (
-    'orderMenu_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `orderMenu_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`store_code`	INT	NOT NULL	COMMENT '매장코드',
 	`table_code`	INT	NOT NULL	COMMENT '데이블코드',
 	`menu_code`	INT	NOT NULL	COMMENT '메뉴코드',
@@ -292,14 +292,14 @@ create table if not exists `tbl_OrderMenu` (
 
 drop table if exists tbl_OrderPayment;
 create table if not exists `tbl_OrderPayment` (
-    'orderPayment_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `orderPayment_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`payment_code`	INT	NOT NULL	COMMENT '결제코드',
 	`order_code`	INT	NOT NULL	COMMENT '주문코드'
 );
 
 drop table if exists tbl_MemberGrade;
 create table if not exists `tbl_MemberGrade` (
-    'memberGrade_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `memberGrade_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`member_code`	INT	NOT NULL	COMMENT '회원코드',
 	`grade_code`	INT	NOT NULL
 );
@@ -320,7 +320,7 @@ create table if not exists `tbl_reservation` (
 
 drop table if exists tbl_StoreReservation;
 create table if not exists `tbl_StoreReservation` (
-    'storeReservation_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `storeReservation_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`reservation_code`	INT	NOT NULL	COMMENT '에약코드',
 	`member_code`	INT	NOT NULL	COMMENT '회원코드',
 	`store_code`	INT	NOT NULL	COMMENT '매장코드',
@@ -329,7 +329,7 @@ create table if not exists `tbl_StoreReservation` (
 
 drop table if exists tbl_reservationPayment;
 create table if not exists `tbl_reservationPayment` (
-    'reservationPayment_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `reservationPayment_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`reservation_code`	INT	NOT NULL	COMMENT '에약코드',
 	`member_code`	INT	NOT NULL	COMMENT '회원코드',
 	`store_code`	INT	NOT NULL	COMMENT '매장코드',
@@ -339,7 +339,7 @@ create table if not exists `tbl_reservationPayment` (
 
 drop table if exists tbl_GamePayment;
 create table if not exists `tbl_GamePayment` (
-    'GamePayment_no' INT AUTO_INCREMENT COMMENT '인조식별자',
+    `GamePayment_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`store_code`	INT	NOT NULL	COMMENT '매장코드',
 	`table_code`	INT	NOT NULL	COMMENT '데이블코드',
 	`payment_code`	INT	NOT NULL	COMMENT '결제코드'

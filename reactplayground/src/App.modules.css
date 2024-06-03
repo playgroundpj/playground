@@ -662,6 +662,8 @@ input[type=file]::file-selector-button {
     transition: color 0.4s ease, background-color 0.4s ease;
 }
 
+
+
 .registerBtn:hover{
 	background-color: var(--vintage-green);
 	color: var(--back-color);
@@ -851,10 +853,60 @@ input[type=file]::file-selector-button {
 	font-size: 1.2em;
 }
 
+.profileDiv{
+	overflow: hidden;
+	position: relative;
+}
+
 .manageList{
 	width: 100% !important;
 	margin: 30px 15px;
 }
 
+.manageList td:nth-child(1),
+.manageList th:nth-child(1){
+	padding-right: 15px;
+	text-align: right;
+}
 
+.manageList tbody tr{
+	transition: background-color 0.4s ease;
+}
+
+.manageList tbody tr:hover{
+	background-color: var(--green-white);
+	cursor: pointer;
+}
+
+.memberDetails .bottomBtn{
+	text-align: center;
+}
+
+.memberDetails .backBtn{
+	margin-top: 20px  !important;
+}
+
+
+
+.mangerRegisterBtn{
+	position: absolute;
+	top: 17px;
+	left: 40px;
+	width: 180px;
+    height: 40px;
+    border: none;
+    color: var(--back-color);
+    background-color: var(--green-white);
+    font-size: 1.5em;
+    font-family: var(--Tenada) !important;
+    padding-top: 7px;
+    border-radius: 10px;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.mangerRegisterBtn:hover{
+	background-color: var(--vintage-green);
+	color: var(--back-color);
+    text-shadow: 1px 1px 3px var(--vintage-gray);
+}
 

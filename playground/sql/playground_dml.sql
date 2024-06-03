@@ -1,8 +1,27 @@
 # 회원 테이블
-INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES ('admin', '관리자', '$2a$10$COvazywgZPXseeKaYhruh.pAYYfcSeGO5aSrHOsLZN0X8joNwW2dW', 'players@gmail.com', '1992-08-31','010-1234-1234', '서울시 서대문구 연희동');
-INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES ('manager01', '매니저', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager01@naver.com', '1992-08-31','010-1234-1234', '서울시 서대문구 연희동');
-INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES ('user01', '유저01', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager01@naver.com', '2004-05-28','010-1234-1234', '서울시 서대문구 연희동');
-
+INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
+        ('admin', '관리자', '$2a$10$COvazywgZPXseeKaYhruh.pAYYfcSeGO5aSrHOsLZN0X8joNwW2dW', 'players@gmail.com', '1992-08-31','010-1234-1234', '서울시 서대문구 연희동');
+INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
+      ('manager01', '매니저', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager01@naver.com', '1992-08-31','010-1234-1234', '서울시 서대문구 연희동');
+INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
+    ('manager02', '매니저02', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager02@naver.com', '1993-05-17','010-2345-2345', '서울시 강남구 역삼동'),
+    ('manager03', '매니저03', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager03@naver.com', '1991-12-22','010-3456-3456', '서울시 마포구 홍대동'),
+    ('manager04', '매니저04', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager04@naver.com', '1990-03-09','010-4567-4567', '서울시 용산구 한남동'),
+    ('manager05', '매니저05', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager05@naver.com', '1989-11-05','010-5678-5678', '서울시 송파구 가락동'),
+    ('manager06', '매니저06', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager06@naver.com', '1994-07-13','010-6789-6789', '서울시 서초구 서초동');
+INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
+      ('user01', '유저01', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user01@naver.com', '2004-05-28','010-1234-1234', '서울시 서대문구 연희동');
+INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
+    ('user02', '유저02', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user02@naver.com', '2002-03-15','010-1234-5678', '서울시 강남구 삼성동'),
+    ('user03', '유저03', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user03@naver.com', '1998-11-23','010-2345-6789', '서울시 마포구 상암동'),
+    ('user04', '유저04', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user04@naver.com', '1995-08-07','010-3456-7890', '서울시 용산구 이태원동'),
+    ('user05', '유저05', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user05@naver.com', '2000-01-29','010-4567-8901', '서울시 송파구 잠실동'),
+    ('user06', '유저06', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user06@naver.com', '2001-05-14','010-5678-9012', '서울시 서초구 반포동'),
+    ('user07', '유저07', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user07@naver.com', '1997-09-22','010-6789-0123', '서울시 성동구 성수동'),
+    ('user08', '유저08', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user08@naver.com', '1999-12-05','010-7890-1234', '서울시 동대문구 회기동'),
+    ('user09', '유저09', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user09@naver.com', '2003-07-19','010-8901-2345', '서울시 강북구 수유동'),
+    ('user10', '유저10', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user10@naver.com', '2004-10-02','010-9012-3456', '서울시 은평구 불광동'),
+    ('user11', '유저11', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user11@naver.com', '2005-04-18','010-0123-4567', '서울시 노원구 상계동');
 
 # 권한 테이블 및 회원별 권한 테이블 데이터 추가
 
@@ -15,7 +34,27 @@ INSERT INTO tbl_member_role (member_code, authority_code) VALUES (1, 2);
 INSERT INTO tbl_member_role (member_code, authority_code) VALUES (1, 3);
 INSERT INTO tbl_member_role (member_code, authority_code) VALUES (2, 2);
 INSERT INTO tbl_member_role (member_code, authority_code) VALUES (2, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (3, 2);
 INSERT INTO tbl_member_role (member_code, authority_code) VALUES (3, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (4, 2);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (4, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (5, 2);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (5, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (6, 2);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (6, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (7, 2);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (7, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (8, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (9, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (10, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (11, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (12, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (13, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (14, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (15, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (16, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (17, 3);
+INSERT INTO tbl_member_role (member_code, authority_code) VALUES (18, 3);
 
 
 # 공지게시판 테이블 데이터 추가
@@ -105,11 +144,9 @@ INSERT INTO tbl_menu (menu_code, menu_name, category, menu_content, menu_price, 
  (20, '머핀', '디저트', '신선하게 구워낸 머핀', 3000, 1);
 
 
-
-
-
 # store 데이터 삽입
-INSERT INTO tbl_store (store_name, store_location, open_time, close_time, closed_day) VALUES
-                                                                                          ('강남점', '강남', '09:00', '22:00', '연중무휴'),
-                                                                                          ('종로점', '종로', '10:00', '21:00', '연중무휴'),
-                                                                                          ('신촌점', '신촌', '08:00', '23:00', '연중무휴');
+INSERT INTO tbl_store (store_name, store_location, open_time, close_time, closed_day)
+VALUES
+('강남점', '강남', '09:00', '22:00', '연중무휴'),
+('종로점', '종로', '10:00', '21:00', '연중무휴'),
+('신촌점', '신촌', '08:00', '23:00', '연중무휴');

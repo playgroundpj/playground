@@ -25,6 +25,12 @@ public class MemberController {
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", memberService.selectMyInfo(memberId)));
     }
 
+    @Operation(summary = "회원 조회 요청", description = "회원 한명이 조회됩니다.", tags = { "MemberController" })
+    @GetMapping("/members/memberdetails/{memberCode}")
+    public ResponseEntity<ResponseDTO> selectMemberByCode(@PathVariable String memberCode) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", memberService.selectInfoByCode(memberCode)));
+    }
+
     @Operation(summary = "회원 전체 조회 요청", description = "회원 전체가 조회됩니다.", tags = { "MemberController" })
     @GetMapping("/members/")
     public ResponseEntity<ResponseDTO> selectMyMemberInfo() {
@@ -42,6 +48,14 @@ public class MemberController {
     public ResponseEntity<ResponseDTO> deleteMember(@ModelAttribute MemberDTO memberDTO) {
         System.out.println("memberDTO : " + memberDTO);
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "회원 삭제 성공",  memberService.deleteMember(memberDTO)));
+    }
+
+    @Operation(summary = "매니저 등록 요청", description = "매니저 등록이 진행됩니다.", tags = {"MemberController"})
+    @PostMapping("/members/memberRegist")
+    public ResponseEntity<ResponseDTO> mangerSignup(@RequestBody MemberDTO memberDTO) {	// 회원 가입 정보를 받아 냄
+        return ResponseEntity
+                .ok()
+                .body(new ResponseDTO(HttpStatus.CREATED, "회원가입 성공", memberService.signup(memberDTO)));
     }
 
 }

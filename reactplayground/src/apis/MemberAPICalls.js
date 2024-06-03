@@ -46,6 +46,36 @@ export const callGetMemberAPI = ({memberId}) => {
     };
 }
 
+export const callGetMemberByCodeAPI = ({memberCode}) => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/members/memberdetails/${memberCode}`;
+
+    return async (dispatch, getState) => {
+
+        dispatch(startLoading());
+        // 클라이언트 fetch mode : no-cors 사용시 application/json 방식으로 요청이 불가능
+        // 서버에서 cors 허용을 해주어야 함
+        try{
+            const result = await fetch(requestURL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*",
+                    "Authorization": "Bearer " + window.localStorage.getItem("accessToken") 
+                }
+            })
+            .then(response => response.json());
+
+            console.log('[MemberAPICalls] callGetMemberByCodeAPI RESULT : ', result);
+
+            dispatch({ type: GET_MEMBER,  payload: result });
+        } catch (error) {
+            console.error('API call failed:', error);
+        } finally {
+        dispatch(stopLoading());
+        }
+    };
+}
+
 export const callGetMemberListAPI = () => {
     const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/members/`;
 
@@ -159,6 +189,39 @@ export const callRegisterAPI = ({form}) => {
     };
 }
 
+export const callManagerRegisterAPI = ({form}) => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/members/memberRegist`;
+
+
+    return async (dispatch, getState) => {
+
+        const result = await fetch(requestURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "*/*",
+                "Authorization": "Bearer " + window.localStorage.getItem("accessToken") 
+            },
+            body: JSON.stringify({
+                memberId: form.memberId,
+                memberPassword: form.memberPassword,          
+                memberNickname: form.memberNickname,          
+                memberBirth: form.memberBirth,          
+                memberPhonenumber: form.memberPhonenumber,          
+                memberAddress: form.memberAddress,          
+                memberEmail: form.memberEmail,          
+            })
+        })
+        .then(response => response.json());
+
+        console.log('[MemberAPICalls] callManagerRegisterAPI RESULT : ', result);        
+        
+        if(result.status === 201){
+            dispatch({ type: POST_REGISTER,  payload: result });
+        }        
+    };
+}
+
 export const callGetNumberAPI = ({memberPhonenumber}) => {
     const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/auth/sendMessage/${memberPhonenumber}`;
 
@@ -170,6 +233,7 @@ export const callGetNumberAPI = ({memberPhonenumber}) => {
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "*/*",
+                    
                 }
             });
 

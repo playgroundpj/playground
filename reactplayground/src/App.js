@@ -35,6 +35,9 @@ function App() {
               <Route path="profile" element={ <Profile /> } />
               <Route path="profile/memberUpdate" element={ <MemberUpdate /> } />
               <Route path="member" element={ <MemberManage /> } />
+              <Route path="member/:memberCode" element={ <MemberDetails/>} />
+              <Route path="member/memberModify/:memberCode" element={ <MemberModify/>} />
+              <Route path="member/memberRegist" element={ <MemberRegister/>} />
             </Route>
 
             <Route path="board">

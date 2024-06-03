@@ -39,7 +39,7 @@ function Navbars() {
                                 <li><NavLink to='/Menu' style={({isActive}) => isActive? activeStyle : undefined}>Menu</NavLink></li>
                                 <li><NavLink to='/shop' style={({isActive}) => isActive? activeStyle : undefined}>Shops</NavLink></li>
                                 <li><NavLink to='/board/notice' style={({isActive}) => isActive? activeStyle : undefined}>Board</NavLink></li>
-                                { decoded ==="ROLE_ADMIN" && <li><NavLink to="/product-management" style={({isActive}) => isActive? activeStyle : undefined}>Product</NavLink></li>}
+
                             </Nav>
                         </ul>
                 </Navbar.Collapse>
