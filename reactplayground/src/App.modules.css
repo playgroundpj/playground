@@ -1013,3 +1013,81 @@ input[type=file]::file-selector-button {
 	background-color: var(--vintage-blue) !important;
 	color: var(--back-color);
 }
+
+
+.categoryDiv{
+	width: 600px;
+	margin: 0 auto;
+	font-family: var(--Tenada);
+	position: relative;
+}
+
+.categoryDiv button:nth-child(2){
+	margin: 0 10px;
+}
+
+.categoryBtn{
+	width: calc(100%/3 - 60px) !important;
+	background-color: var(--gray-white);
+	border: none;
+	border-radius: 5px;
+	color: var(--back-color);
+	transition: background-color 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
+	padding-top: 5px;
+	font-size: 1.1em;
+}
+
+.categoryBtn:hover{
+	background-color: var(--vintage-green);
+	text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+.boardRegisterBtn{
+	margin-left: 10px;
+	
+}
+
+.formTotal table thead tr{
+	height: 50px;
+}
+
+.noticeForm table tbody tr{
+	border-top: 1px solid var(--gray-white);
+}
+
+
+.noticeForm table tbody tr:last-child{
+	border-bottom: 1px solid var(--gray-white);
+}
+
+.boardRegistForm{
+	margin-top: 20px;
+}
+
+.boardRegistForm table tbody tr td{
+	vertical-align: top;
+}
+
+.boardRegistForm table tbody tr td:first-child{
+	text-align: right;
+	padding-right: 30px;
+}
+
+.boardRegistForm table tbody tr:last-child td:first-child{
+	text-align: right;
+	padding-right: 0;
+}
+
+.boardRegistForm textarea{
+	width: 100%;
+	resize: none;
+	height: 150px !important;
+	border: none;
+	border-radius: 5px;
+	
+}
+
+.boardRegistForm textarea:focus{
+	background-color: white;
+	border: 1px solid var(--green-white);
+}

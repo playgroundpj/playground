@@ -68,27 +68,27 @@ function CreateNotice() {
             <h2>게시글등록</h2>
            
             <hr></hr> 
-            <ButtonGroup className='mb-3'>
+            <div className='categoryDiv'>
                 {['공지사항', '이벤트', '자주묻는질문'].map((cat) => (
-                    <Button
+                    <button
                         key={cat}
                         variant={category === cat ? 'primary' : 'outline-primary'}
                         onClick={() => handleCategoryChange(cat)}
+                        className='categoryBtn' 
                     >
                         {cat}
-                    </Button>
+                    </button>
                 ))}
-            </ButtonGroup>
-            <div className='formTotal'>
+            </div>
+            <div className='formTotal boardRegistForm'>
                 <table>
                     <colgroup>
-                        <col style={{width:'15%'}}></col>
-                        <col style={{width:'63%'}}></col>
-                        <col style={{width:'22%'}}></col>
+                        <col style={{width:'25%'}}></col>
+                        <col style={{width:'85%'}}></col>
                     </colgroup>
                     <tbody>
                         <tr>
-                            <td><label>제목</label></td>
+                            <td><label>게시글 제목</label></td>
                             <td>
                                 <input
                                     type='text'
@@ -99,7 +99,7 @@ function CreateNotice() {
                             </td>
                         </tr>
                     <tr>
-                        <td><label>내용</label></td>
+                        <td><label>게시글 내용</label></td>
                         <td>
                             <textarea
                             value={content}
