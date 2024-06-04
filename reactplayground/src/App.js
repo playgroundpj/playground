@@ -21,8 +21,6 @@ import SearchGame from './pages/boardgame/SearchGame';
 import SearchMenu from './pages/menu/SearchMenu';
 import RegisterGame from './pages/boardgame/RegisterGame';
 import BoardgameDetail from './pages/boardgame/BoardgameDetail'; 
-import Review from './pages/Board_Review/Review';
-import CreateReview from './pages/Board_Review/CreateReview';
 import MemberDetails from './pages/admin/MemberDetails';
 import MemberModify from './pages/admin/MemberModify';
 import MemberRegister from './pages/admin/MemberRegister';
