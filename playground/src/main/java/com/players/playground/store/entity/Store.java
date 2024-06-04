@@ -20,10 +20,10 @@ public class Store {
     private String storeLocation;
 
     @Column(name = "open_time")
-    private LocalTime openTime;
+    private String openTime;
 
     @Column(name = "close_time")
-    private LocalTime closeTime;
+    private String closeTime;
 
     @Column(name = "closed_day")
     private String closedDay;
@@ -31,7 +31,7 @@ public class Store {
     public Store() {
     }
 
-    public Store(int storeCode, String storeName, String storeLocation, LocalTime openTime, LocalTime closeTime, String closedDay) {
+    public Store(int storeCode, String storeName, String storeLocation, String openTime, String closeTime, String closedDay) {
         this.storeCode = storeCode;
         this.storeName = storeName;
         this.storeLocation = storeLocation;
@@ -64,19 +64,19 @@ public class Store {
         this.storeLocation = storeLocation;
     }
 
-    public LocalTime getOpenTime() {
+    public String getOpenTime() {
         return openTime;
     }
 
-    public void setOpenTime(LocalTime openTime) {
+    public void setOpenTime(String openTime) {
         this.openTime = openTime;
     }
 
-    public LocalTime getCloseTime() {
+    public String getCloseTime() {
         return closeTime;
     }
 
-    public void setCloseTime(LocalTime closeTime) {
+    public void setCloseTime(String closeTime) {
         this.closeTime = closeTime;
     }
 
@@ -90,12 +90,12 @@ public class Store {
 
     @Override
     public String toString() {
-        return "storeDTO{" +
+        return "Store{" +
                 "storeCode=" + storeCode +
                 ", storeName='" + storeName + '\'' +
                 ", storeLocation='" + storeLocation + '\'' +
-                ", openTime=" + openTime +
-                ", closeTime=" + closeTime +
+                ", openTime='" + openTime + '\'' +
+                ", closeTime='" + closeTime + '\'' +
                 ", closedDay='" + closedDay + '\'' +
                 '}';
     }

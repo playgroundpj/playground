@@ -21,7 +21,13 @@ import SearchGame from './pages/boardgame/SearchGame';
 import SearchMenu from './pages/menu/SearchMenu';
 import RegisterGame from './pages/boardgame/RegisterGame';
 import BoardgameDetail from './pages/boardgame/BoardgameDetail'; 
-
+import Review from './pages/Board_Review/Review';
+import CreateReview from './pages/Board_Review/CreateReview';
+import MemberDetails from './pages/admin/MemberDetails';
+import MemberModify from './pages/admin/MemberModify';
+import MemberRegister from './pages/admin/MemberRegister';
+import Shop from './pages/shop/Shop';
+import ShopDetail from './pages/shop/ShopDetail';
 
 function App() {
   return (
@@ -55,6 +61,10 @@ function App() {
             <Route path="menu/register" element={<RegisterMenu />} />
             <Route path="menu/search" element={<SearchMenu />} />
             <Route path="register-game" element={<RegisterGame />} />
+
+
+            <Route path="shop" element={ <Shop/>} />
+            <Route path="shop/shopDetails/:shopCode" element={<ShopDetail/>}/>
 
           </Route>
 

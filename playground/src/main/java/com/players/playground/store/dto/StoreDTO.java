@@ -7,14 +7,14 @@ public class StoreDTO {
     private int storeCode;
     private String storeName;
     private String storeLocation;
-    private LocalTime openTime;
-    private LocalTime closeTime;
+    private String openTime;
+    private String closeTime;
     private String closedDay;
 
     public StoreDTO() {
     }
 
-    public StoreDTO(int storeCode, String storeName, String storeLocation, LocalTime openTime, LocalTime closeTime, String closedDay) {
+    public StoreDTO(int storeCode, String storeName, String storeLocation, String openTime, String closeTime, String closedDay) {
         this.storeCode = storeCode;
         this.storeName = storeName;
         this.storeLocation = storeLocation;
@@ -47,19 +47,19 @@ public class StoreDTO {
         this.storeLocation = storeLocation;
     }
 
-    public LocalTime getOpenTime() {
+    public String getOpenTime() {
         return openTime;
     }
 
-    public void setOpenTime(LocalTime openTime) {
+    public void setOpenTime(String openTime) {
         this.openTime = openTime;
     }
 
-    public LocalTime getCloseTime() {
+    public String getCloseTime() {
         return closeTime;
     }
 
-    public void setCloseTime(LocalTime closeTime) {
+    public void setCloseTime(String closeTime) {
         this.closeTime = closeTime;
     }
 
@@ -73,12 +73,12 @@ public class StoreDTO {
 
     @Override
     public String toString() {
-        return "storeDTO{" +
+        return "StoreDTO{" +
                 "storeCode=" + storeCode +
                 ", storeName='" + storeName + '\'' +
                 ", storeLocation='" + storeLocation + '\'' +
-                ", openTime=" + openTime +
-                ", closeTime=" + closeTime +
+                ", openTime='" + openTime + '\'' +
+                ", closeTime='" + closeTime + '\'' +
                 ", closedDay='" + closedDay + '\'' +
                 '}';
     }
