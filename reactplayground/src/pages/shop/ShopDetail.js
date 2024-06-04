@@ -22,7 +22,7 @@ function ShopDetail() {
     }
 
     const onClickModifyHandler = (getStoreCode) => {
-        navigate(`./memberUpdate/${getStoreCode}`);
+        navigate(`/shop/update/${getStoreCode}`);
     }
     
     useEffect(
@@ -64,7 +64,7 @@ function ShopDetail() {
                                 <td colSpan={3}>
                                     <div className='bottomBtn'>
                                         <button className='registerBtn'
-                                            onClick = { onClickModifyHandler }
+                                            onClick = { () => onClickModifyHandler(storeCode) }
                                         >   
                                             매장 정보 수정
                                         </button>

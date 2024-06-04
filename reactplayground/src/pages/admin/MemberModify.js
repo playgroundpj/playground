@@ -23,6 +23,7 @@ function MemberModify() {
     const dispatch = useDispatch();
     const member = useSelector(state => state.memberReducer); 
     const check = useSelector(state => state.checkReducer); 
+    const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
     const token = decodeJwt(window.localStorage.getItem("accessToken"));
     const [isMemberNicknameChecked, setMemberNicknamechecked] = useState(false);
     const [isPhoneChange, setPhoneChange] = useState(false);
@@ -217,6 +218,20 @@ function MemberModify() {
 			}
 		});
     }
+
+    useEffect(
+        () => {
+            // 관리자가 아니면 못 들어오게 막음
+            if(isLogin !== undefined && isLogin !== null) {
+                if(token.auth[0] !== 'ROLE_ADMIN'){
+                    navigate("/");
+                }
+            }else{
+                navigate("/");
+            }        
+
+        },[token]
+    )
 
     useEffect(
         () => {    

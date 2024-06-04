@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate, NavLink, useParams } from 'react-router-dom';
 import { decodeJwt } from '../../utils/tokenUtils';
 import { FaCircleCheck } from "react-icons/fa6";
 import Swal from "sweetalert2";
-import { callGetShopByStoreNameAPI, callRegistShopAPI } from '../../apis/ShopAPICalls';
+import { callGetShopAPI, callGetShopByStoreNameAPI, callRegistShopAPI, callUpdateShopAPI } from '../../apis/ShopAPICalls';
 
 
 
@@ -12,18 +12,21 @@ function ShopModify() {
 
     const navigate = useNavigate();
 
+    const { shopCode } = useParams();
     const dispatch = useDispatch();
     const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
     const token = decodeJwt(window.localStorage.getItem("accessToken")); 
     const shop = useSelector(state => state.shopReducer);
+    const shopDetail = shop.data;
+    const [loading, setLoading] = useState(true);
     const [isShopNameChecked, setShopNameChecked] = useState(false);
     const [form, setForm] = useState({
         storeCode: '',
         storeName: '',
         storeLocation: '',
-        openTime: '10:00',
-        closeTime: '22:00',
-        closedDay: '연중무휴'
+        openTime: '',
+        closeTime: '',
+        closedDay: ''
     })
 
     useEffect(
@@ -53,13 +56,39 @@ function ShopModify() {
         },[shop]
     )
 
+    useEffect(
+        ()=> {
+            if(token !== null) {
+                dispatch(callGetShopAPI({	// 매장 정보 조회
+                    storeCode: shopCode
+                })).finally(() => setLoading(false));
+            }  
+        },[]
+    )
+
+    useEffect(
+        ()=>{
+            if(shopDetail){
+                setForm({
+                    storeCode: shopDetail.storeCode,
+                    storeName: shopDetail.storeName,
+                    storeLocation: shopDetail.storeLocation,
+                    openTime: shopDetail.openTime,
+                    closeTime: shopDetail.closeTime,
+                    closedDay: shopDetail.closedDay
+                })
+            }
+
+        },[shopDetail]
+    )
+    
+
     const onChangeHandler = (e) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value
         });
 
-        console.log('form : ',form);
     };    
 
 
@@ -69,20 +98,8 @@ function ShopModify() {
         navigate(-1, { replace: true })
     }
 
-    const onClickRegisterHandler = () => {
-        if(!isShopNameChecked){
-            Swal.fire({
-                icon: "warning",
-                title: `매장명 중복체크를 해주세요`,
-                showConfirmButton: true,
-                confirmButtonColor: "#97A482",
-                customClass: {
-                    title: 'swal2-title'
-                }
-            }).then(() => {
-                setShopNameChecked(false);
-            })
-        }else if(form.storeLocation.trim() == ''){
+    const onClickModifyHandler = () => {
+        if(form.storeLocation.trim() == ''){
             Swal.fire({
                 icon: "warning",
                 title: `매장 주소 입력은 필수입니다.`,
@@ -93,12 +110,12 @@ function ShopModify() {
                 }
             });
         }else{
-            dispatch(callRegistShopAPI({
+            dispatch(callUpdateShopAPI({
                 form: form
             }));
             Swal.fire({
                 icon: "sucess",
-                title: `매장 등록이 완료되었습니다`,
+                title: `매장 수정이 완료되었습니다`,
                 showConfirmButton: true,
                 confirmButtonColor: "#97A482",
                 customClass: {
@@ -106,6 +123,7 @@ function ShopModify() {
                 }
             })
             navigate("/shop");
+            window.location.reload();
         }
         
     }
@@ -117,12 +135,41 @@ function ShopModify() {
 
     }
 
+    const onClickDeleteHandler = () => {
+        Swal.fire({
+			title: "매장을 삭제하겠습니까?",
+			text: "삭제 후 되돌릴 수 없습니다.",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#97A482",
+			cancelButtonColor: "#C45D4A",
+			confirmButtonText: "삭제",
+			cancelButtonText: "취소"
+			}).then((result) => {
+			if (result.isConfirmed) {
+				Swal.fire({
+				title: "삭제 완료!",
+				text: "매장이 삭제되었습니다",
+				icon: "success",
+				showConfirmButton: false,
+				timer: 1000
+				});
+                //회원탈퇴
+				// dispatch(callDeleteMemberAPI({memberId: form.memberId}));
+                // navigate("/mypage/member", { replace: true });
+                window.location.reload();
+			}
+		});
+    }
 
     
 
     
     return (
         <div>
+            {loading ? ( // 로딩 중일 때 표시할 내용
+                <p>Loading...</p>
+            ) : (
             <div className='registerCSS'>
                 <h2>매장 등록</h2>
                 <hr></hr>
@@ -145,6 +192,8 @@ function ShopModify() {
                                             id='storeName'
                                             placeholder="매장명을 입력해주세요" 
                                             autoComplete='off'
+                                            readOnly={true}
+                                            value={form.storeName}
                                             onChange={ onChangeHandler }
                                         />
                                         {(!!isShopNameChecked) && (
@@ -161,13 +210,6 @@ function ShopModify() {
                                         )}
                                     </div>
                                 </td>
-                                    {(!isShopNameChecked) && (
-                                    <button className='checkBtn'
-                                            onClick = { onClickDuplicateStoreNameHandler }
-                                    >
-                                        중복확인
-                                    </button>
-                                    )}
                             </tr>
                             <tr>
                                 <td><label>매장주소</label></td>
@@ -177,6 +219,7 @@ function ShopModify() {
                                     name="storeLocation"
                                     placeholder="매장 주소를 입력해주세요" 
                                     autoComplete='off'
+                                    value={form.storeLocation || ''}
                                     onChange={ onChangeHandler }
                                 /> 
                                 </td>
@@ -194,7 +237,7 @@ function ShopModify() {
                                     name="openTime"
                                     step="3600"
                                     autoComplete='off'
-                                    value={"10:00"}
+                                    value={form.openTime}
                                     onChange={ onChangeHandler }
                                 /> 
                                 </td>                                
@@ -206,7 +249,7 @@ function ShopModify() {
                                     type="time"
                                     name="closeTime"
                                     step="3600"
-                                    value={"20:00"}
+                                    value={form.closeTime}
                                     autoComplete='off'
                                     onChange={ onChangeHandler }
                                 /> 
@@ -218,7 +261,7 @@ function ShopModify() {
                                 <input 
                                     type="text"
                                     name="closedDay"
-                                    value={"연중무휴"}
+                                    value={form.closedDay}
                                     autoComplete='off'
                                     onChange={ onChangeHandler }
                                 /> 
@@ -228,9 +271,9 @@ function ShopModify() {
                                 <td colSpan={3}>
                                     <div className='bottomBtn'>
                                         <button className='registerBtn'
-                                            onClick = { onClickRegisterHandler }
+                                            onClick = { onClickModifyHandler }
                                         >   
-                                            매장 등록
+                                            매장 정보 수정 완료
                                         </button>
                                         <button className='backBtn'
                                             onClick = { onClickBackHandler }
@@ -240,10 +283,20 @@ function ShopModify() {
                                     </div>
                                 </td>
                             </tr>
+                            <tr>
+                            <td colSpan={3}>
+                            <button className='deleteBtn'
+                                        onClick = { onClickDeleteHandler }
+                                    >   
+                                        매장 삭제
+                                    </button>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+            )}
         </div>
     );
 }

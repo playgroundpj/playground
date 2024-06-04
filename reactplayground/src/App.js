@@ -27,6 +27,7 @@ import MemberRegister from './pages/admin/MemberRegister';
 import Shop from './pages/shop/Shop';
 import ShopDetail from './pages/shop/ShopDetail';
 import ShopRegister from './pages/shop/ShopRegister';
+import ShopModify from './pages/shop/ShopModify';
 
 function App() {
   return (
@@ -65,7 +66,7 @@ function App() {
             <Route path="shop" element={ <Shop/>} />
             <Route path="shop/shopDetails/:shopCode" element={<ShopDetail/>}/>
             <Route path="shop/regist" element={ <ShopRegister/>} />
-
+            <Route path="shop/update/:shopCode" element={<ShopModify/>} />
           </Route>
 
           <Route path="/login" element={ <Login/> } />

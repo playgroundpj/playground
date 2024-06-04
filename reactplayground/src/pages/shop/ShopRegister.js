@@ -59,7 +59,6 @@ function ShopRegister() {
             [e.target.name]: e.target.value
         });
 
-        console.log('form : ',form);
     };    
 
 
