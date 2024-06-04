@@ -6,16 +6,31 @@ import { callGetShopListAPI } from '../../apis/ShopAPICalls';
 
 function Shop() {
 
-    const shopList = useSelector(state => state.shopReducer.data) || [];
+    const shops = useSelector(state => state.shopReducer) || [];
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
+
+    const shopList = shops.data;
+
+    const pageInfo = shops.pageInfo;
     
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const pageNumber = [];
+    if(pageInfo){
+        for(let i = 1; i <= pageInfo.pageEnd ; i++){
+            pageNumber.push(i);
+        }
+    }    
+
 
     useEffect(
         ()=>{
-            dispatch(callGetShopListAPI()).finally(()=> setLoading(false));
-        },[]
+            dispatch(callGetShopListAPI({
+                currentPage: currentPage
+            })).finally(()=> setLoading(false));
+        },[currentPage]
     )
 
     useEffect(
@@ -72,6 +87,36 @@ function Shop() {
                     ))
                     }
                 </div>
+                <div className='pagingBtnDiv' style={{ listStyleType: "none", display: "flex" }}>
+                { Array.isArray(shopList) &&
+                <button 
+                    onClick={() => setCurrentPage(currentPage - 1)} 
+                    disabled={currentPage === 1}
+                    className='pagingBtn'
+                >
+                    &lt;
+                </button>
+                }
+                {pageNumber.map((num) => (
+                <li key={num} onClick={() => setCurrentPage(num)}>
+                    <button
+                        style={ currentPage === num ? {backgroundColor : '#97A482', color : '#ecebe8' } : null}
+                        className='pagingBtn'
+                    >
+                        {num}
+                    </button>
+                </li>
+                ))}
+                { Array.isArray(shopList) &&
+                <button 
+                    className="pagingBtn"
+                    onClick={() => setCurrentPage(currentPage + 1)} 
+                    disabled={currentPage === pageInfo.pageEnd  || pageInfo.total == 0}
+                >
+                    &gt;
+                </button>
+                }
+            </div>
             </>
             )}
         </div>

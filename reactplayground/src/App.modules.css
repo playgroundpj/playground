@@ -17,7 +17,7 @@
 :root {
 	--back-color :  #F8F7F4;
 	--back-color2 :  #ecebe8;
-    --vintage-green : #f6e7cd;
+    /* --vintage-green : #f6e7cd; */
     --vintage-red : #C45D4A;
     --vintage-green : #97A482;
     --vintage-black : #3B3C37;
@@ -988,4 +988,28 @@ input[type=file]::file-selector-button {
 	width: 100%;
 	text-align: center;
 	font-size: 1.1em;
+}
+
+.pagingBtnDiv{
+	text-align: center !important;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.pagingBtn {
+	width: 50px;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+	background-color: var(--back-color2);
+	font-family: var(--Gmartket);
+	padding-top: 3px;
+	margin-bottom: 30px;
+
+}
+
+.pagingBtn:hover{
+	background-color: var(--vintage-blue) !important;
+	color: var(--back-color);
 }
