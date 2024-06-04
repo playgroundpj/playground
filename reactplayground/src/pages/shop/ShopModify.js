@@ -4,7 +4,7 @@ import { useNavigate, NavLink, useParams } from 'react-router-dom';
 import { decodeJwt } from '../../utils/tokenUtils';
 import { FaCircleCheck } from "react-icons/fa6";
 import Swal from "sweetalert2";
-import { callGetShopAPI, callGetShopByStoreNameAPI, callRegistShopAPI, callUpdateShopAPI } from '../../apis/ShopAPICalls';
+import { callDeleteShopAPI, callGetShopAPI, callGetShopByStoreNameAPI, callRegistShopAPI, callUpdateShopAPI } from '../../apis/ShopAPICalls';
 
 
 
@@ -154,9 +154,9 @@ function ShopModify() {
 				showConfirmButton: false,
 				timer: 1000
 				});
-                //회원탈퇴
-				// dispatch(callDeleteMemberAPI({memberId: form.memberId}));
-                // navigate("/mypage/member", { replace: true });
+                // 매장 삭제
+				dispatch(callDeleteShopAPI({storeName: form.storeName}));
+                navigate("/shop", { replace: true });
                 window.location.reload();
 			}
 		});

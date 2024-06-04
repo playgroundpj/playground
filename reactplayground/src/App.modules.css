@@ -1108,6 +1108,10 @@ input[type=file]::file-selector-button {
 }
 
 
+.bottomBtn{
+	text-align: center;
+}
+
 input[type=time]:hover:-webkit-datetime-edit-hour-field {
 	background-color: var(--green-white);
 }

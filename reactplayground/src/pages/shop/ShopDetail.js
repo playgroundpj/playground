@@ -11,7 +11,9 @@ function ShopDetail() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const shop = useSelector(state => state.shopReducer);  
-    const token = decodeJwt(window.localStorage.getItem("accessToken"));   
+    const token = decodeJwt(window.localStorage.getItem("accessToken")); 
+    const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
+    const [isAuth, setAuth] = useState('');
     const shopDetail = shop.data;
     const storeCode = shopCode;
 
@@ -31,6 +33,15 @@ function ShopDetail() {
             dispatch(callGetShopAPI({storeCode}));
 
         },[]
+    )
+
+    useEffect(
+        () => {
+            if(isLogin !== undefined && isLogin !== null) {
+                setAuth(token.auth[0]);
+            }   
+
+        },[token]
     )
 
 
@@ -63,11 +74,13 @@ function ShopDetail() {
                         <tr>
                                 <td colSpan={3}>
                                     <div className='bottomBtn'>
+                                        {(isAuth == 'ROLE_ADMIN') && 
                                         <button className='registerBtn'
                                             onClick = { () => onClickModifyHandler(storeCode) }
                                         >   
                                             매장 정보 수정
                                         </button>
+                                        }
                                         <button className='backBtn'
                                             onClick = { onClickBackHandler }
                                         >

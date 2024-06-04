@@ -148,7 +148,7 @@ export const callUpdateShopAPI = ({form}) => {
     
 }
 
-export const callDeleteShopAPI = ({form}) => {
+export const callDeleteShopAPI = ({storeName}) => {
     const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/shop/delete`;
 
 
@@ -160,7 +160,9 @@ export const callDeleteShopAPI = ({form}) => {
                 "Content-Type": "application/json",
                 "Accept": "*/*"
             },
-            body: form
+            body: JSON.stringify({
+                storeName: storeName
+            })
         }).then(response => response.json());
 
         console.log('[ShopAPICalls] callDeleteShopAPI RESULT : ', result);
