@@ -9,6 +9,8 @@ function Shop() {
     const shops = useSelector(state => state.shopReducer) || [];
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
+    const token = decodeJwt(window.localStorage.getItem("accessToken")); 
     const [loading, setLoading] = useState(true);
 
     const shopList = shops.data;
@@ -46,13 +48,19 @@ function Shop() {
         navigate(`/shop/shopDetails/${shopCode}`);
     }
 
+    
+    const onClickResgisterHandler = () => {
+        navigate(`/shop/regist`);
+    }
+
     return (
-        <div>
+        <div className='listDiv'> 
             {loading ? ( // 로딩 중일 때 표시할 내용
                     <p>Loading...</p>
                 ) : (
             <>
                 <h2>전체 매장 목록</h2>
+                { (token !== null) ? ((token.auth[0] == 'ROLE_ADMIN') && <button className='mangerRegisterBtn' onClick={ onClickResgisterHandler }>매장 등록</button>) : null}
                 <div className='ListBox'>
                     {shopList.map(shop => (
                         <div

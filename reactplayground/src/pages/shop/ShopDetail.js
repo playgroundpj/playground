@@ -21,8 +21,8 @@ function ShopDetail() {
         navigate(-1);
     }
 
-    const onClickModifyHandler = () => {
-        navigate('./memberUpdate');
+    const onClickModifyHandler = (getStoreCode) => {
+        navigate(`./memberUpdate/${getStoreCode}`);
     }
     
     useEffect(

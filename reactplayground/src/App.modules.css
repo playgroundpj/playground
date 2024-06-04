@@ -1091,3 +1091,23 @@ input[type=file]::file-selector-button {
 	background-color: white;
 	border: 1px solid var(--green-white);
 }
+
+.listDiv{
+	position: relative;
+}
+
+.formTotal input[type=time]{
+	width: 40%;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
+	height: 40px;
+	line-height: 30;
+	background-color: rgba(255, 255, 255, 0.8);
+	caret-color: var(--back-color);
+	padding-left: 10px;
+}
+
+
+input[type=time]:hover:-webkit-datetime-edit-hour-field {
+	background-color: var(--green-white);
+}
