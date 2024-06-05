@@ -409,4 +409,32 @@ public class MemberService {
             }
         }
     }
+
+    @Transactional
+    public Object deleteManagerStore(ManagerDTO managerDTO) {
+
+        log.info("[MemberService] deleteManagerStore() Start.");
+        log.info("[MemberService] managerDTO {}", managerDTO);
+        int result = 0;
+
+        if(managerDTO == null){
+            log.info("[MemberService] 수정할 데이터가 없습니다");
+            throw new NotFoundException("수정할 데이터가 업습니다.");
+        }else{
+            Manager manager = managerRepository.findByMemberCode(managerDTO.getMemberCode());
+
+            if(manager == null) {
+                log.info("[MemberService] 삭제할 매장 권한이 없습니다");
+                throw new NotFoundException("삭제할 매장 권한이 없습니다");
+            }else{
+
+                managerRepository.delete(manager);
+                result = 1;
+                return (result > 0) ? "회원 탈퇴 및 삭제 성공" : "회원 탈퇴 및 삭제 실패";
+
+            }
+
+        }
+
+    }
 }

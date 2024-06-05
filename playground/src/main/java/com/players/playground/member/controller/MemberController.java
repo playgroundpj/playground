@@ -88,5 +88,13 @@ public class MemberController {
                 .body(new ResponseDTO(HttpStatus.CREATED, "매니저 매장 관리 권한을 부여성공", memberService.updateManagerStore(managerDTO)));
     }
 
+    @Operation(summary = "매니저별 매장 삭제", description = "매니저에게 매장 권리 권한을 삭제합니다.", tags = {"MemberController"})
+    @DeleteMapping("/members/managerStore/delete")
+    public ResponseEntity<ResponseDTO> deleteManagerStore(@RequestBody ManagerDTO managerDTO) {
+        return ResponseEntity
+                .ok()
+                .body(new ResponseDTO(HttpStatus.CREATED, "매니저 매장 관리 권한 삭제 성공", memberService.deleteManagerStore(managerDTO)));
+    }
+
 
 }

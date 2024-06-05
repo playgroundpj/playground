@@ -4,15 +4,20 @@ import { useEffect, useState } from "react";
 import { decodeJwt } from '../../utils/tokenUtils';
 
 import {
-    callGetMemberByCodeAPI
+    callGetMemberByCodeAPI,
+    callManagerStoreByMemberCodeAPI
 } from '../../apis/MemberAPICalls'
+import { callGetShopAPI } from '../../apis/ShopAPICalls';
+import ShopDetail from '../shop/ShopDetail';
 
 function MemberDetails() {
 
     const { memberCode } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const member = useSelector(state => state.memberReducer);  
+    const member = useSelector(state => state.memberReducer); 
+    const manager = useSelector(state => state.managerReducer); 
+    const store = useSelector(state => state.shopReducer);
     const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
     const token = decodeJwt(window.localStorage.getItem("accessToken"));   
     const memberDetail = member.data;
@@ -43,6 +48,7 @@ function MemberDetails() {
         },[token]
     )
 
+
     useEffect(
         () => {    
             console.log('token', token.sub);
@@ -50,11 +56,33 @@ function MemberDetails() {
             if(token !== null) {
                 dispatch(callGetMemberByCodeAPI({	// 회원 정보 조회
                     memberCode: memberCode
-                })).finally(() => setLoading(false));
+                }));
             }
         }
         ,[]
     );
+
+    useEffect(() => {
+        if (memberDetail?.memberRole?.[0]?.authorityCode == 2) {
+            console.log("member", member);
+            dispatch(callManagerStoreByMemberCodeAPI({ memberCode }));
+        }
+    }, [member]);
+
+    useEffect(
+        () => {
+            if (member != "") {
+                if(manager.status == "201"){
+                    console.log("201 ", manager);
+                    dispatch(callGetShopAPI({storeCode: manager.data.storeCode})).finally(() => {setLoading(false)});
+                }else if(manager.status == "400"){
+                    console.log("400 error", manager);
+                    setLoading(false);
+                }
+            }
+        },[manager]
+    )
+
     
 
 
@@ -94,6 +122,19 @@ function MemberDetails() {
                                 />
                             </td>
                         </tr>
+                        {((memberDetail?.memberRole?.[0]?.authorityCode == 2) && (manager.status == "201")) && 
+                        <tr>
+                            <td><label>관리 매장 </label></td>
+                            <td>
+                                <input 
+                                    type="text" 
+                                    placeholder="관리매장" 
+                                    readOnly={true}
+                                    value={store.data.storeName || ''}
+                                />
+                            </td>
+                        </tr>
+                        }
                         <tr>
                             <td><label>연락처 </label></td>
                             <td>
@@ -141,7 +182,7 @@ function MemberDetails() {
                         <tr>
                                 <td colSpan={3}>
                                     <div className='bottomBtn'>
-                                        {(memberDetail.memberRole[0].authorityCode == 2) && 
+                                        {(memberDetail?.memberRole?.[0]?.authorityCode == 2) && 
                                             <button className='registerBtn'
                                                 onClick = { () => onClickModifyHandler(memberDetail.memberCode) }
                                             >   

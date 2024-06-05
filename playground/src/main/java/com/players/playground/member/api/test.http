@@ -6,7 +6,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MR
 
 
 ### GET manager Store list
-GET localhost:8080/api/v1/members/managerStore/2
+GET localhost:8080/api/v1/members/managerStore/21
 Content-Type:application/json
 Accept:*/*
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxNzU3NzA1N30.ApNxXC-pCcbvY2urynfJNi3ekV1kuIIfP7o2eSZZ_cnMuBVq6hCA2Kx1XgAjf76JwoigILHZR7Ozf01v9DkUZw
@@ -32,4 +32,14 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MR
 {
   "memberCode": 2,
   "storeCode": 1
+}
+
+### DELETE manager
+DELETE localhost:8080/api/v1/members/managerStore/delete
+Content-Type: application/json
+Accept: */*
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxNzU3NzA1N30.ApNxXC-pCcbvY2urynfJNi3ekV1kuIIfP7o2eSZZ_cnMuBVq6hCA2Kx1XgAjf76JwoigILHZR7Ozf01v9DkUZw
+
+{
+  "memberCode": 21
 }
