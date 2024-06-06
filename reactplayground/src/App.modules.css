@@ -1042,6 +1042,7 @@ input[type=file]::file-selector-button {
 	text-shadow: 1px 1px 3px var(--vintage-gray);
 }
 
+
 .boardRegisterBtn{
 	margin-left: 10px;
 	
@@ -1051,8 +1052,14 @@ input[type=file]::file-selector-button {
 	height: 50px;
 }
 
+
 .noticeForm table tbody tr{
 	border-top: 1px solid var(--gray-white);
+}
+
+.noticeList tbody tr:hover{
+	background-color: var(--green-white);
+	cursor: pointer;
 }
 
 
@@ -1114,4 +1121,46 @@ input[type=file]::file-selector-button {
 
 input[type=time]:hover:-webkit-datetime-edit-hour-field {
 	background-color: var(--green-white);
+}
+
+.noticeModifyBtn{
+    width: 20%;
+    height: 60px;
+    border: none;
+    color: var(--back-color);
+    background-color: var(--green-white);
+    font-size: 2em;
+    font-family: var(--Tenada) !important;
+    padding-top: 10px;
+	margin-top: 40px;
+	margin-left: 10px;
+    border-radius: 10px;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.noticeModifyBtn:hover{
+	background-color: var(--vintage-green);
+	color: var(--back-color);
+    text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+.noticeDeleteBtn{
+	width: 20%;
+    height: 60px;
+    border: none;
+    color: var(--back-color);
+    background-color: var(--gray-white);
+    font-size: 2em;
+    font-family: var(--Tenada) !important;
+    padding-top: 10px;
+	margin-top: 40px;
+	margin-left: 10px;
+    border-radius: 10px;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.noticeDeleteBtn:hover{
+	background-color: var(--vintage-red);
+	color: var(--back-color);
+    text-shadow: 1px 1px 3px var(--vintage-gray);
 }

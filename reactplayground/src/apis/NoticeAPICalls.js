@@ -55,53 +55,72 @@ export const createNoticeAPI = (noticeData) => {
 };
 
 // 게시글 수정 (관리자로그인)
-export const updateNoticeAPI = (noticeCode, {notice}) => {
+export const updateNoticeAPI = ({form}) => {
 
     console.log('[NoticeAPICalls] updateNoticeAPI Call');
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/board/notice/${noticeCode}`;
-    const token = localStorage.getItem('accessToken'); // 인증 토큰 가져오기
+    
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/board/notice/modify`;
 
-    console.log("Requesting URL:", requestURL);
+    return async (dispatch) => {
 
-    console.log('[API]noticeCode', noticeCode);
-    console.log('[API]noticeData', notice);
-    console.log('[API]notice.noticeTitle', notice.noticeTitle);
-
-    return async (dispatch, getState) => {
-        try {
-            const result = await fetch(requestURL, {
-                method: "PUT",
-                headers: {
-                    "Accept": "*/*",
-                    "Authorization": "Bearer " + window.localStorage.getItem("accessToken")
-                },
-                body: JSON.stringify({
-                    noticeTitle: notice.noticeTitle,
-                    noticeContent: notice.noticeContent,
-                    modifyedDate: notice.modifyedDate
-                })
+        const result = await fetch(requestURL, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "*/*"
+            },
+            body: JSON.stringify({
+                noticeTitle: form.noticeTitle,
+                noticeContent: form.noticeContent,
+                createDate: form.createDate,
+                ModifyedDate: form.ModifyedDate
             })
-            .then(response => response.json());
+        }).then(response => response.json());
 
-            // Check if the response is OK
-            if (!result.ok) {
-                throw new Error(`HTTP error! status: ${result.status}`);
-            }
+        console.log('[updateNoticeAPI] updateNoticeAPI RESULT : ', result);
 
-            console.log('[APICalls] updateNoticeAPI RESULT : ', result);
+        dispatch({ type: PUT_NOTICE, payload: result});
 
-            dispatch({ type: PUT_NOTICE, payload: result });
+    }
+    
+}
+
+//     return async (dispatch, getState) => {
+//         try {
+//             const result = await fetch(requestURL, {
+//                 method: "PUT",
+//                 headers: {
+//                     "Content-Type" : "application/json",
+//                     "Accept": "*/*",
+//                     //"Authorization": "Bearer " + window.localStorage.getItem("accessToken")
+//                 },
+//                 body: JSON.stringify({
+//                     noticeTitle: notice.noticeTitle,
+//                     noticeContent: notice.noticeContent,
+//                     modifyedDate: notice.modifyedDate
+//                 })
+//             })
+//             // .then(response => response.json());
+
+//             // Check if the response is OK
+//             if (!result.ok) {
+//                 throw new Error(`HTTP error! status: ${result.status}`);
+//             }
+
+//             console.log('[APICalls] updateNoticeAPI RESULT : ', result);
+
+//             dispatch({ type: PUT_NOTICE, payload: result });
             
-        } catch (error) {
-            console.error('Error updating notice:', error);
-            throw error;
-        }
-    };
-};
+//         } catch (error) {
+//             console.error('Error updating notice:', error);
+//             throw error;
+//         }
+//     };
+// };
 
 
 // 게시글 삭제
-export const deleteNoticeAPI = (noticeCode) => {
+export const deleteNoticeAPI = ({noticeCode}) => {
     const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/board/notice/${noticeCode}`;
 
     return async (dispatch) => {
@@ -110,7 +129,8 @@ export const deleteNoticeAPI = (noticeCode) => {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
-                    "Accept": "*/*"
+                    "Accept": "*/*",
+                    "Authorization": "Bearer " + window.localStorage.getItem("accessToken")
                 }
             });
 

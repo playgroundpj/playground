@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { callNoticeAPI } from '../../apis/NoticeAPICalls';
-import { ButtonGroup, Button } from 'react-bootstrap';
 import { decodeJwt } from '../../utils/tokenUtils'; // 토큰 디코딩 함수 임포트
 
 function Notice() {
@@ -108,7 +107,7 @@ function Notice() {
                 )}
             </div>
             <hr></hr>
-                <div className='formTotal noticeForm'>
+                <div className='formTotal noticeList'>
                     <table>
                         <colgroup>
                             <col width="25%" />

@@ -21,7 +21,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-@Transactional
 public class NoticeService {
     private static final Logger log = LoggerFactory.getLogger(NoticeService.class);
 
@@ -65,8 +64,8 @@ public class NoticeService {
     // 페이징된 공지사항 목록 조회
     private List<NoticeDTO> getPagedNotices(Criteria cri, String category) {
         int index = cri.getPageNum() - 1;
-        int count = cri.getAmount();
-        Pageable paging = PageRequest.of(index, count, Sort.by("createDate").descending());
+        int count = cri.getAmount(); // amount 페이지당 항목 수
+        Pageable paging = PageRequest.of(index, count, Sort.by("noticeCode").descending());
 
         Page<Notice> result;
         if (category == null || category.equals("All")) {
@@ -78,7 +77,6 @@ public class NoticeService {
         List<NoticeDTO> noticeList = result.getContent().stream()
                 .map(notice -> {
                     NoticeDTO noticeDTO = modelMapper.map(notice, NoticeDTO.class);
-//                    noticeDTO.setMemberNickname(notice.getMember().getMemberNickname());
                     noticeDTO.setMemberNickname("관리자");
                     return noticeDTO;
                 })
@@ -88,6 +86,7 @@ public class NoticeService {
     }
 
     // 게시글 등록 (관리자 로그인)
+    @Transactional
     public Notice createNotice(NoticeDTO noticeDTO) {
         Notice notice = modelMapper.map(noticeDTO, Notice.class);
         return noticeRepository.save(notice);
@@ -97,9 +96,8 @@ public class NoticeService {
     public NoticeDTO selectNoticeDetail(int noticeCode) {
         log.info("[NoticeService][selectNoticeDetail] Start with noticeCode={}", noticeCode);
 
-        Notice notice = noticeRepository.findById(noticeCode).orElseThrow(() -> new RuntimeException("Notice not found"));
+        Notice notice = noticeRepository.findById(noticeCode).get();
         NoticeDTO noticeDTO = modelMapper.map(notice, NoticeDTO.class);
-//        noticeDTO.setMemberNickname(notice.getMember().getMemberNickname());
         noticeDTO.setMemberNickname("관리자");
         return noticeDTO;
     }
@@ -114,17 +112,22 @@ public class NoticeService {
 //        notice.setModifyedDate(LocalDate.now());
 //        return noticeRepository.save(notice);
 //    }
-    public Notice updateNotice(NoticeDTO noticeDTO) {
+    // 게시글 수정
+    @Transactional
+    public NoticeDTO updateNotice(NoticeDTO noticeDTO) {
         log.info("[NoticeService] updateNotice : noticeDTO={}", noticeDTO);
 
-        Notice notice = noticeRepository.findById(noticeDTO.getNoticeCode()).orElseThrow(() -> new RuntimeException("Notice not found"));
+        Notice notice = noticeRepository.findById(noticeDTO.getNoticeCode()).get();
+
         log.info("[NoticeService] updateNotice : foundNoticeEntity={}", notice);
 
         notice.setNoticeTitle(noticeDTO.getNoticeTitle());
         notice.setNoticeContent(noticeDTO.getNoticeContent());
         notice.setModifyedDate(LocalDate.now());
 
-        return noticeRepository.save(notice);
+        Notice updateNotice  = noticeRepository.save(notice);
+
+        return modelMapper.map(updateNotice, NoticeDTO.class);
     }
 
     // 게시글 삭제

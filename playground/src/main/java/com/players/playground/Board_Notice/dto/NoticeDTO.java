@@ -14,7 +14,9 @@ public class NoticeDTO {
     private LocalDate createDate;
     private LocalDate modifyedDate;
     private String noticeCategory;
-    private String memberNickname;  // 필드만 추가
+
+    // memberNickname은 데이터베이스에 저장되지 않고, 고정된 값인 "관리자"로 설정
+    private String memberNickname;
 
     public NoticeDTO() {
     }

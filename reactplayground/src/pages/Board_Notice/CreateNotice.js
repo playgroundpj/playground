@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createNoticeAPI, callNoticeAPI } from '../../apis/NoticeAPICalls';
 import { NavLink } from 'react-router-dom';
-import { ButtonGroup, Button } from 'react-bootstrap';
+import { ButtonGroup } from 'react-bootstrap';
 import Swal from "sweetalert2";
 
 function CreateNotice() {
@@ -68,18 +68,18 @@ function CreateNotice() {
             <h2>게시글등록</h2>
            
             <hr></hr> 
-            <div className='categoryDiv'>
+            <ButtonGroup className='categoryDiv'>
                 {['공지사항', '이벤트', '자주묻는질문'].map((cat) => (
                     <button
                         key={cat}
-                        variant={category === cat ? 'primary' : 'outline-primary'}
+                        className='categoryBtn'
                         onClick={() => handleCategoryChange(cat)}
-                        className='categoryBtn' 
+                        style={category === cat ? { backgroundColor: '#97A482', color: 'white' } : {}}
                     >
                         {cat}
                     </button>
                 ))}
-            </div>
+            </ButtonGroup>
             <div className='formTotal boardRegistForm'>
                 <table>
                     <colgroup>
@@ -102,6 +102,7 @@ function CreateNotice() {
                         <td><label>게시글 내용</label></td>
                         <td>
                             <textarea
+                            style={{ color: 'black' }} // 인라인 스타일로 텍스트 색상 설정
                             value={content}
                             onChange={handleContentChange}
                             placeholder='내용을 입력해주세요'>
