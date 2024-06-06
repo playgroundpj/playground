@@ -207,4 +207,16 @@ public class StoreService {
         }
 
     }
+
+    public Object selectStoreAll() {
+
+        log.info("[StoreService] selectStoreAll() Start.");
+
+        List<Store> storeList = storeRepository.findAll();
+
+        return storeList.stream()
+                .map(store -> modelMapper.map(store, StoreDTO.class))
+                .collect(Collectors.toList());
+
+    }
 }

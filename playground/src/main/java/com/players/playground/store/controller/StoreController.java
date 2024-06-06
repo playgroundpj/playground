@@ -44,7 +44,15 @@ public class StoreController {
 
         pagingResponseDTO.setPageInfo(new PageDTO(cri, total));
 
-        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", pagingResponseDTO));
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "매장 페이징 조회 성공", pagingResponseDTO));
+
+    }
+
+    @Operation(summary = "전체 매장 조회", description = "전체 매장 조회됩니다.", tags = { "StoreController" })
+    @GetMapping("/shop/all")
+    public ResponseEntity<ResponseDTO> selectStoreAll() {
+
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "매장 전체 조회 성공", storeService.selectStoreAll()));
 
     }
 
@@ -52,7 +60,7 @@ public class StoreController {
     @GetMapping("/shop/{shopCode}")
     public ResponseEntity<ResponseDTO> selectStore(@PathVariable String shopCode) {
 
-        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", storeService.findShopByCode(shopCode)));
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "상세 매장 조회 성공", storeService.findShopByCode(shopCode)));
 
     }
 
@@ -60,7 +68,7 @@ public class StoreController {
     @GetMapping("/shop/shopName/{shopName}")
     public ResponseEntity<ResponseDTO> selectStoreByStoreName(@PathVariable String shopName) {
         log.info("[StoreController] shopName ={}" + shopName);
-        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "조회 성공", storeService.findShopByShopCode(shopName)));
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "상세 매장 조회 성공", storeService.findShopByShopCode(shopName)));
 
     }
 

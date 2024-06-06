@@ -1,13 +1,17 @@
 package com.players.playground.member.controller;
 
 import com.players.playground.common.ResponseDTO;
+import com.players.playground.member.dto.ManagerDTO;
 import com.players.playground.member.dto.MemberDTO;
 import com.players.playground.member.service.MemberService;
+import com.players.playground.store.dto.StoreDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -57,5 +61,40 @@ public class MemberController {
                 .ok()
                 .body(new ResponseDTO(HttpStatus.CREATED, "회원가입 성공", memberService.signup(memberDTO)));
     }
+
+    @Operation(summary = "매니저별 매장 조회", description = "매니저가 관리하는 매장을 조회니다.", tags = {"MemberController"})
+    @GetMapping("/members/managerStore/{memberCode}")
+    public ResponseEntity<ResponseDTO> selectManagerStore(@PathVariable String memberCode) {
+        return ResponseEntity
+                .ok()
+                .body(new ResponseDTO(HttpStatus.CREATED, "매니저별 매장 조회 성공", memberService.selectManagerStore(memberCode)));
+    }
+
+
+    @Operation(summary = "매니저별 매장 등록", description = "매니저에게 매장 관리 권한을 부여합니다.", tags = {"MemberController"})
+    @PostMapping("/members/managerStore/register")
+    public ResponseEntity<ResponseDTO> registManagerStore(@RequestBody ManagerDTO managerDTO) {
+        return ResponseEntity
+                .ok()
+                .body(new ResponseDTO(HttpStatus.CREATED, "매니저 매장 관리 권한을 부여성공", memberService.registManagerStore(managerDTO)));
+    }
+
+
+    @Operation(summary = "매니저별 매장 수정", description = "매니저에게 매장 권리 권한을 수정합니다.", tags = {"MemberController"})
+    @PutMapping("/members/managerStore/modify")
+    public ResponseEntity<ResponseDTO> updateManagerStore(@RequestBody ManagerDTO managerDTO) {
+        return ResponseEntity
+                .ok()
+                .body(new ResponseDTO(HttpStatus.CREATED, "매니저 매장 관리 권한을 부여성공", memberService.updateManagerStore(managerDTO)));
+    }
+
+    @Operation(summary = "매니저별 매장 삭제", description = "매니저에게 매장 권리 권한을 삭제합니다.", tags = {"MemberController"})
+    @DeleteMapping("/members/managerStore/delete")
+    public ResponseEntity<ResponseDTO> deleteManagerStore(@RequestBody ManagerDTO managerDTO) {
+        return ResponseEntity
+                .ok()
+                .body(new ResponseDTO(HttpStatus.CREATED, "매니저 매장 관리 권한 삭제 성공", memberService.deleteManagerStore(managerDTO)));
+    }
+
 
 }

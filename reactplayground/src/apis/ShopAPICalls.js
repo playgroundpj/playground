@@ -1,3 +1,4 @@
+import { GET_STORE_LIST_ALL } from "../modules/CheckModule";
 import { DELETE_SHOP, GET_SHOP, GET_SHOP_LIST, POST_REGISTER, PUT_SHOP } from "../modules/ShopModule";
 
 export const callGetShopListAPI = ({currentPage}) => {
@@ -23,10 +24,33 @@ export const callGetShopListAPI = ({currentPage}) => {
             }
         })
         .then(response => response.json());
-        if(result.status === 200){
-            console.log('[ProduceAPICalls] callProductAPI RESULT : ', result);
-            dispatch({ type: GET_SHOP_LIST,  payload: result.data });
-        } 
+
+        console.log('[ShopAPICalls] callGetShopListAPI RESULT : ', result);
+        dispatch({ type: GET_SHOP_LIST,  payload: result.data });
+    };
+}
+
+export const callGetShopListAllAPI = () => {
+
+
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/shop/all`;
+
+    console.log('[ShopAPICalls] requestURL : ', requestURL);
+
+
+    return async (dispatch, getState) => {
+
+        const result = await fetch(requestURL, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "*/*",
+            }
+        })
+        .then(response => response.json());
+        
+        console.log('[ShopAPICalls] callGetShopListAllAPI RESULT : ', result);
+        dispatch({ type: GET_STORE_LIST_ALL,  payload: result.data });
     };
 }
 

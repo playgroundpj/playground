@@ -13,15 +13,20 @@ import {
     callGetNumberAPI,
     callDeleteMemberAPI,
     callLogoutAPI,
-    callGetMemberByCodeAPI
+    callGetMemberByCodeAPI,
+    callManagerStoreByMemberCodeAPI
 } from '../../apis/MemberAPICalls'
+import { callGetShopAPI, callGetShopListAPI, callGetShopListAllAPI } from '../../apis/ShopAPICalls';
 
 function MemberModify() {
 
     const { memberCode } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const member = useSelector(state => state.memberReducer); 
+    const member = useSelector(state => state.memberReducer);
+    const manager = useSelector(state => state.managerReducer); 
+    const store = useSelector(state => state.shopReducer);
+    const storeList = useSelector(state => state.checkReducer);
     const check = useSelector(state => state.checkReducer); 
     const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
     const token = decodeJwt(window.localStorage.getItem("accessToken"));
@@ -34,6 +39,7 @@ function MemberModify() {
     const memberDetail = member.data;
     const [loading, setLoading] = useState(true);
     const [checkMemberId, setCheckMemberId] = useState('');
+    const [managerStore, setManagerStore] = useState('');
     const [isFirstLoad, setIsFirstLoad] = useState(true); // 페이지 처음 로드 및 새로고침에서 경고창이 안 뜨도록 설정해주는 state
     const [form, setForm] = useState({  
         memberId: '',
@@ -97,6 +103,12 @@ function MemberModify() {
         console.log('form : ',form);
         setIsFirstLoad(false);
     };  
+
+    const managerStoreChangeHandler = (e) => {
+
+        setManagerStore(e.target.value);
+
+    }
     
     const onPasswordChangeHandler = (e) => {
 
@@ -236,14 +248,49 @@ function MemberModify() {
     useEffect(
         () => {    
             console.log('token', token.sub);
+            console.log('memberCode', memberCode);
             if(token !== null) {
                 dispatch(callGetMemberByCodeAPI({	// 회원 정보 조회
                     memberCode: memberCode
-                })).finally(() => setLoading(false));
-            }          
+                }));
+
+                const fetchShopData = async () => {
+                    const response = await dispatch(callGetShopListAllAPI());
+                    console.log('storeList', storeList);
+                }
+
+                fetchShopData();
+            }
         }
         ,[]
     );
+
+
+    useEffect(() => {
+        if (member) {
+            console.log("member", member);
+            dispatch(callManagerStoreByMemberCodeAPI({ memberCode }));
+        }
+    }, [member]);
+
+    useEffect(
+        () => {
+            if (member != "") {
+                if(manager.status == "201"){
+                    // console.log("201 success", manager);
+                    dispatch(callGetShopAPI({storeCode: manager.data.storeCode})).finally(() => {
+                        // console.log("store : ", store);
+                        setManagerStore(store.data.storeName);
+                        setLoading(false)
+                    });
+                }else if(manager.status == "400"){
+                    console.log("400 error", manager);
+                    setLoading(false);
+                }
+            }
+        },[manager]
+    )
+
 
     useEffect(
         () => {
@@ -358,6 +405,18 @@ function MemberModify() {
                                         </button>
                                     )}
                                 </td>
+                        </tr>
+                        <tr>
+                            <td><label>관리 매장 </label></td>
+                            <td>
+                                <select 
+                                    value={managerStore || ''}
+                                    onChange={ managerStoreChangeHandler }
+                                >
+                                    {storeList.map((store) => (<option>{store.storeName}</option>))}
+                                    <option>없음</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td><label>연락처 </label></td>

@@ -251,8 +251,8 @@ create table if not exists `tbl_Store` (
 drop table if exists tbl_Manager;
 create table if not exists `tbl_Manager` (
     `manager_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
-	`member_code`	INT	NOT NULL	COMMENT '회원코드',
-	`store_code`	INT	NOT NULL	COMMENT '매장코드'
+	`member_code`	INT	NOT NULL UNIQUE COMMENT '회원코드',
+	`store_code`	INT	NOT NULL UNIQUE COMMENT '매장코드'
 );
 
 drop table if exists tbl_StoreMenu;

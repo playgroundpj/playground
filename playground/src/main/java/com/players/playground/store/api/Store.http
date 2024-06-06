@@ -1,0 +1,60 @@
+### GET shopList
+GET localhost:8080/api/v1/shop
+Content-Type:application/json
+Accept:*/*
+
+### GET shopListALL
+GET localhost:8080/api/v1/shop/all
+Content-Type:application/json
+Accept:*/*
+
+
+### GET shopList
+GET localhost:8080/api/v1/shop/shopName/신촌점2
+Content-Type:application/json
+Accept:*/*
+
+
+### POST shop
+POST localhost:8080/api/v1/shop/regist
+Content-Type:application/json
+Accept:*/*
+
+{
+  "storeName": "테스트01",
+  "storeLocation": "서울시 어딘가",
+  "openTime": "09:00",
+  "closeTime": "22:00",
+  "closedDay": "일요일 및 공휴일"
+}
+
+
+#### PUT shop
+PUT localhost:8080/api/v1/shop/modify
+Content-Type:application/json
+Accept:*/*
+
+{
+  "storeCode": 24,
+  "storeName": "테스트02",
+  "storeLocation": "미국 샌프란시스코",
+  "openTime": "09:00",
+  "closeTime": "22:00",
+  "closedDay": "일요일 및 공휴일"
+
+}
+
+
+### DELTET shop
+DELETE localhost:8080/api/v1/shop/delete
+Content-Type: application/json
+Accept:*/*
+
+{
+  "storeName": "테스트02",
+  "storeLocation": "미국 샌프란시스코",
+  "openTime": "09:00",
+  "closeTime": "22:00",
+  "closedDay": "일요일 및 공휴일"
+
+}
