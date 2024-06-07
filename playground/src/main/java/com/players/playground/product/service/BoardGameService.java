@@ -7,6 +7,7 @@ import com.players.playground.product.repository.BoardGameRepository;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -31,7 +32,7 @@ public class BoardGameService {
     @Value("${image.image-url}")
     private String IMAGE_URL;
 
-
+    @Autowired
     public BoardGameService(BoardGameRepository boardGameRepository, ModelMapper modelMapper) {
         this.boardGameRepository = boardGameRepository;
         this.modelMapper = modelMapper;

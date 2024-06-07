@@ -63,7 +63,7 @@ create table if not exists tbl_member_role
 # tbl_GameTable(매장 테이블)
 drop table if exists tbl_GameTable;
 create table if not exists `tbl_GameTable` (
-	`table_code`	int NOT NULL	COMMENT '데이블코드',
+	`table_code`	int auto_increment primary key 	COMMENT '데이블코드',
 	`table_name`	VARCHAR(255)	NOT NULL	COMMENT '테이블명',
 	`max_people`	INT	NOT NULL	COMMENT '최대인원',
 	`table_price`	INT	NOT NULL	COMMENT '시간요금'
@@ -278,8 +278,7 @@ drop table if exists tbl_StoreGameTable;
 create table if not exists `tbl_StoreGameTable` (
     `storeGameTable_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`store_code`	INT	NOT NULL	COMMENT '매장코드',
-	`table_code`	INT	NOT NULL	COMMENT '데이블코드',
-	`table_count`	INT	NOT NULL	COMMENT '테이블수량'
+	`table_code`	INT	NOT NULL	COMMENT '데이블코드'
 );
 
 drop table if exists tbl_OrderMenu;
@@ -308,7 +307,7 @@ create table if not exists `tbl_MemberGrade` (
 
 drop table if exists tbl_reservation;
 create table if not exists `tbl_reservation` (
-	`reservation_code`	int auto_increment	COMMENT '에약코드',
+	`reservation_code`	int auto_increment	COMMENT '예약코드',
 	`member_code`	INT	NOT NULL	COMMENT '회원코드',
 	`reservation_date`	VARCHAR(255)	NOT NULL	COMMENT '예약일자',
 	`reservation_datetime`	VARCHAR(255)	NOT NULL	COMMENT '예약일시',

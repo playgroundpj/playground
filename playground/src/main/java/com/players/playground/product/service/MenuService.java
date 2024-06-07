@@ -28,6 +28,7 @@ public class MenuService {
     private final MenuRepository menuRepository;
     private final ModelMapper modelMapper;
 
+    @Autowired
     public MenuService(MenuRepository menuRepository, ModelMapper modelMapper) {
         this.menuRepository = menuRepository;
         this.modelMapper = modelMapper;

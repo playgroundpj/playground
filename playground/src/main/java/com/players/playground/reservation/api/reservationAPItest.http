@@ -1,0 +1,24 @@
+### GET shopList
+GET localhost:8080/api/v1/reservation
+Content-Type:application/json
+Accept:*/*
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMDEiLCJhdXRoIjpbIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6IuycoOyggDAxIiwiZXhwIjoxNzE3NzczNjI5fQ.RB--TTWM0w9Iyoi270nzWFPH-5xSdff1RNvvSIkUB3ELWiOXbxEpTZXpePvMwrzoHGUiTiqMJW8vUcJRC22oag
+
+### GET shopList
+GET localhost:8080/api/v1/boardgame/1
+Content-Type:application/json
+Accept:*/*
+
+
+### GET shopList
+GET localhost:8080/api/v1/menu
+Content-Type:application/json
+Accept:*/*
+
+### GET shopList
+GET localhost:8080/api/v1/menu/1
+Content-Type:application/json
+Accept:*/*
+
+
+
