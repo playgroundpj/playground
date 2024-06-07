@@ -3,18 +3,11 @@ package com.players.playground.product.service;
 import com.players.playground.common.Criteria;
 import com.players.playground.product.dto.BoardGameDTO;
 import com.players.playground.product.entity.BoardGame;
-import com.players.playground.product.entity.BoardGameImage;
-import com.players.playground.product.repository.BoardGameImageRepository;
 import com.players.playground.product.repository.BoardGameRepository;
-import com.players.playground.store.dto.StoreDTO;
-import com.players.playground.store.entity.Store;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -30,7 +23,6 @@ public class BoardGameService {
     private static final Logger log = LoggerFactory.getLogger(com.players.playground.member.service.AuthService.class);
 
     private final BoardGameRepository boardGameRepository;
-    private final BoardGameImageRepository boardGameImageRepository;
     private final ModelMapper modelMapper;
 
     @Value("${image.image-dir}")
@@ -39,61 +31,11 @@ public class BoardGameService {
     @Value("${image.image-url}")
     private String IMAGE_URL;
 
-    @Value("${image.add-resource-locations}")
-    private String ADD_RESOURCE_LOCATION;
 
-    public BoardGameService(BoardGameRepository boardGameRepository, BoardGameImageRepository boardGameImageRepository, ModelMapper modelMapper) {
+    public BoardGameService(BoardGameRepository boardGameRepository, ModelMapper modelMapper) {
         this.boardGameRepository = boardGameRepository;
-        this.boardGameImageRepository = boardGameImageRepository;
         this.modelMapper = modelMapper;
     }
-
-
-//    public List<BoardGame> getAllBoardGames() {
-//        return boardGameRepository.findAll();
-//    }
-//
-//    public BoardGame getBoardGameById(Long id) {
-//        return boardGameRepository.findById(id).orElse(null);
-//    }
-//
-//    public List<BoardGame> searchBoardGamesByName(String name) {
-//        return boardGameRepository.findByBoardgameNameContaining(name);
-//    }
-//
-//    public BoardGame saveBoardGame(BoardGame boardGame) {
-//        return boardGameRepository.save(boardGame);
-//    }
-//
-//    public BoardGame updateBoardGame(Long id, BoardGame boardGameDetails) {
-//        BoardGame boardGame = boardGameRepository.findById(id).orElseThrow(() -> new RuntimeException("Board game not found"));
-//
-//        boardGame.setBoardgameName(boardGameDetails.getBoardgameName());
-//        boardGame.setDifficulty(boardGameDetails.getDifficulty());
-//        boardGame.setReleaseDate(boardGameDetails.getReleaseDate());
-//        boardGame.setMinPlayer(boardGameDetails.getMinPlayer());
-//        boardGame.setMaxPlayer(boardGameDetails.getMaxPlayer());
-//        boardGame.setPlaytime(boardGameDetails.getPlaytime());
-//        boardGame.setBoardgameRule(boardGameDetails.getBoardgameRule());
-//
-//        return boardGameRepository.save(boardGame);
-//    }
-//
-//    public void deleteBoardGame(Long id) {
-//        boardGameRepository.deleteById(id);
-//    }
-//
-//    public Resource getBoardGameImage(Long boardgameCode) {
-//        try {
-//            BoardGameImage boardGameImage = boardGameImageRepository.findByBoardgameCode(boardgameCode).orElse(null);
-//            if (boardGameImage != null) {
-//                return new ClassPathResource(boardGameImage.getImageUrl());
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
 
     public int selectBoardGameTotal() {
 
@@ -135,6 +77,12 @@ public class BoardGameService {
 
         List<BoardGame> boardGameList = boardGameRepository.findAll();
 
+        for(int i = 0 ; i < boardGameList.size() ; i++) {
+            boardGameList.get(i).setBoardgameImgURL1(IMAGE_URL + boardGameList.get(i).getBoardgameImgURL1());
+            boardGameList.get(i).setBoardgameImgURL2(IMAGE_URL + boardGameList.get(i).getBoardgameImgURL2());
+            boardGameList.get(i).setBoardgameImgURL3(IMAGE_URL + boardGameList.get(i).getBoardgameImgURL3());
+        }
+
         return boardGameList.stream()
                 .map(boardGame -> modelMapper.map(boardGame, BoardGameDTO.class))
                 .collect(Collectors.toList());
@@ -147,6 +95,11 @@ public class BoardGameService {
         log.info("[BoardGameService] findBoardgameByCode Start =======================");
 
         BoardGame boardGame = boardGameRepository.findByBoardgameCode(Integer.valueOf(boardgameCode));
+
+        boardGame.setBoardgameImgURL1(IMAGE_URL + boardGame.getBoardgameImgURL1());
+        boardGame.setBoardgameImgURL2(IMAGE_URL + boardGame.getBoardgameImgURL2());
+        boardGame.setBoardgameImgURL3(IMAGE_URL + boardGame.getBoardgameImgURL3());
+
         log.info("[BoardGameService] {}", boardGame);
         log.info("[BoardGameService] findBoardgameByCode End =========================");
 
@@ -164,6 +117,11 @@ public class BoardGameService {
         if(boardGameRepository.findByBoardgameName(boardgameName).isPresent()){
             BoardGame boardGame = boardGameRepository.findByBoardgameName(boardgameName).get();
             log.info("[BoardGameService] {}", boardGame);
+
+            boardGame.setBoardgameImgURL1(IMAGE_URL + boardGame.getBoardgameImgURL1());
+            boardGame.setBoardgameImgURL2(IMAGE_URL + boardGame.getBoardgameImgURL2());
+            boardGame.setBoardgameImgURL3(IMAGE_URL + boardGame.getBoardgameImgURL3());
+
             log.info("[BoardGameService] findBoardgameByBoardgameName End =========================");
             return modelMapper.map(boardGame, BoardGameDTO.class);
         }else{

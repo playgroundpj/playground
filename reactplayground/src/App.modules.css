@@ -652,6 +652,7 @@ input[type=file]::file-selector-button {
 
 .bottomBtn{
     width: 100%;
+	margin-bottom: 30px;
 }
 
 .registerBtn{
@@ -1186,6 +1187,21 @@ input[type=time]:hover:-webkit-datetime-edit-hour-field {
 }
 
 
+.menuImg td > img{
+	height: 200px !important;
+	margin: 0 auto !important;
+}
+
+.menuImg td{
+	text-align: center !important;
+}
+
+.menuNameh3{
+	font-size: 0.8em !important;
+	font-family: var(--NotoSans);
+}
+
+
 .ShopDetialForm{
 	margin-bottom: 30px !important;
 }
@@ -1232,4 +1248,51 @@ input[type=time]:hover:-webkit-datetime-edit-hour-field {
 
 .ShopDetialForm .registerBtn{
 	margin-top: 0;	
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+	background-color: var(--vintage-gray);
+	border-radius: 10%;
+	padding: 10px;
+	transition: background-color 0.4s ease;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover{
+	background-color: var(--vintage-green);
+} 
+
+.carousel-indicators li {
+	background-color: black;
+}
+
+.carousel-indicators [data-bs-target]{
+	background-color: var(--gray-white);
+}
+
+.carousel-indicators .active {
+	background-color: var(--vintage-green);
+}
+
+.captionCSS{
+	text-align: right;
+	padding-right: 10px;
+}
+
+.BoardgameDetialForm table tbody tr td,
+.MenuDetialForm table tbody tr td{
+	vertical-align: top;
+	word-break: keep-all;
+}
+
+.BoardgameDetialForm table tbody tr,
+.MenuDetialForm table tbody tr{
+	height: 20px;
+}
+
+.captionCSS span{
+	display: inline-block;
+	margin-right: 10px;
 }

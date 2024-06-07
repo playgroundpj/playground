@@ -28,6 +28,7 @@ import Shop from './pages/shop/Shop';
 import ShopDetail from './pages/shop/ShopDetail';
 import ShopRegister from './pages/shop/ShopRegister';
 import ShopModify from './pages/shop/ShopModify';
+import MenuDetail from './pages/menu/MenuDetail';
 
 function App() {
   return (
@@ -56,8 +57,9 @@ function App() {
             <Route path="boardgame" element={<Boardgame />} />
             <Route path="boardgame/register" element={<RegisterGame />} /> 
             <Route path="boardgame/search" element={<SearchGame />} />
-            <Route path="boardgame/:id" element={<BoardgameDetail />} /> {/* BoardgameDetail 라우트 추가 */}
+            <Route path="boardgame/boardgameDetails/:boardgameCode" element={<BoardgameDetail />} /> 
             <Route path="menu" element={<Menu />} />
+            <Route path="menu/menuDetails/:menuCode" element={<MenuDetail />} /> 
             <Route path="menu/register" element={<RegisterMenu />} />
             <Route path="menu/search" element={<SearchMenu />} />
             <Route path="register-game" element={<RegisterGame />} />

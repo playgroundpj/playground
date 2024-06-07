@@ -55,8 +55,8 @@ export const callGetBoardgameListAllAPI = () => {
 }
 
 
-export const callGetBoardgameAPI = ({storeCode}) => {
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/${storeCode}`;
+export const callGetBoardgameAPI = ({boardgameCode}) => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/${boardgameCode}`;
 
     return async (dispatch, getState) => {
 
@@ -77,8 +77,8 @@ export const callGetBoardgameAPI = ({storeCode}) => {
     };
 }
 
-export const callGetBoardgameByStoreNameAPI = ({storeName}) => {
-    const encodedStorename = encodeURIComponent(storeName)
+export const callGetBoardgameByStoreNameAPI = ({boardgameName}) => {
+    const encodedStorename = encodeURIComponent(boardgameName)
     const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/boardgameName/${encodedStorename}`;
 
     return async (dispatch, getState) => {
@@ -126,8 +126,8 @@ export const callRegistBoardgameAPI = ({form}) => {
                 "Accept": "*/*"
             },
             body: JSON.stringify({
-                storeName: form.storeName,
-                storeLocation: form.storeLocation,
+                boardgameName: form.boardgameName,
+                boardgameLocation: form.boardgameLocation,
                 openTime: form.openTime,
                 closeTime: form.closeTime,
                 closedDay: form.closedDay
@@ -155,9 +155,9 @@ export const callUpdateBoardgameAPI = ({form}) => {
                 "Accept": "*/*"
             },
             body: JSON.stringify({
-                storeCode: form.storeCode,
-                storeName: form.storeName,
-                storeLocation: form.storeLocation,
+                boardgameCode: form.boardgameCode,
+                boardgameName: form.boardgameName,
+                boardgameLocation: form.boardgameLocation,
                 openTime: form.openTime,
                 closeTime: form.closeTime,
                 closedDay: form.closedDay
@@ -172,7 +172,7 @@ export const callUpdateBoardgameAPI = ({form}) => {
     
 }
 
-export const callDeleteBoardgameAPI = ({storeName}) => {
+export const callDeleteBoardgameAPI = ({boardgameName}) => {
     const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/delete`;
 
 
@@ -185,7 +185,7 @@ export const callDeleteBoardgameAPI = ({storeName}) => {
                 "Accept": "*/*"
             },
             body: JSON.stringify({
-                storeName: storeName
+                boardgameName: boardgameName
             })
         }).then(response => response.json());
 

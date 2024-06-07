@@ -170,13 +170,13 @@ create table if not exists `tbl_BoardGame` (
 
 drop table if exists tbl_Menu;
 create table if not exists `tbl_Menu` (
-	`menu_code`	int auto_increment	COMMENT '메뉴코드',
+	`menu_code`	int auto_increment	primary key COMMENT '메뉴코드',
 	`menu_name`	VARCHAR(255)	NOT NULL	COMMENT '메뉴명',
 	`category`	VARCHAR(255)	NOT NULL	COMMENT '카테고리',
 	`menu_content`	VARCHAR(255)	NULL	COMMENT '메뉴설명',
 	`menu_price`	INT	NOT NULL	COMMENT '메뉴가격',
 	`orderable_status`	BOOLEAN	NOT NULL	DEFAULT false	COMMENT '주문가능상태',
-    constraint pk_menu_code primary key (menu_code)
+    `menu_img`	VARCHAR(255)	COMMENT '메뉴이미지'
 );
 
 drop table if exists tbl_MenuImage;

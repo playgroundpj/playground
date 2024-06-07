@@ -1,99 +1,118 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { decodeJwt } from '../../utils/tokenUtils';  
+import { useDispatch, useSelector } from "react-redux";
+import { decodeJwt } from '../../utils/tokenUtils'; 
+import { callGetMenuListAPI } from '../../apis/MenuAPICalls';
 
 function Menu() {
-    const [menuItems, setMenuItems] = useState([]);
-    const [searchQuery, setSearchQuery] = useState('');
-    const [isAdmin, setIsAdmin] = useState(false);
+
+    const menu = useSelector(state => state.menuReducer) || [];
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
+    const token = decodeJwt(window.localStorage.getItem("accessToken")); 
+    const [loading, setLoading] = useState(true);
+    const menuList = menu.data;
+    const pageInfo = menu.pageInfo;
+    
+    const [currentPage, setCurrentPage] = useState(1);
 
-    useEffect(() => {
-        const token = window.localStorage.getItem('accessToken');
-        if (token) {
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            const decoded = decodeJwt(token);
-            console.log(decoded); // 디버깅용 콘솔 로그
-            if (decoded.auth && (decoded.auth.includes('ROLE_ADMIN') || decoded.auth.includes('ROLE_MANAGER'))) {
-                setIsAdmin(true);
-            }
+    const pageNumber = [];
+    if(pageInfo){
+        for(let i = 1; i <= pageInfo.pageEnd ; i++){
+            pageNumber.push(i);
         }
+    }    
 
-        axios.get('http://localhost:8080/api/v1/menus')
-            .then(response => {
-                setMenuItems(response.data);
-            })
-            .catch(error => {
-                console.error("메뉴 목록을 가져오는 중 오류가 발생했습니다!", error);
-            });
-    }, []);
 
-    const handleAllMenusClick = () => {
-        axios.get('http://localhost:8080/api/v1/menus')
-            .then(response => {
-                setMenuItems(response.data);
-            })
-            .catch(error => {
-                console.error("메뉴 목록을 가져오는 중 오류가 발생했습니다!", error);
-            });
-    };
+    useEffect(
+        ()=>{
+            dispatch(callGetMenuListAPI({
+                currentPage: currentPage
+            })).finally(()=> { setLoading(false)});
+        },[currentPage]
+    )
 
-    const handleSearchClick = () => {
-        axios.get(`http://localhost:8080/api/v1/menus/search?name=${searchQuery}`)
-            .then(response => {
-                setMenuItems(response.data);
-            })
-            .catch(error => {
-                console.error("메뉴 검색 중 오류가 발생했습니다!", error);
-            });
-    };
+    useEffect(
+        ()=>{
+            if(menuList){
+                console.log('menuList : ', menuList);
+            }
+        },[menuList]
+    )
 
-    const handleRegisterClick = () => {
-        console.log('Register button clicked'); // 디버깅용 콘솔 로그
-        navigate('/menu/register');
-    };
 
-    const handleOrderClick = (menu_code) => {
-        axios.post('http://localhost:8080/api/v1/orders', { menu_code })
-            .then(response => {
-                alert('주문이 성공적으로 완료되었습니다!');
-            })
-            .catch(error => {
-                console.error("주문 중 오류가 발생했습니다!", error);
-            });
-    };
+    const onClickMenuHandler = (menuCode) => {
+        navigate(`/menu/menuDetails/${menuCode}`);
+    }
+
+    
+    const onClickResgisterHandler = () => {
+        navigate(`/menu/regist`);
+    }
 
     return (
-        <>
-            <h2>메뉴 목록</h2>
-            <div>
-                <button onClick={handleAllMenusClick}>전체 메뉴</button>
-                <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="메뉴 이름"
-                />
-                <button onClick={handleSearchClick}>메뉴 검색</button>
-                {isAdmin && <button onClick={handleRegisterClick}>메뉴 등록</button>}
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {menuItems.map(item => (
-                    <div 
-                        key={item.menuCode} 
-                        style={{ border: '1px solid #ccc', margin: '10px', padding: '10px', width: '200px', cursor: 'pointer' }}
+        <div className='listDiv'> 
+            {loading ? ( // 로딩 중일 때 표시할 내용
+                    <p>Loading...</p>
+                ) : (
+            <>
+                <h2>전체 메뉴 목록</h2>
+                { (token !== null) ? ((token.auth[0] == 'ROLE_ADMIN') && <button className='mangerRegisterBtn' onClick={ onClickResgisterHandler }>메뉴 등록</button>) : null}
+                <div className='ListBox'>
+                    {menuList.map(menu => (
+                        <div
+                            key={menu.menuCode}
+                            onClick = {()=> { onClickMenuHandler(menu.menuCode) }}
+                            className='TotalItem'
+                        >
+                            <table>
+                                <tbody>
+                                    <tr className='menuImg'>
+                                        <td><img src={menu.menuImg}></img></td>
+                                    </tr>
+                                    <tr className='ItemName'>
+                                        <td><h3 className='menuNameh3'>{menu.menuName}</h3></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    ))
+                    }
+                </div>
+                <div className='pagingBtnDiv' style={{ listStyleType: "none", display: "flex" }}>
+                { Array.isArray(menuList) &&
+                <button 
+                    onClick={() => setCurrentPage(currentPage - 1)} 
+                    disabled={currentPage === 1}
+                    className='pagingBtn'
+                >
+                    &lt;
+                </button>
+                }
+                {pageNumber.map((num) => (
+                <li key={num} onClick={() => setCurrentPage(num)}>
+                    <button
+                        style={ currentPage === num ? {backgroundColor : '#97A482', color : '#ecebe8' } : null}
+                        className='pagingBtn'
                     >
-                        <h3>{item.menuName}</h3>
-                        <p>카테고리: {item.category}</p>
-                        <p>설명: {item.menuContent}</p>
-                        <p>가격: {item.menuPrice}원</p>
-                        <p>주문 가능 상태: {item.orderableStatus ? '가능' : '불가능'}</p>
-                        {item.orderableStatus && <button onClick={() => handleOrderClick(item.menuCode)}>주문</button>}
-                    </div>
+                        {num}
+                    </button>
+                </li>
                 ))}
+                { Array.isArray(menuList) &&
+                <button 
+                    className="pagingBtn"
+                    onClick={() => setCurrentPage(currentPage + 1)} 
+                    disabled={currentPage === pageInfo.pageEnd  || pageInfo.total == 0}
+                >
+                    &gt;
+                </button>
+                }
             </div>
-        </>
+            </>
+            )}
+        </div>
     );
 }
 

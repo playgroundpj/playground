@@ -59,8 +59,8 @@ function BoardGame() {
                     <p>Loading...</p>
                 ) : (
             <>
-                <h2>전체 매장 목록</h2>
-                { (token !== null) ? ((token.auth[0] == 'ROLE_ADMIN') && <button className='mangerRegisterBtn' onClick={ onClickResgisterHandler }>매장 등록</button>) : null}
+                <h2>전체 보드게임 목록</h2>
+                { (token !== null) ? ((token.auth[0] == 'ROLE_ADMIN') && <button className='mangerRegisterBtn' onClick={ onClickResgisterHandler }>보드게임 등록</button>) : null}
                 <div className='ListBox'>
                     {boardgameList.map(boardgame => (
                         <div

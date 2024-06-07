@@ -20,32 +20,6 @@ import java.util.List;
 @RequestMapping("/api/v1/boardgame")
 public class BoardGameController {
 
-//    @Autowired
-//    private BoardGameService boardGameService;
-//
-//    @GetMapping
-//    public ResponseEntity<List<BoardGame>> getAllBoardGames() {
-//        List<BoardGame> boardGames = boardGameService.getAllBoardGames();
-//        return ResponseEntity.ok(boardGames);
-//    }
-//
-//    @GetMapping("/{id}")
-//    public ResponseEntity<BoardGame> getBoardGameById(@PathVariable Long id) {
-//        BoardGame boardGame = boardGameService.getBoardGameById(id);
-//        return ResponseEntity.ok(boardGame);
-//    }
-//
-//    @GetMapping("/search")
-//    public ResponseEntity<List<BoardGame>> searchBoardGamesByName(@RequestParam String name) {
-//        List<BoardGame> boardGames = boardGameService.searchBoardGamesByName(name);
-//        return ResponseEntity.ok(boardGames);
-//    }
-//
-//    @PostMapping
-//    public ResponseEntity<BoardGame> createBoardGame(@RequestBody BoardGame boardGame) {
-//        BoardGame savedBoardGame = boardGameService.saveBoardGame(boardGame);
-//        return ResponseEntity.ok(savedBoardGame);
-//    }
 
     private final BoardGameService boardGameService;
 
