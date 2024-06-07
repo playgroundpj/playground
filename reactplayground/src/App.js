@@ -15,7 +15,7 @@ import CreateNotice from './pages/Board_Notice/CreateNotice';
 import NoticeDetail from './pages/Board_Notice/NoticeDetail';
 import NoticeModify from './pages/Board_Notice/NoticeModify';
 import RegisterMenu from './pages/menu/RegisterMenu';
-import Boardgame from './pages/boardgame/Boardgame';
+import Boardgame from './pages/boardgame/BoardGame';
 import Menu from './pages/menu/Menu';
 import SearchGame from './pages/boardgame/SearchGame';
 import SearchMenu from './pages/menu/SearchMenu';
