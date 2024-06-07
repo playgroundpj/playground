@@ -51,18 +51,20 @@ springdoc:
 ## 이미지를 저장할 위치와 응답할 때 이미지 주소 세팅
 image:
   ## WebConfig 참고
-  add-resource-locations: classpath:/static/productimgs/
+  add-resource-locations: classpath:/static/imgs/
   # Docker(local) 배포 기준
 #  add-resource-locations: file:///springboot-app/productimgs/
-  add-resource-handler: /productimgs/**
+  add-resource-handler: /imgs/**
   ## ProductService 참고
-#    image-dir: src/main/resources/static/productimgs
+  image-dir: src/main/resources/static/imgs/
+  image-url: http://localhost:8080/imgs/
   # Docker(local) 배포 기준
   #  image-dir: /springboot-app/productimgs
-  #  image-url: http://localhost:8080/productimgs/
+#  image-url: http://localhost:8080/imgs/
+
   # Docker(AWS) 배포 기준
-  image-dir: /springboot-app/productimgs
-  image-url: http://jaehong0831.store:8080/productimgs/
+#  image-dir: /springboot-app/productimgs
+#  image-url: http://jaehong0831.store:8080/productimgs/
 
 
 # Logging Level

@@ -155,15 +155,17 @@ create table if not exists `tbl_Grade` (
 # tbl_BoardGame(보드게임)
 drop table if exists tbl_BoardGame;
 create table if not exists `tbl_BoardGame` (
-	`boardgame_code`	int auto_increment	NOT NULL	COMMENT '보드게임코드',
+	`boardgame_code`	int auto_increment	primary key 	COMMENT '보드게임코드',
 	`boardgame_name`	VARCHAR(255)	NOT NULL	COMMENT '보드게임명',
 	`difficulty`	VARCHAR(255)	NOT NULL	COMMENT '난이도',
 	`release_date`	VARCHAR(255)	NULL	COMMENT '출시일',
 	`min_player`	INT	NOT NULL	COMMENT '최소인원',
 	`max_player`	INT	NOT NULL	COMMENT '최대인원',
 	`playtime`	INT	NOT NULL	COMMENT '게임시간',
-	`boardgame_rule`	VARCHAR(255)	NOT NULL	COMMENT '게임설명',
-    constraint pk_boardgame_code primary key (boardgame_code)
+	`boardgame_rule`	VARCHAR(255)	COMMENT '게임설명',
+	`boardgame_img_url1`	VARCHAR(255)	COMMENT '게임이미지1',
+	`boardgame_img_url2`	VARCHAR(255)	COMMENT '게임이미지2',
+	`boardgame_img_url3`	VARCHAR(255)	COMMENT '게임이미지3'
 );
 
 drop table if exists tbl_Menu;

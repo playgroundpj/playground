@@ -15,7 +15,7 @@ import CreateNotice from './pages/Board_Notice/CreateNotice';
 import NoticeDetail from './pages/Board_Notice/NoticeDetail';
 import NoticeModify from './pages/Board_Notice/NoticeModify';
 import RegisterMenu from './pages/menu/RegisterMenu';
-import Boardgame from './pages/boardgame/BoardGame';
+import Boardgame from './pages/boardgame/Boardgame';
 import Menu from './pages/menu/Menu';
 import SearchGame from './pages/boardgame/SearchGame';
 import SearchMenu from './pages/menu/SearchMenu';
@@ -35,11 +35,11 @@ function App() {
       
         <Routes>
           <Route path="/" element={ <Layout/> }>
-            <Route index element={ <Main /> }/>          
-            <Route path="mypage/*" element={ <MyPageLayout/> } >
+            <Route index element={ <Boardgame /> }/>          
+            <Route path="mypage" element={ <MyPageLayout/> } >
               <Route index element={ <Profile /> } />
               <Route path="profile" element={ <Profile /> } />
-              <Route path="profile/memberUpdate" element={ <MemberUpdate /> } />
+              <Route path="memberUpdate" element={ <MemberUpdate /> } />
               <Route path="member" element={ <MemberManage /> } />
               <Route path="member/:memberCode" element={ <MemberDetails/>} />
               <Route path="member/memberModify/:memberCode" element={ <MemberModify/>} />

@@ -34,7 +34,6 @@ function Navbars() {
                 <Navbar.Collapse id="basic-navbar-nav" >
                         <ul className='justify-content-center'>
                             <Nav className="me-auto navbar-me-auto">
-                                <li><NavLink to='/' style={({isActive}) => isActive? activeStyle : undefined}>Main</NavLink></li>
                                 <li><NavLink to='/boardgame' style={({isActive}) => isActive? activeStyle : undefined}>BoardGames</NavLink></li>
                                 <li><NavLink to='/Menu' style={({isActive}) => isActive? activeStyle : undefined}>Menu</NavLink></li>
                                 <li><NavLink to='/shop' style={({isActive}) => isActive? activeStyle : undefined}>Shops</NavLink></li>
