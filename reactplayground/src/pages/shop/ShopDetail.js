@@ -26,6 +26,10 @@ function ShopDetail() {
     const onClickModifyHandler = (getStoreCode) => {
         navigate(`/shop/update/${getStoreCode}`);
     }
+
+    const onClicReservationHandler = (getStoreCode) => {
+        navigate(`/shop/reservation/${getStoreCode}`);
+    }
     
     useEffect(
         () => {
@@ -48,11 +52,11 @@ function ShopDetail() {
     return (
         <div className='profileDiv'  >
             <h2>{shopDetail.storeName}  상세 정보</h2>
-            <div className='formTotal'>
+            <div className='formTotal ShopDetialForm'>
                 <table>
                     <colgroup>
-                        <col style={{width:'20%'}}></col>
-                        <col style={{width:'80%'}}></col>
+                        <col style={{width:'50%'}}></col>
+                        <col style={{width:'50%'}}></col>
                     </colgroup>
                     <tbody>
                         <tr>
@@ -79,6 +83,13 @@ function ShopDetail() {
                                             onClick = { () => onClickModifyHandler(storeCode) }
                                         >   
                                             매장 정보 수정
+                                        </button>
+                                        }
+                                        {((isAuth != 'ROLE_ADMIN') && (isAuth != 'ROLE_MANAGER')) && 
+                                        <button className='registerBtn'
+                                            onClick = { () => onClicReservationHandler(storeCode) }
+                                        >   
+                                            매장 예약
                                         </button>
                                         }
                                         <button className='backBtn'

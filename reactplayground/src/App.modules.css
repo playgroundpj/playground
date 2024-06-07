@@ -1184,3 +1184,52 @@ input[type=time]:hover:-webkit-datetime-edit-hour-field {
 	font-size: 0.8em !important;
 	font-family: var(--NotoSans);
 }
+
+
+.ShopDetialForm{
+	margin-bottom: 30px !important;
+}
+
+
+
+.ShopDetialForm table tr{
+	font-size: 1.3em;
+	background-color: var(--back-color2);
+	height: 40px !important;
+}
+
+.ShopDetialForm table tr:first-child{
+	height: 80px !important;
+	vertical-align: bottom;
+}
+
+.ShopDetialForm table tr:nth-child(4){
+	height: 80px !important;
+	vertical-align: top;
+}
+
+
+
+.ShopDetialForm table tr:last-child{
+	font-size: 1em;
+	height: 100px !important;
+	background-color: var(--back-color);
+}
+
+.ShopDetialForm table td:nth-child(1){
+	text-align: right;
+}
+
+
+.ShopDetialForm table td:nth-child(2){
+	padding-left: 30px;
+}
+
+.ShopDetialForm span{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.ShopDetialForm .registerBtn{
+	margin-top: 0;	
+}
