@@ -78,6 +78,8 @@ function MemberDetails() {
                 }else if(manager.status == "400"){
                     console.log("400 error", manager);
                     setLoading(false);
+                }else{
+                    setLoading(false);
                 }
             }
         },[manager]

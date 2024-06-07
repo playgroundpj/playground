@@ -986,7 +986,7 @@ input[type=file]::file-selector-button {
 
 
 .ItemName{
-	font-family: var(--Tenada);
+	font-family: var(--Tenada) !important;
 	font-size: 1.4em;
 }
 
@@ -1169,4 +1169,18 @@ input[type=time]:hover:-webkit-datetime-edit-hour-field {
 	background-color: var(--vintage-red);
 	color: var(--back-color);
     text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+.boardgameImg td > img{
+	height: 200px !important;
+	margin: 0 auto !important;
+}
+
+.boardgameImg td{
+	text-align: center !important;
+}
+
+.boardgameNameh3{
+	font-size: 0.8em !important;
+	font-family: var(--NotoSans);
 }

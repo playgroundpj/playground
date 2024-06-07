@@ -6,6 +6,7 @@ import noticeReducer from './NoticeModule';
 import reviewReducer from './ReviewModule';
 import shopReducer from './ShopModule';
 import managerReducer from './ManagerModule';
+import boardgameReducer from './BoardgameModule';
 
 const rootReducer = combineReducers({
     memberReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     noticeReducer,
     reviewReducer,
     shopReducer,
-    managerReducer
+    managerReducer,
+    boardgameReducer
 });
 
 export default rootReducer;

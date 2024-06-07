@@ -2,7 +2,6 @@
 GET localhost:8080/api/v1/members/
 Content-Type:application/json
 Accept:*/*
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxNzU3NzA1N30.ApNxXC-pCcbvY2urynfJNi3ekV1kuIIfP7o2eSZZ_cnMuBVq6hCA2Kx1XgAjf76JwoigILHZR7Ozf01v9DkUZw
 
 
 ### GET manager Store list

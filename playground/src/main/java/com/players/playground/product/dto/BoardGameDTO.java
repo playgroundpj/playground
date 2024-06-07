@@ -1,41 +1,23 @@
-package com.players.playground.product.entity;
+package com.players.playground.product.dto;
 
-import jakarta.persistence.*;
+public class BoardGameDTO {
 
-@Entity
-@Table(name = "tbl_boardgame")
-public class BoardGame {
-
-    @Id
-    @Column(name = "boardgame_code")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int boardgameCode;
-
-    @Column(name = "boardgame_name")
     private String boardgameName;
-    @Column(name = "difficulty")
     private String difficulty;
-    @Column(name = "release_date")
     private String releaseDate;
-    @Column(name = "min_player")
     private int minPlayer;
-    @Column(name = "max_player")
     private int maxPlayer;
-    @Column(name = "playtime")
     private int playtime;
-    @Column(name = "boardgame_rule")
     private String boardgameRule;
-    @Column(name = "boardgame_img_url1")
     private String boardgameImgURL1;
-    @Column(name = "boardgame_img_url2")
     private String boardgameImgURL2;
-    @Column(name = "boardgame_img_url3")
     private String boardgameImgURL3;
 
-    public BoardGame() {
+    public BoardGameDTO() {
     }
 
-    public BoardGame(int boardgameCode, String boardgameName, String difficulty, String releaseDate, int minPlayer, int maxPlayer, int playtime, String boardgameRule, String boardgameImgURL1, String boardgameImgURL2, String boardgameImgURL3) {
+    public BoardGameDTO(int boardgameCode, String boardgameName, String difficulty, String releaseDate, int minPlayer, int maxPlayer, int playtime, String boardgameRule, String boardgameImgURL1, String boardgameImgURL2, String boardgameImgURL3) {
         this.boardgameCode = boardgameCode;
         this.boardgameName = boardgameName;
         this.difficulty = difficulty;
@@ -139,7 +121,7 @@ public class BoardGame {
 
     @Override
     public String toString() {
-        return "BoardGame{" +
+        return "BoardGameDTO{" +
                 "boardgameCode=" + boardgameCode +
                 ", boardgameName='" + boardgameName + '\'' +
                 ", difficulty='" + difficulty + '\'' +
