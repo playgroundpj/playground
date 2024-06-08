@@ -3,28 +3,28 @@ package com.players.playground.store.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tbl_StoreMenu")
+@Table(name = "tbl_storemenu")
 public class StoreMenu {
 
     @Id
-    @Column(name = "storeMenu_no")
+    @Column(name = "storemenu_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int storeMenuNo;
 
     @Column(name = "store_code")
-    private String storeCode;
+    private int storeCode;
 
     @Column(name = "menu_code")
-    private String menuCode;
+    private int menuCode;
 
     @Column(name = "menu_count")
-    private String menuCount;
+    private int menuCount;
 
 
     public StoreMenu() {
     }
 
-    public StoreMenu(int storeMenuNo, String storeCode, String menuCode, String menuCount) {
+    public StoreMenu(int storeMenuNo, int storeCode, int menuCode, int menuCount) {
         this.storeMenuNo = storeMenuNo;
         this.storeCode = storeCode;
         this.menuCode = menuCode;
@@ -39,27 +39,27 @@ public class StoreMenu {
         this.storeMenuNo = storeMenuNo;
     }
 
-    public String getStoreCode() {
+    public int getStoreCode() {
         return storeCode;
     }
 
-    public void setStoreCode(String storeCode) {
+    public void setStoreCode(int storeCode) {
         this.storeCode = storeCode;
     }
 
-    public String getMenuCode() {
+    public int getMenuCode() {
         return menuCode;
     }
 
-    public void setMenuCode(String menuCode) {
+    public void setMenuCode(int menuCode) {
         this.menuCode = menuCode;
     }
 
-    public String getMenuCount() {
+    public int getMenuCount() {
         return menuCount;
     }
 
-    public void setMenuCount(String menuCount) {
+    public void setMenuCount(int menuCount) {
         this.menuCount = menuCount;
     }
 

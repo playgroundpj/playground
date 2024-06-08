@@ -3,15 +3,16 @@ package com.players.playground.store.dto;
 public class StoreBoardGameDTO {
 
     private int storeBoardGameNo;
-    private String storeCode;
-    private String boardgameCode;
-    private String boardgameCount;
+    private int storeCode;
+
+    private int boardgameCode;
+    private int boardgameCount;
     private String boardgameLocation;
 
     public StoreBoardGameDTO() {
     }
 
-    public StoreBoardGameDTO(int storeBoardGameNo, String storeCode, String boardgameCode, String boardgameCount, String boardgameLocation) {
+    public StoreBoardGameDTO(int storeBoardGameNo, int storeCode, int boardgameCode, int boardgameCount, String boardgameLocation) {
         this.storeBoardGameNo = storeBoardGameNo;
         this.storeCode = storeCode;
         this.boardgameCode = boardgameCode;
@@ -27,27 +28,27 @@ public class StoreBoardGameDTO {
         this.storeBoardGameNo = storeBoardGameNo;
     }
 
-    public String getStoreCode() {
+    public int getStoreCode() {
         return storeCode;
     }
 
-    public void setStoreCode(String storeCode) {
+    public void setStoreCode(int storeCode) {
         this.storeCode = storeCode;
     }
 
-    public String getBoardgameCode() {
+    public int getBoardgameCode() {
         return boardgameCode;
     }
 
-    public void setBoardgameCode(String boardgameCode) {
+    public void setBoardgameCode(int boardgameCode) {
         this.boardgameCode = boardgameCode;
     }
 
-    public String getBoardgameCount() {
+    public int getBoardgameCount() {
         return boardgameCount;
     }
 
-    public void setBoardgameCount(String boardgameCount) {
+    public void setBoardgameCount(int boardgameCount) {
         this.boardgameCount = boardgameCount;
     }
 

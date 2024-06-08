@@ -63,7 +63,7 @@ public class TokenProvider {
 
 	private static final String BEARER_TYPE = "Bearer";
 //	private static final long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 * 30;	// 30분(ms 단위)
-	private static final long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 * 300;	// 30분(ms 단위)
+	private static final long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 * 30000;	// 30000분(ms 단위)
 
 	/* 설명. Spring Security가 제공하는 UserDetailsService를 그대로 활용할 예정. */
 	private final UserDetailsService userDetailsService;

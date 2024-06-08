@@ -3,25 +3,25 @@ package com.players.playground.store.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tbl_StoreGameTable")
+@Table(name = "tbl_storegametable")
 public class StoreGametable {
 
     @Id
-    @Column(name = "storeGameTable_no")
+    @Column(name = "storegametable_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int storeGameTableNo;
 
     @Column(name = "store_code")
-    private String storeCode;
+    private int storeCode;
 
     @Column(name = "table_code")
-    private String tableCode;
+    private int tableCode;
 
 
     public StoreGametable() {
     }
 
-    public StoreGametable(int storeGameTableNo, String storeCode, String tableCode) {
+    public StoreGametable(int storeGameTableNo, int storeCode, int tableCode) {
         this.storeGameTableNo = storeGameTableNo;
         this.storeCode = storeCode;
         this.tableCode = tableCode;
@@ -35,22 +35,21 @@ public class StoreGametable {
         this.storeGameTableNo = storeGameTableNo;
     }
 
-    public String getStoreCode() {
+    public int getStoreCode() {
         return storeCode;
     }
 
-    public void setStoreCode(String storeCode) {
+    public void setStoreCode(int storeCode) {
         this.storeCode = storeCode;
     }
 
-    public String getTableCode() {
+    public int getTableCode() {
         return tableCode;
     }
 
-    public void setTableCode(String tableCode) {
+    public void setTableCode(int tableCode) {
         this.tableCode = tableCode;
     }
-
 
     @Override
     public String toString() {

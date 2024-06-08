@@ -1,6 +1,6 @@
 package com.players.playground.store.repository;
 
-import com.players.playground.store.entity.StoreBoardGame;
+import com.players.playground.store.entity.GameTable;
 import com.players.playground.store.entity.StoreGametable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface StoreGametableRepository extends JpaRepository<StoreGametable, Integer> {
+public interface GametableRepository extends JpaRepository<GameTable, Integer> {
 
-    List<StoreGametable> findByStoreCode(Integer integer);
+    GameTable findByTableCode(int tableCode);
 }

@@ -3,13 +3,15 @@ package com.players.playground.store.dto;
 public class StoreGametableDTO {
 
     private int storeGameTableNo;
-    private String storeCode;
-    private String tableCode;
+    private int storeCode;
+
+    private int tableCode;
+
 
     public StoreGametableDTO() {
     }
 
-    public StoreGametableDTO(int storeGameTableNo, String storeCode, String tableCode) {
+    public StoreGametableDTO(int storeGameTableNo, int storeCode, int tableCode) {
         this.storeGameTableNo = storeGameTableNo;
         this.storeCode = storeCode;
         this.tableCode = tableCode;
@@ -23,19 +25,19 @@ public class StoreGametableDTO {
         this.storeGameTableNo = storeGameTableNo;
     }
 
-    public String getStoreCode() {
+    public int getStoreCode() {
         return storeCode;
     }
 
-    public void setStoreCode(String storeCode) {
+    public void setStoreCode(int storeCode) {
         this.storeCode = storeCode;
     }
 
-    public String getTableCode() {
+    public int getTableCode() {
         return tableCode;
     }
 
-    public void setTableCode(String tableCode) {
+    public void setTableCode(int tableCode) {
         this.tableCode = tableCode;
     }
 

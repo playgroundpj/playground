@@ -3,14 +3,14 @@ package com.players.playground.store.dto;
 public class StoreMenuDTO {
 
     private int storeMenuNo;
-    private String storeCode;
-    private String menuCode;
-    private String menuCount;
+    private int storeCode;
+    private int menuCode;
+    private int menuCount;
 
     public StoreMenuDTO() {
     }
 
-    public StoreMenuDTO(int storeMenuNo, String storeCode, String menuCode, String menuCount) {
+    public StoreMenuDTO(int storeMenuNo, int storeCode, int menuCode, int menuCount) {
         this.storeMenuNo = storeMenuNo;
         this.storeCode = storeCode;
         this.menuCode = menuCode;
@@ -25,27 +25,27 @@ public class StoreMenuDTO {
         this.storeMenuNo = storeMenuNo;
     }
 
-    public String getStoreCode() {
+    public int getStoreCode() {
         return storeCode;
     }
 
-    public void setStoreCode(String storeCode) {
+    public void setStoreCode(int storeCode) {
         this.storeCode = storeCode;
     }
 
-    public String getMenuCode() {
+    public int getMenuCode() {
         return menuCode;
     }
 
-    public void setMenuCode(String menuCode) {
+    public void setMenuCode(int menuCode) {
         this.menuCode = menuCode;
     }
 
-    public String getMenuCount() {
+    public int getMenuCount() {
         return menuCount;
     }
 
-    public void setMenuCount(String menuCount) {
+    public void setMenuCount(int menuCount) {
         this.menuCount = menuCount;
     }
 

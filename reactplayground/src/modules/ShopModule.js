@@ -10,6 +10,7 @@ export const GET_SHOP_ID     = 'auth/GET_SHOP';
 export const PUT_SHOP     = 'shop/PUT_SHOP';
 export const DELETE_SHOP     = 'shop/DELETE_SHOP';
 export const GET_SHOP_LIST     = 'shop/GET_SHOP_LIST';
+export const GET_GAMETABLE     = 'shop/GET_GAMETABLE';
 
 
 const actions = createActions({
@@ -19,6 +20,7 @@ const actions = createActions({
     [PUT_SHOP]: () => {},
     [DELETE_SHOP]: () => {},
     [GET_SHOP_LIST]: () => {},
+    [GET_GAMETABLE]: () => {},
 });
 
 /* 리듀서 */
@@ -45,6 +47,10 @@ const shopReducer = handleActions(
             return payload;
         },
         [GET_SHOP_LIST]: (state, { payload }) => {
+            
+            return payload;
+        },
+        [GET_GAMETABLE]: (state, { payload }) => {
             
             return payload;
         },

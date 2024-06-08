@@ -1,6 +1,7 @@
 package com.players.playground.reservation.service;
 
 import com.players.playground.common.Criteria;
+import com.players.playground.common.ResponseDTO;
 import com.players.playground.reservation.dto.ReservationDTO;
 import com.players.playground.reservation.entity.Reservation;
 import com.players.playground.reservation.repository.ReservationRepository;
@@ -56,6 +57,40 @@ public class ReservationService {
 
 
         log.info("[ReservationService] selectStoreListWithPaging() End");
+
+        return reservationList.stream().map(reservation -> modelMapper.map(reservation, ReservationDTO.class)).collect(Collectors.toList());
+
+    }
+
+    public Object selectReservationBymemberCode(String memberCode) {
+
+        log.info("[ReservationService] selectReservationBymemberCode() Start");
+
+        List<Reservation> reservationList = reservationRepository.findByMemberCode(Integer.valueOf(memberCode));
+
+        if(reservationList.isEmpty()){
+            return "예약 내역이 없습니다";
+        }else{
+            log.info("[ReservationService] selectReservationBymemberCode() End");
+            return reservationList.stream().map(reservation -> modelMapper.map(reservation,ReservationDTO.class )).collect(Collectors.toList());
+        }
+    }
+
+    public ReservationDTO selectReservationById(int reservationCode) {
+
+        log.info("[ReservationService] selectReservationById() Start");
+
+        Reservation reservation = reservationRepository.findById(reservationCode).get();
+
+        return modelMapper.map(reservation, ReservationDTO.class);
+
+    }
+
+    public List<ReservationDTO> selectReservationAll() {
+
+        log.info("[ReservationService] selectReservationAll() Start");
+
+        List<Reservation> reservationList = reservationRepository.findAll();
 
         return reservationList.stream().map(reservation -> modelMapper.map(reservation, ReservationDTO.class)).collect(Collectors.toList());
 

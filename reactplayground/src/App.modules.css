@@ -1296,3 +1296,78 @@ input[type=time]:hover:-webkit-datetime-edit-hour-field {
 	display: inline-block;
 	margin-right: 10px;
 }
+
+.react-datepicker__time-list {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.react-datepicker__time-list-item {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.ReservationList{
+	width: 90%;
+}
+
+.ReservationList table thead td{
+	font-size: 1.2em;
+	font-family: var(--Tenada);
+	color: var(--vintage-gray);
+
+}
+
+.ReservationList table tbody tr{
+	border-top: 1px solid var(--gray-white);
+	
+}
+
+.ReservationList table tbody td:first-child{
+	padding-left: 10px;
+}
+
+.ReservationList table tbody tr:last-child td:first-child{
+	padding-left: 0;
+}
+
+
+.ReservationList table tbody tr:hover{
+	background-color: var(--green-white);
+	cursor: pointer;
+}
+
+.ReservationList table tbody tr:last-child:hover{
+	background-color: var(--back-color);
+	cursor: auto;
+}
+
+.ReservationList table tbody tr:last-child{
+	height: 150px;
+}
+
+.datepicker{
+	width: 100% !important;
+}
+
+.reservationDiv label{
+	width: 100%;
+	text-align: right;
+	padding-right: 8px;
+}
+
+.reservationCSS{
+	padding-top: 0;
+}
+.reservationCSS h2{
+	text-align: center;
+	margin: 0 auto 10px!important;
+	
+}

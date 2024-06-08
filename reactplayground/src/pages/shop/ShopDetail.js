@@ -85,7 +85,7 @@ function ShopDetail() {
                                             매장 정보 수정
                                         </button>
                                         }
-                                        {((isAuth != 'ROLE_ADMIN') && (isAuth != 'ROLE_MANAGER')) && 
+                                        {((isAuth == 'ROLE_USER')) && 
                                         <button className='registerBtn'
                                             onClick = { () => onClicReservationHandler(storeCode) }
                                         >   

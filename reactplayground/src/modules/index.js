@@ -8,6 +8,8 @@ import shopReducer from './ShopModule';
 import managerReducer from './ManagerModule';
 import boardgameReducer from './BoardgameModule';
 import menuReducer from './MenuModule';
+import reservationReducer from './ReservationModule';
+import storeReducer from './StoreModule';
 
 const rootReducer = combineReducers({
     memberReducer,
@@ -18,7 +20,9 @@ const rootReducer = combineReducers({
     shopReducer,
     managerReducer,
     boardgameReducer,
-    menuReducer
+    menuReducer,
+    reservationReducer,
+    storeReducer
 });
 
 export default rootReducer;

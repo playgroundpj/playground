@@ -3,11 +3,11 @@ package com.players.playground.store.service;
 import com.players.playground.common.Criteria;
 import com.players.playground.exception.DuplicatedStorNamelException;
 import com.players.playground.member.repository.ManagerRepository;
-import com.players.playground.store.dto.StoreBoardGameDTO;
 import com.players.playground.store.dto.StoreDTO;
+import com.players.playground.store.dto.StoreGametableDTO;
 import com.players.playground.store.entity.Store;
-import com.players.playground.store.entity.StoreBoardGame;
-import com.players.playground.store.repository.StoreBoardGameRepository;
+import com.players.playground.store.entity.StoreGametable;
+import com.players.playground.store.repository.StoreGametableRepository;
 import com.players.playground.store.repository.StoreRepository;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -24,37 +24,30 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class StoreBoardGameService {
+public class StoreGameTableService {
 
     private static final Logger log = LoggerFactory.getLogger(com.players.playground.member.service.AuthService.class);
 
-    private final StoreBoardGameRepository storeBoardGameRepository;
+    private final StoreRepository storeRepository;
 
+    private final StoreGametableRepository storeGametableRepository;
 
     private final ModelMapper modelMapper;
 
-    public StoreBoardGameService(StoreBoardGameRepository storeBoardGameRepository, ModelMapper modelMapper) {
-        this.storeBoardGameRepository = storeBoardGameRepository;
+    @Autowired
+    public StoreGameTableService(StoreRepository storeRepository, StoreGametableRepository storeGametableRepository, ModelMapper modelMapper) {
+        this.storeRepository = storeRepository;
+        this.storeGametableRepository = storeGametableRepository;
         this.modelMapper = modelMapper;
     }
 
+    public List<StoreGametableDTO> selectGametableByStoreCode(String storeCode) {
 
-    public Object findBoardGameByStoreCode(String storeCode) {
+        log.info("[StoreGametableService] selectGametableByStoreCode() Start");
 
-        log.info("[StoreBoardGameService] findBoardGameByStoreCode Start =======================");
+        List<StoreGametable> storeGametableList = storeGametableRepository.findByStoreCode(Integer.valueOf(storeCode));
 
-        List<StoreBoardGame> storeBoardGameList = storeBoardGameRepository.findByStoreCode(Integer.valueOf(storeCode));
-
-        if(storeBoardGameList.isEmpty()){
-
-            return null;
-
-        }else{
-            return storeBoardGameList.stream().map(
-                    storeBoardGame -> modelMapper.map(storeBoardGame, StoreBoardGameDTO.class))
-                    .collect(Collectors.toList());
-
-        }
+        return storeGametableList.stream().map(storeGametable -> modelMapper.map(storeGametable, StoreGametableDTO.class)).collect(Collectors.toList());
 
     }
 }

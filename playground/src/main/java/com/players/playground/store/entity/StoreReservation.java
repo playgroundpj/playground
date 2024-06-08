@@ -3,75 +3,85 @@ package com.players.playground.store.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tbl_StoreReservation")
+@Table(name = "tbl_storereservation")
 public class StoreReservation {
 
     @Id
-    @Column(name = "storeReservation_no")
+    @Column(name = "storereservation_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int storeReservationNo;
 
     @Column(name = "reservation_code")
-    private String reservationCode;
+    private int reservationCode;
 
     @Column(name = "member_code")
-    private String memberCode;
+    private int memberCode;
 
     @Column(name = "store_code")
-    private String storeCode;
+    private int storeCode;
 
     @Column(name = "table_code")
-    private String tableCode;
+    private int tableCode;
 
     public StoreReservation() {
     }
 
-    public StoreReservation(int storeGameTableNo, String storeCode, String tableCode, String tableCount) {
-        this.storeGameTableNo = storeGameTableNo;
+    public StoreReservation(int storeReservationNo, int reservationCode, int memberCode, int storeCode, int tableCode) {
+        this.storeReservationNo = storeReservationNo;
+        this.reservationCode = reservationCode;
+        this.memberCode = memberCode;
         this.storeCode = storeCode;
         this.tableCode = tableCode;
-        this.tableCount = tableCount;
     }
 
-    public int getStoreGameTableNo() {
-        return storeGameTableNo;
+    public int getStoreReservationNo() {
+        return storeReservationNo;
     }
 
-    public void setStoreGameTableNo(int storeGameTableNo) {
-        this.storeGameTableNo = storeGameTableNo;
+    public void setStoreReservationNo(int storeReservationNo) {
+        this.storeReservationNo = storeReservationNo;
     }
 
-    public String getStoreCode() {
+    public int getReservationCode() {
+        return reservationCode;
+    }
+
+    public void setReservationCode(int reservationCode) {
+        this.reservationCode = reservationCode;
+    }
+
+    public int getMemberCode() {
+        return memberCode;
+    }
+
+    public void setMemberCode(int memberCode) {
+        this.memberCode = memberCode;
+    }
+
+    public int getStoreCode() {
         return storeCode;
     }
 
-    public void setStoreCode(String storeCode) {
+    public void setStoreCode(int storeCode) {
         this.storeCode = storeCode;
     }
 
-    public String getTableCode() {
+    public int getTableCode() {
         return tableCode;
     }
 
-    public void setTableCode(String tableCode) {
+    public void setTableCode(int tableCode) {
         this.tableCode = tableCode;
-    }
-
-    public String getTableCount() {
-        return tableCount;
-    }
-
-    public void setTableCount(String tableCount) {
-        this.tableCount = tableCount;
     }
 
     @Override
     public String toString() {
-        return "StoreGametable{" +
-                "storeGameTableNo=" + storeGameTableNo +
-                ", storeCode='" + storeCode + '\'' +
-                ", tableCode='" + tableCode + '\'' +
-                ", tableCount='" + tableCount + '\'' +
+        return "StoreReservation{" +
+                "storeReservationNo=" + storeReservationNo +
+                ", reservationCode=" + reservationCode +
+                ", memberCode=" + memberCode +
+                ", storeCode=" + storeCode +
+                ", tableCode=" + tableCode +
                 '}';
     }
 }

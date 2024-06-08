@@ -3,22 +3,22 @@ package com.players.playground.store.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tbl_StoreBoardGame")
+@Table(name = "tbl_storeboardgame")
 public class StoreBoardGame {
 
     @Id
-    @Column(name = "storeBoardGame_no")
+    @Column(name = "storeboardgame_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int storeBoardGameNo;
 
     @Column(name = "store_code")
-    private String storeCode;
+    private int storeCode;
 
     @Column(name = "boardgame_code")
-    private String boardgameCode;
+    private int boardgameCode;
 
     @Column(name = "boardgame_count")
-    private String boardgameCount;
+    private int boardgameCount;
 
     @Column(name = "boardgame_location")
     private String boardgameLocation;
@@ -26,7 +26,7 @@ public class StoreBoardGame {
     public StoreBoardGame() {
     }
 
-    public StoreBoardGame(int storeBoardGameNo, String storeCode, String boardgameCode, String boardgameCount, String boardgameLocation) {
+    public StoreBoardGame(int storeBoardGameNo, int storeCode, int boardgameCode, int boardgameCount, String boardgameLocation) {
         this.storeBoardGameNo = storeBoardGameNo;
         this.storeCode = storeCode;
         this.boardgameCode = boardgameCode;
@@ -42,27 +42,27 @@ public class StoreBoardGame {
         this.storeBoardGameNo = storeBoardGameNo;
     }
 
-    public String getStoreCode() {
+    public int getStoreCode() {
         return storeCode;
     }
 
-    public void setStoreCode(String storeCode) {
+    public void setStoreCode(int storeCode) {
         this.storeCode = storeCode;
     }
 
-    public String getBoardgameCode() {
+    public int getBoardgameCode() {
         return boardgameCode;
     }
 
-    public void setBoardgameCode(String boardgameCode) {
+    public void setBoardgameCode(int boardgameCode) {
         this.boardgameCode = boardgameCode;
     }
 
-    public String getBoardgameCount() {
+    public int getBoardgameCount() {
         return boardgameCount;
     }
 
-    public void setBoardgameCount(String boardgameCount) {
+    public void setBoardgameCount(int boardgameCount) {
         this.boardgameCount = boardgameCount;
     }
 

@@ -11,6 +11,8 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int reservationCode;
 
+    @Column(name = "member_code")
+    private int memberCode;
     @Column(name = "reservation_date")
     private String reservationDate;
     @Column(name = "reservation_datetime")
@@ -29,8 +31,9 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(int reservationCode, String reservationDate, String reservationDatetime, String reservationState, String reservationModifydate, String reservationModifydatetime, String startTime, String endTime) {
+    public Reservation(int reservationCode, int memberCode, String reservationDate, String reservationDatetime, String reservationState, String reservationModifydate, String reservationModifydatetime, String startTime, String endTime) {
         this.reservationCode = reservationCode;
+        this.memberCode = memberCode;
         this.reservationDate = reservationDate;
         this.reservationDatetime = reservationDatetime;
         this.reservationState = reservationState;
@@ -38,6 +41,14 @@ public class Reservation {
         this.reservationModifydatetime = reservationModifydatetime;
         this.startTime = startTime;
         this.endTime = endTime;
+    }
+
+    public int getMemberCode() {
+        return memberCode;
+    }
+
+    public void setMemberCode(int memberCode) {
+        this.memberCode = memberCode;
     }
 
     public int getReservationCode() {
@@ -108,6 +119,7 @@ public class Reservation {
     public String toString() {
         return "Reservation{" +
                 "reservationCode=" + reservationCode +
+                ", memberCode=" + memberCode +
                 ", reservationDate='" + reservationDate + '\'' +
                 ", reservationDatetime='" + reservationDatetime + '\'' +
                 ", reservationState='" + reservationState + '\'' +

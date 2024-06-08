@@ -3,15 +3,15 @@ package com.players.playground.store.dto;
 public class StoreReservationDTO {
 
     private int storeReservationNo;
-    private String reservationCode;
-    private String memberCode;
-    private String storeCode;
-    private String tableCode;
+    private int reservationCode;
+    private int memberCode;
+    private int storeCode;
+    private int tableCode;
 
     public StoreReservationDTO() {
     }
 
-    public StoreReservationDTO(int storeReservationNo, String reservationCode, String memberCode, String storeCode, String tableCode) {
+    public StoreReservationDTO(int storeReservationNo, int reservationCode, int memberCode, int storeCode, int tableCode) {
         this.storeReservationNo = storeReservationNo;
         this.reservationCode = reservationCode;
         this.memberCode = memberCode;
@@ -27,35 +27,35 @@ public class StoreReservationDTO {
         this.storeReservationNo = storeReservationNo;
     }
 
-    public String getReservationCode() {
+    public int getReservationCode() {
         return reservationCode;
     }
 
-    public void setReservationCode(String reservationCode) {
+    public void setReservationCode(int reservationCode) {
         this.reservationCode = reservationCode;
     }
 
-    public String getMemberCode() {
+    public int getMemberCode() {
         return memberCode;
     }
 
-    public void setMemberCode(String memberCode) {
+    public void setMemberCode(int memberCode) {
         this.memberCode = memberCode;
     }
 
-    public String getStoreCode() {
+    public int getStoreCode() {
         return storeCode;
     }
 
-    public void setStoreCode(String storeCode) {
+    public void setStoreCode(int storeCode) {
         this.storeCode = storeCode;
     }
 
-    public String getTableCode() {
+    public int getTableCode() {
         return tableCode;
     }
 
-    public void setTableCode(String tableCode) {
+    public void setTableCode(int tableCode) {
         this.tableCode = tableCode;
     }
 

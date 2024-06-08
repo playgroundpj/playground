@@ -91,7 +91,7 @@ public class BoardGameService {
     }
 
 
-    public Object findBoardgameByCode(String boardgameCode) {
+    public BoardGameDTO findBoardgameByCode(String boardgameCode) {
 
         log.info("[BoardGameService] findBoardgameByCode Start =======================");
 

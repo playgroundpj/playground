@@ -3,6 +3,8 @@ package com.players.playground.reservation.dto;
 public class ReservationDTO {
 
     private int reservationCode;
+    private int memberCode;
+
     private String reservationDate;
     private String reservationDatetime;
     private String reservationState;
@@ -14,8 +16,9 @@ public class ReservationDTO {
     public ReservationDTO() {
     }
 
-    public ReservationDTO(int reservationCode, String reservationDate, String reservationDatetime, String reservationState, String reservationModifydate, String reservationModifydatetime, String startTime, String endTime) {
+    public ReservationDTO(int reservationCode, int memberCode, String reservationDate, String reservationDatetime, String reservationState, String reservationModifydate, String reservationModifydatetime, String startTime, String endTime) {
         this.reservationCode = reservationCode;
+        this.memberCode = memberCode;
         this.reservationDate = reservationDate;
         this.reservationDatetime = reservationDatetime;
         this.reservationState = reservationState;
@@ -27,6 +30,14 @@ public class ReservationDTO {
 
     public int getReservationCode() {
         return reservationCode;
+    }
+
+    public int getMemberCode() {
+        return memberCode;
+    }
+
+    public void setMemberCode(int memberCode) {
+        this.memberCode = memberCode;
     }
 
     public void setReservationCode(int reservationCode) {
@@ -93,6 +104,7 @@ public class ReservationDTO {
     public String toString() {
         return "ReservationDTO{" +
                 "reservationCode=" + reservationCode +
+                ", memberCode=" + memberCode +
                 ", reservationDate='" + reservationDate + '\'' +
                 ", reservationDatetime='" + reservationDatetime + '\'' +
                 ", reservationState='" + reservationState + '\'' +
@@ -102,7 +114,4 @@ public class ReservationDTO {
                 ", endTime='" + endTime + '\'' +
                 '}';
     }
-
-
-
 }

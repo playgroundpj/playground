@@ -19,7 +19,7 @@ function MyPageNavbar() {
         <div className='myPageNavbarCSS'>
             <ul >
                 <li><NavLink to="/mypage/profile" style={({isActive}) => isActive? activeStyle : undefined}>회원 정보</NavLink></li>
-                <li><NavLink to="/mypage/reservation" style={({isActive}) => isActive? activeStyle : undefined}>예약 정보</NavLink></li>
+                <li><NavLink to="/mypage/myreservation" style={({isActive}) => isActive? activeStyle : undefined}>예약 정보</NavLink></li>
                 <li><NavLink to="/mypage/payment" style={({isActive}) => isActive? activeStyle : undefined}>결제 정보</NavLink></li>
             </ul>
         </div>

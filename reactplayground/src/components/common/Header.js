@@ -75,13 +75,14 @@ function Header() {
                     title: 'swal2-title'
                 }
             }).then(() => {
+                window.localStorage.removeItem('accessToken');  
                 navigate("/login", { replace: true })
                 window.location.reload();
             });
             return ;
         }
 
-        navigate("/mypage", { replace: true });
+        navigate("/mypage/profile", { replace: true });
     }
 
 

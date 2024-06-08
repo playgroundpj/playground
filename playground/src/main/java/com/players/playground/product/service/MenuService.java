@@ -92,7 +92,7 @@ public class MenuService {
     }
 
 
-    public Object findMenuByCode(String menuCode) {
+    public MenuDTO findMenuByCode(String menuCode) {
 
         log.info("[MenuService] findMenuByCode Start =======================");
 

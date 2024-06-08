@@ -29,6 +29,8 @@ import ShopDetail from './pages/shop/ShopDetail';
 import ShopRegister from './pages/shop/ShopRegister';
 import ShopModify from './pages/shop/ShopModify';
 import MenuDetail from './pages/menu/MenuDetail';
+import Reservation from './pages/reservation/Reservation';
+import MyReservation from './pages/reservation/MyReservation';
 
 function App() {
   return (
@@ -40,6 +42,7 @@ function App() {
             <Route path="mypage" element={ <MyPageLayout/> } >
               <Route index element={ <Profile /> } />
               <Route path="profile" element={ <Profile /> } />
+              <Route path="myreservation" element={ <MyReservation /> } />
               <Route path="memberUpdate" element={ <MemberUpdate /> } />
               <Route path="member" element={ <MemberManage /> } />
               <Route path="member/:memberCode" element={ <MemberDetails/>} />
@@ -67,6 +70,7 @@ function App() {
 
             <Route path="shop" element={ <Shop/>} />
             <Route path="shop/shopDetails/:shopCode" element={<ShopDetail/>}/>
+            <Route path="shop/reservation/:shopCode" element={<Reservation/>}/>
             <Route path="shop/regist" element={ <ShopRegister/>} />
             <Route path="shop/update/:shopCode" element={<ShopModify/>} />
           </Route>
