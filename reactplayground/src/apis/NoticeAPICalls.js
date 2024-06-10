@@ -120,7 +120,7 @@ export const updateNoticeAPI = ({form}) => {
 
 
 // 게시글 삭제
-export const deleteNoticeAPI = ({noticeCode}) => {
+export const deleteNoticeAPI = (noticeCode) => {
     const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/board/notice/${noticeCode}`;
 
     return async (dispatch) => {
@@ -182,3 +182,4 @@ export const callNoticeDetailAPI = (noticeCode) => {
         }
     };
 };
+

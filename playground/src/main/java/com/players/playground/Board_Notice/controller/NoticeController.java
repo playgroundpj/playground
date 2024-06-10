@@ -93,7 +93,7 @@ public class NoticeController {
 //        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "수정 성공", notice));
 //    }
     // 공지게시판 수정
-    @PutMapping(value = "/notice/{noticeCode}")
+    @PutMapping(value = "/notice/modify/{noticeCode}")
     public ResponseEntity<ResponseDTO> updateNotice(@RequestBody NoticeDTO noticeDTO) {
 
         log.info("[NoticeController] updateNotice : noticeDTO={}", noticeDTO);
@@ -103,8 +103,8 @@ public class NoticeController {
 
     @DeleteMapping("/notice/{noticeCode}")
 //    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ResponseDTO> deleteNotice(@PathVariable("noticeCode") int noticeCode) {
-        noticeService.deleteById(noticeCode);
-        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "삭제 성공", noticeCode));
+    public ResponseEntity<ResponseDTO> deleteNotice(@RequestBody NoticeDTO noticeDTO) {
+
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "삭제 성공", noticeService.deleteNotice(noticeDTO)));
     }
 }

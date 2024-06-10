@@ -16,7 +16,7 @@ function NoticeModify() {
     const token = decodeJwt(window.localStorage.getItem("accessToken")); 
     const notice = useSelector(state => state.noticeReducer);
     const noticeDetail = notice.data;
-
+    
     
     const [form, setForm] = useState({
         noticeTitle: '',
@@ -37,15 +37,20 @@ function NoticeModify() {
                 navigate("/notice");
             }        
 
-        },[token]
+        },[isLogin, token, navigate]
     )
     
     useEffect(() => {
         dispatch(callNoticeDetailAPI(noticeCode));
     }, [dispatch, noticeCode]);
 
-
-    
+    // useEffect(() => {
+    //     // 공지사항 상세정보 가져오기
+    //     const fetchNoticeDetail = async () => {
+    //         await dispatch(callNoticeDetailAPI(noticeCode));
+    //     };
+    //     fetchNoticeDetail();
+    // }, [dispatch, noticeCode]);
     
     
     useEffect(() => {
@@ -56,7 +61,7 @@ function NoticeModify() {
                 noticeContent: noticeDetail.noticeContent,
                 createDate: noticeDetail.createDate, // 기존 작성일자 설정
                 modifyedDate: noticeDetail.modifyedDate // 기존 수정일자 설정
-            });
+            })
         }
     }, [noticeDetail]);
     
@@ -90,11 +95,12 @@ function NoticeModify() {
                     timer : 1000
                 });
                 dispatch(updateNoticeAPI({noticeCode : form.noticeCode}));
-                navigate(`/board/notice/{noticeCode}`, {replace : true});
+                navigate(`/board/notice/${noticeCode}`, {replace : true});
                 window.location.reload();
             }
         });
     }
+
 
     const handleDelete = async () => {
         Swal.fire({
@@ -121,6 +127,7 @@ function NoticeModify() {
             }
         });
     }
+ 
 
     return (
         <div className='registerCSS'>
@@ -132,44 +139,46 @@ function NoticeModify() {
             <h2>게시글수정</h2>
             <hr></hr>
             <div className='formTotal boardRegistForm'>
-                <table>
-                    <colgroup>
-                        <col style={{width:'20%'}}></col>
-                        <col style={{width:'50%'}}></col>
-                        <col style={{width:'15%'}}></col>
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <td><label>제목</label></td>
-                            <td>
-                                <input
-                                    type="text"
-                                    name="noticeTitle"
-                                    // placeholder='게시글 제목을 입력해주세요'
-                                    value={form.noticeTitle}
+                {noticeDetail && (
+                    <table>
+                        <colgroup>
+                            <col style={{width:'20%'}}></col>
+                            <col style={{width:'50%'}}></col>
+                            <col style={{width:'15%'}}></col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td><label>제목</label></td>
+                                <td>
+                                    <input
+                                        type="text"
+                                        name="noticeTitle"
+                                        // placeholder='게시글 제목을 입력해주세요'
+                                        value={form.noticeTitle || ''}
+                                        onChange={handleChange}
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>내용</label></td>
+                                <td>
+                                    <textarea
+                                    style={{ color: 'black' }} // 인라인 스타일로 텍스트 색상 설정
+                                    name="noticeContent"
+                                    value={form.noticeContent || ''}
                                     onChange={handleChange}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label>내용</label></td>
-                            <td>
-                                <textarea
-                                style={{ color: 'black' }} // 인라인 스타일로 텍스트 색상 설정
-                                name="noticeContent"
-                                value={form.noticeContent}
-                                onChange={handleChange}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label>작성일: {new Date(form.createDate).toLocaleDateString()}</label>
-                                {form.modifyedDate && 
-                                <label>수정일: {new Date(form.modifyedDate).toLocaleDateString()}</label>}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>작성일: {new Date(form.createDate).toLocaleDateString()}</label>
+                                    {form.modifyedDate && 
+                                    <label>수정일: {new Date(form.modifyedDate).toLocaleDateString()}</label>}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                )}
             </div>
             <div className='boardRegisterBtn'>        
                 <button className='noticeModifyBtn' onClick={handleModify}>수정하기</button>

@@ -114,28 +114,63 @@ public class NoticeService {
 //    }
     // 게시글 수정
     @Transactional
-    public NoticeDTO updateNotice(NoticeDTO noticeDTO) {
+    public Object updateNotice(NoticeDTO noticeDTO) {
         log.info("[NoticeService] updateNotice : noticeDTO={}", noticeDTO);
 
-        Notice notice = noticeRepository.findById(noticeDTO.getNoticeCode()).get();
+        int result = 0;
 
-        log.info("[NoticeService] updateNotice : foundNoticeEntity={}", notice);
+        try {
+            Notice notice = noticeRepository.findById(noticeDTO.getNoticeCode()).get();
 
-        notice.setNoticeTitle(noticeDTO.getNoticeTitle());
-        notice.setNoticeContent(noticeDTO.getNoticeContent());
-        notice.setModifyedDate(LocalDate.now());
+            log.info("[NoticeService] updateNotice : foundNoticeEntity={}", notice);
 
-        Notice updateNotice  = noticeRepository.save(notice);
+            notice.setNoticeTitle(noticeDTO.getNoticeTitle());
+            notice.setNoticeContent(noticeDTO.getNoticeContent());
+            notice.setModifyedDate(LocalDate.now());
 
-        return modelMapper.map(updateNotice, NoticeDTO.class);
+            result = 1;
+
+            log.info("[NoticeService] final notice : {}", notice);
+
+        } catch (Exception e) {
+
+            log.info("[NoticeService] updateNotice : error", e);
+        }
+        log.info("[NoticeService] updateNotice () End");
+
+        return (result > 0) ? "게시글 정보 수정 성공" : "게시글 정보 수정 실패";
     }
 
     // 게시글 삭제
-    public void deleteById(int noticeCode) {
-        noticeRepository.deleteById(noticeCode);
-    }
+//    public void deleteById(int noticeCode) {
+//        noticeRepository.deleteById(noticeCode);
+//    }
+//
+//    public boolean existsById(int noticeCode) {
+//        return noticeRepository.existsById(noticeCode);
+//    }
+    @Transactional
+    public Object deleteNotice(NoticeDTO noticeDTO){
 
-    public boolean existsById(int noticeCode) {
-        return noticeRepository.existsById(noticeCode);
+        log.info("[NoticeService] deleteNotice() start");
+
+        int result = 0;
+
+        try{
+            Notice notice = noticeRepository.findById(noticeDTO.getNoticeCode()).get();
+
+            if (notice != null) {
+
+                noticeRepository.delete(notice);
+
+                result = 1;
+            }
+        } catch (Exception e) {
+            log.info("[NoticeService] deleteNotice : error", e);
+        }
+
+        log.info("[NoticeService] deleteNotice () End");
+
+        return (result > 0) ? "게시글 삭제 성공" : "게시글 삭제 실패";
     }
 }
