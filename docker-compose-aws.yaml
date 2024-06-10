@@ -1,0 +1,87 @@
+services:
+  # Front-end : React App
+  react-app:
+    image: reactplayground/react-app
+    container_name: react-app
+    ports:
+      - "80:3000"
+
+  # Back-end : SpringBoot REST API Server
+  springboot:
+    image: playground/springboot-app
+    container_name: restapi-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/playground
+      SPRING_DATASOURCE_USERNAME: players
+      SPRING_DATASOURCE_PASSWORD: players
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./static/productimgs:/springboot-app/productimgs
+      - ./logs:/springboot-app/logs
+    depends_on:
+      - mysql
+
+  # Database : MySQL
+  mysql:
+    image: mysql:8.0.36
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: System1234
+      MYSQL_DATABASE: playground
+      MYSQL_USER: players
+      MYSQL_PASSWORD: players
+      TZ: Asia/Seoul
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+
+  # Elasticsearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.21
+    container_name: elasticsearch
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: true
+      xpack.security.transport.ssl.enabled: true
+      ELASTIC_USERNAME: "elastic"
+      ELASTIC_PASSWORD: "ohgiraffers1234"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ./elasticsearch:/usr/share/elasticsearch/data
+  
+  # Logstash
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.17.21
+    container_name: logstash
+    ports:
+      - "5000:5000"
+      - "9600:9600"
+    volumes:
+      - ./logstash/config:/usr/share/logstash/config
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - ./logs:/springboot-app/logs
+    depends_on:
+      - elasticsearch
+
+  # Kibana
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.21
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    volumes:
+      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    depends_on:
+      - elasticsearch
+
+volumes:
+  mysql-data:

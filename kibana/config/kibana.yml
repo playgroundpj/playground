@@ -1,0 +1,6 @@
+server.name: kibana
+server.host: "0"
+# elasticsearch 서버에 접속하기 위한 정보
+elasticsearch.hosts: http://elasticsearch:9200
+elasticsearch.username: "elastic"
+elasticsearch.password: "ohgiraffers1234"

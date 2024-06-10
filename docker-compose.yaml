@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile
     container_name: react-app
     ports:
-      - "3333:3000"
+      - "3000:3000"
 
   # Back-end : SpringBoot REST API Server
   springboot:
@@ -25,7 +25,7 @@ services:
       - "8080:8080"
     volumes:
       - C:/myWs/Playground/playground/src/main/resources/static/imgs:/springboot-app/imgs
-    #   - ./logs:/springboot-app/logs
+      - ./logs:/springboot-app/logs
     depends_on:
       - mysql
 
@@ -48,6 +48,47 @@ services:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
       - --skip-character-set-client-handshake
+
+  # Elasticsearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.21
+    container_name: elasticsearch
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: true
+      xpack.security.transport.ssl.enabled: true
+      ELASTIC_USERNAME: "elastic"
+      ELASTIC_PASSWORD: "ohgiraffers1234"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ./elasticsearch:/usr/share/elasticsearch/data
+  
+  # Logstash
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.17.21
+    container_name: logstash
+    ports:
+      - "5000:5000"
+      - "9600:9600"
+    volumes:
+      - ./logstash/config:/usr/share/logstash/config
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - ./logs:/springboot-app/logs
+    depends_on:
+      - elasticsearch
+
+  # Kibana
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.21
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    volumes:
+      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    depends_on:
+      - elasticsearch
 
 volumes:
   mysql-data:

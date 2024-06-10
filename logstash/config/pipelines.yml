@@ -1,0 +1,2 @@
+- pipeline.id: springboot-logs
+  path.config: "/usr/share/logstash/pipeline/springboot-logs.conf"
