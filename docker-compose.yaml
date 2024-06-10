@@ -1,0 +1,53 @@
+# docker-compose 2.25 버전부터 version을 명시할 필요가 없어짐.
+# version: '3.8'
+
+services:
+  # Front-end : React App
+  react-app:
+    build:
+      context: ./reactplayground
+      dockerfile: Dockerfile
+    container_name: react-app
+    ports:
+      - "3333:3000"
+
+  # Back-end : SpringBoot REST API Server
+  springboot:
+    build:
+      context: ./playground
+      dockerfile: Dockerfile
+    container_name: restapi-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/playground
+      SPRING_DATASOURCE_USERNAME: players
+      SPRING_DATASOURCE_PASSWORD: players
+    ports:
+      - "8080:8080"
+    volumes:
+      - C:/myWs/Playground/playground/src/main/resources/static/imgs:/springboot-app/imgs
+    #   - ./logs:/springboot-app/logs
+    depends_on:
+      - mysql
+
+  # Database : MySQL
+  mysql:
+    image: mysql:8.0.36
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: System1234
+      MYSQL_DATABASE: playground
+      MYSQL_USER: players
+      MYSQL_PASSWORD: players
+      TZ: Asia/Seoul
+    ports:
+      - "33066:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+
+volumes:
+  mysql-data:
