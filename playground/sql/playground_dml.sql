@@ -1,106 +1,105 @@
-# 회원 테이블
-INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
-        ('admin', '관리자', '$2a$10$COvazywgZPXseeKaYhruh.pAYYfcSeGO5aSrHOsLZN0X8joNwW2dW', 'players@gmail.com', '1992-08-31','010-1234-1234', '서울시 서대문구 연희동');
-INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
-      ('manager01', '매니저', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager01@naver.com', '1992-08-31','010-1234-1234', '서울시 서대문구 연희동');
-INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
-      ('manager02', '매니저02', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager02@naver.com', '1993-05-17', '010-2345-2345', '서울시 강남구 역삼동'),
-      ('manager03', '매니저03', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager03@naver.com', '1991-12-22', '010-3456-3456', '서울시 마포구 홍대동'),
-      ('manager04', '매니저04', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager04@naver.com', '1990-03-09', '010-4567-4567', '서울시 용산구 한남동'),
-      ('manager05', '매니저05', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager05@naver.com', '1989-11-05', '010-5678-5678', '서울시 송파구 가락동'),
-      ('manager06', '매니저06', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager06@naver.com', '1994-07-13', '010-6789-6789', '서울시 서초구 서초동'),
-      ('manager07', '매니저07', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager07@naver.com', '1992-02-14', '010-7890-7890', '서울시 강동구 천호동'),
-      ('manager08', '매니저08', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager08@naver.com', '1995-08-25', '010-8901-8901', '서울시 관악구 봉천동'),
-      ('manager09', '매니저09', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager09@naver.com', '1990-10-10', '010-9012-9012', '서울시 구로구 구로동'),
-      ('manager10', '매니저10', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager10@naver.com', '1988-04-12', '010-0123-0123', '서울시 은평구 녹번동'),
-      ('manager11', '매니저11', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager11@naver.com', '1993-01-03', '010-1234-5678', '서울시 서대문구 북가좌동'),
-      ('manager12', '매니저12', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager12@naver.com', '1994-09-14', '010-2345-6789', '서울시 노원구 상계동'),
-      ('manager13', '매니저13', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager13@naver.com', '1992-11-23', '010-3456-7890', '서울시 중랑구 면목동'),
-      ('manager14', '매니저14', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager14@naver.com', '1989-07-19', '010-4567-8901', '서울시 동대문구 청량리동'),
-      ('manager15', '매니저15', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager15@naver.com', '1995-05-05', '010-5678-9012', '서울시 성북구 정릉동'),
-      ('manager16', '매니저16', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager16@naver.com', '1991-03-30', '010-6789-0123', '서울시 도봉구 쌍문동'),
-      ('manager17', '매니저17', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager17@naver.com', '1990-08-18', '010-7890-1234', '서울시 강북구 수유동'),
-      ('manager18', '매니저18', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager18@naver.com', '1993-12-02', '010-8901-2345', '서울시 중구 명동'),
-      ('manager19', '매니저19', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager19@naver.com', '1992-04-17', '010-9012-3456', '서울시 종로구 삼청동'),
-      ('manager20', '매니저20', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager20@naver.com', '1989-06-06', '010-0123-4567', '서울시 동작구 흑석동');
-INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
-      ('user01', '유저01', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user01@naver.com', '2004-05-28','010-1234-1234', '서울시 서대문구 연희동');
-INSERT INTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
-    ('user02', '유저02', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user02@naver.com', '2002-03-15','010-1234-5678', '서울시 강남구 삼성동'),
-    ('user03', '유저03', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user03@naver.com', '1998-11-23','010-2345-6789', '서울시 마포구 상암동'),
-    ('user04', '유저04', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user04@naver.com', '1995-08-07','010-3456-7890', '서울시 용산구 이태원동'),
-    ('user05', '유저05', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user05@naver.com', '2000-01-29','010-4567-8901', '서울시 송파구 잠실동'),
-    ('user06', '유저06', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user06@naver.com', '2001-05-14','010-5678-9012', '서울시 서초구 반포동'),
-    ('user07', '유저07', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user07@naver.com', '1997-09-22','010-6789-0123', '서울시 성동구 성수동'),
-    ('user08', '유저08', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user08@naver.com', '1999-12-05','010-7890-1234', '서울시 동대문구 회기동'),
-    ('user09', '유저09', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user09@naver.com', '2003-07-19','010-8901-2345', '서울시 강북구 수유동'),
-    ('user10', '유저10', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user10@naver.com', '2004-10-02','010-9012-3456', '서울시 은평구 불광동'),
-    ('user11', '유저11', '$2a$10$N34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user11@naver.com', '2005-04-18','010-0123-4567', '서울시 노원구 상계동');
 
-# 권한 테이블 및 회원별 권한 테이블 데이터 추가
+InSERT InTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
+    ('admin', '관리자', '$2a$10$COvazywgZPXseeKaYhruh.pAYYfcSegO5aSrHOsLZn0X8jonwW2dW', 'players@gmail.com', '1992-08-31','010-1234-1234', '서울시 서대문구 연희동');
+InSERT InTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
+    ('manager01', '매니저', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager01@naver.com', '1992-08-31','010-1234-1234', '서울시 서대문구 연희동');
+InSERT InTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
+  ('manager02', '매니저02', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager02@naver.com', '1993-05-17', '010-2345-2345', '서울시 강남구 역삼동'),
+  ('manager03', '매니저03', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager03@naver.com', '1991-12-22', '010-3456-3456', '서울시 마포구 홍대동'),
+  ('manager04', '매니저04', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager04@naver.com', '1990-03-09', '010-4567-4567', '서울시 용산구 한남동'),
+  ('manager05', '매니저05', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager05@naver.com', '1989-11-05', '010-5678-5678', '서울시 송파구 가락동'),
+  ('manager06', '매니저06', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager06@naver.com', '1994-07-13', '010-6789-6789', '서울시 서초구 서초동'),
+  ('manager07', '매니저07', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager07@naver.com', '1992-02-14', '010-7890-7890', '서울시 강동구 천호동'),
+  ('manager08', '매니저08', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager08@naver.com', '1995-08-25', '010-8901-8901', '서울시 관악구 봉천동'),
+  ('manager09', '매니저09', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager09@naver.com', '1990-10-10', '010-9012-9012', '서울시 구로구 구로동'),
+  ('manager10', '매니저10', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager10@naver.com', '1988-04-12', '010-0123-0123', '서울시 은평구 녹번동'),
+  ('manager11', '매니저11', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager11@naver.com', '1993-01-03', '010-1234-5678', '서울시 서대문구 북가좌동'),
+  ('manager12', '매니저12', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager12@naver.com', '1994-09-14', '010-2345-6789', '서울시 노원구 상계동'),
+  ('manager13', '매니저13', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager13@naver.com', '1992-11-23', '010-3456-7890', '서울시 중랑구 면목동'),
+  ('manager14', '매니저14', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager14@naver.com', '1989-07-19', '010-4567-8901', '서울시 동대문구 청량리동'),
+  ('manager15', '매니저15', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager15@naver.com', '1995-05-05', '010-5678-9012', '서울시 성북구 정릉동'),
+  ('manager16', '매니저16', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager16@naver.com', '1991-03-30', '010-6789-0123', '서울시 도봉구 쌍문동'),
+  ('manager17', '매니저17', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager17@naver.com', '1990-08-18', '010-7890-1234', '서울시 강북구 수유동'),
+  ('manager18', '매니저18', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager18@naver.com', '1993-12-02', '010-8901-2345', '서울시 중구 명동'),
+  ('manager19', '매니저19', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager19@naver.com', '1992-04-17', '010-9012-3456', '서울시 종로구 삼청동'),
+  ('manager20', '매니저20', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'manager20@naver.com', '1989-06-06', '010-0123-4567', '서울시 동작구 흑석동');
+InSERT InTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
+    ('user01', '유저01', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user01@naver.com', '2004-05-28','010-1234-1234', '서울시 서대문구 연희동');
+InSERT InTO tbl_member (member_id, member_nickname, member_password, member_email, member_birth, member_phone_number, member_address) VALUES
+    ('user02', '유저02', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user02@naver.com', '2002-03-15','010-1234-5678', '서울시 강남구 삼성동'),
+    ('user03', '유저03', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user03@naver.com', '1998-11-23','010-2345-6789', '서울시 마포구 상암동'),
+    ('user04', '유저04', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user04@naver.com', '1995-08-07','010-3456-7890', '서울시 용산구 이태원동'),
+    ('user05', '유저05', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user05@naver.com', '2000-01-29','010-4567-8901', '서울시 송파구 잠실동'),
+    ('user06', '유저06', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user06@naver.com', '2001-05-14','010-5678-9012', '서울시 서초구 반포동'),
+    ('user07', '유저07', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user07@naver.com', '1997-09-22','010-6789-0123', '서울시 성동구 성수동'),
+    ('user08', '유저08', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user08@naver.com', '1999-12-05','010-7890-1234', '서울시 동대문구 회기동'),
+    ('user09', '유저09', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user09@naver.com', '2003-07-19','010-8901-2345', '서울시 강북구 수유동'),
+    ('user10', '유저10', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user10@naver.com', '2004-10-02','010-9012-3456', '서울시 은평구 불광동'),
+    ('user11', '유저11', '$2a$10$n34MRj4tKVD0AxwvEcC8eOLUyBpXloPKE7Yw.S4/kj5fD1OU5BWsi', 'user11@naver.com', '2005-04-18','010-0123-4567', '서울시 노원구 상계동');
 
-INSERT INTO tbl_authority (authority_name, authority_desc) VALUES ('ROLE_ADMIN', '관리자');
-INSERT INTO tbl_authority (authority_name, authority_desc) VALUES ('ROLE_MANAGER', '매니저');
-INSERT INTO tbl_authority (authority_name, authority_desc) VALUES ('ROLE_USER', '일반회원');
 
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (1, 1);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (1, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (1, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (2, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (2, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (3, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (3, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (4, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (4, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (5, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (5, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (6, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (6, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (7, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (7, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (8, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (8, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (9, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (9, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (10, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (10, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (11, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (11, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (12, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (12, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (13, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (13, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (14, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (14, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (15, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (15, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (16, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (16, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (17, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (17, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (18, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (18, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (19, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (19, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (20, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (20, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (21, 2);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (21, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (22, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (23, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (24, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (25, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (26, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (27, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (28, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (29, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (30, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (31, 3);
-INSERT INTO tbl_member_role (member_code, authority_code) VALUES (32, 3);
+InSERT InTO tbl_authority (authority_name, authority_desc) VALUES ('ROLE_ADMIn', '관리자');
+InSERT InTO tbl_authority (authority_name, authority_desc) VALUES ('ROLE_MAnAgER', '매니저');
+InSERT InTO tbl_authority (authority_name, authority_desc) VALUES ('ROLE_USER', '일반회원');
+
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (1, 1);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (1, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (1, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (2, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (2, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (3, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (3, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (4, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (4, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (5, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (5, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (6, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (6, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (7, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (7, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (8, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (8, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (9, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (9, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (10, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (10, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (11, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (11, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (12, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (12, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (13, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (13, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (14, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (14, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (15, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (15, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (16, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (16, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (17, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (17, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (18, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (18, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (19, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (19, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (20, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (20, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (21, 2);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (21, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (22, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (23, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (24, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (25, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (26, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (27, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (28, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (29, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (30, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (31, 3);
+InSERT InTO tbl_member_role (member_code, authority_code) VALUES (32, 3);
 
 
 # 공지게시판 테이블 데이터 추가
-INSERT INTO tbl_notice (member_code, notice_title, notice_content, create_date, modifyed_date, notice_category) VALUES
+InSERT InTO tbl_notice (member_code, notice_title, notice_content, create_date, modifyed_date, notice_category) VALUES
                                                                                                                     (1, '공지사항 제목 1', '공지사항 내용 1', '2024-01-01', '2024-01-01', '공지사항'),
                                                                                                                     (1, '공지사항 제목 2', '공지사항 내용 2', '2024-01-02', '2024-01-02', '이벤트'),
                                                                                                                     (1, '공지사항 제목 3', '공지사항 내용 3', '2024-01-03', '2024-01-03', '자주묻는질문'),
@@ -128,7 +127,7 @@ INSERT INTO tbl_notice (member_code, notice_title, notice_content, create_date, 
 
 
 # boadgame dml
-# INSERT INTO tbl_boardgame (boardgame_name, difficulty, release_date, min_player, max_player, playtime, boardgame_rule)
+# InSERT InTO tbl_boardgame (boardgame_name, difficulty, release_date, min_player, max_player, playtime, boardgame_rule)
 # VALUES
 # ('카탄', '중간', '1995-01-01', 3, 4, 60, '플레이어들은 자원을 모아 도로, 정착지, 도시를 건설합니다.'),
 # ('티켓 투 라이드', '쉬움', '2004-01-01', 2, 5, 45, '플레이어들은 기차 카드를 모아 지도상의 철도 노선을 차지합니다.'),
@@ -158,11 +157,11 @@ INSERT INTO tbl_notice (member_code, notice_title, notice_content, create_date, 
 # ('블러드 레이지', '어려움', '2015-01-01', 2, 4, 90, '플레이어들은 라그나로크 전에 영광을 얻기 위해 바이킹 클랜을 제어합니다.'),
 # ('딕싯', '쉬움', '2008-01-01', 3, 6, 30, '플레이어들은 번갈아가며 이야기꾼이 되어 이야기에 맞는 이미지를 추측합니다.'),
 # ('산토리니', '쉬움', '2016-01-01', 2, 4, 20, '플레이어들은 건물을 세우고 자신의 일꾼을 건물의 세 번째 층에 올려놓으려고 합니다.'),
-# ('메이지 나이트', '어려움', '2011-01-01', 1, 4, 240, '플레이어들은 덱 빌딩과 RPG 요소를 사용하여 아틀란티스 세계를 탐험하고 정복합니다.'),
+# ('메이지 나이트', '어려움', '2011-01-01', 1, 4, 240, '플레이어들은 덱 빌딩과 RPg 요소를 사용하여 아틀란티스 세계를 탐험하고 정복합니다.'),
 # ('비티컬처', '중간', '2013-01-01', 1, 6, 90, '플레이어들은 포도원을 관리하여 와인을 생산하고 주문을 이행합니다.');
 
 
-INSERT INTO `tbl_BoardGame`
+InSERT InTO tbl_boardgame
 (`boardgame_name`, `difficulty`, `release_date`, `min_player`, `max_player`, `playtime`, `boardgame_rule`, `boardgame_img_url1`, `boardgame_img_url2`, `boardgame_img_url3`)
 VALUES
     ('7 원더스', 'Medium', '2010-08-10',2,7,30, '플레이어는 고대 7대 불가사의 중 하나를 발전시켜 문명을 발전시킵니다.','c7c0f2e820074f8791d1bae344c95197.png',' ', ' '),
@@ -215,33 +214,33 @@ VALUES
 
 
 # menu 데이터 삽입
-INSERT INTO tbl_menu (menu_code, menu_name, category, menu_content, menu_price, menu_img, orderable_status) VALUES
-    (1, '아메리카노', '음료', '신선하게 내린 커피와 뜨거운 물',3000,'b05375afa77c4071be37ad44e584c1fc.png', 1),
-    (2, '카푸치노', '음료', '에스프레소와 스팀 밀크 거품',3500,'20f40f05614e4b8d9a36e6d21fdee72a.png', 1),
-    (3, '라떼', '음료', '에스프레소와 스팀 밀크',3500,'c13ad68a86c34613a989c851d5bc3808.png', 1),
-    (4, '모카', '음료', '에스프레소와 초콜릿 스팀 밀크',4000,'894495e39aa24ea09e6254450c60c777.png', 1),
-    (5, '녹차', '음료', '신선하게 우려낸 녹차',3000,'b97da0f72f5746edad22958ddd817cc8.png', 1),
-    (6, '허브차', '음료', '다양한 허브 블렌드 차',3000,'3b1b0cd440eb4305acb0b7184a144e37.png', 1),
-    (7, '레모네이드', '음료', '신선한 레몬으로 만든 레모네이드',3500,'ffd1be3567334a8fb3f5e2723bcb1ab4.png', 1),
-    (8, '스무디', '음료', '신선한 과일과 요거트를 블렌딩한 스무디',4500,'07c492ed0637446ab4462b822e2649c0.png', 1),
-    (9, '피자', '음식', '다양한 토핑을 얹은 신선한 피자',12000,'b6b54d610492412095c9b8bf35ab983a.png', 1),
-    (10, '파스타', '음식', '다양한 소스를 선택할 수 있는 파스타',10000,'15ddda2cb40345da90fd5d305f2299e9.png', 1),
-    (11, '샌드위치', '음식', '다양한 재료를 선택할 수 있는 신선한 샌드위치',7000,'070f080a5f874c3fbdbb4039df2bece8.png', 1),
-    (12, '샐러드', '음식', '신선한 재료로 만든 다양한 샐러드',8000,'08bb83e665ba4b1e9ecd6bbba1bcf835.png', 1),
-    (13, '나초', '간식', '치즈와 살사를 곁들인 바삭한 나초',6000,'18cec196250d4e8583268a0a779d7763.png', 1),
-    (14, '프렌치 프라이', '간식', '케첩과 함께 제공되는 바삭한 프렌치 프라이',5000,'2b370260cbce499baf75a8fae3cd29ca.png', 1),
-    (15, '치킨 윙', '간식', '디핑 소스와 함께 제공되는 매콤한 치킨 윙',10000,'c9c1b7ea535e4fea8056eea5f28f8e88.png', 1),
-    (16, '치즈 스틱', '간식', '마리나라 소스를 곁들인 튀긴 치즈 스틱',7000,'a0af571ed4cb42a684a8080639d2f004.png', 1),
-    (17, '초콜릿 케이크', '디저트', '풍부한 초콜릿 케이크와 프로스팅',5000,'7a07d6ab28e44cb1982a0e0fbef569b9.png', 1),
-    (18, '아이스크림', '디저트', '다양한 아이스크림 맛',3000,'5b9403279f0f48e89d3a51dae64a7219.png', 1),
-    (19, '브라우니', '디저트', '견과류가 들어간 쫀득한 브라우니',4000,'993d4bc622344480952f1c7084544b9f.png', 1),
-    (20, '머핀', '디저트', '신선하게 구워낸 머핀',3000,'d4c767b02a0b4d9898c0ee5e97ce2fb6.png', 1);
+InSERT InTO tbl_menu (menu_code, menu_name, category, menu_content, menu_price, menu_img, orderable_status) VALUES
+                                                                                                                (1, '아메리카노', '음료', '신선하게 내린 커피와 뜨거운 물',3000,'b05375afa77c4071be37ad44e584c1fc.png', 1),
+                                                                                                                (2, '카푸치노', '음료', '에스프레소와 스팀 밀크 거품',3500,'20f40f05614e4b8d9a36e6d21fdee72a.png', 1),
+                                                                                                                (3, '라떼', '음료', '에스프레소와 스팀 밀크',3500,'c13ad68a86c34613a989c851d5bc3808.png', 1),
+                                                                                                                (4, '모카', '음료', '에스프레소와 초콜릿 스팀 밀크',4000,'894495e39aa24ea09e6254450c60c777.png', 1),
+                                                                                                                (5, '녹차', '음료', '신선하게 우려낸 녹차',3000,'b97da0f72f5746edad22958ddd817cc8.png', 1),
+                                                                                                                (6, '허브차', '음료', '다양한 허브 블렌드 차',3000,'3b1b0cd440eb4305acb0b7184a144e37.png', 1),
+                                                                                                                (7, '레모네이드', '음료', '신선한 레몬으로 만든 레모네이드',3500,'ffd1be3567334a8fb3f5e2723bcb1ab4.png', 1),
+                                                                                                                (8, '스무디', '음료', '신선한 과일과 요거트를 블렌딩한 스무디',4500,'07c492ed0637446ab4462b822e2649c0.png', 1),
+                                                                                                                (9, '피자', '음식', '다양한 토핑을 얹은 신선한 피자',12000,'b6b54d610492412095c9b8bf35ab983a.png', 1),
+                                                                                                                (10, '파스타', '음식', '다양한 소스를 선택할 수 있는 파스타',10000,'15ddda2cb40345da90fd5d305f2299e9.png', 1),
+                                                                                                                (11, '샌드위치', '음식', '다양한 재료를 선택할 수 있는 신선한 샌드위치',7000,'070f080a5f874c3fbdbb4039df2bece8.png', 1),
+                                                                                                                (12, '샐러드', '음식', '신선한 재료로 만든 다양한 샐러드',8000,'08bb83e665ba4b1e9ecd6bbba1bcf835.png', 1),
+                                                                                                                (13, '나초', '간식', '치즈와 살사를 곁들인 바삭한 나초',6000,'18cec196250d4e8583268a0a779d7763.png', 1),
+                                                                                                                (14, '프렌치 프라이', '간식', '케첩과 함께 제공되는 바삭한 프렌치 프라이',5000,'2b370260cbce499baf75a8fae3cd29ca.png', 1),
+                                                                                                                (15, '치킨 윙', '간식', '디핑 소스와 함께 제공되는 매콤한 치킨 윙',10000,'c9c1b7ea535e4fea8056eea5f28f8e88.png', 1),
+                                                                                                                (16, '치즈 스틱', '간식', '마리나라 소스를 곁들인 튀긴 치즈 스틱',7000,'a0af571ed4cb42a684a8080639d2f004.png', 1),
+                                                                                                                (17, '초콜릿 케이크', '디저트', '풍부한 초콜릿 케이크와 프로스팅',5000,'7a07d6ab28e44cb1982a0e0fbef569b9.png', 1),
+                                                                                                                (18, '아이스크림', '디저트', '다양한 아이스크림 맛',3000,'5b9403279f0f48e89d3a51dae64a7219.png', 1),
+                                                                                                                (19, '브라우니', '디저트', '견과류가 들어간 쫀득한 브라우니',4000,'993d4bc622344480952f1c7084544b9f.png', 1),
+                                                                                                                (20, '머핀', '디저트', '신선하게 구워낸 머핀',3000,'d4c767b02a0b4d9898c0ee5e97ce2fb6.png', 1);
 
 
 
 
 # store 데이터 삽입
-INSERT INTO tbl_store (store_name, store_location, open_time, close_time, closed_day)
+InSERT InTO tbl_store (store_name, store_location, open_time, close_time, closed_day)
 VALUES
     ('강남점', '강남', '09:00', '22:00', '연중무휴'),
     ('종로점', '종로', '10:00', '21:00', '연중무휴'),
@@ -265,7 +264,7 @@ VALUES
     ('목동점', '목동', '08:30', '22:30', '연중무휴');
 
 # tbl_manager 데이터 삽입
-INSERT INTO tbl_manager (member_code, store_code)
+InSERT InTO tbl_manager (member_code, store_code)
 VALUES
     (2,1),
     (3,2),
@@ -288,20 +287,20 @@ VALUES
     (20,19);
 
 # 게임 테이블
-INSERT INTO `tbl_GameTable` (`table_name`, `max_people`, `table_price`) VALUES
-    ('Table 1', 4, 5000),
-    ('Table 2', 6, 7000),
-    ('Table 3', 8, 10000),
-    ('Table 4', 4, 5000),
-    ('Table 5', 6, 7000),
-    ('Table 6', 8, 10000),
-    ('Table 7', 4, 5000),
-    ('Table 8', 6, 7000),
-    ('Table 9', 8, 10000),
-    ('Table 10', 4, 5000);
+InSERT InTO tbl_gametable (`table_name`, `max_people`, `table_price`) VALUES
+                                                                          ('table 1', 4, 5000),
+                                                                          ('table 2', 6, 7000),
+                                                                          ('table 3', 8, 10000),
+                                                                          ('table 4', 4, 5000),
+                                                                          ('table 5', 6, 7000),
+                                                                          ('table 6', 8, 10000),
+                                                                          ('table 7', 4, 5000),
+                                                                          ('table 8', 6, 7000),
+                                                                          ('table 9', 8, 10000),
+                                                                          ('table 10', 4, 5000);
 
 # 예약 테이블
-INSERT INTO `tbl_reservation` (
+InSERT InTO tbl_reservation (
     `member_code`,
     `reservation_date`,
     `reservation_datetime`,
@@ -311,867 +310,867 @@ INSERT INTO `tbl_reservation` (
     `start_time`,
     `end_time`
 ) VALUES
-      (22, '2024-06-01', '2024-05-31 10:00:00', 'Confirmed', NULL, NULL, '10:00', '12:00'),
-      (22, '2024-06-08', '2024-06-07 11:00:00', 'Pending', NULL, NULL, '11:00', '13:00'),
+      (22, '2024-06-01', '2024-05-31 10:00:00', 'Confirmed', nULL, nULL, '10:00', '12:00'),
+      (22, '2024-06-08', '2024-06-07 11:00:00', 'Pending', nULL, nULL, '11:00', '13:00'),
       (22, '2024-06-15', '2024-06-14 12:00:00', 'Cancelled', '2024-06-14', '2024-06-13 09:00:00', '12:00', '14:00'),
 
-      (23, '2024-06-02', '2024-06-01 11:00:00', 'Confirmed', NULL, NULL, '11:00', '13:00'),
-      (23, '2024-06-09', '2024-06-08 12:00:00', 'Confirmed', NULL, NULL, '12:00', '14:00'),
+      (23, '2024-06-02', '2024-06-01 11:00:00', 'Confirmed', nULL, nULL, '11:00', '13:00'),
+      (23, '2024-06-09', '2024-06-08 12:00:00', 'Confirmed', nULL, nULL, '12:00', '14:00'),
       (23, '2024-06-16', '2024-06-15 13:00:00', 'Cancelled', '2024-06-15', '2024-06-14 10:00:00', '13:00', '15:00'),
 
       (24, '2024-06-03', '2024-06-02 12:00:00', 'Cancelled', '2024-06-01', '2024-05-31 09:00:00', '12:00', '14:00'),
-      (24, '2024-06-10', '2024-06-09 13:00:00', 'Pending', NULL, NULL, '13:00', '15:00'),
-      (24, '2024-06-17', '2024-06-16 14:00:00', 'Confirmed', NULL, NULL, '14:00', '16:00'),
+      (24, '2024-06-10', '2024-06-09 13:00:00', 'Pending', nULL, nULL, '13:00', '15:00'),
+      (24, '2024-06-17', '2024-06-16 14:00:00', 'Confirmed', nULL, nULL, '14:00', '16:00'),
       (24, '2024-06-24', '2024-06-23 15:00:00', 'Cancelled', '2024-06-23', '2024-06-22 12:00:00', '15:00', '17:00'),
 
-      (25, '2024-06-04', '2024-06-03 13:00:00', 'Pending', NULL, NULL, '13:00', '15:00'),
-      (25, '2024-06-11', '2024-06-10 14:00:00', 'Confirmed', NULL, NULL, '14:00', '16:00'),
-      (25, '2024-06-18', '2024-06-17 15:00:00', 'Confirmed', NULL, NULL, '15:00', '17:00'),
-      (25, '2024-06-25', '2024-06-24 16:00:00', 'Pending', NULL, NULL, '16:00', '18:00'),
+      (25, '2024-06-04', '2024-06-03 13:00:00', 'Pending', nULL, nULL, '13:00', '15:00'),
+      (25, '2024-06-11', '2024-06-10 14:00:00', 'Confirmed', nULL, nULL, '14:00', '16:00'),
+      (25, '2024-06-18', '2024-06-17 15:00:00', 'Confirmed', nULL, nULL, '15:00', '17:00'),
+      (25, '2024-06-25', '2024-06-24 16:00:00', 'Pending', nULL, nULL, '16:00', '18:00'),
 
-      (26, '2024-06-05', '2024-06-04 14:00:00', 'Confirmed', NULL, NULL, '14:00', '16:00'),
-      (26, '2024-06-12', '2024-06-11 15:00:00', 'Pending', NULL, NULL, '15:00', '17:00'),
-      (26, '2024-06-19', '2024-06-18 16:00:00', 'Confirmed', NULL, NULL, '16:00', '18:00'),
-      (26, '2024-06-26', '2024-06-25 17:00:00', 'Confirmed', NULL, NULL, '17:00', '19:00'),
+      (26, '2024-06-05', '2024-06-04 14:00:00', 'Confirmed', nULL, nULL, '14:00', '16:00'),
+      (26, '2024-06-12', '2024-06-11 15:00:00', 'Pending', nULL, nULL, '15:00', '17:00'),
+      (26, '2024-06-19', '2024-06-18 16:00:00', 'Confirmed', nULL, nULL, '16:00', '18:00'),
+      (26, '2024-06-26', '2024-06-25 17:00:00', 'Confirmed', nULL, nULL, '17:00', '19:00'),
       (26, '2024-06-27', '2024-06-26 18:00:00', 'Cancelled', '2024-06-26', '2024-06-25 15:00:00', '18:00', '20:00'),
 
-      (27, '2024-06-06', '2024-06-05 15:00:00', 'Confirmed', NULL, NULL, '15:00', '17:00'),
-      (27, '2024-06-13', '2024-06-12 16:00:00', 'Confirmed', NULL, NULL, '16:00', '18:00'),
-      (27, '2024-06-20', '2024-06-19 17:00:00', 'Pending', NULL, NULL, '17:00', '19:00'),
+      (27, '2024-06-06', '2024-06-05 15:00:00', 'Confirmed', nULL, nULL, '15:00', '17:00'),
+      (27, '2024-06-13', '2024-06-12 16:00:00', 'Confirmed', nULL, nULL, '16:00', '18:00'),
+      (27, '2024-06-20', '2024-06-19 17:00:00', 'Pending', nULL, nULL, '17:00', '19:00'),
 
-      (28, '2024-06-07', '2024-06-06 16:00:00', 'Pending', NULL, NULL, '16:00', '18:00'),
-      (28, '2024-06-14', '2024-06-13 17:00:00', 'Confirmed', NULL, NULL, '17:00', '19:00'),
+      (28, '2024-06-07', '2024-06-06 16:00:00', 'Pending', nULL, nULL, '16:00', '18:00'),
+      (28, '2024-06-14', '2024-06-13 17:00:00', 'Confirmed', nULL, nULL, '17:00', '19:00'),
       (28, '2024-06-21', '2024-06-20 18:00:00', 'Cancelled', '2024-06-20', '2024-06-19 15:00:00', '18:00', '20:00'),
 
-      (29, '2024-06-08', '2024-06-07 17:00:00', 'Confirmed', NULL, NULL, '17:00', '19:00'),
-      (29, '2024-06-15', '2024-06-14 18:00:00', 'Pending', NULL, NULL, '18:00', '20:00'),
-      (29, '2024-06-22', '2024-06-21 19:00:00', 'Confirmed', NULL, NULL, '19:00', '21:00'),
-      (29, '2024-06-29', '2024-06-28 20:00:00', 'Confirmed', NULL, NULL, '20:00', '22:00'),
+      (29, '2024-06-08', '2024-06-07 17:00:00', 'Confirmed', nULL, nULL, '17:00', '19:00'),
+      (29, '2024-06-15', '2024-06-14 18:00:00', 'Pending', nULL, nULL, '18:00', '20:00'),
+      (29, '2024-06-22', '2024-06-21 19:00:00', 'Confirmed', nULL, nULL, '19:00', '21:00'),
+      (29, '2024-06-29', '2024-06-28 20:00:00', 'Confirmed', nULL, nULL, '20:00', '22:00'),
 
       (30, '2024-06-09', '2024-06-08 18:00:00', 'Cancelled', '2024-06-08', '2024-06-07 14:00:00', '18:00', '20:00'),
-      (30, '2024-06-16', '2024-06-15 19:00:00', 'Confirmed', NULL, NULL, '19:00', '21:00'),
-      (30, '2024-06-23', '2024-06-22 20:00:00', 'Pending', NULL, NULL, '20:00', '22:00'),
+      (30, '2024-06-16', '2024-06-15 19:00:00', 'Confirmed', nULL, nULL, '19:00', '21:00'),
+      (30, '2024-06-23', '2024-06-22 20:00:00', 'Pending', nULL, nULL, '20:00', '22:00'),
 
-      (31, '2024-06-10', '2024-06-09 19:00:00', 'Confirmed', NULL, NULL, '19:00', '21:00'),
-      (31, '2024-06-17', '2024-06-16 20:00:00', 'Confirmed', NULL, NULL, '20:00', '22:00'),
+      (31, '2024-06-10', '2024-06-09 19:00:00', 'Confirmed', nULL, nULL, '19:00', '21:00'),
+      (31, '2024-06-17', '2024-06-16 20:00:00', 'Confirmed', nULL, nULL, '20:00', '22:00'),
       (31, '2024-06-24', '2024-06-23 21:00:00', 'Cancelled', '2024-06-23', '2024-06-22 18:00:00', '21:00', '23:00'),
 
-      (32, '2024-06-11', '2024-06-10 20:00:00', 'Pending', NULL, NULL, '20:00', '22:00'),
-      (32, '2024-06-18', '2024-06-17 21:00:00', 'Confirmed', NULL, NULL, '21:00', '23:00'),
+      (32, '2024-06-11', '2024-06-10 20:00:00', 'Pending', nULL, nULL, '20:00', '22:00'),
+      (32, '2024-06-18', '2024-06-17 21:00:00', 'Confirmed', nULL, nULL, '21:00', '23:00'),
       (32, '2024-06-25', '2024-06-24 22:00:00', 'Cancelled', '2024-06-24', '2024-06-23 19:00:00', '22:00', '00:00');
 
 #매장별 보드게임 테이블
 -- store_code 1
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '1', 5, 'A-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '2', 3, 'A-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '3', 10, 'A-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '4', 8, 'A-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '5', 6, 'A-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '6', 7, 'A-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '7', 9, 'A-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '8', 4, 'A-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '9', 11, 'A-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '10', 2, 'A-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '11', 5, 'A-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '12', 8, 'A-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '13', 3, 'A-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '14', 10, 'A-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '15', 6, 'A-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '1', 5, 'A-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '2', 3, 'A-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '3', 10, 'A-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '4', 8, 'A-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '5', 6, 'A-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '6', 7, 'A-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '7', 9, 'A-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '8', 4, 'A-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '9', 11, 'A-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '10', 2, 'A-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '11', 5, 'A-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '12', 8, 'A-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '13', 3, 'A-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '14', 10, 'A-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (1, '15', 6, 'A-15');
 
 -- store_code 2
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '1', 4, 'B-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '2', 5, 'B-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '3', 6, 'B-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '4', 2, 'B-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '5', 3, 'B-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '6', 7, 'B-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '7', 1, 'B-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '8', 5, 'B-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '9', 4, 'B-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '10', 8, 'B-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '11', 6, 'B-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '12', 7, 'B-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '13', 9, 'B-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '1', 4, 'B-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '2', 5, 'B-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '3', 6, 'B-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '4', 2, 'B-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '5', 3, 'B-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '6', 7, 'B-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '7', 1, 'B-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '8', 5, 'B-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '9', 4, 'B-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '10', 8, 'B-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '11', 6, 'B-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '12', 7, 'B-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (2, '13', 9, 'B-13');
 
 -- store_code 3
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '1', 5, 'C-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '2', 3, 'C-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '3', 10, 'C-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '4', 8, 'C-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '5', 6, 'C-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '6', 7, 'C-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '7', 9, 'C-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '8', 4, 'C-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '9', 11, 'C-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '10', 2, 'C-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '11', 5, 'C-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '12', 8, 'C-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '13', 3, 'C-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '14', 10, 'C-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '15', 6, 'C-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '1', 5, 'C-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '2', 3, 'C-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '3', 10, 'C-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '4', 8, 'C-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '5', 6, 'C-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '6', 7, 'C-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '7', 9, 'C-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '8', 4, 'C-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '9', 11, 'C-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '10', 2, 'C-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '11', 5, 'C-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '12', 8, 'C-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '13', 3, 'C-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '14', 10, 'C-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (3, '15', 6, 'C-15');
 
 -- store_code 4
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '1', 4, 'D-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '2', 5, 'D-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '3', 6, 'D-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '4', 2, 'D-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '5', 3, 'D-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '6', 7, 'D-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '7', 1, 'D-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '8', 5, 'D-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '9', 4, 'D-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '10', 8, 'D-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '11', 6, 'D-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '12', 7, 'D-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '1', 4, 'D-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '2', 5, 'D-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '3', 6, 'D-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '4', 2, 'D-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '5', 3, 'D-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '6', 7, 'D-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '7', 1, 'D-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '8', 5, 'D-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '9', 4, 'D-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '10', 8, 'D-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '11', 6, 'D-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (4, '12', 7, 'D-12');
 
 -- store_code 5
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '1', 5, 'E-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '2', 3, 'E-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '3', 10, 'E-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '4', 8, 'E-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '5', 6, 'E-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '6', 7, 'E-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '7', 9, 'E-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '8', 4, 'E-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '9', 11, 'E-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '10', 2, 'E-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '11', 5, 'E-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '12', 8, 'E-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '13', 3, 'E-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '14', 10, 'E-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '1', 5, 'E-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '2', 3, 'E-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '3', 10, 'E-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '4', 8, 'E-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '5', 6, 'E-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '6', 7, 'E-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '7', 9, 'E-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '8', 4, 'E-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '9', 11, 'E-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '10', 2, 'E-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '11', 5, 'E-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '12', 8, 'E-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '13', 3, 'E-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (5, '14', 10, 'E-14');
 
 -- store_code 6
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '1', 4, 'F-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '2', 5, 'F-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '3', 6, 'F-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '4', 2, 'F-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '5', 3, 'F-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '6', 7, 'F-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '7', 1, 'F-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '8', 5, 'F-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '9', 4, 'F-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '10', 8, 'F-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '11', 6, 'F-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '12', 7, 'F-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '13', 9, 'F-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '14', 5, 'F-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '15', 6, 'F-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '1', 4, 'F-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '2', 5, 'F-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '3', 6, 'F-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '4', 2, 'F-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '5', 3, 'F-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '6', 7, 'F-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '7', 1, 'F-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '8', 5, 'F-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '9', 4, 'F-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '10', 8, 'F-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '11', 6, 'F-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '12', 7, 'F-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '13', 9, 'F-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '14', 5, 'F-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (6, '15', 6, 'F-15');
 
 -- store_code 7
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '1', 5, 'G-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '2', 3, 'G-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '3', 10, 'G-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '4', 8, 'G-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '5', 6, 'G-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '6', 7, 'G-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '7', 9, 'G-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '8', 4, 'G-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '9', 11, 'G-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '10', 2, 'G-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '11', 5, 'G-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '12', 8, 'G-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '13', 3, 'G-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '14', 10, 'G-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '1', 5, 'g-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '2', 3, 'g-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '3', 10, 'g-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '4', 8, 'g-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '5', 6, 'g-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '6', 7, 'g-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '7', 9, 'g-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '8', 4, 'g-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '9', 11, 'g-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '10', 2, 'g-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '11', 5, 'g-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '12', 8, 'g-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '13', 3, 'g-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (7, '14', 10, 'g-14');
 
 -- store_code 8
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '1', 4, 'H-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '2', 5, 'H-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '3', 6, 'H-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '4', 2, 'H-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '5', 3, 'H-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '6', 7, 'H-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '7', 1, 'H-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '8', 5, 'H-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '9', 4, 'H-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '10', 8, 'H-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '11', 6, 'H-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '12', 7, 'H-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '13', 9, 'H-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '14', 5, 'H-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '15', 6, 'H-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '1', 4, 'H-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '2', 5, 'H-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '3', 6, 'H-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '4', 2, 'H-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '5', 3, 'H-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '6', 7, 'H-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '7', 1, 'H-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '8', 5, 'H-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '9', 4, 'H-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '10', 8, 'H-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '11', 6, 'H-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '12', 7, 'H-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '13', 9, 'H-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '14', 5, 'H-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (8, '15', 6, 'H-15');
 
 -- store_code 9
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '1', 5, 'I-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '2', 3, 'I-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '3', 10, 'I-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '4', 8, 'I-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '5', 6, 'I-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '6', 7, 'I-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '7', 9, 'I-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '8', 4, 'I-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '9', 11, 'I-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '10', 2, 'I-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '11', 5, 'I-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '12', 8, 'I-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '13', 3, 'I-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '14', 10, 'I-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '15', 6, 'I-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '1', 5, 'I-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '2', 3, 'I-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '3', 10, 'I-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '4', 8, 'I-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '5', 6, 'I-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '6', 7, 'I-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '7', 9, 'I-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '8', 4, 'I-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '9', 11, 'I-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '10', 2, 'I-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '11', 5, 'I-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '12', 8, 'I-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '13', 3, 'I-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '14', 10, 'I-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (9, '15', 6, 'I-15');
 
 -- store_code 10
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '1', 4, 'J-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '2', 5, 'J-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '3', 6, 'J-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '4', 2, 'J-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '5', 3, 'J-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '6', 7, 'J-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '7', 1, 'J-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '8', 5, 'J-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '9', 4, 'J-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '10', 8, 'J-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '11', 6, 'J-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '12', 7, 'J-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '1', 4, 'J-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '2', 5, 'J-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '3', 6, 'J-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '4', 2, 'J-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '5', 3, 'J-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '6', 7, 'J-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '7', 1, 'J-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '8', 5, 'J-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '9', 4, 'J-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '10', 8, 'J-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '11', 6, 'J-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (10, '12', 7, 'J-12');
 
 -- store_code 11
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '1', 5, 'K-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '2', 3, 'K-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '3', 10, 'K-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '4', 8, 'K-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '5', 6, 'K-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '6', 7, 'K-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '7', 9, 'K-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '8', 4, 'K-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '9', 11, 'K-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '10', 2, 'K-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '11', 5, 'K-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '12', 8, 'K-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '13', 3, 'K-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '14', 10, 'K-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '15', 6, 'K-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '1', 5, 'K-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '2', 3, 'K-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '3', 10, 'K-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '4', 8, 'K-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '5', 6, 'K-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '6', 7, 'K-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '7', 9, 'K-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '8', 4, 'K-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '9', 11, 'K-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '10', 2, 'K-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '11', 5, 'K-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '12', 8, 'K-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '13', 3, 'K-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '14', 10, 'K-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (11, '15', 6, 'K-15');
 
 -- store_code 12
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '1', 4, 'L-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '2', 5, 'L-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '3', 6, 'L-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '4', 2, 'L-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '5', 3, 'L-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '6', 7, 'L-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '7', 1, 'L-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '8', 5, 'L-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '9', 4, 'L-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '10', 8, 'L-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '11', 6, 'L-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '12', 7, 'L-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '13', 9, 'L-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '1', 4, 'L-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '2', 5, 'L-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '3', 6, 'L-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '4', 2, 'L-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '5', 3, 'L-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '6', 7, 'L-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '7', 1, 'L-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '8', 5, 'L-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '9', 4, 'L-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '10', 8, 'L-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '11', 6, 'L-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '12', 7, 'L-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (12, '13', 9, 'L-13');
 
 -- store_code 13
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '1', 5, 'M-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '2', 3, 'M-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '3', 10, 'M-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '4', 8, 'M-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '5', 6, 'M-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '6', 7, 'M-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '7', 9, 'M-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '8', 4, 'M-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '9', 11, 'M-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '10', 2, 'M-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '11', 5, 'M-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '12', 8, 'M-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '13', 3, 'M-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '14', 10, 'M-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '15', 6, 'M-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '1', 5, 'M-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '2', 3, 'M-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '3', 10, 'M-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '4', 8, 'M-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '5', 6, 'M-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '6', 7, 'M-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '7', 9, 'M-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '8', 4, 'M-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '9', 11, 'M-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '10', 2, 'M-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '11', 5, 'M-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '12', 8, 'M-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '13', 3, 'M-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '14', 10, 'M-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (13, '15', 6, 'M-15');
 
 -- store_code 14
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '1', 4, 'N-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '2', 5, 'N-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '3', 6, 'N-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '4', 2, 'N-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '5', 3, 'N-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '6', 7, 'N-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '7', 1, 'N-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '8', 5, 'N-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '9', 4, 'N-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '10', 8, 'N-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '11', 6, 'N-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '12', 7, 'N-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '13', 9, 'N-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '14', 5, 'N-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '15', 6, 'N-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '1', 4, 'n-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '2', 5, 'n-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '3', 6, 'n-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '4', 2, 'n-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '5', 3, 'n-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '6', 7, 'n-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '7', 1, 'n-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '8', 5, 'n-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '9', 4, 'n-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '10', 8, 'n-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '11', 6, 'n-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '12', 7, 'n-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '13', 9, 'n-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '14', 5, 'n-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (14, '15', 6, 'n-15');
 
 -- store_code 15
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '1', 5, 'O-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '2', 3, 'O-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '3', 10, 'O-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '4', 8, 'O-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '5', 6, 'O-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '6', 7, 'O-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '7', 9, 'O-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '8', 4, 'O-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '9', 11, 'O-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '10', 2, 'O-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '11', 5, 'O-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '12', 8, 'O-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '13', 3, 'O-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '14', 10, 'O-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '15', 6, 'O-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '1', 5, 'O-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '2', 3, 'O-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '3', 10, 'O-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '4', 8, 'O-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '5', 6, 'O-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '6', 7, 'O-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '7', 9, 'O-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '8', 4, 'O-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '9', 11, 'O-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '10', 2, 'O-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '11', 5, 'O-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '12', 8, 'O-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '13', 3, 'O-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '14', 10, 'O-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (15, '15', 6, 'O-15');
 
 
 -- store_code 16
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '1', 4, 'P-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '2', 5, 'P-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '3', 6, 'P-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '4', 2, 'P-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '5', 3, 'P-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '6', 7, 'P-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '7', 1, 'P-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '8', 5, 'P-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '9', 4, 'P-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '10', 8, 'P-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '11', 6, 'P-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '12', 7, 'P-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '13', 9, 'P-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '14', 5, 'P-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '15', 6, 'P-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '1', 4, 'P-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '2', 5, 'P-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '3', 6, 'P-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '4', 2, 'P-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '5', 3, 'P-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '6', 7, 'P-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '7', 1, 'P-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '8', 5, 'P-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '9', 4, 'P-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '10', 8, 'P-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '11', 6, 'P-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '12', 7, 'P-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '13', 9, 'P-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '14', 5, 'P-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (16, '15', 6, 'P-15');
 
 -- store_code 17
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '1', 5, 'Q-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '2', 3, 'Q-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '3', 10, 'Q-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '4', 8, 'Q-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '5', 6, 'Q-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '6', 7, 'Q-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '7', 9, 'Q-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '8', 4, 'Q-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '9', 11, 'Q-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '10', 2, 'Q-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '11', 5, 'Q-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '12', 8, 'Q-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '13', 3, 'Q-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '14', 10, 'Q-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '15', 6, 'Q-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '1', 5, 'Q-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '2', 3, 'Q-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '3', 10, 'Q-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '4', 8, 'Q-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '5', 6, 'Q-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '6', 7, 'Q-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '7', 9, 'Q-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '8', 4, 'Q-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '9', 11, 'Q-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '10', 2, 'Q-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '11', 5, 'Q-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '12', 8, 'Q-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '13', 3, 'Q-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '14', 10, 'Q-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (17, '15', 6, 'Q-15');
 
 
 -- store_code 18
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '1', 4, 'R-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '2', 5, 'R-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '3', 6, 'R-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '4', 2, 'R-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '5', 3, 'R-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '6', 7, 'R-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '7', 1, 'R-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '8', 5, 'R-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '9', 4, 'R-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '10', 8, 'R-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '11', 6, 'R-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '12', 7, 'R-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '13', 9, 'R-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '14', 5, 'R-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '15', 6, 'R-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '1', 4, 'R-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '2', 5, 'R-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '3', 6, 'R-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '4', 2, 'R-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '5', 3, 'R-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '6', 7, 'R-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '7', 1, 'R-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '8', 5, 'R-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '9', 4, 'R-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '10', 8, 'R-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '11', 6, 'R-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '12', 7, 'R-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '13', 9, 'R-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '14', 5, 'R-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (18, '15', 6, 'R-15');
 
 -- store_code 19
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '1', 5, 'S-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '2', 3, 'S-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '3', 10, 'S-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '4', 8, 'S-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '5', 6, 'S-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '6', 7, 'S-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '7', 9, 'S-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '8', 4, 'S-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '9', 11, 'S-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '10', 2, 'S-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '11', 5, 'S-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '12', 8, 'S-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '13', 3, 'S-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '14', 10, 'S-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '15', 6, 'S-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '1', 5, 'S-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '2', 3, 'S-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '3', 10, 'S-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '4', 8, 'S-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '5', 6, 'S-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '6', 7, 'S-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '7', 9, 'S-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '8', 4, 'S-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '9', 11, 'S-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '10', 2, 'S-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '11', 5, 'S-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '12', 8, 'S-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '13', 3, 'S-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '14', 10, 'S-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (19, '15', 6, 'S-15');
 
 -- store_code 20
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '1', 4, 'T-1');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '2', 5, 'T-2');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '3', 6, 'T-3');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '4', 2, 'T-4');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '5', 3, 'T-5');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '6', 7, 'T-6');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '7', 1, 'T-7');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '8', 5, 'T-8');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '9', 4, 'T-9');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '10', 8, 'T-10');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '11', 6, 'T-11');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '12', 7, 'T-12');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '13', 9, 'T-13');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '14', 5, 'T-14');
-INSERT INTO `tbl_StoreBoardGame` (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '15', 6, 'T-15');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '1', 4, 'T-1');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '2', 5, 'T-2');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '3', 6, 'T-3');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '4', 2, 'T-4');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '5', 3, 'T-5');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '6', 7, 'T-6');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '7', 1, 'T-7');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '8', 5, 'T-8');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '9', 4, 'T-9');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '10', 8, 'T-10');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '11', 6, 'T-11');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '12', 7, 'T-12');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '13', 9, 'T-13');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '14', 5, 'T-14');
+InSERT InTO tbl_storeboardgame (`store_code`, `boardgame_code`, `boardgame_count`, `boardgame_location`) VALUES (20, '15', 6, 'T-15');
 
 
 
 # 매장별 게임테이블
 -- store_code 1
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (1, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (1, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (1, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (1, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (1, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (1, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (1, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (1, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (1, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (1, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (1, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (1, 6);
 
 -- store_code 2
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (2, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (2, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (2, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (2, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (2, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (2, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (2, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (2, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (2, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (2, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (2, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (2, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (2, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (2, 7);
 
 -- store_code 3
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (3, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (3, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (3, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (3, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (3, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (3, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (3, 7);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (3, 8);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (3, 9);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (3, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (3, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (3, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (3, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (3, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (3, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (3, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (3, 8);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (3, 9);
 
 -- store_code 4
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (4, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (4, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (4, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (4, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (4, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (4, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (4, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (4, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (4, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (4, 5);
 
 -- store_code 5
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (5, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (5, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (5, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (5, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (5, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (5, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (5, 7);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (5, 8);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (5, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (5, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (5, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (5, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (5, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (5, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (5, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (5, 8);
 
 -- store_code 6
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (6, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (6, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (6, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (6, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (6, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (6, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (6, 7);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (6, 8);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (6, 9);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (6, 10);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (6, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (6, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (6, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (6, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (6, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (6, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (6, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (6, 8);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (6, 9);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (6, 10);
 
 -- store_code 7
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (7, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (7, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (7, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (7, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (7, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (7, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (7, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (7, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (7, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (7, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (7, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (7, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (7, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (7, 7);
 
 -- store_code 8
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (8, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (8, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (8, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (8, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (8, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (8, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (8, 7);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (8, 8);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (8, 9);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (8, 10);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (8, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (8, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (8, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (8, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (8, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (8, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (8, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (8, 8);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (8, 9);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (8, 10);
 
 -- store_code 9
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (9, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (9, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (9, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (9, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (9, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (9, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (9, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (9, 4);
 
 -- store_code 10
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (10, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (10, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (10, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (10, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (10, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (10, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (10, 7);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (10, 8);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (10, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (10, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (10, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (10, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (10, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (10, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (10, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (10, 8);
 
 -- store_code 11
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (11, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (11, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (11, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (11, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (11, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (11, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (11, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (11, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (11, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (11, 5);
 
 -- store_code 12
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (12, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (12, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (12, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (12, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (12, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (12, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (12, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (12, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (12, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (12, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (12, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (12, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (12, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (12, 7);
 
 -- store_code 13
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (13, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (13, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (13, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (13, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (13, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (13, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (13, 7);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (13, 8);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (13, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (13, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (13, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (13, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (13, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (13, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (13, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (13, 8);
 
 -- store_code 14
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (14, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (14, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (14, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (14, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (14, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (14, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (14, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (14, 4);
 
 -- store_code 15
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (15, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (15, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (15, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (15, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (15, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (15, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (15, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (15, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (15, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (15, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (15, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (15, 6);
 
 -- store_code 16
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (16, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (16, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (16, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (16, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (16, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (16, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (16, 7);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (16, 8);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (16, 9);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (16, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (16, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (16, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (16, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (16, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (16, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (16, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (16, 8);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (16, 9);
 
 -- store_code 17
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (17, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (17, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (17, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (17, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (17, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (17, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (17, 7);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (17, 8);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (17, 9);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (17, 10);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (17, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (17, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (17, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (17, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (17, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (17, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (17, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (17, 8);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (17, 9);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (17, 10);
 
 -- store_code 18
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (18, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (18, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (18, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (18, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (18, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (18, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (18, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (18, 4);
 
 -- store_code 19
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (19, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (19, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (19, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (19, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (19, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (19, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (19, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (19, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (19, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (19, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (19, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (19, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (19, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (19, 7);
 
 -- store_code 20
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (20, 1);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (20, 2);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (20, 3);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (20, 4);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (20, 5);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (20, 6);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (20, 7);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (20, 8);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (20, 9);
-INSERT INTO `tbl_StoreGameTable` (`store_code`, `table_code`) VALUES (20, 10);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (20, 1);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (20, 2);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (20, 3);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (20, 4);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (20, 5);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (20, 6);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (20, 7);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (20, 8);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (20, 9);
+InSERT InTO tbl_storegametable (`store_code`, `table_code`) VALUES (20, 10);
 
 
 # 매장별 메뉴 테이블
 -- store_code 1
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 1, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 2, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 3, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 4, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 5, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 6, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 7, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 8, 9);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 9, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 10, 2);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 11, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 12, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 13, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 14, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (1, 15, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 1, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 2, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 3, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 4, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 5, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 6, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 7, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 8, 9);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 9, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 10, 2);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 11, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 12, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 13, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 14, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (1, 15, 5);
 
 -- store_code 2
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 1, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 2, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 3, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 4, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 5, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 6, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 7, 2);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 8, 9);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 9, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 10, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 11, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 12, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 13, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (2, 14, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 1, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 2, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 3, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 4, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 5, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 6, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 7, 2);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 8, 9);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 9, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 10, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 11, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 12, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 13, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (2, 14, 7);
 
 -- store_code 3
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 1, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 2, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 3, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 4, 2);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 5, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 6, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 7, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 8, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 9, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 10, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 11, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 12, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (3, 13, 2);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 1, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 2, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 3, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 4, 2);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 5, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 6, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 7, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 8, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 9, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 10, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 11, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 12, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (3, 13, 2);
 
 -- store_code 4
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 1, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 2, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 3, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 4, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 5, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 6, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 7, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 8, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 9, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 10, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 11, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (4, 12, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 1, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 2, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 3, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 4, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 5, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 6, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 7, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 8, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 9, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 10, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 11, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (4, 12, 7);
 
 -- store_code 5
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 1, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 2, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 3, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 4, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 5, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 6, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 7, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 8, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 9, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 10, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 11, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 12, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 13, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (5, 14, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 1, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 2, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 3, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 4, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 5, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 6, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 7, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 8, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 9, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 10, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 11, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 12, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 13, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (5, 14, 7);
 
 -- store_code 6
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 1, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 2, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 3, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 4, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 5, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 6, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 7, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 8, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 9, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 10, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 11, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 12, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (6, 13, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 1, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 2, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 3, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 4, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 5, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 6, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 7, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 8, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 9, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 10, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 11, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 12, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (6, 13, 8);
 
 -- store_code 7
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 1, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 2, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 3, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 4, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 5, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 6, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 7, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 8, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 9, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 10, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 11, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (7, 12, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 1, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 2, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 3, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 4, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 5, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 6, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 7, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 8, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 9, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 10, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 11, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (7, 12, 3);
 
 -- store_code 8
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 1, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 2, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 3, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 4, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 5, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 6, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 7, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 8, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 9, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 10, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 11, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 12, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 13, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (8, 14, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 1, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 2, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 3, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 4, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 5, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 6, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 7, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 8, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 9, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 10, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 11, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 12, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 13, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (8, 14, 7);
 
 -- store_code 9
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 1, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 2, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 3, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 4, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 5, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 6, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 7, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 8, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 9, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 10, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 11, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (9, 12, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 1, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 2, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 3, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 4, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 5, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 6, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 7, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 8, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 9, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 10, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 11, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (9, 12, 4);
 
 -- store_code 10
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 1, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 2, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 3, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 4, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 5, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 6, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 7, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 8, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 9, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 10, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 11, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 12, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 13, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (10, 14, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 1, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 2, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 3, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 4, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 5, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 6, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 7, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 8, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 9, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 10, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 11, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 12, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 13, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (10, 14, 7);
 
 -- store_code 11
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 1, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 2, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 3, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 4, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 5, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 6, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 7, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 8, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 9, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 10, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 11, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (11, 12, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 1, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 2, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 3, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 4, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 5, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 6, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 7, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 8, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 9, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 10, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 11, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (11, 12, 4);
 
 -- store_code 12
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 1, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 2, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 3, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 4, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 5, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 6, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 7, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 8, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 9, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 10, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 11, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 12, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 13, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (12, 14, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 1, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 2, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 3, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 4, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 5, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 6, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 7, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 8, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 9, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 10, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 11, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 12, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 13, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (12, 14, 7);
 
 -- store_code 13
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 1, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 2, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 3, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 4, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 5, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 6, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 7, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 8, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 9, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 10, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 11, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (13, 12, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 1, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 2, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 3, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 4, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 5, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 6, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 7, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 8, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 9, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 10, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 11, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (13, 12, 4);
 
 -- store_code 14
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 1, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 2, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 3, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 4, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 5, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 6, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 7, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 8, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 9, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 10, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 11, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 12, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 13, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (14, 14, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 1, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 2, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 3, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 4, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 5, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 6, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 7, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 8, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 9, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 10, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 11, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 12, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 13, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (14, 14, 7);
 
 -- store_code 15
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (15, 13, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (15, 14, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (15, 15, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (15, 16, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (15, 17, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (15, 18, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (15, 19, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (15, 20, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (15, 13, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (15, 14, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (15, 15, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (15, 16, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (15, 17, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (15, 18, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (15, 19, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (15, 20, 4);
 
 -- store_code 16
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (16, 15, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (16, 16, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (16, 17, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (16, 18, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (16, 19, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (16, 20, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (16, 1, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (16, 2, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (16, 3, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (16, 4, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (16, 15, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (16, 16, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (16, 17, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (16, 18, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (16, 19, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (16, 20, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (16, 1, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (16, 2, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (16, 3, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (16, 4, 8);
 
 -- store_code 17
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 15, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 16, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 17, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 18, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 19, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 20, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 1, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 2, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 3, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 4, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 5, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (17, 6, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 15, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 16, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 17, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 18, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 19, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 20, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 1, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 2, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 3, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 4, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 5, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (17, 6, 3);
 
 -- store_code 18
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 15, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 16, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 17, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 18, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 19, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 20, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 1, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 2, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 3, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 4, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (18, 5, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 15, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 16, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 17, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 18, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 19, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 20, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 1, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 2, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 3, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 4, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (18, 5, 3);
 
 -- store_code 19
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 15, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 16, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 17, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 18, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 19, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 20, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 1, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 2, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 3, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 4, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 5, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (19, 6, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 15, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 16, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 17, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 18, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 19, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 20, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 1, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 2, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 3, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 4, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 5, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (19, 6, 3);
 
 -- store_code 20
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 15, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 16, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 17, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 18, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 19, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 20, 8);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 1, 6);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 2, 5);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 3, 4);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 4, 7);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 5, 3);
-INSERT INTO `tbl_StoreMenu` (`store_code`, `menu_code`, `menu_count`) VALUES (20, 6, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 15, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 16, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 17, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 18, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 19, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 20, 8);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 1, 6);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 2, 5);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 3, 4);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 4, 7);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 5, 3);
+InSERT InTO tbl_storemenu (`store_code`, `menu_code`, `menu_count`) VALUES (20, 6, 8);
 
 # 매장별 예약
-INSERT INTO `tbl_StoreReservation` (
+InSERT InTO tbl_storereservation (
     `reservation_code`,
     `member_code`,
     `store_code`,

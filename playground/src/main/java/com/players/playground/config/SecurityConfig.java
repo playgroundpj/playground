@@ -50,7 +50,7 @@ public class SecurityConfig {
 	public WebSecurityCustomizer webSecurityCustomizer() {
 		return web -> web.ignoring()
 				.requestMatchers(PathRequest.toStaticResources().atCommonLocations())
-				.requestMatchers("/css/**", "/js/**", "/images/**", "/lib/**", "/productimgs/**");
+				.requestMatchers("/css/**", "/js/**", "/images/**", "/lib/**", "/imgs/**");
 	}
 
 	/* 설명. 3. HTTP요청에 대한 권한별 설정 (세션 인증 -> 토큰 인증으로 인해 바뀐 부분 존재) */
@@ -90,7 +90,8 @@ public class SecurityConfig {
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+//		configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+		configuration.setAllowedOrigins(Arrays.asList("http://localhost:3333", "http://jaehong0831.store","http://13.209.160.111"));
 		configuration.setAllowedMethods(Arrays.asList("GET", "PUT", "POST", "DELETE"));
 		configuration.setAllowedHeaders(Arrays.asList("Access-Control-Allow-Origin",
 				"Content-type",

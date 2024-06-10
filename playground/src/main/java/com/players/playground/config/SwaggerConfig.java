@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  *  접속: http://localhost:8080/swagger-ui/index.html (application.yaml 참고)
  * */
 @OpenAPIDefinition(
-        info = @Info(title = "Ohgi-Restaurant 메뉴 조회 및 주문 서비스 API 명세서",
+        info = @Info(title = "Playground 메뉴, 보드게임, 매장, 회원 조회 및 주문 서비스 API 명세서",
                 description = "React부터 Spring Data Jpa까지 진행하는 서비스 API 명세서",
                 version = "v1"))
 @Configuration
