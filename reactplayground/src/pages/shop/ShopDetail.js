@@ -93,6 +93,7 @@ function ShopDetail() {
                                         </button>
                                         }
                                         <button className='backBtn'
+                                            style={isAuth === 'ROLE_USER' ? {} : {width: '100%', marginLeft: 0} }
                                             onClick = { onClickBackHandler }
                                         >
                                             돌아가기
