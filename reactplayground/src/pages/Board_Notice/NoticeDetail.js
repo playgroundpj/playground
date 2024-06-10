@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { decodeJwt } from '../../utils/tokenUtils'; // 토큰 디코딩 함수 임포트
-import { callNoticeDetailAPI, deleteNoticeAPI } from '../../apis/NoticeAPICalls'; // API 호출 함수 임포트
-import Swal from "sweetalert2";
+import { callNoticeDetailAPI } from '../../apis/NoticeAPICalls'; // API 호출 함수 임포트
+
 
 function NoticeDetail() {
 const { noticeCode } = useParams();
@@ -40,33 +40,6 @@ const onClickhandleModifyNotice = (noticeCode) => {
 	navigate(`/board/notice/modify/${noticeCode}`);
 };
 
-// 삭제
-const onClickhandleDeleteNotice = () => {
-	Swal.fire({
-		title: "게시글을 삭제하시겠습니까?",
-		text: "삭제 후 되돌릴 수 없습니다.",
-		icon: "warning",
-		showCancelButton: true,
-		confirmButtonColor: "#97A482",
-		cancelButtonColor: "#C45D4A",
-		confirmButtonText: "삭제",
-		cancelButtonText: "취소"
-		}).then((result) => {
-		if (result.isConfirmed) {
-			dispatch(deleteNoticeAPI(noticeCode))
-			.then(() => {
-				Swal.fire({
-				title: "삭제 완료!",
-				text: "게시글이 삭제되었습니다",
-				icon: "success",
-				showConfirmButton: false,
-				timer: 1000
-			});
-			navigate('/board/notice');	// 게시글 목록으로 이동
-			})
-		}
-	});
-}
 
 if (!notice) {
 	return <div>Loading...</div>;
@@ -111,12 +84,6 @@ return (
 						onClick={() => onClickhandleModifyNotice(noticeCode)}
 					>
 						게시물수정
-					</button>
-					
-					<button className='noticeDeleteBtn'
-						onClick={() => onClickhandleDeleteNotice}
-						> 
-						게시물삭제
 					</button>
 				</>
 			)}
