@@ -66,7 +66,11 @@ function Shop() {
                         <div
                             key={shop.storeCode}
                             onClick = {()=> { onClickShopHandler(shop.storeCode) }}
+<<<<<<< HEAD
                             className='TotalItem ShopItem'
+=======
+                            className='TotalItem'
+>>>>>>> boardgame/crud
                         >
                             <table>
                                 <tbody>

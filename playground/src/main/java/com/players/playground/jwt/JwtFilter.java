@@ -39,13 +39,17 @@ public class JwtFilter extends OncePerRequestFilter {
 
         /* 설명. 요청에서 토큰값 추출 */
         String jwt = resolveToken(request);
+        log.debug("JWT Token: {}", jwt);//
 
         /* 설명. 추출한 토큰의 유효성 검사 후 인증을 위해 Authentication 객체를 SecurityCOntextHolder에 담는다.
          *  아래 if()문 내 2줄의 코드가 인증 작업이다.
          * */
         if(StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
             Authentication authentication = tokenProvider.getAuthentication(jwt);
+            log.debug("Authenticated user: {}", authentication.getName());
             SecurityContextHolder.getContext().setAuthentication(authentication);
+        }else {
+            log.debug("Invalid JWT Token");
         }
 
         /* 설명. 다음 filter chain 진행 */

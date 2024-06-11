@@ -77,6 +77,7 @@ public class SecurityConfig {
 					auth.requestMatchers("/api/**").hasAnyRole("USER", "ADMIN","MANAGER");							// API 경로는 USER 또는 ADMIN 역할을 가진 사용자만 접근 가능
 					/* 설명. 아래부터는 프로젝트 초기 Security 기능을 약화시켜 개발을 진행하게 끔 해주는 내용들이다. */
 //				auth.anyRequest().permitAll();	// 어떤 요청이든 허용 -> Security를 활용한 로그인이 모두 완성되지 않았을 때 사용할 것
+
 				})
 				.sessionManagement(session ->  // 세션 방식을 사용하지 않음
 						session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -98,6 +99,7 @@ public class SecurityConfig {
 				"Access-Control-Allow-Headers",
 				"Authorization",
 				"X-Requested-With"));
+//		configuration.setAllowCredentials(true);
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
 		return source;

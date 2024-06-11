@@ -17,7 +17,10 @@ import {
     callManagerStoreByMemberCodeAPI
 } from '../../apis/MemberAPICalls'
 import { callGetShopAPI, callGetShopListAPI, callGetShopListAllAPI } from '../../apis/ShopAPICalls';
+<<<<<<< HEAD
 import Shop from '../shop/Shop';
+=======
+>>>>>>> boardgame/crud
 
 function MemberModify() {
 
@@ -255,8 +258,17 @@ function MemberModify() {
                     memberCode: memberCode
                 }));
 
+<<<<<<< HEAD
                 dispatch(callGetShopListAllAPI()); // 전체 매장 조회
                 // console.log('storeList', storeList);
+=======
+                const fetchShopData = async () => {
+                    const response = await dispatch(callGetShopListAllAPI());
+                    console.log('storeList', storeList);
+                }
+
+                fetchShopData();
+>>>>>>> boardgame/crud
             }
         }
         ,[]
@@ -265,7 +277,11 @@ function MemberModify() {
 
     useEffect(() => {
         if (member) {
+<<<<<<< HEAD
             // console.log("member", member);
+=======
+            console.log("member", member);
+>>>>>>> boardgame/crud
             dispatch(callManagerStoreByMemberCodeAPI({ memberCode }));
         }
     }, [member]);
@@ -275,8 +291,16 @@ function MemberModify() {
             if (member != "") {
                 if(manager.status == "201"){
                     // console.log("201 success", manager);
+<<<<<<< HEAD
                     dispatch(callGetShopAPI({storeCode: manager.data.storeCode}));
                     setLoading(false);
+=======
+                    dispatch(callGetShopAPI({storeCode: manager.data.storeCode})).finally(() => {
+                        // console.log("store : ", store);
+                        setManagerStore(store.data.storeName);
+                        setLoading(false)
+                    });
+>>>>>>> boardgame/crud
                 }else if(manager.status == "400"){
                     console.log("400 error", manager);
                     setLoading(false);

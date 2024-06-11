@@ -13,16 +13,22 @@ public class BoardGame {
 
     @Column(name = "boardgame_name")
     private String boardgameName;
+
     @Column(name = "difficulty")
     private String difficulty;
+
     @Column(name = "release_date")
     private String releaseDate;
+
     @Column(name = "min_player")
     private int minPlayer;
+
     @Column(name = "max_player")
     private int maxPlayer;
+
     @Column(name = "playtime")
     private int playtime;
+
     @Column(name = "boardgame_rule")
     private String boardgameRule;
     @Column(name = "boardgame_img_url1")

@@ -14,6 +14,7 @@ Accept: */*
 }
 
 ### PUT update notice
+<<<<<<< HEAD
 PUT localhost:8080/api/v1/board/notice/modify
 Content-Type: application/json
 Accept:*/*
@@ -30,3 +31,15 @@ DELETE localhost:8080/api/v1/board/notice/1
 Content-Type: application/json
 Accept:*/*
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxOTg4Nzk3Mn0.qIBMn3SkPxNI-vfzArB5L5wl150tCqRuksRpHR45qWs_St3Lr7Qt956QfLQtaG-RgVvbS4SetdqqPrOwwVfIlA
+=======
+PUT localhost:8080/api/v1/board/notice
+Content-Type: application/json
+Accept:*/*
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxNzQxNzExMX0._v8NQ-0NliKaFj7HzUu_8hZiXWwdsS8YnFR9gVxFzyCr4Oyh9QYBDl4iXt4m6avu7tHHUWLrSgGxT3mf-WpO_A
+
+{
+  "noticeCode":"36",
+  "noticeTitle":"새로 등록2",
+  "noticeContent":"새로등록2"
+}
+>>>>>>> boardgame/crud

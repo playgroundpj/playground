@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { decodeJwt } from '../../utils/tokenUtils';
 import { callGetShopAPI } from '../../apis/ShopAPICalls';
+<<<<<<< HEAD
 import { callGetStoreBoardGameListAPI, callGetStoreGameTableListAPI, callGetStoreMenuListAPI } from '../../apis/StoreAPICalls';
+=======
+>>>>>>> boardgame/crud
 
 
 function ShopDetail() {
@@ -12,6 +15,7 @@ function ShopDetail() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const shop = useSelector(state => state.shopReducer);  
+<<<<<<< HEAD
     const store = useSelector(state => state.storeReducer);  
     const token = decodeJwt(window.localStorage.getItem("accessToken")); 
     const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
@@ -23,6 +27,13 @@ function ShopDetail() {
     const storeCode = shopCode;
     const [loading, setLoading] = useState(true);
 
+=======
+    const token = decodeJwt(window.localStorage.getItem("accessToken")); 
+    const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
+    const [isAuth, setAuth] = useState('');
+    const shopDetail = shop.data;
+    const storeCode = shopCode;
+>>>>>>> boardgame/crud
 
     const onClickBackHandler = () => {
         
@@ -42,9 +53,13 @@ function ShopDetail() {
         () => {
 
             dispatch(callGetShopAPI({storeCode}));
+<<<<<<< HEAD
             dispatch(callGetStoreBoardGameListAPI({storeCode}));
             dispatch(callGetStoreGameTableListAPI({storeCode}));
             dispatch(callGetStoreMenuListAPI({storeCode}));
+=======
+
+>>>>>>> boardgame/crud
         },[]
     )
 
@@ -57,6 +72,7 @@ function ShopDetail() {
         },[token]
     )
 
+<<<<<<< HEAD
     useEffect(
         () => {
             if(store){
@@ -173,6 +189,64 @@ function ShopDetail() {
                 </div>
             </>
             )}
+=======
+
+    return (
+        <div className='profileDiv'  >
+            <h2>{shopDetail.storeName}  상세 정보</h2>
+            <div className='formTotal ShopDetialForm'>
+                <table>
+                    <colgroup>
+                        <col style={{width:'50%'}}></col>
+                        <col style={{width:'50%'}}></col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><span>지점주소</span>|</td>
+                            <td>{shopDetail.storeLocation}</td>
+                        </tr>
+                        <tr>
+                            <td><span>영업시작</span>|</td>
+                            <td>{shopDetail.openTime}</td>
+                        </tr>
+                        <tr>
+                            <td><span>영업마감</span>|</td>
+                            <td>{shopDetail.closeTime}</td>
+                        </tr>
+                        <tr>
+                            <td><span>휴무일자</span>|</td>
+                            <td>{shopDetail.closedDay}</td>
+                        </tr>
+                        <tr>
+                                <td colSpan={3}>
+                                    <div className='bottomBtn'>
+                                        {(isAuth == 'ROLE_ADMIN') && 
+                                        <button className='registerBtn'
+                                            onClick = { () => onClickModifyHandler(storeCode) }
+                                        >   
+                                            매장 정보 수정
+                                        </button>
+                                        }
+                                        {((isAuth == 'ROLE_USER')) && 
+                                        <button className='registerBtn'
+                                            onClick = { () => onClicReservationHandler(storeCode) }
+                                        >   
+                                            매장 예약
+                                        </button>
+                                        }
+                                        <button className='backBtn'
+                                            onClick = { onClickBackHandler }
+                                        >
+                                            돌아가기
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+
+>>>>>>> boardgame/crud
         </div>
     );
 }

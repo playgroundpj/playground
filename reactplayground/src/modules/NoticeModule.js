@@ -15,12 +15,21 @@ export const PUT_NOTICE = 'notice/PUT_NOTICE';
 export const DELETE_NOTICE = 'notice/DELETE_NOTICE';
 
 // 액션을 생성합니다.
+<<<<<<< HEAD
 export const actions = createActions({
     [GET_NOTICE]: () => {},
     [GET_NOTICES]: () => {},
     [POST_NOTICE]: () => {},
     [PUT_NOTICE]: () => {},
     [DELETE_NOTICE]: () => {}
+=======
+export const { getNotice, getNotices, postNotice, putNotice, updateNotice, deleteNotice } = createActions({
+    [GET_NOTICE]: (payload) => payload,
+    [GET_NOTICES]: (payload) => payload,
+    [POST_NOTICE]: (payload) => payload,
+    [PUT_NOTICE]: (payload) => payload,
+    [DELETE_NOTICE]: (payload) => payload
+>>>>>>> boardgame/crud
 });
 
 /* 리듀서 */
@@ -28,7 +37,11 @@ export const actions = createActions({
 const noticeReducer = handleActions(
     {
         [GET_NOTICE]: (state, { payload }) => {
+<<<<<<< HEAD
             return payload;
+=======
+            return { ...state, noticeDetail: payload };
+>>>>>>> boardgame/crud
         },
         [GET_NOTICES]: (state, { payload }) => {
             console.log('리듀서의 payload : ', payload);

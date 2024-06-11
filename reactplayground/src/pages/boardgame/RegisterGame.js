@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
+import { callRegistBoardgameAPI } from '../../apis/BoardgameAPICalls';
+import { decodeJwt } from '../../utils/tokenUtils';
 
 function RegisterGame() {
     const [boardgame, setBoardgame] = useState({
@@ -14,6 +17,25 @@ function RegisterGame() {
         boardgameRule: '',
         imageUrl: ''
     });
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [isAdminOrManager, setIsAdminOrManager] = useState(false);
+
+    useEffect(() => {
+        const token = window.localStorage.getItem('accessToken');
+        if (token) {
+            const decoded = decodeJwt(token);
+            if (decoded.auth && (decoded.auth.includes('ROLE_ADMIN') || decoded.auth.includes('ROLE_MANAGER'))) {
+                setIsAdminOrManager(true);
+            } else {
+                alert('접근 권한이 없습니다.');
+                navigate('/');
+            }
+        } else {
+            alert('로그인이 필요합니다.');
+            navigate('/login');
+        }
+    }, [navigate]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,26 +47,20 @@ function RegisterGame() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(boardgame);
-        axios.post('http://localhost:8080/api/v1/boardgames', boardgame)
-            .then(response => {
-                alert('게임 등록이 완료되었습니다.');
-                window.location.href = '/boardgame';
+        dispatch(callRegistBoardgameAPI({ form: boardgame }))
+            .then(() => {
+                Swal.fire('성공', '보드게임이 성공적으로 등록되었습니다.', 'success')
+                    .then(() => navigate('/boardgames'));
             })
             .catch(error => {
-                console.error("게임 등록 중 오류가 발생했습니다!", error);
+                console.error('Failed to register boardgame:', error);
+                Swal.fire('오류', '보드게임 등록에 실패했습니다.', 'error');
             });
     };
 
-    const onClickRegisterHandler = (e) => {
-        e.preventDefault();
-        handleSubmit(e);
-    };
-
-    const onClickBackHandler = (e) => {
-        e.preventDefault();
-        window.history.back();
-    };
+    if (!isAdminOrManager) {
+        return <div>접근 권한이 없습니다.</div>;
+    }
 
     return (
         <div>
@@ -78,9 +94,8 @@ function RegisterGame() {
                                         />
                                     </td>
                                 </tr>
-                
                                 <tr>
-                                    <td><label>게임설명 </label></td>
+                                    <td><label>게임설명</label></td>
                                     <td>
                                         <input 
                                             type="text" 
@@ -92,7 +107,7 @@ function RegisterGame() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><label>난이도 </label></td>
+                                    <td><label>난이도</label></td>
                                     <td>
                                         <input 
                                             type="text" 
@@ -127,7 +142,6 @@ function RegisterGame() {
                                         />
                                     </td>
                                 </tr>
-                                
                                 <tr>
                                     <td><label>최대 인원</label></td>
                                     <td>
@@ -141,46 +155,48 @@ function RegisterGame() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><label>플레이 시간</label></td>
-                                    <td>
-                                    <input 
-                                        type="number" 
-                                        name="playtime" 
-                                        placeholder="플레이 시간" 
-                                        value={boardgame.playtime} 
-                                        onChange={handleChange} required 
-                                    /> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label>이미지 첨부</label></td>
+                                    <td><label>게임 규칙</label></td>
                                     <td>
                                         <input 
-                                            type="file" 
-                                            name="imageUrl" 
-                                            placeholder="이미지 URL" 
+                                            type="text" 
+                                            name="boardgameRule" 
+                                            placeholder="게임 규칙" 
+                                            value={boardgame.boardgameRule} 
                                             onChange={handleChange} required 
                                         />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colSpan={3}>
-                                        <span id="nameCaution" className='nameCaution'></span>                
-                                        <span id="pwdCaution" className='pwdCaution'></span>
-                                        <span id="nicknameCaution" className='nameCaution'></span>
+                                    <td><label>플레이타임</label></td>
+                                    <td>
+                                        <input 
+                                            type="number" 
+                                            name="playtime" 
+                                            placeholder="플레이타임(분)" 
+                                            value={boardgame.playtime} 
+                                            onChange={handleChange} required 
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label>이미지 URL</label></td>
+                                    <td>
+                                        <input 
+                                            type="text" 
+                                            name="imageUrl" 
+                                            placeholder="이미지 URL" 
+                                            value={boardgame.imageUrl} 
+                                            onChange={handleChange} 
+                                        />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colSpan={3}>
                                         <div className='bottomBtn'>
-                                            <button className='registerBtn'
-                                                onClick={onClickRegisterHandler}
-                                            >   
-                                                등록
+                                            <button className='registerBtn' type="submit">
+                                                게임 등록
                                             </button>
-                                            <button className='backBtn'
-                                                onClick={onClickBackHandler}
-                                            >
+                                            <button className='backBtn' type="button" onClick={() => navigate(-1)}>
                                                 돌아가기
                                             </button>
                                         </div>

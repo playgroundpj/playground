@@ -31,6 +31,11 @@ import ShopModify from './pages/shop/ShopModify';
 import MenuDetail from './pages/menu/MenuDetail';
 import Reservation from './pages/reservation/Reservation';
 import MyReservation from './pages/reservation/MyReservation';
+<<<<<<< HEAD
+=======
+import BoardgameEditForm from './pages/boardgame/BoardGameEditForm';
+import UpdateMenu from './pages/menu/UpdateMenu';
+>>>>>>> boardgame/crud
 
 function App() {
   return (
@@ -64,10 +69,19 @@ function App() {
             <Route path="menu" element={<Menu />} />
             <Route path="menu/menuDetails/:menuCode" element={<MenuDetail />} /> 
             <Route path="menu/register" element={<RegisterMenu />} />
+            <Route path="menu/update/:menuCode" element={<UpdateMenu />} />
             <Route path="menu/search" element={<SearchMenu />} />
             <Route path="register-game" element={<RegisterGame />} />
+            <Route path="/boardgame/regist" element={<RegisterGame />} />
+            {/* <Route path="/boardgame/:boardgameCode" element={<BoardgameDetail />} /> */}
+            <Route path="/boardgame/update/:boardgameCode" element={<BoardgameEditForm />} />
 
 
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> boardgame/crud
             <Route path="shop" element={ <Shop/>} />
             <Route path="shop/shopDetails/:shopCode" element={<ShopDetail/>}/>
             <Route path="shop/reservation/:shopCode" element={<Reservation/>}/>

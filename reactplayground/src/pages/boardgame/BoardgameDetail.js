@@ -5,6 +5,8 @@ import { decodeJwt } from '../../utils/tokenUtils';
 import { callGetBoardgameAPI } from '../../apis/BoardgameAPICalls';
 import { Carousel } from 'react-bootstrap';
 
+import { callGetBoardgameAPI, callDeleteBoardgameAPI } from '../../apis/BoardgameAPICalls';
+import { Carousel } from 'react-bootstrap';
 
 function BoardgameDetail() {
 
@@ -15,11 +17,10 @@ function BoardgameDetail() {
     const token = decodeJwt(window.localStorage.getItem("accessToken")); 
     const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
     const [isAuth, setAuth] = useState('');
-    const boardgameDetail = boardgame.data;
+    const boardgameDetail = boardgame.data || {};  // Default to empty object if data is not available
     const getBoardgameCode = boardgameCode;
 
     const onClickBackHandler = () => {
-        
         /* 돌아가기 클릭시 메인 페이지로 이동 */
         navigate(-1);
     }
@@ -30,6 +31,17 @@ function BoardgameDetail() {
 
     const onClicReservationHandler = (getBoardgameCode) => {
         navigate(`/boardgame/reservation/${getBoardgameCode}`);
+    const onClickDeleteHandler = (getBoardgameCode) => {
+        if (window.confirm('정말로 이 보드게임을 삭제하시겠습니까?')) {
+            dispatch(callDeleteBoardgameAPI({ boardgameCode: getBoardgameCode }))
+                .then(() => {
+                    navigate('/boardgame'); // 삭제 후 보드게임 목록 페이지로 이동
+                })
+                .catch(error => {
+                    console.error('Failed to delete boardgame:', error);
+                    alert('보드게임 삭제에 실패했습니다.');
+                });
+        }
     }
     
     useEffect(
@@ -50,10 +62,22 @@ function BoardgameDetail() {
     )
 
 
+    useEffect(() => {
+        dispatch(callGetBoardgameAPI({ boardgameCode }));
+    }, [dispatch, boardgameCode]);
+
+    useEffect(() => {
+        if(isLogin !== undefined && isLogin !== null) {
+            setAuth(token.auth[0]);
+        }   
+    }, [token, isLogin]);
+
+    const canModifyOrDelete = token && token.auth && (token.auth.includes('ROLE_ADMIN') || token.auth.includes('ROLE_MANAGER'));
+
     return (
-        <div className='profileDiv'  >
+        <div className='profileDiv'>
             <h2> 상세 정보 - {boardgameDetail.boardgameName}</h2>
-            <div className='formTotal BoardgameDetialForm'>
+            <div className='formTotal BoardgameDetailForm'>
                 <table>
                     <colgroup>
                         <col style={{width:'50%'}}></col>
@@ -89,7 +113,36 @@ function BoardgameDetail() {
                                 </td>
                         </tr>
                         <tr>
+                            <td>
                             
+                                {boardgameDetail.boardgameImgURL1 && (
+                                    <Carousel>
+                                        <Carousel.Item>
+                                            <img
+                                                className="d-block w-100 custom-img"
+                                                src={boardgameDetail.boardgameImgURL1}
+                                                alt="First slide"
+                                            />
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img
+                                                className="d-block w-100 custom-img"
+                                                src={boardgameDetail.boardgameImgURL1}
+                                                alt="Second slide"
+                                            />
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img
+                                                className="d-block w-100 custom-img"
+                                                src={boardgameDetail.boardgameImgURL1}
+                                                alt="Third slide"
+                                            />
+                                        </Carousel.Item>
+                                    </Carousel>
+                                )}
+                            </td>
+                        </tr>
+                        <tr>
                             <td className='captionCSS'><span>난이도</span>|</td>
                             <td>{boardgameDetail.difficulty}</td>
                         </tr>
@@ -114,29 +167,36 @@ function BoardgameDetail() {
                             <td>{boardgameDetail.boardgameRule}</td>
                         </tr>
                         <tr>
-                                <td colSpan={3}>
-                                    <div className='bottomBtn'>
-                                        {(isAuth == 'ROLE_ADMIN') && 
-                                        <button className='registerBtn'
-                                            onClick = { () => onClickModifyHandler(boardgameCode) }
-                                        >   
-                                            매장 정보 수정
-                                        </button>
-                                        }
-                                        <button className='backBtn'
-                                            onClick = { onClickBackHandler }
-                                        >
-                                            돌아가기
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                            <td colSpan={3}>
+                                <div className='bottomBtn'>
+                                    {canModifyOrDelete && 
+                                    <button className='registerBtn'
+                                        onClick={() => onClickModifyHandler(boardgameCode)}
+                                    >   
+                                        보드게임 정보 수정
+                                    </button>
+                                    }
+                                    {canModifyOrDelete && 
+                                    <button className='registerBtn'
+                                        onClick={() => onClickDeleteHandler(boardgameCode)}
+                                    >   
+                                        보드게임 삭제
+                                    </button>
+                                    }
+                                    <button className='backBtn'
+                                        onClick={onClickBackHandler}
+                                    >
+                                        돌아가기
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-
         </div>
     );
+}
 }
 
 export default BoardgameDetail;

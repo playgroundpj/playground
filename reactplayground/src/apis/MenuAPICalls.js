@@ -1,8 +1,8 @@
 import { GET_STORE_LIST_ALL } from "../modules/CheckModule";
 import { DELETE_MENU, GET_MENU, GET_MENU_LIST, POST_REGISTER, PUT_MENU } from "../modules/MenuModule";
 
-export const callGetMenuListAPI = ({currentPage}) => {
 
+export const callGetMenuListAPI = ({currentPage}) => {
     let requestURL;
 
     if(currentPage !== undefined || currentPage !== null){
@@ -59,7 +59,6 @@ export const callGetMenuAPI = ({menuCode}) => {
     const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/menu/${menuCode}`;
 
     return async (dispatch, getState) => {
-
         const result = await fetch(requestURL, {
             method: "GET",
             headers: {

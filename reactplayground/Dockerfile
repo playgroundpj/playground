@@ -15,7 +15,11 @@ COPY . .
 
 # 해당 컨테이너가 외부로 포트 3000을 노출하도록 설정.
 # EXPOSE 3333
+<<<<<<< HEAD
 EXPOSE 80
+=======
+EXPOSE 3333
+>>>>>>> boardgame/crud
 
 # 컨테이너가 실행되면 'npm start' 명령어를 실행(즉, React 애플리케이션 실행).
 CMD ["npm", "start"]
