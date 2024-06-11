@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { callNoticeAPI } from '../../apis/NoticeAPICalls';
-import { ButtonGroup, Button } from 'react-bootstrap';
 import { decodeJwt } from '../../utils/tokenUtils'; // 토큰 디코딩 함수 임포트
 
 function Notice() {
@@ -15,6 +14,12 @@ function Notice() {
     const [currentPage, setCurrentPage] = useState(1);
     const [category, setCategory] = useState('All');
     const [pageNumber, setPageNumber] = useState([]);
+    const [activeButton, setActiveButton] = useState('All');
+
+
+    const activeStyle = {
+        backgroundColor: '#97A482',
+    }    
 
 
     const [decoded, setDecoded] = useState(''); // 사용자 역할
@@ -22,6 +27,7 @@ function Notice() {
     const handleCategoryChange = (newCategory) => {
         setCategory(newCategory);
         setCurrentPage(1);
+        setActiveButton(newCategory);
     }
     
     useEffect(() => {
@@ -69,20 +75,43 @@ function Notice() {
     return (
         <>
                 <h2 onClick={() => handleCategoryChange('All')}>공지게시판</h2>
-            <ButtonGroup className='mb-3'>
-                <Button onClick={() => handleCategoryChange('공지사항')}>공지사항</Button>
-                <Button onClick={() => handleCategoryChange('이벤트')}>이벤트</Button>
-                <Button onClick={() => handleCategoryChange('자주묻는질문')}>자주묻는질문</Button>
+            <div className='categoryDiv'>
+                <button 
+                    className='categoryBtn' 
+                    onClick={() => handleCategoryChange('공지사항')}
+                    style={activeButton === '공지사항' ? activeStyle : null}
+                >
+                    공지사항
+                </button>
+                <button 
+                    className='categoryBtn' 
+                    onClick={() => handleCategoryChange('이벤트')}
+                    style={activeButton === '이벤트' ? activeStyle : null}
+                >
+                    이벤트
+                    </button>
+                <button 
+                    className='categoryBtn' 
+                    onClick={() => handleCategoryChange('자주묻는질문')}
+                    style={activeButton === '자주묻는질문' ? activeStyle : null}
+                >
+                    자주묻는질문
+                    </button>
                 {decoded === "ROLE_ADMIN" && (
-                        <Button onClick={handleCreateNotice}>게시글 등록</Button>
-                 )}
-            </ButtonGroup>
+                        <button 
+                            onClick={handleCreateNotice}
+                            className='categoryBtn boardRegisterBtn'
+                        >
+                            게시글 등록
+                        </button>
+                )}
+            </div>
             <hr></hr>
-                 <div className='formTotal'>
+                <div className='formTotal noticeList'>
                     <table>
                         <colgroup>
-                            <col width="15%" />
-                            <col width="50%" />
+                            <col width="25%" />
+                            <col width="40%" />
                             <col width="20%" />
                             <col width="15%" />
                         </colgroup>
@@ -112,21 +141,26 @@ function Notice() {
                         </tbody>
                     </table>
                 </div>
-            <div>
+            <div className='pagingBtnDiv' style={{ listStyleType: "none", display: "flex" }}>
                 {pageNumber.length > 0 && (
                     <>
                         <button 
                             onClick={() => setCurrentPage(currentPage - 1)}
                             disabled={currentPage === 1}
+                            className='pagingBtn'
                         >
                             &lt;
                         </button>
                         {pageNumber.map((num) => (
                             <li key={num} onClick={() => setCurrentPage(num)}>
-                                <button> {num} </button>
+                                <button
+                                    style={ currentPage === num ? {backgroundColor : '#97A482', color : '#ecebe8' } : null}
+                                    className='pagingBtn'
+                                > {num} </button>
                             </li>
                         ))}
-                        <button 
+                        <button
+                            className='pagingBtn' 
                             onClick={() => setCurrentPage(currentPage + 1)}
                             disabled={currentPage === pageInfo.pageEnd}
                         >

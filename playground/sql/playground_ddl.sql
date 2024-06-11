@@ -63,7 +63,7 @@ create table if not exists tbl_member_role
 # tbl_GameTable(매장 테이블)
 drop table if exists tbl_GameTable;
 create table if not exists `tbl_GameTable` (
-	`table_code`	int NOT NULL	COMMENT '데이블코드',
+	`table_code`	int auto_increment primary key 	COMMENT '데이블코드',
 	`table_name`	VARCHAR(255)	NOT NULL	COMMENT '테이블명',
 	`max_people`	INT	NOT NULL	COMMENT '최대인원',
 	`table_price`	INT	NOT NULL	COMMENT '시간요금'
@@ -155,26 +155,28 @@ create table if not exists `tbl_Grade` (
 # tbl_BoardGame(보드게임)
 drop table if exists tbl_BoardGame;
 create table if not exists `tbl_BoardGame` (
-	`boardgame_code`	int auto_increment	NOT NULL	COMMENT '보드게임코드',
+	`boardgame_code`	int auto_increment	primary key 	COMMENT '보드게임코드',
 	`boardgame_name`	VARCHAR(255)	NOT NULL	COMMENT '보드게임명',
 	`difficulty`	VARCHAR(255)	NOT NULL	COMMENT '난이도',
 	`release_date`	VARCHAR(255)	NULL	COMMENT '출시일',
 	`min_player`	INT	NOT NULL	COMMENT '최소인원',
 	`max_player`	INT	NOT NULL	COMMENT '최대인원',
 	`playtime`	INT	NOT NULL	COMMENT '게임시간',
-	`boardgame_rule`	VARCHAR(255)	NOT NULL	COMMENT '게임설명',
-    constraint pk_boardgame_code primary key (boardgame_code)
+	`boardgame_rule`	VARCHAR(255)	COMMENT '게임설명',
+	`boardgame_img_url1`	VARCHAR(255)	COMMENT '게임이미지1',
+	`boardgame_img_url2`	VARCHAR(255)	COMMENT '게임이미지2',
+	`boardgame_img_url3`	VARCHAR(255)	COMMENT '게임이미지3'
 );
 
 drop table if exists tbl_Menu;
 create table if not exists `tbl_Menu` (
-	`menu_code`	int auto_increment	COMMENT '메뉴코드',
+	`menu_code`	int auto_increment	primary key COMMENT '메뉴코드',
 	`menu_name`	VARCHAR(255)	NOT NULL	COMMENT '메뉴명',
 	`category`	VARCHAR(255)	NOT NULL	COMMENT '카테고리',
 	`menu_content`	VARCHAR(255)	NULL	COMMENT '메뉴설명',
 	`menu_price`	INT	NOT NULL	COMMENT '메뉴가격',
 	`orderable_status`	BOOLEAN	NOT NULL	DEFAULT false	COMMENT '주문가능상태',
-    constraint pk_menu_code primary key (menu_code)
+    `menu_img`	VARCHAR(255)	COMMENT '메뉴이미지'
 );
 
 drop table if exists tbl_MenuImage;
@@ -251,8 +253,8 @@ create table if not exists `tbl_Store` (
 drop table if exists tbl_Manager;
 create table if not exists `tbl_Manager` (
     `manager_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
-	`member_code`	INT	NOT NULL	COMMENT '회원코드',
-	`store_code`	INT	NOT NULL	COMMENT '매장코드'
+	`member_code`	INT	NOT NULL UNIQUE COMMENT '회원코드',
+	`store_code`	INT	NOT NULL UNIQUE COMMENT '매장코드'
 );
 
 drop table if exists tbl_StoreMenu;
@@ -276,8 +278,7 @@ drop table if exists tbl_StoreGameTable;
 create table if not exists `tbl_StoreGameTable` (
     `storeGameTable_no` INT AUTO_INCREMENT primary key COMMENT '인조식별자',
 	`store_code`	INT	NOT NULL	COMMENT '매장코드',
-	`table_code`	INT	NOT NULL	COMMENT '데이블코드',
-	`table_count`	INT	NOT NULL	COMMENT '테이블수량'
+	`table_code`	INT	NOT NULL	COMMENT '데이블코드'
 );
 
 drop table if exists tbl_OrderMenu;
@@ -306,7 +307,7 @@ create table if not exists `tbl_MemberGrade` (
 
 drop table if exists tbl_reservation;
 create table if not exists `tbl_reservation` (
-	`reservation_code`	int auto_increment	COMMENT '에약코드',
+	`reservation_code`	int auto_increment	COMMENT '예약코드',
 	`member_code`	INT	NOT NULL	COMMENT '회원코드',
 	`reservation_date`	VARCHAR(255)	NOT NULL	COMMENT '예약일자',
 	`reservation_datetime`	VARCHAR(255)	NOT NULL	COMMENT '예약일시',
@@ -349,3 +350,5 @@ create table if not exists `tbl_GamePayment` (
 # TRUNCATE TABLE tbl_boardgame;
 # ALTER TABLE tbl_boardgame MODIFY COLUMN boardgame_code BIGINT AUTO_INCREMENT;
 #
+
+# TRUNCATE TABLE tbl_boardgame;

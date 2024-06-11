@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.sql.SQLIntegrityConstraintViolationException;
+
 /* 설명. 예외 처리 전용 어드바이스 추가
  *  @RestControllerAdvice = @ControllerAdvice + @ResponseBody
  *  요청을 처리하는데 있어서 모든 Controller단에서 발생하는 각 예외 상황을 한 번에 처리하기 위한 어노테이션.
@@ -44,6 +46,42 @@ public class ApiExceptionAdvice {
 	/* 설명. 이메일이 중복됐을 때 발생하는 예외 상황 처리 */
 	@ExceptionHandler(DuplicatedMemberEmailException.class)
 	public ResponseEntity<ApiExceptionDTO> exceptionHandler(DuplicatedMemberEmailException e) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+				.body(new ApiExceptionDTO(HttpStatus.BAD_REQUEST, e.getMessage()));
+	}
+
+	@ExceptionHandler(DuplicatedMemberIdException.class)
+	public ResponseEntity<ApiExceptionDTO> exceptionHandler(DuplicatedMemberIdException e) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+				.body(new ApiExceptionDTO(HttpStatus.BAD_REQUEST, e.getMessage()));
+	}
+
+	@ExceptionHandler(DuplicatedStorNamelException.class)
+	public ResponseEntity<ApiExceptionDTO> exceptionHandler(DuplicatedStorNamelException e) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+				.body(new ApiExceptionDTO(HttpStatus.BAD_REQUEST, e.getMessage()));
+	}
+
+	@ExceptionHandler(NotFoundException.class)
+	public ResponseEntity<ApiExceptionDTO> exceptionHandler(NotFoundException e) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+				.body(new ApiExceptionDTO(HttpStatus.BAD_REQUEST, e.getMessage()));
+	}
+
+	@ExceptionHandler(NotMatchException.class)
+	public ResponseEntity<ApiExceptionDTO> exceptionHandler(NotMatchException e) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+				.body(new ApiExceptionDTO(HttpStatus.BAD_REQUEST, e.getMessage()));
+	}
+
+	@ExceptionHandler(DuplicatedException.class)
+	public ResponseEntity<ApiExceptionDTO> exceptionHandler(DuplicatedException e) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+				.body(new ApiExceptionDTO(HttpStatus.BAD_REQUEST, e.getMessage()));
+	}
+
+	@ExceptionHandler(SQLIntegrityConstraintViolationException.class)
+	public ResponseEntity<ApiExceptionDTO> exceptionHandler(SQLIntegrityConstraintViolationException e) {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 				.body(new ApiExceptionDTO(HttpStatus.BAD_REQUEST, e.getMessage()));
 	}

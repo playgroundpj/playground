@@ -1,46 +1,150 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { callGetBoardGameAPI } from '../../apis/BoardGameAPICalls';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { decodeJwt } from '../../utils/tokenUtils';
+import { callGetBoardgameAPI, callDeleteBoardgameAPI } from '../../apis/BoardgameAPICalls';
+import { Carousel } from 'react-bootstrap';
 
-function BoardGameDetail() {
+function BoardgameDetail() {
+
+    const { boardgameCode } = useParams();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { id } = useParams();
-    const boardGame = useSelector(state => state.boardGameReducer.boardGame);
+    const boardgame = useSelector(state => state.boardgameReducer);  
+    const token = decodeJwt(window.localStorage.getItem("accessToken")); 
+    const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
+    const [isAuth, setAuth] = useState('');
+    const boardgameDetail = boardgame.data || {};  // Default to empty object if data is not available
+    const getBoardgameCode = boardgameCode;
 
-    useEffect(() => {
-        dispatch(callGetBoardGameAPI(id));
-    }, [dispatch, id]);
-
-    if (!boardGame) {
-        return <div>Loading...</div>;
+    const onClickBackHandler = () => {
+        /* 돌아가기 클릭시 메인 페이지로 이동 */
+        navigate(-1);
     }
 
-    const handleImageError = (e, gameCode) => {
-        const newSrc = e.target.src.endsWith('.png') 
-            ? `http://localhost:8080/api/v1/boardgames/images/${gameCode}.jpg` 
-            : `http://localhost:8080/api/v1/boardgames/images/${gameCode}.png`;
-        e.target.src = newSrc;
-    };
+    const onClickModifyHandler = (getBoardgameCode) => {
+        navigate(`/boardgame/update/${getBoardgameCode}`);
+    }
+
+    const onClickDeleteHandler = (getBoardgameCode) => {
+        if (window.confirm('정말로 이 보드게임을 삭제하시겠습니까?')) {
+            dispatch(callDeleteBoardgameAPI({ boardgameCode: getBoardgameCode }))
+                .then(() => {
+                    navigate('/boardgame'); // 삭제 후 보드게임 목록 페이지로 이동
+                })
+                .catch(error => {
+                    console.error('Failed to delete boardgame:', error);
+                    alert('보드게임 삭제에 실패했습니다.');
+                });
+        }
+    }
+
+    useEffect(() => {
+        dispatch(callGetBoardgameAPI({ boardgameCode }));
+    }, [dispatch, boardgameCode]);
+
+    useEffect(() => {
+        if(isLogin !== undefined && isLogin !== null) {
+            setAuth(token.auth[0]);
+        }   
+    }, [token, isLogin]);
+
+    const canModifyOrDelete = token && token.auth && (token.auth.includes('ROLE_ADMIN') || token.auth.includes('ROLE_MANAGER'));
 
     return (
-        <div>
-            <img 
-                src={`http://localhost:8080/api/v1/boardgames/images/${boardGame.boardgameCode}.png`} 
-                alt={boardGame.boardgameName} 
-                style={{ width: '300px' }} 
-                onError={(e) => handleImageError(e, boardGame.boardgameCode)}
-            />
-            <h2>{boardGame.boardgameName}</h2>
-            <p>{boardGame.description}</p>
-            <p>난이도: {boardGame.difficulty}</p>
-            <p>출시일: {boardGame.releaseDate}</p>
-            <p>최소 인원: {boardGame.minPlayer}</p>
-            <p>최대 인원: {boardGame.maxPlayer}</p>
-            <p>플레이 시간: {boardGame.playtime}분</p>
-            <p>룰: {boardGame.boardgameRule}</p>
+        <div className='profileDiv'>
+            <h2> 상세 정보 - {boardgameDetail.boardgameName}</h2>
+            <div className='formTotal BoardgameDetailForm'>
+                <table>
+                    <colgroup>
+                        <col style={{width:'50%'}}></col>
+                        <col style={{width:'15%'}}></col>
+                        <col style={{width:'35%'}}></col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td className='boardgameImg' rowSpan={7}> 
+                                {boardgameDetail.boardgameImgURL1 && (
+                                    <Carousel>
+                                        <Carousel.Item>
+                                            <img
+                                                className="d-block w-100 custom-img"
+                                                src={boardgameDetail.boardgameImgURL1}
+                                                alt="First slide"
+                                            />
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img
+                                                className="d-block w-100 custom-img"
+                                                src={boardgameDetail.boardgameImgURL1}
+                                                alt="Second slide"
+                                            />
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img
+                                                className="d-block w-100 custom-img"
+                                                src={boardgameDetail.boardgameImgURL1}
+                                                alt="Third slide"
+                                            />
+                                        </Carousel.Item>
+                                    </Carousel>
+                                )}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className='captionCSS'><span>난이도</span>|</td>
+                            <td>{boardgameDetail.difficulty}</td>
+                        </tr>
+                        <tr>
+                            <td className='captionCSS'><span>출시일</span>|</td>
+                            <td>{boardgameDetail.releaseDate}</td>
+                        </tr>
+                        <tr>
+                            <td className='captionCSS'><span>최소인원</span>|</td>
+                            <td>{boardgameDetail.minPlayer}명</td>
+                        </tr>
+                        <tr>
+                            <td className='captionCSS'><span>최대인원</span>|</td>
+                            <td>{boardgameDetail.maxPlayer}명</td>
+                        </tr>
+                        <tr>
+                            <td className='captionCSS'><span>게임시간</span>|</td>
+                            <td>{boardgameDetail.playtime}분</td>
+                        </tr>
+                        <tr>
+                            <td className='captionCSS'><span>게임설명</span>|</td>
+                            <td>{boardgameDetail.boardgameRule}</td>
+                        </tr>
+                        <tr>
+                            <td colSpan={3}>
+                                <div className='bottomBtn'>
+                                    {canModifyOrDelete && 
+                                    <button className='registerBtn'
+                                        onClick={() => onClickModifyHandler(boardgameCode)}
+                                    >   
+                                        보드게임 정보 수정
+                                    </button>
+                                    }
+                                    {canModifyOrDelete && 
+                                    <button className='registerBtn'
+                                        onClick={() => onClickDeleteHandler(boardgameCode)}
+                                    >   
+                                        보드게임 삭제
+                                    </button>
+                                    }
+                                    <button className='backBtn'
+                                        onClick={onClickBackHandler}
+                                    >
+                                        돌아가기
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }
 
-export default BoardGameDetail;
+export default BoardgameDetail;

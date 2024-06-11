@@ -1,10 +1,44 @@
-### POST user login
-POST localhost:8080/auth/login
+### GET manager Store list
+GET localhost:8080/api/v1/members/
 Content-Type:application/json
 Accept:*/*
-Access-Control-Allow-Origin:*
+
+
+### GET manager Store list
+GET localhost:8080/api/v1/members/managerStore/21
+Content-Type:application/json
+Accept:*/*
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxNzU3NzA1N30.ApNxXC-pCcbvY2urynfJNi3ekV1kuIIfP7o2eSZZ_cnMuBVq6hCA2Kx1XgAjf76JwoigILHZR7Ozf01v9DkUZw
+
+
+### POST manager store regist
+POST localhost:8080/api/v1/members/managerStore/register
+Content-Type: application/json
+Accept: */*
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxNzU3NzA1N30.ApNxXC-pCcbvY2urynfJNi3ekV1kuIIfP7o2eSZZ_cnMuBVq6hCA2Kx1XgAjf76JwoigILHZR7Ozf01v9DkUZw
 
 {
-    "memberId": "owl.ohgiraffers",
-    "memberPassword": "5678"
+  "memberCode": 21,
+  "storeCode": 20
+}
+
+### PUT manager store update
+PUT localhost:8080/api/v1/members/managerStore/modify
+Content-Type: application/json
+Accept: */*
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxNzU3NzA1N30.ApNxXC-pCcbvY2urynfJNi3ekV1kuIIfP7o2eSZZ_cnMuBVq6hCA2Kx1XgAjf76JwoigILHZR7Ozf01v9DkUZw
+
+{
+  "memberCode": 2,
+  "storeCode": 1
+}
+
+### DELETE manager
+DELETE localhost:8080/api/v1/members/managerStore/delete
+Content-Type: application/json
+Accept: */*
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxNzU3NzA1N30.ApNxXC-pCcbvY2urynfJNi3ekV1kuIIfP7o2eSZZ_cnMuBVq6hCA2Kx1XgAjf76JwoigILHZR7Ozf01v9DkUZw
+
+{
+  "memberCode": 21
 }

@@ -7,20 +7,40 @@ import jakarta.persistence.*;
 public class Menu {
 
     @Id
+    @Column(name = "menu_code")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long menuCode;
+    private int menuCode;
+    @Column(name = "menu_name")
     private String menuName;
+    @Column(name = "category")
     private String category;
+    @Column(name = "menu_content")
     private String menuContent;
+    @Column(name = "menu_price")
     private int menuPrice;
+    @Column(name = "orderable_status")
     private boolean orderableStatus;
+    @Column(name = "menu_img")
+    private String menuImg;
 
-    // Getters and Setters
-    public Long getMenuCode() {
+    public Menu() {
+    }
+
+    public Menu(int menuCode, String menuName, String category, String menuContent, int menuPrice, boolean orderableStatus, String menuImg) {
+        this.menuCode = menuCode;
+        this.menuName = menuName;
+        this.category = category;
+        this.menuContent = menuContent;
+        this.menuPrice = menuPrice;
+        this.orderableStatus = orderableStatus;
+        this.menuImg = menuImg;
+    }
+
+    public int getMenuCode() {
         return menuCode;
     }
 
-    public void setMenuCode(Long menuCode) {
+    public void setMenuCode(int menuCode) {
         this.menuCode = menuCode;
     }
 
@@ -62,5 +82,26 @@ public class Menu {
 
     public void setOrderableStatus(boolean orderableStatus) {
         this.orderableStatus = orderableStatus;
+    }
+
+    public String getMenuImg() {
+        return menuImg;
+    }
+
+    public void setMenuImg(String menuImg) {
+        this.menuImg = menuImg;
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "menuCode=" + menuCode +
+                ", menuName='" + menuName + '\'' +
+                ", category='" + category + '\'' +
+                ", menuContent='" + menuContent + '\'' +
+                ", menuPrice=" + menuPrice +
+                ", orderableStatus=" + orderableStatus +
+                ", menuImg='" + menuImg + '\'' +
+                '}';
     }
 }

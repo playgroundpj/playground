@@ -1,66 +1,93 @@
 package com.players.playground.product.controller;
 
-import com.players.playground.product.entity.BoardGame;
+import com.players.playground.common.Criteria;
+import com.players.playground.common.PageDTO;
+import com.players.playground.common.PagingResponseDTO;
+import com.players.playground.common.ResponseDTO;
+import com.players.playground.product.dto.BoardGameDTO;
 import com.players.playground.product.service.BoardGameService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.HttpHeaders;
+import io.swagger.v3.oas.annotations.Operation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/boardgames")
-@CrossOrigin(origins = "http://localhost:3000")  // CORS 설정 추가
+@RequestMapping("/api/v1/boardgame")
 public class BoardGameController {
 
-    @Autowired
-    private BoardGameService boardGameService;
+    private final BoardGameService boardGameService;
+    private static final Logger log = LoggerFactory.getLogger(BoardGameController.class);
 
-    @GetMapping
-    public ResponseEntity<List<BoardGame>> getAllBoardGames() {
-        List<BoardGame> boardGames = boardGameService.getAllBoardGames();
-        return ResponseEntity.ok(boardGames);
+    public BoardGameController(BoardGameService boardGameService) {
+        this.boardGameService = boardGameService;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<BoardGame> getBoardGameById(@PathVariable Long id) {
-        BoardGame boardGame = boardGameService.getBoardGameById(id);
-        return ResponseEntity.ok(boardGame);
+    @Operation(summary = "전체 보드게임 조회", description = "전체 보드게임 조회 및 페이징 처리가 진행됩니다.", tags = { "BoardGameController" })
+    @GetMapping("")
+    public ResponseEntity<ResponseDTO> selectBoardGameListWithPaging(
+            @RequestParam(name = "offset", defaultValue = "1") String offset) {
+
+        log.info("[BoardGameController] selectBoardGameListWithPaging : " + offset);
+
+        int total = boardGameService.selectBoardGameTotal();
+        Criteria cri = new Criteria(Integer.valueOf(offset), 10);
+        PagingResponseDTO pagingResponseDTO = new PagingResponseDTO();
+
+        pagingResponseDTO.setData(boardGameService.selectStoreListWithPaging(cri));
+        pagingResponseDTO.setPageInfo(new PageDTO(cri, total));
+
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "보드게임 페이징 조회 성공", pagingResponseDTO));
     }
 
-    @GetMapping("/search")
-    public ResponseEntity<List<BoardGame>> searchBoardGamesByName(@RequestParam String name) {
-        List<BoardGame> boardGames = boardGameService.searchBoardGamesByName(name);
-        return ResponseEntity.ok(boardGames);
+    @Operation(summary = "전체 보드게임 조회", description = "전체 보드게임 조회됩니다.", tags = { "BoardGameController" })
+    @GetMapping("/all")
+    public ResponseEntity<ResponseDTO> selectBoardgameAll() {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "전체 보드게임 조회 성공", boardGameService.selectBoardgameAll()));
     }
 
-    @PostMapping
-    public ResponseEntity<BoardGame> createBoardGame(@RequestBody BoardGame boardGame) {
-        BoardGame savedBoardGame = boardGameService.saveBoardGame(boardGame);
-        return ResponseEntity.ok(savedBoardGame);
+    @Operation(summary = "상세 보드게임 조회", description = "상세 보드게임 조회됩니다.", tags = { "BoardGameController" })
+    @GetMapping("/{boardgameCode}")
+    public ResponseEntity<ResponseDTO> findBoardgameByCode(@PathVariable String boardgameCode) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "상세 보드게임 조회 성공", boardGameService.findBoardgameByCode(boardgameCode)));
     }
 
-    @GetMapping("/images/{filename:.+}")
-    public ResponseEntity<Resource> getImage(@PathVariable String filename) {
-        try {
-            Path imagePath = Paths.get("src/main/resources/static/boardgameimgs").resolve(filename).normalize();
-            Resource resource = new UrlResource(imagePath.toUri());
+    @Operation(summary = "상세 보드게임 이름 조회", description = "상세 보드게임 이름 조회됩니다.", tags = { "BoardGameController" })
+    @GetMapping("/boardgameName/{boardgameName}")
+    public ResponseEntity<ResponseDTO> findBoardgameByBoardgameName(@PathVariable String boardgameName) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "상세 보드게임 조회 성공", boardGameService.findBoardgameByBoardgameName(boardgameName)));
+    }
 
-            if (resource.exists() && resource.isReadable()) {
-                return ResponseEntity.ok()
-                        .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
-                        .body(resource);
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (MalformedURLException ex) {
-            return ResponseEntity.badRequest().build();
-        }
+
+    @Operation(summary = "수정을 위한 상세 보드게임 이름 조회", description = "수정을 위한 상세 보드게임 이름 조회됩니다.", tags = { "BoardGameController" })
+    @GetMapping("/boardgameCodeWithouUrl/{boardgameCode}")
+    public ResponseEntity<ResponseDTO> findBoardgameByBoardgameCodeWithoutUrl(@PathVariable String boardgameCode) {
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "수정을 위한 상세 보드게임 조회 성공", boardGameService.findBoardgameByBoardgameCodeWithoutUrl(boardgameCode)));
+    }
+
+
+
+    @Operation(summary = "보드게임 수정", description = "보드게임 정보를 수정합니다.", tags = { "BoardGameController" })
+    @PutMapping("/modify")
+    public ResponseEntity<ResponseDTO> modifyBoardGame(@RequestBody BoardGameDTO boardGameDTO) {
+        boardGameService.modifyBoardGame(boardGameDTO);
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "보드게임 수정 성공", null));
+    }
+
+    @Operation(summary = "보드게임 등록", description = "새로운 보드게임을 등록합니다.", tags = { "BoardGameController" })
+    @PostMapping("/register")
+    public ResponseEntity<ResponseDTO> registerBoardGame(@RequestBody BoardGameDTO boardGameDTO) {
+        boardGameService.registerBoardGame(boardGameDTO);
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "보드게임 등록 성공", null));
+    }
+
+    @Operation(summary = "보드게임 삭제", description = "보드게임을 삭제합니다.", tags = { "BoardGameController" })
+    @DeleteMapping("/delete/{boardgameCode}")
+    public ResponseEntity<ResponseDTO> deleteBoardGame(@PathVariable String boardgameCode) {
+        boardGameService.deleteBoardGame(boardgameCode);
+        return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "보드게임 삭제 성공", null));
     }
 }

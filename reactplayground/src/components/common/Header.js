@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { decodeJwt } from '../../utils/tokenUtils';
 import Container from 'react-bootstrap/Container';
 import Swal from "sweetalert2";
@@ -75,14 +75,16 @@ function Header() {
                     title: 'swal2-title'
                 }
             }).then(() => {
+                window.localStorage.removeItem('accessToken');  
                 navigate("/login", { replace: true })
                 window.location.reload();
             });
             return ;
         }
 
-        navigate("/mypage", { replace: true });
+        navigate("/mypage/profile", { replace: true });
     }
+
 
     const onClickManagepageHandler = () => {    
 

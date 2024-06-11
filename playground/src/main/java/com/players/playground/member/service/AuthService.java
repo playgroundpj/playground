@@ -10,6 +10,9 @@ import com.players.playground.member.entity.Member;
 import com.players.playground.member.entity.MemberRole;
 import com.players.playground.member.repository.MemberRepository;
 import com.players.playground.member.repository.MemberRoleRepository;
+import com.players.playground.store.dto.StoreDTO;
+import com.players.playground.store.entity.Store;
+import com.players.playground.store.repository.StoreRepository;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -18,20 +21,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class AuthService {
 
     private static final Logger log = LoggerFactory.getLogger(AuthService.class);
     private final MemberRepository memberRepository;
+    private final StoreRepository storeRepository;
     private final PasswordEncoder passwordEncoder;
     private final TokenProvider tokenProvider;
     private final ModelMapper modelMapper;
     private final MemberRoleRepository memberRoleRepository;
 
     @Autowired
-    public AuthService(PasswordEncoder passwordEncoder, MemberRepository memberRepository, TokenProvider tokenProvider, ModelMapper modelMapper, MemberRoleRepository memberRoleRepository) {
+    public AuthService(PasswordEncoder passwordEncoder, MemberRepository memberRepository, StoreRepository storeRepository, TokenProvider tokenProvider, ModelMapper modelMapper, MemberRoleRepository memberRoleRepository) {
         this.passwordEncoder = passwordEncoder;
         this.memberRepository = memberRepository;
+        this.storeRepository = storeRepository;
         this.tokenProvider = tokenProvider;
         this.modelMapper = modelMapper;
         this.memberRoleRepository = memberRoleRepository;
@@ -116,5 +124,19 @@ public class AuthService {
         log.info("[AuthService] signup() End.");
 
         return memberDTO;
+    }
+
+    public Object findShopAll() {
+        log.info("[AuthService] findShopAll() Start.");
+
+        List<Store> StoreList = storeRepository.findAll();
+
+        List<StoreDTO> storeDTOList = StoreList.stream()
+                .map(store -> modelMapper.map(store, StoreDTO.class))
+                .collect(Collectors.toList());
+
+        log.info("[AuthService] findShopAll() End =========================");
+
+        return storeDTOList;
     }
 }

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { createNoticeAPI } from '../../apis/NoticeAPICalls';
+import { createNoticeAPI, callNoticeAPI } from '../../apis/NoticeAPICalls';
 import { NavLink } from 'react-router-dom';
-import { ButtonGroup, Button } from 'react-bootstrap';
+import { ButtonGroup } from 'react-bootstrap';
 import Swal from "sweetalert2";
 
 function CreateNotice() {
@@ -13,7 +13,7 @@ function CreateNotice() {
     const [category, setCategory] = useState('공지사항');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [files, setFiles] = useState([]);
+
 
     const handleCategoryChange = (category) => {
         setCategory(category);
@@ -27,7 +27,7 @@ function CreateNotice() {
         setContent(e.target.value);
     };
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
         if (!title.trim() || !content.trim()) {
             Swal.fire({
                 icon: 'warning',
@@ -48,7 +48,8 @@ function CreateNotice() {
             modifyedDate: new Date().toISOString()
         };
 
-        dispatch(createNoticeAPI(noticeData));
+        await dispatch(createNoticeAPI(noticeData))
+        await dispatch(callNoticeAPI({ currentPage: 1, category }));
         navigate('/board/notice');
     };
 
@@ -67,27 +68,27 @@ function CreateNotice() {
             <h2>게시글등록</h2>
            
             <hr></hr> 
-            <ButtonGroup className='mb-3'>
+            <ButtonGroup className='categoryDiv'>
                 {['공지사항', '이벤트', '자주묻는질문'].map((cat) => (
-                    <Button
+                    <button
                         key={cat}
-                        variant={category === cat ? 'primary' : 'outline-primary'}
+                        className='categoryBtn'
                         onClick={() => handleCategoryChange(cat)}
+                        style={category === cat ? { backgroundColor: '#97A482', color: 'white' } : {}}
                     >
                         {cat}
-                    </Button>
+                    </button>
                 ))}
             </ButtonGroup>
-            <div className='formTotal'>
+            <div className='formTotal boardRegistForm'>
                 <table>
                     <colgroup>
-                        <col style={{width:'15%'}}></col>
-                        <col style={{width:'63%'}}></col>
-                        <col style={{width:'22%'}}></col>
+                        <col style={{width:'25%'}}></col>
+                        <col style={{width:'85%'}}></col>
                     </colgroup>
                     <tbody>
                         <tr>
-                            <td><label>제목</label></td>
+                            <td><label>게시글 제목</label></td>
                             <td>
                                 <input
                                     type='text'
@@ -98,9 +99,10 @@ function CreateNotice() {
                             </td>
                         </tr>
                     <tr>
-                        <td><label>내용</label></td>
+                        <td><label>게시글 내용</label></td>
                         <td>
                             <textarea
+                            style={{ color: 'black' }} // 인라인 스타일로 텍스트 색상 설정
                             value={content}
                             onChange={handleContentChange}
                             placeholder='내용을 입력해주세요'>

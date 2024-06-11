@@ -17,7 +17,7 @@
 :root {
 	--back-color :  #F8F7F4;
 	--back-color2 :  #ecebe8;
-    --vintage-green : #f6e7cd;
+    /* --vintage-green : #f6e7cd; */
     --vintage-red : #C45D4A;
     --vintage-green : #97A482;
     --vintage-black : #3B3C37;
@@ -501,6 +501,12 @@ text-align: center;
     font-size: 1.1em;
 }
 
+.formTotal select{
+	width: 100% !important;
+	height: 40px !important;
+	border: none;
+}
+
 .formTotal label{
 	margin-top: 10px;
 	color: var(--vintage-gray);
@@ -646,6 +652,7 @@ input[type=file]::file-selector-button {
 
 .bottomBtn{
     width: 100%;
+	margin-bottom: 30px;
 }
 
 .registerBtn{
@@ -661,6 +668,8 @@ input[type=file]::file-selector-button {
     border-radius: 10px;
     transition: color 0.4s ease, background-color 0.4s ease;
 }
+
+
 
 .registerBtn:hover{
 	background-color: var(--vintage-green);
@@ -851,10 +860,514 @@ input[type=file]::file-selector-button {
 	font-size: 1.2em;
 }
 
+.profileDiv{
+	overflow: hidden;
+	position: relative;
+}
+
 .manageList{
 	width: 100% !important;
 	margin: 30px 15px;
 }
 
+.manageList td:nth-child(1),
+.manageList th:nth-child(1){
+	padding-right: 15px;
+	text-align: right;
+}
+
+.manageList tbody tr{
+	transition: background-color 0.4s ease;
+}
+
+.manageList tbody tr:hover{
+	background-color: var(--green-white);
+	cursor: pointer;
+}
+
+.memberDetails .bottomBtn{
+	text-align: center;
+}
+
+.memberDetails .backBtn{
+	margin-top: 20px  !important;
+}
 
 
+
+.mangerRegisterBtn{
+	position: absolute;
+	top: 17px;
+	left: 40px;
+	width: 180px;
+    height: 40px;
+    border: none;
+    color: var(--back-color);
+    background-color: var(--green-white);
+    font-size: 1.5em;
+    font-family: var(--Tenada) !important;
+    padding-top: 7px;
+    border-radius: 10px;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.mangerRegisterBtn:hover{
+	background-color: var(--vintage-green);
+	color: var(--back-color);
+    text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+
+/* 목록 CSS */
+
+.ListBox {
+	width: 100%;
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: stretch;
+}
+
+.ListBox div{
+	margin: 0px 8px 16px 8px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.ListBox a{
+	width: calc(100%/5 - 20px);
+	min-width: 250px;
+	height: 200px;
+	display: flex;
+	margin-bottom: 15px;
+
+}
+
+.TotalItem {
+
+	width: calc(100%/2 - 20px);
+	flex-basis: 250px;
+	height: 100%;
+	background-color: var(--back-color2);
+	cursor: pointer;
+	color: var(--vintage-gray);
+	padding: 20px 10px ;
+	text-align: center;
+	flex-grow: 1;
+	word-break: keep-all;
+	font-family: var(--NotoSans);
+	border-radius: 10px;
+	transition: color 0.2s ease, text-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.TotalItem:hover {
+	background-color: var(--green-white);
+	color: var(--back-color);
+	text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+.TotalItem table{
+	margin: 0 auto;
+}
+
+.TotalItem table tbody tr td:nth-child(1){
+	text-align: right;
+}
+
+.TotalItem table tbody tr td:nth-child(2){
+	text-align: left;
+	padding-left: 10px;
+}
+
+.TotalItem span{
+	display: inline-block;
+	margin-right: 10px;
+}
+
+
+.ItemName{
+	font-family: var(--Tenada) !important;
+	font-size: 1.4em;
+}
+
+.ItemName h3{
+	width: 100%;
+	text-align: center;
+	font-size: 1.1em;
+}
+
+.pagingBtnDiv{
+	text-align: center !important;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.pagingBtn {
+	width: 50px;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+	background-color: var(--back-color2);
+	font-family: var(--Gmartket);
+	padding-top: 3px;
+	margin-bottom: 30px;
+
+}
+
+.pagingBtn:hover{
+	background-color: var(--vintage-blue) !important;
+	color: var(--back-color);
+}
+
+
+.categoryDiv{
+	width: 600px;
+	margin: 0 auto;
+	font-family: var(--Tenada);
+	position: relative;
+}
+
+.categoryDiv button:nth-child(2){
+	margin: 0 10px;
+}
+
+.categoryBtn{
+	width: calc(100%/3 - 60px) !important;
+	background-color: var(--gray-white);
+	border: none;
+	border-radius: 5px;
+	color: var(--back-color);
+	transition: background-color 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
+	padding-top: 5px;
+	font-size: 1.1em;
+}
+
+.categoryBtn:hover{
+	background-color: var(--vintage-green);
+	text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+
+.boardRegisterBtn{
+	margin-left: 10px;
+	
+}
+
+.formTotal table thead tr{
+	height: 50px;
+}
+
+
+.noticeForm table tbody tr{
+	border-top: 1px solid var(--gray-white);
+}
+
+.noticeList tbody tr:hover{
+	background-color: var(--green-white);
+	cursor: pointer;
+}
+
+
+.noticeForm table tbody tr:last-child{
+	border-bottom: 1px solid var(--gray-white);
+}
+
+.boardRegistForm{
+	margin-top: 20px;
+}
+
+.boardRegistForm table tbody tr td{
+	vertical-align: top;
+}
+
+.boardRegistForm table tbody tr td:first-child{
+	text-align: right;
+	padding-right: 30px;
+}
+
+.boardRegistForm table tbody tr:last-child td:first-child{
+	text-align: right;
+	padding-right: 0;
+}
+
+.boardRegistForm textarea{
+	width: 100%;
+	resize: none;
+	height: 150px !important;
+	border: none;
+	border-radius: 5px;
+	
+}
+
+.boardRegistForm textarea:focus{
+	background-color: white;
+	border: 1px solid var(--green-white);
+}
+
+.listDiv{
+	position: relative;
+}
+
+.formTotal input[type=time]{
+	width: 40%;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
+	height: 40px;
+	line-height: 30;
+	background-color: rgba(255, 255, 255, 0.8);
+	caret-color: var(--back-color);
+	padding-left: 10px;
+}
+
+
+.bottomBtn{
+	text-align: center;
+}
+
+input[type=time]:hover:-webkit-datetime-edit-hour-field {
+	background-color: var(--green-white);
+}
+
+.noticeModifyBtn{
+    width: 20%;
+    height: 60px;
+    border: none;
+    color: var(--back-color);
+    background-color: var(--green-white);
+    font-size: 2em;
+    font-family: var(--Tenada) !important;
+    padding-top: 10px;
+	margin-top: 40px;
+	margin-left: 10px;
+    border-radius: 10px;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.noticeModifyBtn:hover{
+	background-color: var(--vintage-green);
+	color: var(--back-color);
+    text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+.noticeDeleteBtn{
+	width: 20%;
+    height: 60px;
+    border: none;
+    color: var(--back-color);
+    background-color: var(--gray-white);
+    font-size: 2em;
+    font-family: var(--Tenada) !important;
+    padding-top: 10px;
+	margin-top: 40px;
+	margin-left: 10px;
+    border-radius: 10px;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.noticeDeleteBtn:hover{
+	background-color: var(--vintage-red);
+	color: var(--back-color);
+    text-shadow: 1px 1px 3px var(--vintage-gray);
+}
+
+.boardgameImg td > img{
+	height: 200px !important;
+	margin: 0 auto !important;
+}
+
+.boardgameImg td{
+	text-align: center !important;
+}
+
+.boardgameNameh3{
+	font-size: 0.8em !important;
+	font-family: var(--NotoSans);
+}
+
+
+.menuImg td > img{
+	height: 200px !important;
+	margin: 0 auto !important;
+}
+
+.menuImg td{
+	text-align: center !important;
+}
+
+.menuNameh3{
+	font-size: 0.8em !important;
+	font-family: var(--NotoSans);
+}
+
+
+.ShopDetialForm{
+	margin-bottom: 30px !important;
+}
+
+
+
+.ShopDetialForm table tr{
+	font-size: 1.3em;
+	background-color: var(--back-color2);
+	height: 40px !important;
+}
+
+.ShopDetialForm table tr:first-child{
+	height: 80px !important;
+	vertical-align: bottom;
+}
+
+.ShopDetialForm table tr:nth-child(4){
+	height: 80px !important;
+	vertical-align: top;
+}
+
+
+
+.ShopDetialForm table tr:last-child{
+	font-size: 1em;
+	height: 100px !important;
+	background-color: var(--back-color);
+}
+
+.ShopDetialForm table td:nth-child(1){
+	text-align: right;
+}
+
+
+.ShopDetialForm table td:nth-child(2){
+	padding-left: 30px;
+}
+
+.ShopDetialForm span{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.ShopDetialForm .registerBtn{
+	margin-top: 0;	
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+	background-color: var(--vintage-gray);
+	border-radius: 10%;
+	padding: 10px;
+	transition: background-color 0.4s ease;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover{
+	background-color: var(--vintage-green);
+} 
+
+.carousel-indicators li {
+	background-color: black;
+}
+
+.carousel-indicators [data-bs-target]{
+	background-color: var(--gray-white);
+}
+
+.carousel-indicators .active {
+	background-color: var(--vintage-green);
+}
+
+.captionCSS{
+	text-align: right;
+	padding-right: 10px;
+}
+
+.BoardgameDetialForm table tbody tr td,
+.MenuDetialForm table tbody tr td{
+	vertical-align: top;
+	word-break: keep-all;
+}
+
+.BoardgameDetialForm table tbody tr,
+.MenuDetialForm table tbody tr{
+	height: 20px;
+}
+
+.captionCSS span{
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.react-datepicker__time-list {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.react-datepicker__time-list-item {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.ReservationList{
+	width: 90%;
+}
+
+.ReservationList table thead td{
+	font-size: 1.2em;
+	font-family: var(--Tenada);
+	color: var(--vintage-gray);
+
+}
+
+.ReservationList table tbody tr{
+	border-top: 1px solid var(--gray-white);
+	
+}
+
+.ReservationList table tbody td:first-child{
+	padding-left: 10px;
+}
+
+.ReservationList table tbody tr:last-child td:first-child{
+	padding-left: 0;
+}
+
+
+.ReservationList table tbody tr:hover{
+	background-color: var(--green-white);
+	cursor: pointer;
+}
+
+.ReservationList table tbody tr:last-child:hover{
+	background-color: var(--back-color);
+	cursor: auto;
+}
+
+.ReservationList table tbody tr:last-child{
+	height: 150px;
+}
+
+.datepicker{
+	width: 100% !important;
+}
+
+.reservationDiv label{
+	width: 100%;
+	text-align: right;
+	padding-right: 8px;
+}
+
+.reservationCSS{
+	padding-top: 0;
+}
+.reservationCSS h2{
+	text-align: center;
+	margin: 0 auto 10px!important;
+	
+}

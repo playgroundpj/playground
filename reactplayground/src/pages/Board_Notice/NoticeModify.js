@@ -1,103 +1,183 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap'; // Bootstrap의 Button 컴포넌트를 사용
-import { updateNoticeAPI, deleteNoticeAPI } from '../../apis/NoticeAPICalls'; // 수정 및 삭제 API 호출 함수 임포트
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Swal from "sweetalert2";
+import { updateNoticeAPI, deleteNoticeAPI, callNoticeDetailAPI } from '../../apis/NoticeAPICalls';
+import { decodeJwt } from '../../utils/tokenUtils'; // 토큰 디코딩 함수 임포트
 
 
 function NoticeModify() {
-  const { noticeCode } = useParams();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const [notice, setNotice] = useState({
-    noticeTitle: '',
-    noticeContent: ''
-  });
+    const navigate = useNavigate();
+    const { noticeCode } = useParams();
+    const dispatch = useDispatch();
+    const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
+    const token = decodeJwt(window.localStorage.getItem("accessToken")); 
+    const notice = useSelector(state => state.noticeReducer);
+    const noticeDetail = notice.data;
 
-  useEffect(() => {
-    const fetchNoticeDetail = async () => {
-      try {
-        const response = await fetch(`http://localhost:8080/api/v1/board/notice/${noticeCode}`);
-        const result = await response.json();
-        if (response.ok) {
-          setNotice(result.data);
-        } else {
-          console.error('Error fetching notice detail:', result.error);
-        }
-      } catch (error) {
-        console.error('Error fetching notice detail:', error);
-      }
-    };
-
-    fetchNoticeDetail();
-  }, [noticeCode]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setNotice({
-      ...notice,
-      [name]: value
+    
+    const [form, setForm] = useState({
+        noticeTitle: '',
+        noticeContent: '',
+        createDate: '',
+        modifyedDate: ''
     });
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await dispatch(updateNoticeAPI(noticeCode, {
-      ...notice,
-      createDate: new Date().toISOString().split('T')[0], // 작성일자를 수정일자로 변경
-      modifiedDate: new Date().toISOString().split('T')[0] // 수정일자를 YYYY-MM-DD 형식으로 저장
-    }));
-    navigate(`/board/notice/${noticeCode}`); // 수정된 내용으로 상세 페이지로 이동
-  };
 
-  const handleDelete = async () => {
-    if (window.confirm('정말로 삭제하시겠습니까?')) {
-      await dispatch(deleteNoticeAPI(noticeCode));
-      navigate('/board/notice'); // 게시글 목록으로 이동
+    useEffect(
+        () => {
+            // 관리자가 아니면 못 들어오게 막음
+            if(isLogin !== undefined && isLogin !== null) {
+                if(token.auth[0] !== 'ROLE_ADMIN'){
+                    navigate("/notice/modify");
+                }
+            }else{
+                navigate("/notice");
+            }        
+
+        },[token]
+    )
+    
+    useEffect(() => {
+        dispatch(callNoticeDetailAPI(noticeCode));
+    }, [dispatch, noticeCode]);
+
+
+    
+    
+    
+    useEffect(() => {
+        if (noticeDetail) {
+            setForm({
+                // noticeCode : noticeDetail.noticeCode,
+                noticeTitle: noticeDetail.noticeTitle,
+                noticeContent: noticeDetail.noticeContent,
+                createDate: noticeDetail.createDate, // 기존 작성일자 설정
+                modifyedDate: noticeDetail.modifyedDate // 기존 수정일자 설정
+            });
+        }
+    }, [noticeDetail]);
+    
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        });
+    }; 
+    
+    const handleBack = () => {
+        navigate(-1);
     }
-  };
 
+    const handleModify = () => {
+        Swal.fire({
+            title : '수정하시겠습니까?',
+            icon : 'warning',
+            showCancelButton : true,
+            confirmButtonColor : '#3085d6',
+            cancelButtonColor : '#d33',
+            confirmButtonText : '수정',
+            cancelButtonText : '취소'
+        }).then((result) => {
+            if(result.isConfirmed){
+                Swal.fire({
+                    title : "수정완료",
+                    text : "게시글이 수정되었습니다.",
+                    icon : "success",
+                    showConfirmButton : false,
+                    timer : 1000
+                });
+                dispatch(updateNoticeAPI({noticeCode : form.noticeCode}));
+                navigate(`/board/notice/{noticeCode}`, {replace : true});
+                window.location.reload();
+            }
+        });
+    }
 
-  return (
-    <div className='registerCSS'>
-        <NavLink to='/'>
+    const handleDelete = async () => {
+        Swal.fire({
+            title : '삭제하시겠습니까?',
+            text : '삭제 후 되돌릴 수 없습니다',
+            icon : 'warning',
+            showCancelButton : true,
+            confirmButtonColor : '#d33',
+            cancelButtonColor :  '#3085d6',
+            confirmButtonText : '삭제',
+            cancelButtonText : '취소'
+        }).then((result) => {
+            if(result.isConfirmed){
+                Swal.fire({
+                    title: "삭제 완료!",
+                    text: "게시글이 삭제되었습니다",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 1000
+                });
+                dispatch(deleteNoticeAPI({noticeCode : form.noticeCode}));
+                navigate('/board/notice', {replace : true});
+                window.location.reload();
+            }
+        });
+    }
+
+    return (
+        <div className='registerCSS'>
+            <NavLink to='/'>
                 <span>
-                    <img src='../../../images/common/logo-playground.png'/>
+                    <img src='../../../images/common/logo-playground.png' alt='logo'/>
                 </span>
-        </NavLink>
-        <h2>게시글수정</h2>  
-        <hr></hr> 
-      <form onSubmit={handleSubmit}>
-        <div className='formTotal'>
-          <label htmlFor="noticeTitle">제목</label>
-          <input
-            type="text"
-            id="noticeTitle"
-            name="noticeTitle"
-            value={notice.noticeTitle}
-            onChange={handleChange}
-          />
-        <div>
-          <label htmlFor="noticeContent">내용</label>
-          <textarea
-            id="noticeContent"
-            name="noticeContent"
-            value={notice.noticeContent}
-            onChange={handleChange}
-            />
+            </NavLink>
+            <h2>게시글수정</h2>
+            <hr></hr>
+            <div className='formTotal boardRegistForm'>
+                <table>
+                    <colgroup>
+                        <col style={{width:'20%'}}></col>
+                        <col style={{width:'50%'}}></col>
+                        <col style={{width:'15%'}}></col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><label>제목</label></td>
+                            <td>
+                                <input
+                                    type="text"
+                                    name="noticeTitle"
+                                    // placeholder='게시글 제목을 입력해주세요'
+                                    value={form.noticeTitle}
+                                    onChange={handleChange}
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>내용</label></td>
+                            <td>
+                                <textarea
+                                style={{ color: 'black' }} // 인라인 스타일로 텍스트 색상 설정
+                                name="noticeContent"
+                                value={form.noticeContent}
+                                onChange={handleChange}
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>작성일: {new Date(form.createDate).toLocaleDateString()}</label>
+                                {form.modifyedDate && 
+                                <label>수정일: {new Date(form.modifyedDate).toLocaleDateString()}</label>}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div className='boardRegisterBtn'>        
+                <button className='noticeModifyBtn' onClick={handleModify}>수정하기</button>
+                <button className='noticeDeleteBtn' onClick={handleDelete}>삭제하기</button>
+                <button className='noticeModifyBtn' onClick={handleBack}>돌아가기</button>
+            </div>        
         </div>
-        </div> 
-        <div>
-          <p>작성일: {new Date(notice.createDate).toLocaleDateString()}</p>
-          {notice.modifiedDate && <p>수정일: {new Date(notice.modifiedDate).toLocaleDateString()}</p>}
-        </div>
-        <Button variant="primary" type="submit">수정하기</Button>
-        <Button variant="danger" type="button" onClick={handleDelete}>삭제하기</Button>
-      </form>
-    </div>
-  );
+    );
 }
 
 export default NoticeModify;

@@ -5,6 +5,7 @@ const initialState = [];
 
 /* 액션 */
 export const GET_MEMBER_NICKNAME     = 'member/GET_MEMBER_NICKNAME';
+export const GET_STORE_LIST_ALL     = 'member/GET_STORE_LIST_ALL';
 
 
 const actions = createActions({
@@ -15,6 +16,10 @@ const actions = createActions({
 const checkReducer = handleActions(
     {
         [GET_MEMBER_NICKNAME]: (state, { payload }) => {
+            
+            return payload;
+        },
+        [GET_STORE_LIST_ALL]: (state, { payload }) => {
             
             return payload;
         },

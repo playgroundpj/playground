@@ -1,35 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 import { decodeJwt } from '../../utils/tokenUtils';
+import { callRegisterMenuAPI } from '../../apis/MenuAPICalls';
 
 function RegisterMenu() {
     const [menu, setMenu] = useState({
         menuName: '',
-        category: '음료', // 기본값을 '음료'로 설정
+        category: '음료',
         menuContent: '',
         menuPrice: '',
         orderableStatus: true,
     });
-    const [isAdminOrManager, setIsAdminOrManager] = useState(false);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const token = decodeJwt(window.localStorage.getItem("accessToken"));
+    
     useEffect(() => {
-        const token = window.localStorage.getItem('accessToken');
-        if (token) {
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            const decoded = decodeJwt(token);
-            if (decoded.auth && (decoded.auth.includes('ROLE_ADMIN') || decoded.auth.includes('ROLE_MANAGER'))) {
-                setIsAdminOrManager(true);
-            } else {
-                alert('접근 권한이 없습니다.');
-                navigate('/');
-            }
-        } else {
-            alert('로그인이 필요합니다.');
-            navigate('/login');
+        if (!token || !(token.auth.includes('ROLE_ADMIN') || token.auth.includes('ROLE_MANAGER'))) {
+            alert('접근 권한이 없습니다.');
+            navigate('/');
         }
-    }, [navigate]);
+    }, [token, navigate]);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -41,33 +33,14 @@ function RegisterMenu() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newMenu = {
-            ...menu,
-            menuPrice: parseInt(menu.menuPrice),
-        };
-
-        axios.post('http://localhost:8080/api/v1/menus', newMenu)
-            .then(response => {
-                alert('메뉴가 성공적으로 등록되었습니다!');
-                navigate('/menu'); // 메뉴 목록 페이지로 이동
-            })
-            .catch(error => {
-                console.error("메뉴 등록 중 오류가 발생했습니다!", error);
-            });
+        dispatch(callRegisterMenuAPI({ form: menu }));
+        alert('메뉴가 성공적으로 등록되었습니다!');
+        navigate('/menu');
     };
-
-    if (!isAdminOrManager) {
-        return <div>접근 권한이 없습니다.</div>;
-    }
 
     return (
         <div>
             <div className='registerCSS'>
-                <NavLink to='/'>
-                    <span>
-                        <img src='../../../images/common/logo-playground.png' alt="Playground Logo"/>
-                    </span>
-                </NavLink>
                 <h2>메뉴 등록</h2>
                 <h4>매장 관리자님, 등록할 메뉴를 입력해주세요</h4>
                 <hr></hr>
@@ -88,7 +61,8 @@ function RegisterMenu() {
                                             name="menuName" 
                                             placeholder="메뉴 이름" 
                                             value={menu.menuName} 
-                                            onChange={handleChange} required 
+                                            onChange={handleChange} 
+                                            required 
                                         />
                                     </td>
                                 </tr>
@@ -116,7 +90,8 @@ function RegisterMenu() {
                                             name="menuContent" 
                                             placeholder="내용" 
                                             value={menu.menuContent} 
-                                            onChange={handleChange} required 
+                                            onChange={handleChange} 
+                                            required 
                                         />
                                     </td>
                                 </tr>
@@ -128,7 +103,8 @@ function RegisterMenu() {
                                             name="menuPrice" 
                                             placeholder="가격" 
                                             value={menu.menuPrice} 
-                                            onChange={handleChange} required 
+                                            onChange={handleChange} 
+                                            required 
                                         />
                                     </td>
                                 </tr>
@@ -141,13 +117,6 @@ function RegisterMenu() {
                                             checked={menu.orderableStatus} 
                                             onChange={handleChange} 
                                         />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colSpan={3}>
-                                        <span id="nameCaution" className='nameCaution'></span>                
-                                        <span id="pwdCaution" className='pwdCaution'></span>
-                                        <span id="nicknameCaution" className='nameCaution'></span>
                                     </td>
                                 </tr>
                                 <tr>

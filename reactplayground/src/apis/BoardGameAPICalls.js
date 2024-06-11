@@ -1,57 +1,131 @@
-import { GET_BOARDGAMES, GET_BOARDGAME, ADD_BOARDGAME, UPDATE_BOARDGAME, DELETE_BOARDGAME } from '../modules/BoardGameModule';
-import { startLoading, stopLoading } from './../components/common/actions';
+import { DELETE_BOARDGAME, GET_BOARDGAME, GET_BOARDGAME_LIST, POST_REGISTER, PUT_BOARDGAME } from "../modules/BoardgameModule";
+import { GET_STORE_LIST_ALL } from "../modules/CheckModule";
+import { DELETE_NOTICE } from "../modules/NoticeModule";
 
-const API_BASE_URL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgames`;
+export const callGetBoardgameListAPI = ({ currentPage }) => {
+    let requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame`;
 
-export const callGetBoardGamesAPI = () => {
-    return async (dispatch) => {
-        dispatch(startLoading());
+    if (currentPage !== undefined && currentPage !== null) {
+        requestURL += `?offset=${currentPage}`;
+    }
+
+    return async (dispatch, getState) => {
         try {
-            const response = await fetch(API_BASE_URL, {
+            const response = await fetch(requestURL, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    "Accept": "*/*"
+                    "Accept": "*/*",
                 }
             });
+
             const result = await response.json();
-            console.log('[BoardGameAPICalls] callGetBoardGamesAPI RESULT : ', result);
-            dispatch({ type: GET_BOARDGAMES, payload: result });
+            console.log('[BoardgameAPICalls] callGetBoardgameListAPI RESULT : ', result);
+            dispatch({ type: GET_BOARDGAME_LIST, payload: result.data });
         } catch (error) {
-            console.error('API call failed:', error);
-        } finally {
-            dispatch(stopLoading());
+            console.error('[BoardgameAPICalls] callGetBoardgameListAPI ERROR : ', error.message);
         }
     };
-};
+}
 
-export const callGetBoardGameAPI = (id) => {
-    return async (dispatch) => {
-        dispatch(startLoading());
+export const callGetBoardgameListAllAPI = () => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/all`;
+
+    return async (dispatch, getState) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/${id}`, {
+            const response = await fetch(requestURL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*",
+                }
+            });
+
+            const result = await response.json();
+            console.log('[BoardgameAPICalls] callGetBoardgameListAllAPI RESULT : ', result);
+            dispatch({ type: GET_STORE_LIST_ALL, payload: result.data });
+        } catch (error) {
+            console.error('[BoardgameAPICalls] callGetBoardgameListAllAPI ERROR : ', error.message);
+        }
+    };
+}
+
+export const callGetBoardgameAPI = ({ boardgameCode }) => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/${boardgameCode}`;
+
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(requestURL, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "*/*"
                 }
             });
+
             const result = await response.json();
-            console.log('[BoardGameAPICalls] callGetBoardGameAPI RESULT : ', result);
+            console.log('[BoardgameAPICalls] callGetBoardgameAPI RESULT : ', result);
             dispatch({ type: GET_BOARDGAME, payload: result });
         } catch (error) {
-            console.error('API call failed:', error);
-        } finally {
-            dispatch(stopLoading());
+            console.error('[BoardgameAPICalls] callGetBoardgameAPI ERROR : ', error.message);
         }
     };
-};
+}
 
-export const callAddBoardGameAPI = (form) => {
-    return async (dispatch) => {
-        dispatch(startLoading());
+export const callGetBoardgameByNameAPI = ({ boardgameName }) => {
+    const encodedBoardgameName = encodeURIComponent(boardgameName);
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/boardgameName/${encodedBoardgameName}`;
+
+    return async (dispatch, getState) => {
         try {
-            const response = await fetch(API_BASE_URL, {
+            const response = await fetch(requestURL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*"
+                }
+            });
+
+            const result = response.ok ? await response.json() : { message: '사용 가능한 게임명입니다' };
+            console.log('[BoardgameAPICalls] callGetBoardgameByNameAPI RESULT : ', result);
+            dispatch({ type: GET_BOARDGAME, payload: result });
+        } catch (error) {
+            console.error('[BoardgameAPICalls] callGetBoardgameByNameAPI ERROR : ', error.message);
+        }
+    };
+}
+
+
+export const callGetBoardgameByCodeAPIWithoutUrl = ({ boardgameCode }) => {
+    const encodedBoardgameCodeWithoutUrl = encodeURIComponent(boardgameCode);
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/boardgameCodeWithouUrl/${encodedBoardgameCodeWithoutUrl}`;
+
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(requestURL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*"
+                }
+            });
+
+            const result = response.ok ? await response.json() : { message: '사용 가능한 게임명입니다' };
+            console.log('[BoardgameAPICalls] callGetBoardgameByNameAPIWithoutUrl RESULT : ', result);
+            dispatch({ type: GET_BOARDGAME, payload: result });
+        } catch (error) {
+            console.error('[BoardgameAPICalls] callGetBoardgameByNameAPIWithoutUrl ERROR : ', error.message);
+        }
+    };
+}
+
+
+export const callRegistBoardgameAPI = ({ form }) => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/regist`;
+
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(requestURL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -59,58 +133,73 @@ export const callAddBoardGameAPI = (form) => {
                 },
                 body: JSON.stringify(form)
             });
+
             const result = await response.json();
-            console.log('[BoardGameAPICalls] callAddBoardGameAPI RESULT : ', result);
-            dispatch({ type: ADD_BOARDGAME, payload: result });
+            console.log('[BoardgameAPICalls] callRegistBoardgameAPI RESULT : ', result);
+            dispatch({ type: POST_REGISTER, payload: result });
         } catch (error) {
-            console.error('API call failed:', error);
-        } finally {
-            dispatch(stopLoading());
+            console.error('[BoardgameAPICalls] callRegistBoardgameAPI ERROR : ', error.message);
         }
     };
-};
+}
 
-export const callUpdateBoardGameAPI = (id, form) => {
-    return async (dispatch) => {
-        dispatch(startLoading());
+export const callUpdateBoardgameAPI = ({ form }) => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/modify`;
+
+    return async (dispatch, getState) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/${id}`, {
+            const token = window.localStorage.getItem("accessToken");
+            if (!token) {
+                throw new Error('No token found');
+            }
+
+            const response = await fetch(requestURL, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
-                    "Accept": "*/*"
+                    "Accept": "*/*",
+                    "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify(form)
             });
-            const result = await response.json();
-            console.log('[BoardGameAPICalls] callUpdateBoardGameAPI RESULT : ', result);
-            dispatch({ type: UPDATE_BOARDGAME, payload: result });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Error ${response.status}: ${errorData.message}`);
+            }
+
+            const responseData = await response.json();
+            console.log('[BoardgameAPICalls] callUpdateBoardgameAPI SUCCESS : ', responseData);
+            dispatch({ type: PUT_BOARDGAME, payload: responseData });
         } catch (error) {
-            console.error('API call failed:', error);
-        } finally {
-            dispatch(stopLoading());
+            console.error('[BoardgameAPICalls] callUpdateBoardgameAPI ERROR : ', error.message);
         }
     };
-};
+}
 
-export const callDeleteBoardGameAPI = (id) => {
-    return async (dispatch) => {
-        dispatch(startLoading());
+export const callDeleteBoardgameAPI = ({ boardgameCode }) => {
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/boardgame/${boardgameCode}`;
+
+    return async (dispatch, getState) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/${id}`, {
+            const response = await fetch(requestURL, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
-                    "Accept": "*/*"
+                    "Accept": "*/*",
+                    "Authorization": "Bearer " + window.localStorage.getItem("accessToken")
                 }
             });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete boardgame');
+            }
+
             const result = await response.json();
-            console.log('[BoardGameAPICalls] callDeleteBoardGameAPI RESULT : ', result);
-            dispatch({ type: DELETE_BOARDGAME, payload: id });
+            console.log('[BoardgameAPICalls] callDeleteBoardgameAPI RESULT : ', result);
+            dispatch({ type: DELETE_NOTICE, payload: boardgameCode });
         } catch (error) {
-            console.error('API call failed:', error);
-        } finally {
-            dispatch(stopLoading());
+            console.error('[BoardgameAPICalls] callDeleteBoardgameAPI ERROR : ', error.message);
         }
     };
-};
+}
