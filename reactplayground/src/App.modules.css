@@ -947,7 +947,7 @@ input[type=file]::file-selector-button {
 .TotalItem {
 
 	width: calc(100%/2 - 20px);
-	flex-basis: 250px;
+	flex-basis: 400px;
 	height: 100%;
 	background-color: var(--back-color2);
 	cursor: pointer;
@@ -994,7 +994,9 @@ input[type=file]::file-selector-button {
 .ItemName h3{
 	width: 100%;
 	text-align: center;
-	font-size: 1.1em;
+	margin-top: 5px;
+	font-size: 1.2em !important;
+	font-family: var(--Tenada);
 }
 
 .pagingBtnDiv{
@@ -1040,7 +1042,7 @@ input[type=file]::file-selector-button {
 	border-radius: 5px;
 	color: var(--back-color);
 	transition: background-color 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
-	padding-top: 5px;
+	padding-top: 10px;
 	font-size: 1.1em;
 }
 
@@ -1059,6 +1061,9 @@ input[type=file]::file-selector-button {
 	height: 50px;
 }
 
+.noticeList {
+	font-size: 1.3em;
+}
 
 .noticeForm table tbody tr{
 	border-top: 1px solid var(--gray-white);
@@ -1066,7 +1071,23 @@ input[type=file]::file-selector-button {
 
 .noticeList tbody tr:hover{
 	background-color: var(--green-white);
+	color: white;
+	text-shadow: 1px 1px 3px var(--vintage-gray);
 	cursor: pointer;
+}
+
+.noticeList th{
+	font-family: var(--Tenada);
+	font-size: 1.4em;
+}
+
+.noticeList td:first-child,
+.noticeList th:first-child{
+	padding-left: 30px;
+}
+
+.noticeList tr{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 
@@ -1201,41 +1222,36 @@ input[type=time]:hover:-webkit-datetime-edit-hour-field {
 	font-family: var(--NotoSans);
 }
 
-
-.ShopDetialForm{
-	margin-bottom: 30px !important;
+.ShopDetialForm {
+	background-color: var(--back-color2);
+	padding: 30px;
+	border-radius: 20px;
+	min-width: 1000px;
+	margin: 0 auto;
 }
 
+.ShopBottomBtn{
+	min-width: 1000px;
 
+}
 
 .ShopDetialForm table tr{
 	font-size: 1.3em;
-	background-color: var(--back-color2);
-	height: 40px !important;
-}
-
-.ShopDetialForm table tr:first-child{
-	height: 80px !important;
-	vertical-align: bottom;
-}
-
-.ShopDetialForm table tr:nth-child(4){
-	height: 80px !important;
 	vertical-align: top;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-
-
 
 .ShopDetialForm table tr:last-child{
-	font-size: 1em;
-	height: 100px !important;
-	background-color: var(--back-color);
+	border-bottom: none;
+}
+
+.ShopDetialForm table td{
+	word-break: keep-all;
 }
 
 .ShopDetialForm table td:nth-child(1){
 	text-align: right;
 }
-
 
 .ShopDetialForm table td:nth-child(2){
 	padding-left: 30px;
@@ -1243,7 +1259,12 @@ input[type=time]:hover:-webkit-datetime-edit-hour-field {
 
 .ShopDetialForm span{
 	display: inline-block;
-	margin-right: 20px;
+	padding-right: 30px !important;
+}
+
+.ShopDetialForm span:hover{
+	color: var(--vintage-green);
+	cursor: pointer;
 }
 
 .ShopDetialForm .registerBtn{
@@ -1279,6 +1300,20 @@ input[type=time]:hover:-webkit-datetime-edit-hour-field {
 .captionCSS{
 	text-align: right;
 	padding-right: 10px;
+}
+
+.captionCSS span{
+	font-family: var(--Tenada);
+}
+
+.BoardgameDetialForm tr,
+.MenuDetialForm table tr {
+	font-size: 1.3em;
+}
+
+.BoardgameDetialForm tr:last-child,
+.MenuDetialForm table tr:last-child {
+	font-size: 1.1em;
 }
 
 .BoardgameDetialForm table tbody tr td,
@@ -1370,4 +1405,45 @@ input[type=time]:hover:-webkit-datetime-edit-hour-field {
 	text-align: center;
 	margin: 0 auto 10px!important;
 	
+}
+
+.NoticeDetailCSS{
+	background-color: var(--back-color2);
+	border-radius: 20px;
+	padding: 50px 0;
+	font-size: 1.2em;
+}
+
+.NoticeDetailCSS table tr{
+	vertical-align: top;
+}
+
+.NoticeDetailCSS table td:nth-child(2){
+	padding-right: 60px;
+}
+
+.NoticeDetailCSS span{
+	display: inline-block;
+	width: 90%;
+	text-align: right;
+	padding-right: 20px;
+	font-family: var(--Tenada);
+}
+
+.BtnCSS{
+	padding-right: 0 !important;
+}
+
+.noticeBtnDiv{
+	width: calc(60%);
+	min-width: 700px;
+	margin: 0 auto;
+}
+
+.ShopItem td{
+	font-size: 1.2em !important;
+}
+
+.noticeModifyDate{
+	padding-top: 10px;
 }

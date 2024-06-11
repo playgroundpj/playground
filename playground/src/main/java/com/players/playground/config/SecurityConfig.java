@@ -72,7 +72,7 @@ public class SecurityConfig {
 					 * */
 					auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();	// CORS Preflight 요청 허용
 					auth.requestMatchers("/").authenticated();  					// 기본 경로는 인증 필요
-					auth.requestMatchers("/auth/**", "/api/v1/boardgame/**", "/api/v1/menu/**","/api/v1/shop/**","/api/v1/board/**","/imgs/**").permitAll();	// 특정 경로는 무조건 허용
+					auth.requestMatchers("/auth/**", "/api/v1/boardgame/**", "/api/v1/menu/**","/api/v1/shop/**","/api/v1/board/**","/imgs/**", "/api/v1/store/**").permitAll();	// 특정 경로는 무조건 허용
 					auth.requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll();	// Swagger API 문서 허용
 					auth.requestMatchers("/api/**").hasAnyRole("USER", "ADMIN","MANAGER");							// API 경로는 USER 또는 ADMIN 역할을 가진 사용자만 접근 가능
 					/* 설명. 아래부터는 프로젝트 초기 Security 기능을 약화시켜 개발을 진행하게 끔 해주는 내용들이다. */
@@ -91,7 +91,7 @@ public class SecurityConfig {
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
 //		configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
-		configuration.setAllowedOrigins(Arrays.asList("http://localhost:3333", "http://jaehong0831.store","http://13.209.160.111"));
+		configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000","http://localhost:3333", "http://jaehong0831.store","http://13.209.160.111"));
 		configuration.setAllowedMethods(Arrays.asList("GET", "PUT", "POST", "DELETE"));
 		configuration.setAllowedHeaders(Arrays.asList("Access-Control-Allow-Origin",
 				"Content-type",

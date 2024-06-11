@@ -62,7 +62,7 @@ function MenuDetail() {
                     </colgroup>
                     <tbody>
                         <tr>
-                            <td className='menuImg' rowSpan={7}> 
+                            <td className='menuImg' rowSpan={11}> 
                                 <Carousel>
                                     <Carousel.Item>
                                     <img
@@ -89,6 +89,8 @@ function MenuDetail() {
                             </td>
                         </tr>
                         <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
                         <tr>
                             <td className='captionCSS'><span>카테고리</span>|</td>
                             <td>{menuDetail.category}</td>
@@ -105,6 +107,8 @@ function MenuDetail() {
                             <td className='captionCSS'><span>메뉴설명</span>|</td>
                             <td>{menuDetail.menuContent}</td>
                         </tr>
+                        <tr></tr>
+                        <tr></tr>
                         <tr></tr>
                         <tr>
                                 <td colSpan={3}>

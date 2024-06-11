@@ -17,6 +17,7 @@ import {
     callManagerStoreByMemberCodeAPI
 } from '../../apis/MemberAPICalls'
 import { callGetShopAPI, callGetShopListAPI, callGetShopListAllAPI } from '../../apis/ShopAPICalls';
+import Shop from '../shop/Shop';
 
 function MemberModify() {
 
@@ -254,12 +255,8 @@ function MemberModify() {
                     memberCode: memberCode
                 }));
 
-                const fetchShopData = async () => {
-                    const response = await dispatch(callGetShopListAllAPI());
-                    console.log('storeList', storeList);
-                }
-
-                fetchShopData();
+                dispatch(callGetShopListAllAPI()); // 전체 매장 조회
+                // console.log('storeList', storeList);
             }
         }
         ,[]
@@ -268,7 +265,7 @@ function MemberModify() {
 
     useEffect(() => {
         if (member) {
-            console.log("member", member);
+            // console.log("member", member);
             dispatch(callManagerStoreByMemberCodeAPI({ memberCode }));
         }
     }, [member]);
@@ -278,11 +275,8 @@ function MemberModify() {
             if (member != "") {
                 if(manager.status == "201"){
                     // console.log("201 success", manager);
-                    dispatch(callGetShopAPI({storeCode: manager.data.storeCode})).finally(() => {
-                        // console.log("store : ", store);
-                        setManagerStore(store.data.storeName);
-                        setLoading(false)
-                    });
+                    dispatch(callGetShopAPI({storeCode: manager.data.storeCode}));
+                    setLoading(false);
                 }else if(manager.status == "400"){
                     console.log("400 error", manager);
                     setLoading(false);

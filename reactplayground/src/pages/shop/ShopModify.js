@@ -171,7 +171,7 @@ function ShopModify() {
                 <p>Loading...</p>
             ) : (
             <div className='registerCSS'>
-                <h2>매장 등록</h2>
+                <h2>매장 수정</h2>
                 <hr></hr>
                 <div className='formTotal'>
                     <table>
@@ -284,14 +284,14 @@ function ShopModify() {
                                 </td>
                             </tr>
                             <tr>
-                            <td colSpan={3}>
-                            <button className='deleteBtn'
-                                        onClick = { onClickDeleteHandler }
-                                    >   
-                                        매장 삭제
+                                <td colSpan={3}>
+                                    <button className='deleteBtn'
+                                            onClick = { onClickDeleteHandler }
+                                        >   
+                                            매장 삭제
                                     </button>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

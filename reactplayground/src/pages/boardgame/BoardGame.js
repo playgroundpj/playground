@@ -31,7 +31,7 @@ function BoardGame() {
         ()=>{
             dispatch(callGetBoardgameListAPI({
                 currentPage: currentPage
-            })).finally(()=> setLoading(false));
+            }));
         },[currentPage]
     )
 
@@ -39,6 +39,9 @@ function BoardGame() {
         ()=>{
             if(boardgameList){
                 console.log('boardgameList : ', boardgameList);
+                if(Array.isArray(boardgameList)){
+                    setLoading(false);
+                }
             }
         },[boardgameList]
     )

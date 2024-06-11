@@ -12,9 +12,9 @@ spring:
   # DB config
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/playground
+    url: jdbc:mysql://localhost:3306/playground
     # Docker(AWS) 배포 기준
-    url: jdbc:mysql://mysql:3306/playground
+#    url: jdbc:mysql://mysql:3306/playground
     username: players
     password: players
   # Fileupload
@@ -53,16 +53,16 @@ image:
   ## WebConfig 참고
   add-resource-locations: classpath:/static/imgs/
   # Docker(local) 배포 기준
-#  add-resource-locations: file:///springboot-app/productimgs/
+#  add-resource-locations: file:///springboot-app/imgs/
   add-resource-handler: /imgs/**
   ## ProductService 참고
-#  image-dir: src/main/resources/static/imgs/
-#  image-url: http://localhost:8080/imgs/
+  image-dir: src/main/resources/static/imgs/
+  image-url: http://localhost:8080/imgs/
 
 
   # Docker(AWS) 배포 기준
-  image-dir: /springboot-app/imgs
-  image-url: http://http://13.209.160.111/:8080/imgs/
+#  image-dir: /springboot-app/imgs
+#  image-url: http://13.209.160.111:8080/imgs/
 
 
 # Logging Level

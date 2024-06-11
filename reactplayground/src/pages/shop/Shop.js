@@ -66,7 +66,7 @@ function Shop() {
                         <div
                             key={shop.storeCode}
                             onClick = {()=> { onClickShopHandler(shop.storeCode) }}
-                            className='TotalItem'
+                            className='TotalItem ShopItem'
                         >
                             <table>
                                 <tbody>

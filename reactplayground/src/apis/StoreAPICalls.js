@@ -30,7 +30,7 @@ export const callGetGameTableListAPI = () => {
 
 export const callGetStoreBoardGameListAPI = ({storeCode}) => {
 
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/storeBoardgame/${storeCode}`;
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/store/storeBoardgame/${storeCode}`;
     
     console.log('[StoreAPICalls] requestURL : ', requestURL);
 
@@ -42,7 +42,6 @@ export const callGetStoreBoardGameListAPI = ({storeCode}) => {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "*/*",
-                "Authorization": "Bearer " + window.localStorage.getItem("accessToken") 
 
             }
         })
@@ -57,7 +56,7 @@ export const callGetStoreBoardGameListAPI = ({storeCode}) => {
 
 export const callGetStoreGameTableListAPI = ({storeCode}) => {
 
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/storeGametable/${storeCode}`;
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/store/storeGametable/${storeCode}`;
     
     console.log('[StoreAPICalls] requestURL : ', requestURL);
 
@@ -69,7 +68,6 @@ export const callGetStoreGameTableListAPI = ({storeCode}) => {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "*/*",
-                "Authorization": "Bearer " + window.localStorage.getItem("accessToken") 
 
             }
         })
@@ -83,7 +81,7 @@ export const callGetStoreGameTableListAPI = ({storeCode}) => {
 
 export const callGetStoreMenuListAPI = ({storeCode}) => {
 
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/storeMenu/${storeCode}`;
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/store/storeMenu/${storeCode}`;
     
     console.log('[StoreAPICalls] requestURL : ', requestURL);
 
@@ -95,7 +93,6 @@ export const callGetStoreMenuListAPI = ({storeCode}) => {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "*/*",
-                "Authorization": "Bearer " + window.localStorage.getItem("accessToken") 
 
             }
         })
@@ -109,7 +106,7 @@ export const callGetStoreMenuListAPI = ({storeCode}) => {
 
 export const callGetStoreReservationListAPI = ({storeCode}) => {
 
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/storeReservation/${storeCode}`;
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/store/storeReservation/${storeCode}`;
     
     console.log('[StoreAPICalls] requestURL : ', requestURL);
 
@@ -121,7 +118,6 @@ export const callGetStoreReservationListAPI = ({storeCode}) => {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "*/*",
-                "Authorization": "Bearer " + window.localStorage.getItem("accessToken") 
 
             }
         })

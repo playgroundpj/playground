@@ -22,7 +22,7 @@ function Profile() {
     }
 
     const onClickModifyHandler = () => {
-        navigate('./memberUpdate');
+        navigate('/mypage/memberUpdate');
     }
 
     useEffect(

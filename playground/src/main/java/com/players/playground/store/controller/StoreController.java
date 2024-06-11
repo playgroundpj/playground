@@ -123,7 +123,7 @@ public class StoreController {
     }
 
     @Operation(summary = "매장별 보드게임 전체 조회", description = "매장별 보드게임 전체 조회진행됩니다.", tags = { "StorBoardGameController" })
-    @GetMapping("/storeBoardgame/{storeCode}")
+    @GetMapping("/store/storeBoardgame/{storeCode}")
     public ResponseEntity<ResponseDTO> selectStoreBoardGameAll(@PathVariable String storeCode) {
 
         log.info("[StorBoardGameController] storeCode ={}" + storeCode);
@@ -140,7 +140,7 @@ public class StoreController {
     }
 
     @Operation(summary = "매장별 게임테이블 전체 조회", description = "매장별 게임테이블 전체 조회진행됩니다.", tags = { "StorBoardGameController" })
-    @GetMapping("/storeGametable/{storeCode}")
+    @GetMapping("/store/storeGametable/{storeCode}")
     public ResponseEntity<ResponseDTO> selectGametableByStoreCode(@PathVariable String storeCode) {
 
         log.info("[StorBoardGameController] storeCode ={}" + storeCode);
@@ -157,7 +157,7 @@ public class StoreController {
     }
 
     @Operation(summary = "매장별 메뉴 전체 조회", description = "매장별 메뉴 전체 조회진행됩니다.", tags = { "StorBoardGameController" })
-    @GetMapping("/storeMenu/{storeCode}")
+    @GetMapping("/store/storeMenu/{storeCode}")
     public ResponseEntity<ResponseDTO> selectMenuByStoreCode(@PathVariable String storeCode) {
 
         log.info("[StorBoardGameController] storeCode ={}" + storeCode);
@@ -184,7 +184,7 @@ public class StoreController {
     }
 
     @Operation(summary = "매장별 예약 조회", description = "매장별 예약이 조회됩니다.", tags = { "ReservationController" })
-    @GetMapping("/storeReservation/{storeCode}")
+    @GetMapping("/store/storeReservation/{storeCode}")
     public ResponseEntity<ResponseDTO> selectReservationBystoreCode(@PathVariable String storeCode) {
 
         /* 설명. 매장별 예약 코드 전체 조회 */
