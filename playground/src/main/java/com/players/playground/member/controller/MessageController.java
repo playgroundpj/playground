@@ -46,8 +46,8 @@ public class MessageController {
         message.setText("[인증번호 발송] 인증번호는 "+ checkNumber +"입니다.");
 
 
-//        SingleMessageSentResponse response = this.messageService.sendOne(new SingleMessageSendingRequest(message));
-//        System.out.println("response : " + response);
+        SingleMessageSentResponse response = this.messageService.sendOne(new SingleMessageSendingRequest(message));
+        System.out.println("response : " + response);
 
         return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.OK, "유효한 번호입니다.", checkNumber));
 
