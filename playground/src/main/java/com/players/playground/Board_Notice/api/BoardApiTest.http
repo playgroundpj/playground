@@ -14,13 +14,19 @@ Accept: */*
 }
 
 ### PUT update notice
-PUT localhost:8080/api/v1/board/notice
+PUT localhost:8080/api/v1/board/notice/modify
 Content-Type: application/json
 Accept:*/*
-Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxNzQxNzExMX0._v8NQ-0NliKaFj7HzUu_8hZiXWwdsS8YnFR9gVxFzyCr4Oyh9QYBDl4iXt4m6avu7tHHUWLrSgGxT3mf-WpO_A
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxOTg4Nzk3Mn0.qIBMn3SkPxNI-vfzArB5L5wl150tCqRuksRpHR45qWs_St3Lr7Qt956QfLQtaG-RgVvbS4SetdqqPrOwwVfIlA
 
 {
-  "noticeCode":"36",
-  "noticeTitle":"새로 등록2",
-  "noticeContent":"새로등록2"
+  "noticeCode": 20,
+  "noticeTitle":"새로 수정",
+  "noticeContent":"새로 수정할 내용입니다"
 }
+
+### DELETE update notice
+DELETE localhost:8080/api/v1/board/notice/1
+Content-Type: application/json
+Accept:*/*
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlsiUk9MRV9BRE1JTiIsIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJuaWNrbmFtZSI6Iuq0gOumrOyekCIsImV4cCI6MTcxOTg4Nzk3Mn0.qIBMn3SkPxNI-vfzArB5L5wl150tCqRuksRpHR45qWs_St3Lr7Qt956QfLQtaG-RgVvbS4SetdqqPrOwwVfIlA

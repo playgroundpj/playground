@@ -141,23 +141,15 @@ public class NoticeService {
         return (result > 0) ? "게시글 정보 수정 성공" : "게시글 정보 수정 실패";
     }
 
-    // 게시글 삭제
-//    public void deleteById(int noticeCode) {
-//        noticeRepository.deleteById(noticeCode);
-//    }
-//
-//    public boolean existsById(int noticeCode) {
-//        return noticeRepository.existsById(noticeCode);
-//    }
     @Transactional
-    public Object deleteNotice(NoticeDTO noticeDTO){
+    public Object deleteNotice(String noticeCode){
 
         log.info("[NoticeService] deleteNotice() start");
 
         int result = 0;
 
         try{
-            Notice notice = noticeRepository.findById(noticeDTO.getNoticeCode()).get();
+            Notice notice = noticeRepository.findById(Integer.valueOf(noticeCode)).get();
 
             if (notice != null) {
 

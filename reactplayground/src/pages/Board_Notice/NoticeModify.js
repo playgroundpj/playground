@@ -15,7 +15,8 @@ function NoticeModify() {
     const isLogin = window.localStorage.getItem('accessToken');    // Local Storage 에 token 정보 확인
     const token = decodeJwt(window.localStorage.getItem("accessToken")); 
     const notice = useSelector(state => state.noticeReducer);
-    const noticeDetail = notice.data;
+    const [loading, setLoading] = useState(true);
+
     
     
     const [form, setForm] = useState({
@@ -40,30 +41,23 @@ function NoticeModify() {
         },[isLogin, token, navigate]
     )
     
-    useEffect(() => {
+    useEffect(
+        () => {
         dispatch(callNoticeDetailAPI(noticeCode));
-    }, [dispatch, noticeCode]);
+    }, []
+    );
 
-    // useEffect(() => {
-    //     // 공지사항 상세정보 가져오기
-    //     const fetchNoticeDetail = async () => {
-    //         await dispatch(callNoticeDetailAPI(noticeCode));
-    //     };
-    //     fetchNoticeDetail();
-    // }, [dispatch, noticeCode]);
-    
-    
+
     useEffect(() => {
-        if (noticeDetail) {
-            setForm({
-                // noticeCode : noticeDetail.noticeCode,
-                noticeTitle: noticeDetail.noticeTitle,
-                noticeContent: noticeDetail.noticeContent,
-                createDate: noticeDetail.createDate, // 기존 작성일자 설정
-                modifyedDate: noticeDetail.modifyedDate // 기존 수정일자 설정
-            })
-        }
-    }, [noticeDetail]);
+        setForm({
+            noticeCode : noticeCode,
+            noticeTitle: notice.noticeTitle,
+            noticeContent: notice.noticeContent,
+            createDate: notice.createDate, // 기존 작성일자 설정
+            modifyedDate: notice.modifyedDate // 기존 수정일자 설정
+        })
+        setLoading(false);
+    }, [notice]);
     
     const handleChange = (e) => {
         setForm({
@@ -94,7 +88,7 @@ function NoticeModify() {
                     showConfirmButton : false,
                     timer : 1000
                 });
-                dispatch(updateNoticeAPI({noticeCode : form.noticeCode}));
+                dispatch(updateNoticeAPI({form:form}));
                 navigate(`/board/notice/${noticeCode}`, {replace : true});
                 window.location.reload();
             }
@@ -108,8 +102,8 @@ function NoticeModify() {
             text : '삭제 후 되돌릴 수 없습니다',
             icon : 'warning',
             showCancelButton : true,
-            confirmButtonColor : '#d33',
-            cancelButtonColor :  '#3085d6',
+            confirmButtonColor: "#97A482",
+			cancelButtonColor: "#C45D4A",
             confirmButtonText : '삭제',
             cancelButtonText : '취소'
         }).then((result) => {
@@ -127,24 +121,22 @@ function NoticeModify() {
             }
         });
     }
- 
+
 
     return (
         <div className='registerCSS'>
-            <NavLink to='/'>
-                <span>
-                    <img src='../../../images/common/logo-playground.png' alt='logo'/>
-                </span>
-            </NavLink>
-            <h2>게시글수정</h2>
+            {loading ? ( // 로딩 중일 때 표시할 내용
+                <p>Loading...</p>
+            ) : (
+            <>
+            <h2>게시글수정 - {notice.noticeCategory}</h2>
             <hr></hr>
             <div className='formTotal boardRegistForm'>
-                {noticeDetail && (
+                {notice && (
                     <table>
                         <colgroup>
-                            <col style={{width:'20%'}}></col>
-                            <col style={{width:'50%'}}></col>
                             <col style={{width:'15%'}}></col>
+                            <col style={{width:'85%'}}></col>
                         </colgroup>
                         <tbody>
                             <tr>
@@ -171,20 +163,45 @@ function NoticeModify() {
                                 </td>
                             </tr>
                             <tr>
-                                <td><label>작성일: {new Date(form.createDate).toLocaleDateString()}</label>
-                                    {form.modifyedDate && 
-                                    <label>수정일: {new Date(form.modifyedDate).toLocaleDateString()}</label>}
+                                <td><label>작성일</label></td>
+                                <td className='noticeModifyDate'>{new Date(form.createDate).toLocaleDateString()}</td>
+                            </tr>
+                            {form.modifyedDate &&
+                            <tr>
+                                    <td ><label>수정일</label></td>
+                                    <td className='noticeModifyDate'>{new Date(form.modifyedDate).toLocaleDateString()}</td>
+                            </tr> 
+                                }
+                            <tr>
+                                <td colSpan={3} className='BtnCSS'>
+                                    <div className='bottomBtn'>
+                                        <button className='registerBtn'
+                                            onClick = { handleModify }
+                                        >   
+                                            수정 완료
+                                        </button>
+                                        <button className='backBtn'
+                                            onClick = { handleBack }
+                                        >
+                                            돌아가기
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colSpan={3}>
+                                    <button className='deleteBtn'
+                                            onClick = { handleDelete }
+                                        >   
+                                            게시글 삭제
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 )}
             </div>
-            <div className='boardRegisterBtn'>        
-                <button className='noticeModifyBtn' onClick={handleModify}>수정하기</button>
-                <button className='noticeDeleteBtn' onClick={handleDelete}>삭제하기</button>
-                <button className='noticeModifyBtn' onClick={handleBack}>돌아가기</button>
-            </div>        
+            </>)}
         </div>
     );
 }

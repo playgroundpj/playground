@@ -71,9 +71,8 @@ export const updateNoticeAPI = ({form}) => {
             },
             body: JSON.stringify({
                 noticeTitle: form.noticeTitle,
-                noticeContent: form.noticeContent,
-                createDate: form.createDate,
-                ModifyedDate: form.ModifyedDate
+                noticeCode: form.noticeCode,
+                noticeContent: form.noticeContent
             })
         }).then(response => response.json());
 
@@ -85,42 +84,10 @@ export const updateNoticeAPI = ({form}) => {
     
 }
 
-//     return async (dispatch, getState) => {
-//         try {
-//             const result = await fetch(requestURL, {
-//                 method: "PUT",
-//                 headers: {
-//                     "Content-Type" : "application/json",
-//                     "Accept": "*/*",
-//                     //"Authorization": "Bearer " + window.localStorage.getItem("accessToken")
-//                 },
-//                 body: JSON.stringify({
-//                     noticeTitle: notice.noticeTitle,
-//                     noticeContent: notice.noticeContent,
-//                     modifyedDate: notice.modifyedDate
-//                 })
-//             })
-//             // .then(response => response.json());
-
-//             // Check if the response is OK
-//             if (!result.ok) {
-//                 throw new Error(`HTTP error! status: ${result.status}`);
-//             }
-
-//             console.log('[APICalls] updateNoticeAPI RESULT : ', result);
-
-//             dispatch({ type: PUT_NOTICE, payload: result });
-            
-//         } catch (error) {
-//             console.error('Error updating notice:', error);
-//             throw error;
-//         }
-//     };
-// };
 
 
 // 게시글 삭제
-export const deleteNoticeAPI = (noticeCode) => {
+export const deleteNoticeAPI = ({noticeCode}) => {
     const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/api/v1/board/notice/${noticeCode}`;
 
     return async (dispatch) => {

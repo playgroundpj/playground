@@ -10,7 +10,7 @@ const { noticeCode } = useParams();
 const location = useLocation();
 const navigate = useNavigate();
 const dispatch = useDispatch();
-const notice = useSelector(state => state.noticeReducer.noticeDetail);
+const notice = useSelector(state => state.noticeReducer);
 
 const [decoded, setDecoded] = useState('');
 
@@ -47,19 +47,19 @@ if (!notice) {
 
 return (
 	<>
-		<div className='profileDiv'>
-			<h2>{notice.noticeTitle}</h2>
-			<hr></hr>
-			<div className='formTotal'>
+		<div className='profileDiv divCSS'>
+			<h2>{notice.noticeCategory} - 상세 조회</h2>
+			<div className='formTotal NoticeDetailCSS'>
 				<table>
 					<colgroup>
-						<col style={{width : '20%'}}></col>
-						<col style={{width : '80%'}}></col>
+						<col style={{width : '15%'}}></col>
+						<col style={{width : '85%'}}></col>
 					</colgroup>
 					<tbody>
 						<tr>
-							<td><p>{notice.noticeContent}</p></td>
-						</tr>
+							<td><span>제목</span> | </td>
+							<td>{notice.noticeTitle}</td>
+						</tr>						
 						<tr>
 							<td><span>작성자</span> | </td>
 							<td>{notice.memberNickname}</td>
@@ -68,26 +68,32 @@ return (
 							<td><span>작성일</span> | </td>
 							<td>{notice.createDate}</td>
 						</tr>
+						<tr>
+							<td><span>내용</span> | </td>
+							<td>{notice.noticeContent}</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
-		</div>
-		<div className='boardRegisterBtn'>
-			<button  className='noticeModifyBtn' 
-				onClick={handleBackToList}
-				> 
-				목록으로
-			</button>
-			{decoded === "ROLE_ADMIN" && (
+			<div className='noticeBtnDiv'>
+				{decoded === "ROLE_ADMIN" && (
 				<>
-					<button className='noticeModifyBtn'
+					<button className='registerBtn'
 						onClick={() => onClickhandleModifyNotice(noticeCode)}
 					>
 						게시물수정
 					</button>
 				</>
-			)}
+				)}
+				<button  className='backBtn'
+					style={ (decoded === "ROLE_ADMIN") ? {} : {width: '100%', margin: '20px 0 0 0'}}
+					onClick={handleBackToList}
+					> 
+					목록으로
+				</button>
+			</div>
 		</div>
+		
 
 	</>
 );

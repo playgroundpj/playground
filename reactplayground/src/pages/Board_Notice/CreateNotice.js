@@ -60,13 +60,7 @@ function CreateNotice() {
 
     return (
         <div className='registerCSS'>
-            <NavLink to='/'>
-                <span>
-                    <img src='../../../images/common/logo-playground.png'/>
-                </span>
-            </NavLink>
             <h2>게시글등록</h2>
-           
             <hr></hr> 
             <ButtonGroup className='categoryDiv'>
                 {['공지사항', '이벤트', '자주묻는질문'].map((cat) => (
@@ -107,33 +101,6 @@ function CreateNotice() {
                             onChange={handleContentChange}
                             placeholder='내용을 입력해주세요'>
                             </textarea>
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                        <td><label>첨부파일 1</label></td>
-                        <td>
-                            <input
-                            type='file'
-                            multiple>
-                        </input>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>첨부파일 2</label></td>
-                        <td>
-                           <input
-                            type='file'
-                            multiple>
-                        </input> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>첨부파일 3</label></td>
-                        <td>
-                           <input
-                            type='file'>
-                        </input> 
                         </td>
                     </tr>
                     <tr>
