@@ -50,7 +50,7 @@ function RegisterGame() {
         dispatch(callRegistBoardgameAPI({ form: boardgame }))
             .then(() => {
                 Swal.fire('성공', '보드게임이 성공적으로 등록되었습니다.', 'success')
-                    .then(() => navigate('/boardgames'));
+                    .then(() => navigate('/boardgame'));
             })
             .catch(error => {
                 console.error('Failed to register boardgame:', error);

@@ -71,14 +71,8 @@ export const updateNoticeAPI = ({form}) => {
             },
             body: JSON.stringify({
                 noticeTitle: form.noticeTitle,
-<<<<<<< HEAD
                 noticeCode: form.noticeCode,
                 noticeContent: form.noticeContent
-=======
-                noticeContent: form.noticeContent,
-                createDate: form.createDate,
-                ModifyedDate: form.ModifyedDate
->>>>>>> boardgame/crud
             })
         }).then(response => response.json());
 
@@ -90,41 +84,6 @@ export const updateNoticeAPI = ({form}) => {
     
 }
 
-<<<<<<< HEAD
-=======
-//     return async (dispatch, getState) => {
-//         try {
-//             const result = await fetch(requestURL, {
-//                 method: "PUT",
-//                 headers: {
-//                     "Content-Type" : "application/json",
-//                     "Accept": "*/*",
-//                     //"Authorization": "Bearer " + window.localStorage.getItem("accessToken")
-//                 },
-//                 body: JSON.stringify({
-//                     noticeTitle: notice.noticeTitle,
-//                     noticeContent: notice.noticeContent,
-//                     modifyedDate: notice.modifyedDate
-//                 })
-//             })
-//             // .then(response => response.json());
-
-//             // Check if the response is OK
-//             if (!result.ok) {
-//                 throw new Error(`HTTP error! status: ${result.status}`);
-//             }
-
-//             console.log('[APICalls] updateNoticeAPI RESULT : ', result);
-
-//             dispatch({ type: PUT_NOTICE, payload: result });
-            
-//         } catch (error) {
-//             console.error('Error updating notice:', error);
-//             throw error;
-//         }
-//     };
-// };
->>>>>>> boardgame/crud
 
 
 // 게시글 삭제
@@ -190,7 +149,3 @@ export const callNoticeDetailAPI = (noticeCode) => {
         }
     };
 };
-<<<<<<< HEAD
-
-=======
->>>>>>> boardgame/crud

@@ -54,15 +54,13 @@ function UpdateMenu() {
         <div>
             <div className='registerCSS'>
                 <h2>메뉴 수정</h2>
-                <h4>매장 관리자님, 수정할 메뉴를 입력해주세요</h4>
                 <hr></hr>
                 <div className='formTotal'>
                     <form onSubmit={handleSubmit}>
                         <table>
                             <colgroup>
-                                <col style={{width:'15%'}}></col>
-                                <col style={{width:'65%'}}></col>
                                 <col style={{width:'20%'}}></col>
+                                <col style={{width:'80%'}}></col>
                             </colgroup>
                             <tbody>
                                 <tr>
@@ -124,6 +122,7 @@ function UpdateMenu() {
                                     <td><label>주문 가능 상태</label></td>
                                     <td>
                                         <input 
+                                            className='checkboxBtn'
                                             type="checkbox" 
                                             name="orderableStatus" 
                                             checked={menu.orderableStatus} 
@@ -134,8 +133,8 @@ function UpdateMenu() {
                                 <tr>
                                     <td colSpan={3}>
                                         <div className='bottomBtn'>
-                                            <button type="submit" className='registerBtn'>
-                                                수정
+                                            <button type="button" className='registerBtn'>
+                                                메뉴 수정하기
                                             </button>
                                             <button type="button" className='backBtn' onClick={() => navigate('/menu')}>
                                                 돌아가기

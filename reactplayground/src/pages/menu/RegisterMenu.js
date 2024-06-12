@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { decodeJwt } from '../../utils/tokenUtils';
-import { callRegisterMenuAPI } from '../../apis/MenuAPICalls';
+import { callRegistMenuAPI } from '../../apis/MenuAPICalls';
 
 function RegisterMenu() {
     const [menu, setMenu] = useState({
@@ -33,7 +33,7 @@ function RegisterMenu() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(callRegisterMenuAPI({ form: menu }));
+        dispatch(callRegistMenuAPI({ form: menu }));
         alert('메뉴가 성공적으로 등록되었습니다!');
         navigate('/menu');
     };

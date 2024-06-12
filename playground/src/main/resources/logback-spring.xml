@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 설명. Appender 설정: Logstash에 로그를 전송하기 위한 TCP 소켓 애펜더 -->
+    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <!-- 설명. Logstash 서버 설정: logstash 호스트의 5000 포트로 로그를 전송 -->
+        <destination>logstash:5000</destination>
+        <!-- 설명. 인코더 설정: Logstash JSON 포맷으로 로그를 인코딩 -->
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+        </encoder>
+    </appender>
+
+    <!-- 설명. Appender 설정: 파일에 로그를 저장하기 위한 파일 애펜더 -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!-- 설명. 로그 파일 경로: 컨테이너 내 /springboot-app/logs/ 디렉토리에 로그 파일 저장 -->
+        <file>/springboot-app/logs/spring-boot-logger.log</file>
+        <!-- 설명. 인코더 설정: 로그 메시지의 포맷을 정의 -->
+        <encoder>
+            <!-- 설명. 로그 패턴: 날짜, 스레드, 로그 레벨, 로거 이름, 메시지 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 설명. 로그 레벨 및 appender-ref 설정: 로그 레벨을 INFO로 설정하고, 위에서 정의한 애펜더를 사용 -->
+    <root level="info">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="logstash" />
+    </root>
+
+</configuration>

@@ -2,11 +2,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { decodeJwt } from '../../utils/tokenUtils';
-import { callGetBoardgameAPI } from '../../apis/BoardgameAPICalls';
 import { Carousel } from 'react-bootstrap';
-
 import { callGetBoardgameAPI, callDeleteBoardgameAPI } from '../../apis/BoardgameAPICalls';
-import { Carousel } from 'react-bootstrap';
 
 function BoardgameDetail() {
 
@@ -31,6 +28,8 @@ function BoardgameDetail() {
 
     const onClicReservationHandler = (getBoardgameCode) => {
         navigate(`/boardgame/reservation/${getBoardgameCode}`);
+    }
+
     const onClickDeleteHandler = (getBoardgameCode) => {
         if (window.confirm('정말로 이 보드게임을 삭제하시겠습니까?')) {
             dispatch(callDeleteBoardgameAPI({ boardgameCode: getBoardgameCode }))
@@ -113,36 +112,6 @@ function BoardgameDetail() {
                                 </td>
                         </tr>
                         <tr>
-                            <td>
-                            
-                                {boardgameDetail.boardgameImgURL1 && (
-                                    <Carousel>
-                                        <Carousel.Item>
-                                            <img
-                                                className="d-block w-100 custom-img"
-                                                src={boardgameDetail.boardgameImgURL1}
-                                                alt="First slide"
-                                            />
-                                        </Carousel.Item>
-                                        <Carousel.Item>
-                                            <img
-                                                className="d-block w-100 custom-img"
-                                                src={boardgameDetail.boardgameImgURL1}
-                                                alt="Second slide"
-                                            />
-                                        </Carousel.Item>
-                                        <Carousel.Item>
-                                            <img
-                                                className="d-block w-100 custom-img"
-                                                src={boardgameDetail.boardgameImgURL1}
-                                                alt="Third slide"
-                                            />
-                                        </Carousel.Item>
-                                    </Carousel>
-                                )}
-                            </td>
-                        </tr>
-                        <tr>
                             <td className='captionCSS'><span>난이도</span>|</td>
                             <td>{boardgameDetail.difficulty}</td>
                         </tr>
@@ -176,18 +145,19 @@ function BoardgameDetail() {
                                         보드게임 정보 수정
                                     </button>
                                     }
-                                    {canModifyOrDelete && 
-                                    <button className='registerBtn'
-                                        onClick={() => onClickDeleteHandler(boardgameCode)}
-                                    >   
-                                        보드게임 삭제
-                                    </button>
-                                    }
                                     <button className='backBtn'
                                         onClick={onClickBackHandler}
                                     >
                                         돌아가기
                                     </button>
+                                    {canModifyOrDelete && 
+                                    <button className='deleteBtn'
+                                        onClick={() => onClickDeleteHandler(boardgameCode)}
+                                    >   
+                                        보드게임 삭제
+                                    </button>
+                                    }
+                                    
                                 </div>
                             </td>
                         </tr>
@@ -197,6 +167,6 @@ function BoardgameDetail() {
         </div>
     );
 }
-}
+
 
 export default BoardgameDetail;

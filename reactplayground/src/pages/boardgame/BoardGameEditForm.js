@@ -54,11 +54,15 @@ function BoardgameEditForm() {
     }
 
     return (
-        <div className='formTotal BoardgameEditForm'>
+        <div className='registerCSS'>
             <h2>보드게임 수정</h2>
-
-                
+            <hr></hr>
+            <div className='formTotal boardgameModifyCSS'>
                 <table>
+                    <colgroup>
+                        <col style={{width:'17%'}}></col>
+                        <col style={{width:'83%'}}></col>
+                    </colgroup>
                     <tbody>
                         <tr>
                             <td>이름</td>
@@ -86,37 +90,40 @@ function BoardgameEditForm() {
                         </tr>
                         <tr>
                             <td>게임설명</td>
-                            <td><textarea name="boardgameRule" value={form.boardgameRule} onChange={onChangeHandler} /></td>
+                            <td><textarea className='boardgameRule' name="boardgameRule" value={form.boardgameRule} onChange={onChangeHandler} /></td>
                         </tr>
                         <tr>
                             <td>이미지 URL1</td>
-                            <td><input type="text" name="boardgameImgURL1" value={form.boardgameImgURL1} onChange={onChangeHandler} /></td>
+                            <td><input type="text" name="boardgameImgURL1" value={form.boardgameImgURL1} readOnly="true" onChange={onChangeHandler} /></td>
                         </tr>
                         <tr>
                             <td>이미지 URL2</td>
-                            <td><input type="text" name="boardgameImgURL2" value={form.boardgameImgURL2} onChange={onChangeHandler} /></td>
+                            <td><input type="text" name="boardgameImgURL2" value={form.boardgameImgURL2} readOnly="true" onChange={onChangeHandler} /></td>
                         </tr>
                         <tr>
                             <td>이미지 URL3</td>
-                            <td><input type="text" name="boardgameImgURL3" value={form.boardgameImgURL3} onChange={onChangeHandler} /></td>
+                            <td><input type="text" name="boardgameImgURL3" value={form.boardgameImgURL3} readOnly="true" onChange={onChangeHandler} /></td>
+                        </tr>
+                        <tr>
+                            <td colSpan={3}>
+                                <div className='bottomBtn'>
+                                    <button className='registerBtn'
+                                        onClick = { onClickModifyHandler }
+                                    >   
+                                        보드게임 수정
+                                    </button>
+                                    <button className='backBtn'
+                                        onClick = { onClickBackHandler }
+                                    >
+                                        돌아가기
+                                    </button>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
 
-                <td colSpan={3}>
-                                    <div className='bottomBtn'>
-                                        <button className='registerBtn'
-                                            onClick = { onClickModifyHandler }
-                                        >   
-                                            보드게임 수정
-                                        </button>
-                                        <button className='backBtn'
-                                            onClick = { onClickBackHandler }
-                                        >
-                                            돌아가기
-                                        </button>
-                                    </div>
-                                </td>
             
         </div>
     );
